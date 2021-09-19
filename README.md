@@ -114,19 +114,19 @@ parsed values: Time created, Logon username, Task name, Task content
 ScheduleTaskUpdated (Security.evtx, event id= 4702)\
 parsed values: Time created, Logon username, Task name, Task content
 
-CreatingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id= 106)\
+CreatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 106)\
 TODO
 
-UpdatingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id 140)\
+UpdatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 140)\
 TODO
 
-DeletingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id =141 )\
+DeletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id =141 )\
 TODO
 
-ExecutingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id 200)\
+ExecutingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 200)\
 TODO
 
-CompletingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id= 201)\
+CompletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 201)\
 TODO
 
 
