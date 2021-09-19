@@ -2,7 +2,7 @@
 ## Remote Access
 ### Remote Desktop 
 #### Destination
-RDPLogons (Security.evtx, event id= 4624, Logon Type =10)\
+AllSuccessfulLogons (Security.evtx, event id= 4624)\
 parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
 
 RDPreconnected (Security.evtx, event id= 4778)\ 
@@ -31,6 +31,7 @@ parsed values: Time created, Logon username, Source IP
 
 RDPbeginSession (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =41)\
 parsed values: Time created, Logon username
+
 #### Source
 ExplicitCreds (Security.evtx, event id =4648)\
 parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
@@ -40,9 +41,10 @@ parsed values: Time created, Destination hostname, Destination IP
 
 RDPConnnectionInitiated (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id =1102)\
 parsed values: Time created, Destination hostname, Destination IP
+
 ### Map Network Shares (net.exe)
 #### Destination
-NetworkLogons (Security.evtx event id= 4624, Logon Type =3)\
+AllSuccessfulLogons (Security.evtx, event id= 4624)\
 parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
 
 AdminLogonCreated(Security.evtx, event id =4672)\
@@ -73,8 +75,7 @@ TODO
 ## Remote Execution
 ### PsExec
 #### Destination
-
-NetworkLogons (Security.evtx event id= 4624, Logon Type =3)\
+AllSuccessfulLogons (Security.evtx, event id= 4624)\
 parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
 
 AdminLogonCreated(Security.evtx, event id =4672)\
@@ -85,9 +86,51 @@ parsed values: Time created, Logon ID, Logon username, account domain, Security 
 
 ServiceInstall (System.evtx, event id =7045)\
 parsed values: Time created, Service name, Service file name, Service type, Service start type
+
 #### Source
 ExplicitCreds (Security.evtx, event id =4648)\
 parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
+
+### Scheduled Tasks
+#### Destination
+AllSuccessfulLogons (Security.evtx, event id= 4624)\
+parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
+
+AdminLogonCreated(Security.evtx, event id =4672)\
+parsed values: Time created, Login ID, Logon username, Account domain
+
+ScheduleTaskCreated (Security.evtx, event id= 4698)\
+parsed values: Time created, Logon username, Task name, Task content
+
+ScheduleTaskDeleted (Security.evtx, event id= 4699)\
+parsed values: Time created, Logon username, Task name, Task content
+
+ScheduleTaskEnabled (Security.evtx, event id= 4700)\
+parsed values: Time created, Logon username, Task name, Task content
+
+ScheduleTaskDisabled (Security.evtx, event id= 4701)\
+parsed values: Time created, Logon username, Task name, Task content
+
+ScheduleTaskUpdated (Security.evtx, event id= 4702)\
+parsed values: Time created, Logon username, Task name, Task content
+
+CreatingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id= 106)\
+TODO
+
+UpdatingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id 140)\
+TODO
+
+DeletingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id =141 )\
+TODO
+
+ExecutingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id 200)\
+TODO
+
+CompletingTaskSchedulerTask (Microsoft-Windows-Task Scheduler%4Maintenance.evtx, event id= 201)\
+TODO
+
+
+
 
 
 
