@@ -1,4 +1,4 @@
-function GetStartPSRemoteSession {
+function Get-StartPSRemoteSession {
     param(
         [Parameter(Mandatory=$true)]
         [String] $Path,
