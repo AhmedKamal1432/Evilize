@@ -1,6 +1,7 @@
 # Evilize
 ## Remote Acces
 ### Remote Desktop 
+#### Destination
 RDPLogons (Security.evtx, event id= 4624, Logon Type =10)\
 parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
 
@@ -30,3 +31,13 @@ parsed values: Time created, Logon username, Source IP
 
 RDPbeginSession (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =41)\
 parsed values: Time created, Logon username
+#### Source
+ExplicitCreds (Security.evtx, event id =4648)\
+parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
+
+RDPConnnectingtoServer (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id = 1024)\
+parsed values: Time created, Destination hostname, Destination IP
+
+RDPConnnectionInitiated (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id =1102)\
+parsed values: Time created, Destination hostname, Destination IP
+
