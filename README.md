@@ -115,19 +115,19 @@ ScheduleTaskUpdated (Security.evtx, event id= 4702)\
 parsed values: Time created, Logon username, Task name, Task content
 
 CreatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 106)\
-TODO
+parsed values: Time created, Task name, Logon username
 
 UpdatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 140)\
-TODO
+parsed values: Time created, Task name, Logon username
 
 DeletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id =141 )\
-TODO
+parsed values: Time created, Task name, Logon username, Instance
 
 ExecutingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 200)\
-TODO
+parsed values: Time created, Task name, Logon usernamem Instance
 
 CompletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 201)\
-TODO
+parsed values: Time created, Task name, Logon username, Instance
 #### Source
 ExplicitCreds (Security.evtx, event id =4648)\
 parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
