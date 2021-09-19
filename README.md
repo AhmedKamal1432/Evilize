@@ -124,10 +124,10 @@ DeletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, ev
 parsed values: Time created, Task name, Logon username, Instance
 
 ExecutingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 200)\
-parsed values: Time created, Task name, Logon usernamem Instance
+parsed values: Time created, Task name, Logon username, Task action, Instance
 
 CompletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 201)\
-parsed values: Time created, Task name, Logon username, Instance
+parsed values: Time created, Task name, Logon username,Task action, Instance
 #### Source
 ExplicitCreds (Security.evtx, event id =4648)\
 parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
@@ -141,16 +141,16 @@ AdminLogonCreated(Security.evtx, event id =4672)\
 parsed values: Time created, Login ID, Logon username, Account domain
 
 ServiceCrashed (System.evtx, event id=7034)\
-TODO
+parsed values :Time created, Service name, Times
 
 ServiceSentControl (System.evtx, event id=7035)\
-TODO
+parsed values :Time created, Service name, Request sent
 
 ServiceStartorStop (System.evtx, event id=7036)\
-TODO
+parsed values :Time created, Service name, State
 
 StartTypeChanged (System.evtx, event id =7040)\
-TODO
+parsed values: Time created, Service name, Changed from, Changed to
 
 ServiceInstall (System.evtx, event id =7045)\
 parsed values: Time created, Service name, Service file name, Service type, Service start type
