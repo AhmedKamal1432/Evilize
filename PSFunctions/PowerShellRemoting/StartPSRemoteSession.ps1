@@ -14,6 +14,7 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
 	$Logon | Add-Member -MemberType NoteProperty -name Details -value $_.properties[2].value
 	$Logon| Add-Member -MemberType NoteProperty -name EventID -value $_.Id
+	
 	$global:StartPSRemoteSessioncount++
     $Logon
  }}
