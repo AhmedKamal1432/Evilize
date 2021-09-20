@@ -1,0 +1,114 @@
+TimeGenerated,EventID,ServiceName,ChangedFrom,ChangedTo
+2020-06-11 00:33:12,7040,Windows Search,auto start,disabled
+2020-06-11 00:33:13,7040,Windows Search,disabled,auto start
+2020-06-11 00:33:16,7040,3ware,demand start,boot start
+2020-06-11 00:33:16,7040,ADP80XX,demand start,boot start
+2020-06-11 00:33:16,7040,amdsata,demand start,boot start
+2020-06-11 00:33:16,7040,amdxata,demand start,boot start
+2020-06-11 00:33:16,7040,amdsbs,demand start,boot start
+2020-06-11 00:33:16,7040,Adaptec SAS/SATA-II RAID Storport's Miniport Driver,demand start,boot start
+2020-06-11 00:33:17,7040,cht4iscsi,demand start,boot start
+2020-06-11 00:33:18,7040,Microsoft driver for storage devices supporting IEEE 1667 and TCG protocols,demand start,boot start
+2020-06-11 00:33:18,7040,HpSAMD,demand start,boot start
+2020-06-11 00:33:19,7040,Intel Chipset SATA RAID Controller,demand start,boot start
+2020-06-11 00:33:19,7040,Intel RAID Controller Windows 7,demand start,boot start
+2020-06-11 00:33:19,7040,ItSas35i,demand start,boot start
+2020-06-11 00:33:20,7040,LSI_SAS,demand start,boot start
+2020-06-11 00:33:20,7040,LSI_SAS2i,demand start,boot start
+2020-06-11 00:33:20,7040,LSI_SAS3i,demand start,boot start
+2020-06-11 00:33:20,7040,LSI_SSS,demand start,boot start
+2020-06-11 00:33:20,7040,isapnp,demand start,boot start
+2020-06-11 00:33:23,7040,megasas,demand start,boot start
+2020-06-11 00:33:23,7040,megasas2i,demand start,boot start
+2020-06-11 00:33:23,7040,megasas35i,demand start,boot start
+2020-06-11 00:33:23,7040,megasr,demand start,boot start
+2020-06-11 00:33:24,7040,IDE Channel,demand start,boot start
+2020-06-11 00:33:24,7040,pciide,demand start,boot start
+2020-06-11 00:33:24,7040,intelide,demand start,boot start
+2020-06-11 00:33:24,7040,mvumis,demand start,boot start
+2020-06-11 00:33:25,7040,QLogic Network Adapter VBD,demand start,boot start
+2020-06-11 00:33:25,7040,QLogic 10 Gigabit Ethernet Adapter VBD,demand start,boot start
+2020-06-11 00:33:27,7040,Microsoft NVDIMM device driver,demand start,boot start
+2020-06-11 00:33:27,7040,nvstor,demand start,boot start
+2020-06-11 00:33:27,7040,nvraid,demand start,boot start
+2020-06-11 00:33:27,7040,pcmcia,demand start,boot start
+2020-06-11 00:33:28,7040,percsas2i,demand start,boot start
+2020-06-11 00:33:28,7040,percsas3i,demand start,boot start
+2020-06-11 00:33:28,7040,Microsoft persistent memory disk driver,demand start,boot start
+2020-06-11 00:33:28,7040,SBP-2 Transport/Protocol Bus Driver,demand start,boot start
+2020-06-11 00:33:28,7040,Microsoft Storage Class Memory Bus Driver,demand start,boot start
+2020-06-11 00:33:28,7040,SiSRaid2,demand start,boot start
+2020-06-11 00:33:28,7040,SiSRaid4,demand start,boot start
+2020-06-11 00:33:28,7040,SmartSAMD,demand start,boot start
+2020-06-11 00:33:28,7040,stexstor,demand start,boot start
+2020-06-11 00:33:28,7040,Microsoft Standard NVM Express Driver,demand start,boot start
+2020-06-11 00:33:28,7040,Microsoft Universal Flash Storage (UFS) Driver,demand start,boot start
+2020-06-11 00:33:30,7040,Microsoft Hyper-V VHDPMEM BTT Filter,demand start,boot start
+2020-06-11 00:33:30,7040,vsmraid,demand start,boot start
+2020-06-11 00:33:30,7040,VIA StorX Storage RAID Controller Windows Driver,demand start,boot start
+2020-06-11 00:33:30,7040,Microsoft Hyper-V Storage Accelerator,demand start,boot start
+2020-06-11 00:33:30,7040,storvsc,demand start,boot start
+2020-06-11 00:33:30,7040,Virtual Machine Bus,demand start,boot start
+2020-06-11 00:33:30,7040,Microsoft Hyper-V Virtual PCI Bus,demand start,boot start
+2021-08-25 19:47:45,7040,WLAN AutoConfig,demand start,auto start
+2021-08-25 19:50:24,7040,Windows Update,demand start,auto start
+2021-08-25 19:50:43,7040,Windows Update,auto start,demand start
+2021-08-25 19:51:00,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 19:54:15,7040,Remote Access IP ARP Driver,demand start,auto start
+2021-08-25 19:54:16,7040,Remote Access Connection Manager,demand start,auto start
+2021-08-25 10:56:52,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 11:02:08,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 11:05:03,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 11:06:12,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 11:06:38,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:06:39,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:08:40,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 11:13:08,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:13:10,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:13:21,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:14:53,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:15:43,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:17:42,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 11:19:18,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:19:18,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:21:57,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 11:28:52,7040,cphs,auto start,demand start
+2021-08-25 11:28:53,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:32:32,7040,Intel(R) Capability Licensing Service TCP IP Interface,auto start,demand start
+2021-08-25 11:32:50,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 11:36:21,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:36:31,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:39:59,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:40:08,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:40:17,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 11:40:53,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 11:40:53,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 12:01:59,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 12:04:02,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 12:05:09,7040,Windows Socket 2.0 Non-IFS Service Provider Support Environment,disabled,system start
+2021-08-25 12:05:09,7040,VMware Workstation Server,demand start,auto start
+2021-08-25 12:07:24,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 12:16:32,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 12:17:55,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 12:36:15,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 12:46:07,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 12:46:29,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 12:46:32,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 12:46:39,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 12:46:39,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 12:50:34,7040,Windows Modules Installer,auto start,demand start
+2021-08-25 12:55:42,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 12:57:46,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 13:50:17,7040,Auto Time Zone Updater,disabled,demand start
+2021-08-25 13:50:30,7040,Auto Time Zone Updater,demand start,disabled
+2021-08-25 13:50:51,7040,Auto Time Zone Updater,disabled,demand start
+2021-08-25 14:46:22,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-25 14:47:28,7040,Windows Modules Installer,demand start,auto start
+2021-08-25 22:45:03,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-25 23:51:45,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-28 15:20:59,7040,Windows Modules Installer,auto start,demand start
+2021-08-28 15:24:47,7040,Background Intelligent Transfer Service,auto start,demand start
+2021-08-29 00:35:23,7040,Windows Modules Installer,demand start,auto start
+2021-08-29 00:38:25,7040,Windows Modules Installer,auto start,demand start
+2021-08-29 00:38:49,7040,Background Intelligent Transfer Service,demand start,auto start
+2021-08-29 00:40:56,7040,Background Intelligent Transfer Service,auto start,demand start

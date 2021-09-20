@@ -1,0 +1,23 @@
+TimeGenerated,EventID,AccountName,AccountDomain,LogonID,TaskName,TaskContent
+2016-10-07 04:07:27,4698,chiyoda.tokyo,EXAMPLE.CO.JP,0x20be1b6,\At1,"<?xml version=""1.0"" encoding=""UTF-16""?>
+<Task version=""1.0"" xmlns=""http://schemas.microsoft.com/windows/2004/02/mit/task"">
+  <RegistrationInfo />
+  <Triggers>
+    <TimeTrigger>
+      <StartBoundary>2016-10-07T11:10:00</StartBoundary>
+    </TimeTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id=""Author"">
+      <UserId>@AtServiceAccount</UserId>
+      <LogonType>InteractiveTokenOrPassword</LogonType>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Actions Context=""Author"">
+    <Exec>
+      <Command>cmd</Command>
+      <Arguments>/c ""C:\Windows\Temp\mz.exe privilege::debug sekurlsa::logonpasswords exit &gt; C:\Windows\Temp\o.txt""</Arguments>
+    </Exec>
+  </Actions>
+</Task>"

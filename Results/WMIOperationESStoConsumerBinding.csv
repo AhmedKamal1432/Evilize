@@ -1,0 +1,201 @@
+TimeGenerated,EventID,NameSpace,ESS,Consumer,PossibleCause
+2020-06-11 09:24:27,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2020-06-11 00:28:50,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-25 19:51:36,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-25 11:30:29,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-25 11:32:36,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-25 11:59:57,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-25 12:06:01,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-28 15:20:05,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-28 15:20:43,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"
+2021-08-29 00:38:19,5861,//./root/subscription,SCM Event Log Filter,NTEventLogEventConsumer="SCM Event Log Consumer","Binding EventFilter: 
+instance of __EventFilter
+{
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventNamespace = ""root\\cimv2"";
+	Name = ""SCM Event Log Filter"";
+	Query = ""select * from MSFT_SCMEventLogEvent"";
+	QueryLanguage = ""WQL"";
+};
+Perm. Consumer: 
+instance of NTEventLogEventConsumer
+{
+	Category = 0;
+	CreatorSID = {1, 2, 0, 0, 0, 0, 0, 5, 32, 0, 0, 0, 32, 2, 0, 0};
+	EventType = 1;
+	Name = ""SCM Event Log Consumer"";
+	NameOfUserSIDProperty = ""sid"";
+	SourceName = ""Service Control Manager"";
+};
+"

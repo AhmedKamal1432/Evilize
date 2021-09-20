@@ -1,0 +1,67 @@
+TimeGenerated,EventID,ServiceName,ImagePath,ServiceType,StartType,AccountName
+2021-08-25 19:47:44,7045,Bluetooth Device (Personal Area Network),\SystemRoot\System32\drivers\bthpan.sys,kernel mode driver,demand start,
+2021-08-25 19:47:44,7045,USB Video Device (WDM),\SystemRoot\System32\Drivers\usbvideo.sys,kernel mode driver,demand start,
+2021-08-25 19:47:45,7045,Realtek RT640 NT Driver,\SystemRoot\System32\drivers\rt640x64.sys,kernel mode driver,demand start,
+2021-08-25 19:47:45,7045,Realtek Wireless LAN 802.11n PCI-E Network Adapter,\SystemRoot\System32\drivers\rtwlane01.sys,kernel mode driver,demand start,
+2021-08-25 19:47:48,7045,Virtual WiFi Miniport Service,\SystemRoot\System32\drivers\vwifimp.sys,kernel mode driver,demand start,
+2021-08-25 11:06:00,7045,amdkmdag,\SystemRoot\System32\DriverStore\FileRepository\u0360470.inf_amd64_35c64671e7fac064\B360357\amdkmdag.sys,kernel mode driver,demand start,
+2021-08-25 11:06:00,7045,AMD External Events Utility,%SystemRoot%\System32\DriverStore\FileRepository\u0360470.inf_amd64_35c64671e7fac064\B360357\atiesrxx.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:07:09,7045,Intel(R) Management Engine Interface ,\SystemRoot\System32\DriverStore\FileRepository\heci.inf_amd64_d01e7c2e2b4c1b72\x64\TeeDriverW10x64.sys,kernel mode driver,demand start,
+2021-08-25 11:11:54,7045,igfx,\SystemRoot\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_a086f01cc7be643a\igdkmd64.sys,kernel mode driver,demand start,
+2021-08-25 11:11:54,7045,Intel(R) Content Protection HECI Service,%SystemRoot%\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_a086f01cc7be643a\IntelCpHeciSvc.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:11:54,7045,Intel(R) Content Protection HDCP Service,%SystemRoot%\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_a086f01cc7be643a\IntelCpHDCPSvc.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:11:55,7045,Intel(R) Graphics Command Center Service,%SystemRoot%\System32\DriverStore\FileRepository\igcc_dch.inf_amd64_54b736e5be5b50b2\OneApp.IGCC.WinService.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:11:56,7045,MpKslDrv,C:\ProgramData\Microsoft\Windows Defender\Definition Updates\{7BD23A15-C65A-4D5D-86B6-8BF21682AA31}\MpKslDrv.sys,kernel mode driver,system start,
+2021-08-25 11:11:56,7045,Intel(R) HD Graphics Control Panel Service,%SystemRoot%\System32\DriverStore\FileRepository\cui_dch.inf_amd64_b8e01d9e8716d2a7\igfxCUIService.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:12:06,7045,Intel(R) Display Audio,\SystemRoot\System32\DriverStore\FileRepository\intcdaud.inf_amd64_1b570d7b9a790b1a\IntcDAud.sys,kernel mode driver,demand start,
+2021-08-25 11:13:26,7045,Microsoft Update Health Service,"C:\Program Files\Microsoft Update Health Tools\uhssvc.exe",user mode service,disabled,LocalSystem
+2021-08-25 11:15:28,7045,HP Wireless Button Driver Service,\SystemRoot\System32\drivers\WirelessButtonDriver64.sys,kernel mode driver,demand start,
+2021-08-25 11:17:37,7045,esif_lf,\SystemRoot\system32\DRIVERS\esif_lf.sys,kernel mode driver,demand start,
+2021-08-25 11:17:37,7045,ESIF Upper Framework Service,%SystemRoot%\system32\Intel\DPTF\esif_uf.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:24:11,7045,Service for Realtek HD Audio (WDM),\SystemRoot\system32\drivers\RTKVHD64.sys,kernel mode driver,demand start,
+2021-08-25 11:24:16,7045,Realtek Audio Service,"C:\Program Files\Realtek\Audio\HDA\RtkAudioService64.exe",user mode service,auto start,LocalSystem
+2021-08-25 11:30:13,7045,Intel(R) Capability Licensing Service TCP IP Interface,%SystemRoot%\System32\DriverStore\FileRepository\iclsclient.inf_amd64_e936ad8266d026ce\lib\SocketHeciServer.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:30:13,7045,Intel(R) TPM Provisioning Service,%SystemRoot%\System32\DriverStore\FileRepository\iclsclient.inf_amd64_e936ad8266d026ce\lib\TPMProvisioningService.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:30:17,7045,Intel(R) Dynamic Application Loader Host Interface Service,%SystemRoot%\System32\DriverStore\FileRepository\dal.inf_amd64_5acc9ca73ae7cf4c\jhi_service.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:30:20,7045,Realtek Wireless LAN 802.11n PCI-E Network Adapter,\SystemRoot\System32\drivers\rtwlane02.sys,kernel mode driver,demand start,
+2021-08-25 11:30:26,7045,Realtek Bluetooth Filter Driver,\SystemRoot\System32\drivers\RtkBtfilter.sys,kernel mode driver,demand start,
+2021-08-25 11:30:26,7045,Realtek Bluetooth Device Manager Service,%SystemRoot%\RtkBtManServ.exe,user mode service,auto start,LocalSystem
+2021-08-25 11:30:38,7045,Intel(R) Chipset SATA/PCIe RST Premium Controller,System32\drivers\iaStorAC.sys,kernel mode driver,boot start,
+2021-08-25 11:31:02,7045,Synaptics TouchPad Driver,\SystemRoot\system32\DRIVERS\SynTP.sys,kernel mode driver,demand start,
+2021-08-25 11:31:03,7045,SynTPEnh Caller Service,"C:\Program Files\Synaptics\SynTP\SynTPEnhService.exe",user mode service,auto start,LocalSystem
+2021-08-25 11:31:04,7045,SmbDrvI,\SystemRoot\system32\DRIVERS\Smb_driver_Intel.sys,kernel mode driver,demand start,
+2021-08-25 11:31:07,7045,dptf_cpu,\SystemRoot\System32\drivers\dptf_cpu.sys,kernel mode driver,demand start,
+2021-08-25 11:31:09,7045,Intel(R) Watchdog Timer Driver (Intel(R) WDT),\SystemRoot\System32\drivers\ICCWDT.sys,kernel mode driver,demand start,
+2021-08-25 11:31:36,7045,XTUComponent,\SystemRoot\System32\drivers\iocbios2.sys,kernel mode driver,demand start,
+2021-08-25 11:31:36,7045,XTUOCDriverService,%SystemRoot%\SysWOW64\XtuService.exe,user mode service,auto start,LocalSystem
+2021-08-25 12:01:10,7045,Microsoft Edge Update Service (edgeupdate),"C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc,user mode service,auto start,LocalSystem
+2021-08-25 12:01:10,7045,Microsoft Edge Update Service (edgeupdatem),"C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /medsvc,user mode service,demand start,LocalSystem
+2021-08-25 12:01:29,7045,Microsoft Edge Elevation Service (MicrosoftEdgeElevationService),"C:\Program Files (x86)\Microsoft\Edge\Application\85.0.564.67\elevation_service.exe",user mode service,demand start,LocalSystem
+2021-08-25 12:04:38,7045,Vstor2 MntApi 2.0 Driver (shared),SysWOW64\drivers\vstor2-x64.sys,kernel mode driver,auto start,
+2021-08-25 12:04:39,7045,VMware Authorization Service,"C:\Program Files (x86)\VMware\VMware Workstation\vmware-authd.exe",user mode service,auto start,LocalSystem
+2021-08-25 12:04:39,7045,VMware Workstation Server,"C:\Program Files (x86)\VMware\VMware Workstation\vmware-hostd.exe" -u "C:\ProgramData\VMware\hostd\config.xml",user mode service,demand start,LocalSystem
+2021-08-25 12:04:47,7045,VMware hcmon,\SystemRoot\system32\DRIVERS\hcmon.sys,kernel mode driver,auto start,
+2021-08-25 12:04:47,7045,VMware USB Arbitration Service,"C:\Program Files (x86)\Common Files\VMware\USB\vmware-usbarbitrator64.exe",user mode service,auto start,LocalSystem
+2021-08-25 12:04:50,7045,VMware Bridge Protocol,\SystemRoot\system32\DRIVERS\vmnetbridge.sys,kernel mode driver,auto start,
+2021-08-25 12:04:51,7045,VMware Virtual Ethernet Userif for VMnet,\SystemRoot\system32\DRIVERS\vmnetuserif.sys,kernel mode driver,auto start,
+2021-08-25 12:04:51,7045,VMware NAT Service,C:\Windows\SysWOW64\vmnat.exe,user mode service,auto start,LocalSystem
+2021-08-25 12:04:55,7045,VMware DHCP Service,C:\Windows\SysWOW64\vmnetdhcp.exe,user mode service,auto start,LocalSystem
+2021-08-25 12:05:00,7045,VMware Virtual Ethernet Adapter Driver,\SystemRoot\system32\DRIVERS\vmnetadapter.sys,kernel mode driver,demand start,
+2021-08-25 12:05:08,7045,VMware Input Filter and Injection Driver (vmkbd),\SystemRoot\system32\DRIVERS\vmkbd.sys,kernel mode driver,system start,
+2021-08-25 12:05:08,7045,VMware vmx86,\SystemRoot\system32\DRIVERS\vmx86.sys,kernel mode driver,auto start,
+2021-08-25 12:05:09,7045,VMware VMCI Bus Driver,System32\drivers\vmci.sys,kernel mode driver,boot start,
+2021-08-25 12:05:09,7045,vSockets Virtual Machine Communication Interface Sockets driver,\SystemRoot\system32\DRIVERS\vsock.sys,kernel mode driver,system start,
+2021-08-25 12:13:48,7045,???? Google Update (gupdate),"C:\Program Files (x86)\Google\Update\GoogleUpdate.exe" /svc,user mode service,auto start,LocalSystem
+2021-08-25 12:13:48,7045,???? Google Update (gupdatem),"C:\Program Files (x86)\Google\Update\GoogleUpdate.exe" /medsvc,user mode service,demand start,LocalSystem
+2021-08-25 12:16:53,7045,Google Chrome Elevation Service (GoogleChromeElevationService),"C:\Program Files\Google\Chrome\Application\92.0.4515.159\elevation_service.exe",user mode service,demand start,LocalSystem
+2021-08-25 12:54:50,7045,MpKsl77821f4f,C:\ProgramData\Microsoft\Windows Defender\Definition Updates\{528D3B5E-A27C-4363-AC10-8A3229B24C05}\MpKslDrv.sys,kernel mode driver,demand start,
+2021-08-25 14:28:01,7045,WPD File System driver,\SystemRoot\system32\DRIVERS\WUDFRd.sys,kernel mode driver,demand start,
+2021-08-26 12:04:47,7045,VMware USB Client Driver,\SystemRoot\System32\drivers\vmusb.sys,kernel mode driver,demand start,
+2021-08-28 15:25:39,7045,VMSMP,\SystemRoot\System32\drivers\vmswitch.sys,kernel mode driver,demand start,
+2021-08-28 15:25:40,7045,VMSNPXYMP,\SystemRoot\System32\drivers\VmsProxyHNic.sys,kernel mode driver,demand start,
+2021-08-28 20:38:23,7045,NetGroup Packet Filter Driver,system32\drivers\npf.sys,kernel mode driver,demand start,
+2021-08-28 20:38:23,7045,Remote Packet Capture Protocol v.0 (experimental),"%ProgramFiles(x86)%\WinPcap\rpcapd.exe" -d -f "%ProgramFiles(x86)%\WinPcap\rpcapd.ini",user mode service,demand start,LocalSystem
+2021-08-28 20:38:59,7045,Npcap Packet Driver (NPCAP),\SystemRoot\system32\DRIVERS\npcap.sys,kernel mode driver,demand start,
+2021-08-28 20:39:02,7045,Npcap Packet Driver (NPCAP) (Wi-Fi),\SystemRoot\system32\DRIVERS\npcap.sys,kernel mode driver,demand start,
+2021-08-28 20:39:04,7045,Npcap Packet Driver (NPF),\SystemRoot\system32\DRIVERS\npf.sys,kernel mode driver,demand start,
+2021-08-28 20:39:07,7045,Npcap Packet Driver (NPF) (Wi-Fi),\SystemRoot\system32\DRIVERS\npf.sys,kernel mode driver,demand start,
