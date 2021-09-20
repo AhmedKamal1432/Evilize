@@ -53,7 +53,7 @@ function SuccessfulLogons {
     $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
     LogParser.exe -stats:OFF -i:EVT $Query
     $SuccessfulLogons= GetStats $OutputFile
-    Write-Host "Successful Logons(Logon Type=Any):" $SuccessfulLogons
+    Write-Host "Successful Logons:" $SuccessfulLogons
 }
 
 
