@@ -1,5 +1,5 @@
 #Dot-sourcing to the helper script
-. .\Helper\Evilize2.ps1
+. .\Helper\helper.ps1
 # calling function inside the script itself 
 SuccessfulLogons    
 AdminLogonCreated   
