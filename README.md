@@ -2,27 +2,29 @@
 ## Remote Access
 ### Remote Desktop 
 #### Destination
-| Event Name | Event Log | Event ID |Parsed values |
+| Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
 | AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP|
-| RDPreconnected (Security.evtx, event id= 4778)| Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
-| RDPDisconnected (Security.evtx, event id= 4779) | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
-| RDPConnectionAttempts (Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx, event id =131) | Time created, Destination host name, Transport layer protocol, Client IP |
-| RDPSuccessfulConnections (Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx, event id =98) | Time created, Destination host name, User ID |
-| UserAuthSucceeded (Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational, event id =1149) | Time created, Logon username, Source IP |
-| RDPSessionLogonSuccessed (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id=21) | Time created, Logon username, Source IP, Session ID |
-| RDPShellStartNotificationReceived (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =22) | Time created, Logon username, Source IP, Session ID|
-| RDPShellSessionReconnectedSucceeded (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id=25) | Time created, Logon username, Source IP, Session ID |
-| RDPbeginSession (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =41) | Time created, Logon username |
+| RDPreconnected | Security.evtx | 4778 | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
+| RDPDisconnected | Security.evtx | 4779 | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
+| RDPConnectionAttempts | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 131 | Time created, Destination host name, Transport layer protocol, Client IP |
+| RDPSuccessfulConnections | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 98 | Time created, Destination host name, User ID |
+| UserAuthSucceeded | Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational | 1149 | Time created, Logon username, Source IP |
+| RDPSessionLogonSuccessed | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 21 | Time created, Logon username, Source IP, Session ID |
+| RDPShellStartNotificationReceived | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 22 | Time created, Logon username, Source IP, Session ID|
+| RDPShellSessionReconnectedSucceeded | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 25 | Time created, Logon username, Source IP, Session ID |
+| RDPbeginSession | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 41 | Time created, Logon username |
 #### Source
-| Event log | Parsed values |
-| --- | --- |
-| ExplicitCreds (Security.evtx, event id =4648) | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
-| RDPConnnectingtoServer (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id = 1024) | Time created, Destination hostname, Destination IP |
-| RDPConnnectionInitiated (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id =1102) | Time created, Destination hostname, Destination IP |
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
+| RDPConnnectingtoServer | Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx | 1024 | Time created, Destination hostname, Destination IP |
+| RDPConnnectionInitiated | Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx | 1102 | Time created, Destination hostname, Destination IP |
 
 ### Map Network Shares (net.exe)
 #### Destination
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
 AllSuccessfulLogons (Security.evtx, event id= 4624)\
 parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
 
