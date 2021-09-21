@@ -125,7 +125,7 @@ function ScheduledTaskUpdated{
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ScheduledTaskUpdated= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Disabled: " $ScheduledTaskUpdated 
+    Write-Host "Scheduled Tasks Updated: " $ScheduledTaskUpdated 
 }
 
 
