@@ -2,10 +2,8 @@
 ## Remote Access
 ### Remote Desktop 
 #### Destination
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
-
-RDPreconnected (Security.evtx, event id= 4778)\ 
+AllSuccessfulLogons (Security.evtx, event id= 4624) |parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
+RDPreconnected (Security.evtx, event id= 4778)|
 parsed values: Time created, Logon username, Account domain, Source IP, Source system name, Logon ID
 
 RDPDisconnected (Security.evtx, event id= 4779)\
