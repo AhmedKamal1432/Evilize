@@ -13,19 +13,13 @@
 | RDPSessionLogonSuccessed (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id=21) | Time created, Logon username, Source IP, Session ID |
 | RDPShellStartNotificationReceived (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =22) | Time created, Logon username, Source IP, Session ID|
 | RDPShellSessionReconnectedSucceeded (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id=25) | Time created, Logon username, Source IP, Session ID |
-
-RDPbeginSession (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =41)\
-parsed values: Time created, Logon username
-
+| RDPbeginSession (Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx, event id =41) | Time created, Logon username |
 #### Source
-ExplicitCreds (Security.evtx, event id =4648)\
-parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
-
-RDPConnnectingtoServer (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id = 1024)\
-parsed values: Time created, Destination hostname, Destination IP
-
-RDPConnnectionInitiated (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id =1102)\
-parsed values: Time created, Destination hostname, Destination IP
+| Event log | Parsed values |
+| --- | --- |
+| ExplicitCreds (Security.evtx, event id =4648) | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
+| RDPConnnectingtoServer (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id = 1024) | Time created, Destination hostname, Destination IP |
+| RDPConnnectionInitiated (Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx, event id =1102) | Time created, Destination hostname, Destination IP |
 
 ### Map Network Shares (net.exe)
 #### Destination
