@@ -1,0 +1,544 @@
+TimeGenerated,EventID,ContextINFO,Payload
+2020-11-30 20:12:20,4103,"        Severity = Informational
+        Host Name = ConsoleHost
+        Host Version = 5.1.17763.134
+        Host ID = 6bd8c6c0-11db-4b8f-90ae-9f1b5cfdb341
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NoProfile -Command Install-Module -Name PackageManagement -Force -MinimumVersion 1.4.6 -Scope CurrentUser -AllowClobber
+        Engine Version = 5.1.17763.134
+        Runspace ID = eec20403-b878-408e-a27a-9ca4a97fdaf2
+        Pipeline ID = 2
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1
+        Command Path = 
+        Sequence Number = 16
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""ReferencedAssemblies""; value=""System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ...""
+ParameterBinding(Add-Type): name=""TypeDefinition""; value=""using System; 
+using System.Net;
+using System.Management.Automation;
+using Microsoft.Win32.SafeHandles;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Versioning;
+using System.Security;
+
+namespace Microsoft.PowerShell.Commands.PowerShellGet 
+{ 
+    public static class Telemetry  
+    { 
+        public static void TraceMessageArtifactsNotFound(string[] artifactsNotFound, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { ArtifactsNotFound = artifactsNotFound });
+        }         
+        
+        public static void TraceMessageNonPSGalleryRegistration(string sourceLocationType, string sourceLocationHash, string installationPolicy, string packageManagementProvider, string publishLocationHash, string scriptSourceLocationHash, string scriptPublishLocationHash, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { SourceLocationType = sourceLocationType, SourceLocationHash = sourceLocationHash, InstallationPolicy = installationPolicy, PackageManagementProvider = packageManagementProvider, PublishLocationHash = publishLocationHash, ScriptSourceLocationHash = scriptSourceLocationHash, ScriptPublishLocationHash = scriptPublishLocationHash });
+        }         
+        
+    }
+    
+    /// <summary>
+    /// Used by Ping-Endpoint function to supply webproxy to HttpClient
+    /// We cannot use System.Net.WebProxy because this is not available on CoreClr
+    /// </summary>
+    public class InternalWebProxy : IWebProxy
+    {
+        Uri _proxyUri;
+        ICredentials _credentials;
+
+        public InternalWebProxy(Uri uri, ICredentials credentials)
+        {
+            Credentials = credentials;
+            _proxyUri = uri;
+        }
+
+        /// <summary>
+        /// Credentials used by WebProxy
+        /// </summary>
+        public ICredentials Credentials
+        {
+            get
+            {
+                return _credentials;
+            }
+            set
+            {
+                _credentials = value;
+            }
+        }
+
+        public Uri GetProxy(Uri destination)
+        {
+            return _proxyUri;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            return false;
+        }
+    } 
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_PARA {
+        public CERT_CHAIN_POLICY_PARA(int size) {
+            cbSize = (uint) size;
+            dwFlags = 0;
+            pvExtraPolicyPara = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwFlags;
+        public IntPtr pvExtraPolicyPara; 
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_STATUS {
+        public CERT_CHAIN_POLICY_STATUS(int size) {
+            cbSize = (uint) size;
+            dwError = 0;
+            lChainIndex = IntPtr.Zero;
+            lElementIndex = IntPtr.Zero;
+            pvExtraPolicyStatus = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwError;
+        public IntPtr lChainIndex;
+        public IntPtr lElementIndex;
+        public IntPtr pvExtraPolicyStatus; 
+    }
+
+    // Internal SafeHandleZeroOrMinusOneIsInvalid class to remove the dependency on .Net Framework 4.6.
+    public abstract class InternalSafeHandleZeroOrMinusOneIsInvalid : SafeHandle
+    {
+        protected InternalSafeHandleZeroOrMinusOneIsInvalid(bool ownsHandle)
+            : base(IntPtr.Zero, ownsHandle)
+        {
+        }
+
+        public override bool IsInvalid
+        {
+            get
+            {
+                return handle == IntPtr.Zero "
+2020-12-01 14:06:36,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 0b4015cf-430c-404e-a487-42775a622b62
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606824388-9489f731-d57a-4ca4-8231-592ad004bb361606824356283\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-807114' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 18c67cce-6483-444f-abe8-4db0ad44adbd
+        Pipeline ID = 3
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2020-12-01 14:06:40,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 7d1c6846-c69e-47aa-9828-11c583c4dae1
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606824388-9489f731-d57a-4ca4-8231-592ad004bb361606824356283\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-807114' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 7de97aaf-b827-45e5-9413-e9b772d3e8a2
+        Pipeline ID = 11
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1
+        Command Path = 
+        Sequence Number = 146
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""ReferencedAssemblies""; value=""System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ...""
+ParameterBinding(Add-Type): name=""TypeDefinition""; value=""using System; 
+using System.Net;
+using System.Management.Automation;
+using Microsoft.Win32.SafeHandles;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Versioning;
+using System.Security;
+
+namespace Microsoft.PowerShell.Commands.PowerShellGet 
+{ 
+    public static class Telemetry  
+    { 
+        public static void TraceMessageArtifactsNotFound(string[] artifactsNotFound, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { ArtifactsNotFound = artifactsNotFound });
+        }         
+        
+        public static void TraceMessageNonPSGalleryRegistration(string sourceLocationType, string sourceLocationHash, string installationPolicy, string packageManagementProvider, string publishLocationHash, string scriptSourceLocationHash, string scriptPublishLocationHash, string operationName) 
+        { 
+            Microsoft.PowerShell.Telemetry.Internal.TelemetryAPI.TraceMessage(operationName, new { SourceLocationType = sourceLocationType, SourceLocationHash = sourceLocationHash, InstallationPolicy = installationPolicy, PackageManagementProvider = packageManagementProvider, PublishLocationHash = publishLocationHash, ScriptSourceLocationHash = scriptSourceLocationHash, ScriptPublishLocationHash = scriptPublishLocationHash });
+        }         
+        
+    }
+    
+    /// <summary>
+    /// Used by Ping-Endpoint function to supply webproxy to HttpClient
+    /// We cannot use System.Net.WebProxy because this is not available on CoreClr
+    /// </summary>
+    public class InternalWebProxy : IWebProxy
+    {
+        Uri _proxyUri;
+        ICredentials _credentials;
+
+        public InternalWebProxy(Uri uri, ICredentials credentials)
+        {
+            Credentials = credentials;
+            _proxyUri = uri;
+        }
+
+        /// <summary>
+        /// Credentials used by WebProxy
+        /// </summary>
+        public ICredentials Credentials
+        {
+            get
+            {
+                return _credentials;
+            }
+            set
+            {
+                _credentials = value;
+            }
+        }
+
+        public Uri GetProxy(Uri destination)
+        {
+            return _proxyUri;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            return false;
+        }
+    } 
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_PARA {
+        public CERT_CHAIN_POLICY_PARA(int size) {
+            cbSize = (uint) size;
+            dwFlags = 0;
+            pvExtraPolicyPara = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwFlags;
+        public IntPtr pvExtraPolicyPara; 
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+    public struct CERT_CHAIN_POLICY_STATUS {
+        public CERT_CHAIN_POLICY_STATUS(int size) {
+            cbSize = (uint) size;
+            dwError = 0;
+            lChainIndex = IntPtr.Zero;
+            lElementIndex = IntPtr.Zero;
+            pvExtraPolicyStatus = IntPtr.Zero;
+        }
+        public uint   cbSize;
+        public uint   dwError;
+        public IntPtr lChainIndex;
+        public IntPtr lElementIndex;
+        public IntPtr pvExtraPolicyStatus; 
+    }
+
+    // Internal SafeHandleZeroOrMinusOneIsInvalid class to remove the dependency on .Net Framework 4.6.
+    public abstract class InternalSafeHandleZeroOrMinusOneIsInvalid : SafeHandle
+    {
+        protected InternalSafeHandleZeroOrMinusOneIsInvalid(bool ownsHandle)
+            : base(IntPtr.Zero, ownsHandle)
+        {
+        }
+
+        public override bool IsInvalid
+        {
+            get
+            {
+                return handle == IntPtr.Zero "
+2020-12-01 14:06:41,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 7d1c6846-c69e-47aa-9828-11c583c4dae1
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606824388-9489f731-d57a-4ca4-8231-592ad004bb361606824356283\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-807114' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 7de97aaf-b827-45e5-9413-e9b772d3e8a2
+        Pipeline ID = 16
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Functions\SetupTeardown.ps1
+        Command Path = 
+        Sequence Number = 148
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""TypeDefinition""; value=""    namespace Pester
+    {
+        using System;
+        using System.Management.Automation;
+
+        public static class ClosingBraceFinder
+        {
+            public static int GetClosingBraceIndex(PSToken[] tokens, int startIndex)
+            {
+                int groupLevel = 1;
+                int len = tokens.Length;
+
+                for (int i = startIndex + 1; i < len; i++)
+                {
+                    PSTokenType type = tokens[i].Type;
+                    if (type == PSTokenType.GroupStart)
+                    {
+                        groupLevel++;
+                    }
+                    else if (type == PSTokenType.GroupEnd)
+                    {
+                        groupLevel--;
+
+                        if (groupLevel <= 0) { return i; }
+                    }
+                }
+
+                return -1;
+            }
+        }
+    }""
+"
+2020-12-01 14:26:49,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = fef0cfde-ea91-4308-bee6-f8d87470b713
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606825601-345f8a27-beb2-4ba7-a93f-54ff5da37a9a1606825593873\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-530839' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = ec8e6b9a-87b7-4dd3-a57f-f5220f11e25b
+        Pipeline ID = 3
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2020-12-01 16:01:52,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 5f675da9-fd12-4220-9190-24907e1b099b
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606824354-7f04a64d-0b87-4584-8bd4-2f63876949a51606823913139\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-250585' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 670d7905-3626-413f-bb3b-026513a2925c
+        Pipeline ID = 3
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 283
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2020-12-01 16:07:40,4103,"        Severity = Informational
+        Host Name = Visual Studio Code Host
+        Host Version = 2020.6.0
+        Host ID = c36ece70-5cfe-409b-961f-0cd8abc6039e
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606825601-345f8a27-beb2-4ba7-a93f-54ff5da37a9a1606825593873\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-530839' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = ded60ff8-6331-4a62-aac6-eb97adae3502
+        Pipeline ID = 19495
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Functions\SetupTeardown.ps1
+        Command Path = 
+        Sequence Number = 153
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""TypeDefinition""; value=""    namespace Pester
+    {
+        using System;
+        using System.Management.Automation;
+
+        public static class ClosingBraceFinder
+        {
+            public static int GetClosingBraceIndex(PSToken[] tokens, int startIndex)
+            {
+                int groupLevel = 1;
+                int len = tokens.Length;
+
+                for (int i = startIndex + 1; i < len; i++)
+                {
+                    PSTokenType type = tokens[i].Type;
+                    if (type == PSTokenType.GroupStart)
+                    {
+                        groupLevel++;
+                    }
+                    else if (type == PSTokenType.GroupEnd)
+                    {
+                        groupLevel--;
+
+                        if (groupLevel <= 0) { return i; }
+                    }
+                }
+
+                return -1;
+            }
+        }
+    }""
+"
+2020-12-01 16:07:41,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 3f81783f-762e-496a-9cc1-296590794b63
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1606825601-345f8a27-beb2-4ba7-a93f-54ff5da37a9a1606825593873\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-6256-530839' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 6406ab6a-fbf7-46d7-a06c-d95c6286adcd
+        Pipeline ID = 23
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Functions\SetupTeardown.ps1
+        Command Path = 
+        Sequence Number = 155
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""TypeDefinition""; value=""    namespace Pester
+    {
+        using System;
+        using System.Management.Automation;
+
+        public static class ClosingBraceFinder
+        {
+            public static int GetClosingBraceIndex(PSToken[] tokens, int startIndex)
+            {
+                int groupLevel = 1;
+                int len = tokens.Length;
+
+                for (int i = startIndex + 1; i < len; i++)
+                {
+                    PSTokenType type = tokens[i].Type;
+                    if (type == PSTokenType.GroupStart)
+                    {
+                        groupLevel++;
+                    }
+                    else if (type == PSTokenType.GroupEnd)
+                    {
+                        groupLevel--;
+
+                        if (groupLevel <= 0) { return i; }
+                    }
+                }
+
+                return -1;
+            }
+        }
+    }""
+"
+2021-03-09 14:23:11,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = 5ee70b04-88c9-4315-ba9e-a6a60cc1d3a3
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1615292571-e7a4ff79-8e64-44e3-8bce-2f7c36265b6a1615292550544\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-5108-593698' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 7e59bcea-be0b-45e6-a4c1-dae36e907aa1
+        Pipeline ID = 3
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2021-08-22 14:52:51,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = a18c55b5-5ad5-4498-b69e-46f5ede58f6f
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1629636756-f92f5486-760f-4e94-a8a2-eda3e304ceea1629636746253\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-4920-823309' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 67bb6eca-009d-40fa-ab5a-2e5c0d3cc6b5
+        Pipeline ID = 4
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2021-08-22 14:53:29,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = f32cd393-5a43-41fa-8d99-57efbca22494
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1629636799-6dc0087e-baab-4549-a9de-386441e4d9581629636793227\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-4920-555626' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = a079a766-22b6-4208-9c34-9a84f132799a
+        Pipeline ID = 3
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"
+2021-09-20 11:40:18,4103,"        Severity = Informational
+        Host Name = Default Host
+        Host Version = 5.1.17763.134
+        Host ID = df4cd8f9-7eee-4eff-900f-476ef9602dcb
+        Host Application = C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2020.6.0' -AdditionalModules @('PowerShellEditorServices.VSCode') -BundledModulesPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules' -EnableConsoleRepl -StartupBanner ""=====> PowerShell Integrated Console v2020.6.0 <=====
+"" -LogLevel 'Normal' -LogPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\logs\1632130805-228b280d-e3a2-444f-8d43-401248629d5a1632130729709\EditorServices.log' -SessionDetailsPath 'c:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\sessions\PSES-VSCode-9756-316611' -FeatureFlags @() 
+        Engine Version = 5.1.17763.134
+        Runspace ID = 316c4a24-5b7f-4cb1-ac5f-1b0f4a47665e
+        Pipeline ID = 4
+        Command Name = Add-Type
+        Command Type = Cmdlet
+        Script Name = C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0\PSScriptAnalyzer.psm1
+        Command Path = 
+        Sequence Number = 108
+        User = SANS-SIFT\SANSDFIR
+        Connected User = 
+        Shell ID = Microsoft.PowerShell
+","CommandInvocation(Add-Type): ""Add-Type""
+ParameterBinding(Add-Type): name=""Path""; value=""C:\Users\SANSDFIR\.vscode\extensions\ms-vscode.powershell-2020.6.0\modules\PSScriptAnalyzer\1.19.0/Newtonsoft.Json.dll""
+"

@@ -1,0 +1,530 @@
+TimeGenerated,EventID,ProviderName,Code,ProcessID,ProviderPath
+2021-02-07 11:00:46,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 11:00:48,5857,WmiPerfClass,0x0,5348,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-02-03 19:39:16,5857,UserProfileProvider,0x0,4636,%systemroot%\system32\profprov.dll
+2021-02-03 19:39:25,5857,Win32_TpmProvider,0x0,4636,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-03 19:39:27,5857,Win32_DeviceGuard,0x0,4636,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-03 19:39:54,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4636,%SystemRoot%\system32\tscfgwmi.dll
+2021-02-07 11:18:11,5857,Win32_TpmProvider,0x0,4636,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-07 11:18:11,5857,Win32_DeviceGuard,0x0,4636,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-07 11:22:04,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-07 11:23:35,5857,WMIProv,0x0,5348,%systemroot%\system32\wbem\wmiprov.dll
+2021-02-07 12:20:41,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 12:20:42,5857,UserProfileProvider,0x0,4636,%systemroot%\system32\profprov.dll
+2021-02-07 13:02:43,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 13:26:49,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-07 13:44:38,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-07 17:37:40,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 19:18:15,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 20:50:39,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 21:06:13,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 21:16:04,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-07 22:29:02,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-11 15:35:18,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-07 22:42:53,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-07 22:42:53,5857,WmiPerfClass,0x0,32,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-02-07 22:42:54,5857,Win32_TpmProvider,0x0,4636,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-07 22:42:55,5857,Win32_DeviceGuard,0x0,4636,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-07 22:43:22,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4636,%SystemRoot%\system32\tscfgwmi.dll
+2021-02-11 12:24:05,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-11 12:24:06,5857,Win32_TpmProvider,0x0,4636,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-11 12:24:07,5857,Win32_DeviceGuard,0x0,4636,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-11 16:14:22,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-11 16:14:26,5857,UserProfileProvider,0x0,4636,%systemroot%\system32\profprov.dll
+2021-02-11 16:16:45,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-11 16:27:59,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-11 16:48:27,5857,WMIProv,0x0,5308,%systemroot%\system32\wbem\wmiprov.dll
+2021-02-11 17:00:02,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-11 17:11:23,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-11 19:06:08,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-11 21:48:25,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-12 03:43:25,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 04:19:40,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-12 06:01:50,5857,WmiPerfClass,0x0,3180,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-02-12 06:01:51,5857,Win32_TpmProvider,0x0,4636,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-12 06:01:52,5857,Win32_DeviceGuard,0x0,4636,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-12 06:50:21,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 06:50:21,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4636,%SystemRoot%\system32\tscfgwmi.dll
+2021-02-12 12:24:06,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-12 14:43:31,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 15:52:28,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 16:14:52,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 17:00:02,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-12 18:14:22,5857,UserProfileProvider,0x0,4636,%systemroot%\system32\profprov.dll
+2021-02-12 18:17:24,5857,WMIProv,0x0,6480,%systemroot%\system32\wbem\wmiprov.dll
+2021-02-12 21:09:50,5857,CIMWin32a,0x0,4636,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-12 21:27:07,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-12 21:48:25,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-13 02:34:01,5857,WMI Kernel Trace Event Provider,0x0,2896,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-24 10:21:39,5857,CIMWin32,0x0,5000,%systemroot%\system32\wbem\cimwin32.dll
+2021-02-24 10:21:41,5857,CIMWin32a,0x0,5000,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-24 10:22:19,5857,WmiPerfClass,0x0,6196,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-02-24 10:22:27,5857,WMIProv,0x0,6196,%systemroot%\system32\wbem\wmiprov.dll
+2021-02-24 10:22:39,5857,MS_NT_EVENTLOG_PROVIDER,0x0,5000,%systemroot%\system32\wbem\ntevt.dll
+2021-02-24 10:25:33,5857,Win32_TpmProvider,0x0,5000,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-02-24 10:25:36,5857,Win32_DeviceGuard,0x0,5000,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-02-24 10:26:21,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,5000,%SystemRoot%\system32\tscfgwmi.dll
+2021-02-24 10:33:03,5857,WMI Kernel Trace Event Provider,0x0,3212,C:\Windows\System32\wbem\krnlprov.dll
+2021-02-24 10:33:06,5857,UserProfileProvider,0x0,5000,%systemroot%\system32\profprov.dll
+2021-02-24 10:47:30,5857,WMIProv,0x0,6196,%systemroot%\system32\wbem\wmiprov.dll
+2021-02-24 11:52:24,5857,CIMWin32a,0x0,5000,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-24 12:26:41,5857,CIMWin32a,0x0,5000,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-24 13:07:46,5857,CIMWin32a,0x0,5000,%systemroot%\system32\wbem\wmipcima.dll
+2021-02-24 14:45:45,5857,CIMWin32a,0x0,5000,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-04 14:00:15,5857,CIMWin32,0x0,5028,%systemroot%\system32\wbem\cimwin32.dll
+2021-03-04 14:00:18,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-04 14:00:53,5857,WmiPerfClass,0x0,6824,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-04 14:01:02,5857,WMIProv,0x0,6824,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-04 14:01:14,5857,MS_NT_EVENTLOG_PROVIDER,0x0,5028,%systemroot%\system32\wbem\ntevt.dll
+2021-03-04 14:03:08,5857,Win32_TpmProvider,0x0,5028,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-04 14:03:13,5857,Win32_DeviceGuard,0x0,5028,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-04 14:03:44,5857,MSVDS__PROVIDER,0x0,5028,%systemroot%\system32\wbem\vdswmi.dll
+2021-03-04 14:03:45,5857,StorageWMI,0x0,5028,%SystemRoot%\System32\storagewmi.dll
+2021-03-04 14:03:47,5857,PowerWmiProvider,0x0,1940,%systemroot%\system32\umpowmi.dll
+2021-03-04 14:03:48,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,5028,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-04 14:04:30,5857,SppProvider,0x0,5028,%SystemRoot%\System32\sppwmi.dll
+2021-03-04 14:07:05,5857,netnat,0x0,5028,%systemroot%\system32\wbem\NetNat.dll
+2021-03-04 14:12:37,5857,UserProfileProvider,0x0,5028,%systemroot%\system32\profprov.dll
+2021-03-04 14:14:16,5857,WMI Kernel Trace Event Provider,0x0,2596,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-04 14:44:45,5857,WMIProv,0x0,9480,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-04 15:19:17,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-04 16:08:57,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-04 18:35:22,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-04 20:16:57,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-09 14:20:39,5857,WMI Kernel Trace Event Provider,0x0,2596,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-09 14:20:41,5857,WmiPerfClass,0x0,4664,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-09 14:20:41,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-09 14:20:41,5857,Win32_TpmProvider,0x0,5028,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-09 14:20:43,5857,Win32_DeviceGuard,0x0,5028,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-09 14:21:13,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,5028,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-09 15:27:23,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-09 16:02:18,5857,UserProfileProvider,0x0,5028,%systemroot%\system32\profprov.dll
+2021-03-09 16:02:22,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-09 16:05:17,5857,WMIProv,0x0,1764,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-09 17:29:42,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-09 20:49:42,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-10 09:48:57,5857,WmiPerfClass,0x0,6196,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-10 09:48:57,5857,Win32_TpmProvider,0x0,5028,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-10 09:48:58,5857,Win32_DeviceGuard,0x0,5028,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-10 09:48:58,5857,CIMWin32a,0x0,5028,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-10 09:49:33,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,5028,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-10 09:58:34,5857,WMI Kernel Trace Event Provider,0x0,2596,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-17 15:05:25,5857,CIMWin32,0x0,4136,%systemroot%\system32\wbem\cimwin32.dll
+2021-03-17 15:05:28,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 15:06:00,5857,WmiPerfClass,0x0,7020,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-17 15:06:10,5857,WMIProv,0x0,7020,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-17 15:06:21,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-17 15:08:21,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-17 15:08:22,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-17 15:09:00,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-17 15:16:05,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-03-17 15:21:46,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-17 15:28:15,5857,WMIProv,0x0,1852,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-17 16:42:48,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 17:52:19,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 18:03:57,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 18:51:45,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-17 19:26:27,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 21:32:55,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-17 22:46:00,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-21 15:19:39,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-21 15:19:42,5857,WmiPerfClass,0x0,2504,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-21 15:19:42,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-21 15:19:43,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-21 15:20:19,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-21 15:28:25,5857,netnat,0x0,4136,%systemroot%\system32\wbem\NetNat.dll
+2021-03-21 15:45:46,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-21 16:39:59,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-21 17:04:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-21 23:06:16,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-21 23:11:55,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-03-21 23:20:43,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-21 23:25:31,5857,CIMWin32,0x0,4136,%systemroot%\system32\wbem\cimwin32.dll
+2021-03-21 23:25:34,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-21 23:40:56,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-21 23:42:18,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-21 23:54:51,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-22 00:10:31,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-22 00:35:31,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4136,%systemroot%\system32\wbem\ntevt.dll
+2021-03-22 00:40:43,5857,WMIProv,0x0,8548,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-22 08:12:04,5857,WmiPerfClass,0x0,6092,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-22 08:12:29,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-22 08:12:53,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-22 08:13:15,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-22 08:14:07,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-22 14:51:45,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-22 15:18:32,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-22 15:19:41,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-31 15:37:56,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-31 15:37:57,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-31 15:37:57,5857,WmiPerfClass,0x0,7060,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-03-31 15:38:01,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-03-31 15:38:05,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-03-31 15:38:36,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-03-31 16:46:08,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-31 17:02:18,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-03-31 17:09:56,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-03-31 17:12:29,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-03-31 17:35:54,5857,WMIProv,0x0,9376,%systemroot%\system32\wbem\wmiprov.dll
+2021-03-31 18:07:10,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-01 06:44:34,5857,WmiPerfClass,0x0,4576,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-04-01 06:44:35,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-04-01 06:44:37,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-04-01 06:49:56,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-01 06:49:56,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-04-01 07:49:58,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-01 09:45:42,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-08 13:06:38,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-04-08 13:06:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-08 13:06:39,5857,WmiPerfClass,0x0,8200,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-04-08 13:06:40,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-04-08 13:06:40,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-04-08 13:07:35,5857,MSVDS__PROVIDER,0x0,4136,%systemroot%\system32\wbem\vdswmi.dll
+2021-04-08 13:07:37,5857,StorageWMI,0x0,4136,%SystemRoot%\System32\storagewmi.dll
+2021-04-08 13:07:39,5857,PowerWmiProvider,0x0,9488,%systemroot%\system32\umpowmi.dll
+2021-04-08 13:07:39,5857,WMIProv,0x0,8200,%systemroot%\system32\wbem\wmiprov.dll
+2021-04-08 13:07:40,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-04-08 14:18:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-11 15:23:16,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-04-11 15:23:18,5857,WmiPerfClass,0x0,4952,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-04-11 15:23:23,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-04-11 15:23:46,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-04-11 15:24:20,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-04-11 15:50:57,5857,netnat,0x0,4136,%systemroot%\system32\wbem\NetNat.dll
+2021-04-11 16:43:32,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-11 17:05:47,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-04-11 17:05:48,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-11 17:07:58,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-04-11 17:26:09,5857,WMIProv,0x0,4340,%systemroot%\system32\wbem\wmiprov.dll
+2021-04-11 22:08:11,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-23 10:48:55,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-04-23 10:48:57,5857,WmiPerfClass,0x0,8720,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-04-23 10:48:57,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-23 10:48:58,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-04-23 10:49:00,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-04-23 10:49:44,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-04-23 11:19:14,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-04-23 11:29:58,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-04-23 11:36:18,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-04 10:48:21,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-04 10:48:21,5857,WmiPerfClass,0x0,3044,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-05-04 10:48:24,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-05-04 10:48:28,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-05-04 10:49:05,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-04-23 12:05:29,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-04-23 12:13:58,5857,WMIProv,0x0,10208,%systemroot%\system32\wbem\wmiprov.dll
+2021-05-04 19:33:21,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-04 20:10:39,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-04 21:06:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-04 21:06:51,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-05-04 21:07:33,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-04 21:27:37,5857,WMIProv,0x0,5180,%systemroot%\system32\wbem\wmiprov.dll
+2021-05-04 22:32:00,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-05 01:55:56,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-05 05:18:39,5857,WmiPerfClass,0x0,7992,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-05-05 05:18:39,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-05-05 05:18:40,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-05-05 05:24:15,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-05 06:22:34,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-05 06:22:35,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-05-05 06:22:39,5857,SppProvider,0x0,4136,%SystemRoot%\System32\sppwmi.dll
+2021-05-05 06:55:56,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-05 07:14:28,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-05 09:01:04,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-05 10:00:01,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-05 10:09:19,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-18 18:23:08,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-05 10:15:42,5857,WmiPerfClass,0x0,6624,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-05-05 10:15:44,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-05 10:15:46,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-05-05 10:15:53,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-05-05 10:16:18,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-05-05 10:16:23,5857,SppProvider,0x0,4136,%SystemRoot%\System32\sppwmi.dll
+2021-05-18 18:40:33,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-18 18:40:33,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-18 18:40:33,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-05-18 18:40:34,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-05-18 19:05:35,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-18 19:05:44,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-05-18 19:07:44,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-18 19:28:41,5857,WMIProv,0x0,4844,%systemroot%\system32\wbem\wmiprov.dll
+2021-05-18 20:03:29,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-18 20:35:15,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-18 21:48:25,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-19 00:57:32,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-05-19 00:57:35,5857,WmiPerfClass,0x0,10980,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-05-19 00:57:47,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-05-19 00:57:47,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-05-19 00:57:59,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-05-19 00:58:21,5857,MSVDS__PROVIDER,0x0,4136,%systemroot%\system32\wbem\vdswmi.dll
+2021-05-19 00:58:22,5857,StorageWMI,0x0,4136,%SystemRoot%\System32\storagewmi.dll
+2021-05-19 00:58:23,5857,PowerWmiProvider,0x0,4292,%systemroot%\system32\umpowmi.dll
+2021-05-19 00:58:23,5857,WMIProv,0x0,10980,%systemroot%\system32\wbem\wmiprov.dll
+2021-05-19 00:58:24,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-06-06 16:05:53,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-06 16:05:54,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-06 16:05:54,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-06 17:06:22,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-06 17:06:27,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-06-06 17:08:57,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-06 17:29:27,5857,WMIProv,0x0,984,%systemroot%\system32\wbem\wmiprov.dll
+2021-06-06 17:40:28,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-06 18:25:36,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-06 19:12:57,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-06 21:48:25,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 01:56:48,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 03:12:02,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 06:00:27,5857,WmiPerfClass,0x0,3648,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-06-07 06:00:27,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-07 06:00:28,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-07 06:19:38,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 06:19:39,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-06-07 06:56:48,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 08:01:56,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 10:00:01,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 11:56:49,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 15:31:11,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 16:14:37,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 16:59:13,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-07 18:40:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 19:15:25,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-06-07 19:15:34,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-07 19:18:04,5857,WMIProv,0x0,11060,%systemroot%\system32\wbem\wmiprov.dll
+2021-06-07 21:48:26,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 02:56:50,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 03:15:24,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-08 05:44:56,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-08 05:44:57,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-06-08 06:40:59,5857,WmiPerfClass,0x0,6628,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-06-08 06:40:59,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-08 06:41:00,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-08 07:56:51,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 08:12:48,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-08 09:17:10,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 15:48:58,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-08 16:14:43,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 16:51:37,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-08 16:51:38,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-08 16:51:39,5857,WmiPerfClass,0x0,5596,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-06-08 16:51:42,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-08 16:51:46,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-08 16:52:19,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-06-13 00:26:47,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-13 00:26:47,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-13 00:26:48,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-13 10:15:54,5857,netnat,0x0,4136,%systemroot%\system32\wbem\NetNat.dll
+2021-06-13 10:55:58,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-13 11:03:34,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-13 11:17:05,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-06-13 11:25:41,5857,WMIProv,0x0,184,%systemroot%\system32\wbem\wmiprov.dll
+2021-06-13 12:34:31,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-13 13:05:04,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-13 14:10:14,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-06-13 14:15:13,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-06-13 15:14:58,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-01 14:36:10,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-01 14:36:11,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-01 14:36:12,5857,WmiPerfClass,0x0,10160,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-01 14:36:18,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-06-13 15:29:52,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-06-13 15:30:32,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-06-13 15:51:25,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 13:36:11,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-03 13:36:13,5857,WmiPerfClass,0x0,2764,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-03 13:36:13,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 13:36:13,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-03 13:36:14,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-03 13:36:25,5857,MSVDS__PROVIDER,0x0,4136,%systemroot%\system32\wbem\vdswmi.dll
+2021-08-03 13:36:25,5857,StorageWMI,0x0,4136,%SystemRoot%\System32\storagewmi.dll
+2021-08-03 13:36:27,5857,PowerWmiProvider,0x0,11536,%systemroot%\system32\umpowmi.dll
+2021-08-03 13:36:27,5857,WMIProv,0x0,2764,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-03 13:36:27,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-03 13:36:56,5857,SppProvider,0x0,4136,%SystemRoot%\System32\sppwmi.dll
+2021-08-03 14:44:55,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 14:49:47,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-03 15:05:31,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 15:05:42,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-08-03 15:26:54,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-03 15:28:36,5857,WMIProv,0x0,6512,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-03 16:10:25,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 17:14:01,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 23:13:47,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-03 23:36:35,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 00:49:47,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 01:01:02,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 03:23:23,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 05:32:08,5857,WmiPerfClass,0x0,10960,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-04 05:32:08,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-04 05:32:09,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-04 06:36:54,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 06:36:55,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-04 09:45:06,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 10:21:26,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 10:49:48,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 11:30:59,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 13:00:01,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 13:34:22,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 13:36:13,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 15:32:33,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 16:26:53,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 17:06:23,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-08-04 17:06:30,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 17:07:55,5857,WMIProv,0x0,2208,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-04 17:19:19,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 17:58:33,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 19:56:13,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 20:49:49,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 21:48:26,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-04 22:31:16,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-04 23:47:38,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 00:05:02,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 00:55:13,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 01:00:40,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 01:12:49,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 01:49:49,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 03:23:26,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 05:12:39,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 05:12:40,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-05 05:17:57,5857,WmiPerfClass,0x0,10228,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-05 05:17:57,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-05 05:17:58,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-05 06:49:49,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 09:23:48,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 11:21:57,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 11:41:51,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 11:49:51,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 13:08:18,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 13:35:03,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 13:36:46,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 15:22:53,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 16:49:50,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-05 17:52:02,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 18:18:59,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 19:08:29,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-05 19:08:30,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-08-05 19:09:58,5857,WMIProv,0x0,8128,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-06 01:00:40,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 02:49:51,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 03:23:29,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-06 05:12:52,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-06 05:12:53,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-06 06:28:55,5857,WmiPerfClass,0x0,7564,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-06 06:28:55,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-06 06:28:56,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-06 07:49:52,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 11:41:53,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-06 12:49:52,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 13:34:33,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-06 13:36:49,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 16:43:06,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 17:49:52,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-06 21:08:32,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-06 21:08:33,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-08-06 21:09:58,5857,WMIProv,0x0,9548,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-06 21:57:16,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-15 15:09:28,5857,WmiPerfClass,0x0,13232,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-15 15:09:28,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-15 15:09:29,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-15 15:09:30,5857,Win32_TpmProvider,0x0,4136,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-15 15:09:33,5857,Win32_DeviceGuard,0x0,4136,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-15 15:09:58,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4136,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-15 15:14:19,5857,UserProfileProvider,0x0,4136,%systemroot%\system32\profprov.dll
+2021-08-15 15:16:18,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-15 15:49:50,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-15 15:56:23,5857,WMI Kernel Trace Event Provider,0x0,3144,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-15 16:27:59,5857,WMIProv,0x0,4260,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-15 16:33:48,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-15 17:55:19,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-15 20:34:24,5857,CIMWin32a,0x0,4136,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 13:13:56,5857,CIMWin32,0x0,4936,%systemroot%\system32\wbem\cimwin32.dll
+2021-08-22 13:14:02,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 13:14:22,5857,WmiPerfClass,0x0,4828,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-22 13:14:28,5857,WMIProv,0x0,4828,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-22 13:14:42,5857,MS_NT_EVENTLOG_PROVIDER,0x0,4936,%systemroot%\system32\wbem\ntevt.dll
+2021-08-22 13:19:19,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-22 13:19:22,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-22 13:20:33,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4936,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-22 13:28:52,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-08-22 13:30:38,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 13:33:24,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 13:49:51,5857,WMIProv,0x0,9024,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-22 14:24:31,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 14:37:22,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 14:49:56,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 14:52:38,5857,netnat,0x0,4936,%systemroot%\system32\wbem\NetNat.dll
+2021-08-22 15:00:56,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 15:09:40,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 16:25:16,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 17:49:20,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 18:24:02,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-22 18:30:39,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 19:49:56,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-22 19:50:12,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-23 00:36:39,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-25 17:00:00,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-25 17:00:02,5857,WmiPerfClass,0x0,10932,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-25 17:00:04,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-25 17:00:08,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-25 17:00:48,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4936,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-25 17:02:07,5857,smbwmiv2,0x0,4936,%SystemRoot%\System32\smbwmiv2.dll
+2021-08-25 17:14:36,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-08-25 17:19:35,5857,WMIProv,0x0,4028,%systemroot%\system32\wbem\wmiprov.dll
+2021-08-25 18:27:46,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-25 18:41:14,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-08-25 19:15:43,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-01 16:15:53,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-08-25 19:15:50,5857,WmiPerfClass,0x0,11940,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-08-25 19:15:51,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-08-25 19:16:04,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-08-25 19:16:09,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-08-25 19:17:07,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4936,%SystemRoot%\system32\tscfgwmi.dll
+2021-08-25 19:18:05,5857,WMIProv,0x0,11940,%systemroot%\system32\wbem\wmiprov.dll
+2021-09-01 16:30:56,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 16:30:56,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-09-01 16:30:57,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-09-01 16:38:49,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-01 16:48:29,5857,WMIProv,0x0,10252,%systemroot%\system32\wbem\wmiprov.dll
+2021-09-01 16:50:51,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 17:14:05,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-09-01 17:45:36,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-01 18:33:24,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 18:51:03,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-01 19:13:12,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 19:17:18,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 21:48:26,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-01 23:02:02,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-02 00:13:12,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-02 00:30:35,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-02 01:06:49,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 08:58:25,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-12 08:58:27,5857,WmiPerfClass,0x0,12152,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-09-12 08:58:31,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-09-12 08:58:36,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-09-12 08:58:47,5857,MSVDS__PROVIDER,0x0,4936,%systemroot%\system32\wbem\vdswmi.dll
+2021-09-12 08:58:48,5857,StorageWMI,0x0,4936,%SystemRoot%\System32\storagewmi.dll
+2021-09-12 08:58:50,5857,PowerWmiProvider,0x0,7028,%systemroot%\system32\umpowmi.dll
+2021-09-12 08:58:50,5857,WMIProv,0x0,12152,%systemroot%\system32\wbem\wmiprov.dll
+2021-09-12 08:58:50,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4936,%SystemRoot%\system32\tscfgwmi.dll
+2021-09-12 09:14:04,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-09-12 09:17:01,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-12 09:27:57,5857,WMIProv,0x0,3996,%systemroot%\system32\wbem\wmiprov.dll
+2021-09-12 10:38:54,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 13:04:42,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-12 15:03:35,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 15:06:30,5857,smbwmiv2,0x0,4936,%SystemRoot%\System32\smbwmiv2.dll
+2021-09-12 16:08:07,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 17:38:21,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 19:17:13,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 20:31:15,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-12 20:58:02,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-20 10:50:18,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-20 10:50:20,5857,WmiPerfClass,0x0,12904,C:\Windows\System32\wbem\WmiPerfClass.dll
+2021-09-20 10:50:22,5857,Win32_TpmProvider,0x0,4936,C:\Windows\System32\wbem\Win32_TPM.dll
+2021-09-20 10:50:24,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-20 10:50:34,5857,Win32_DeviceGuard,0x0,4936,%SystemRoot%\System32\Win32_DeviceGuard.dll
+2021-09-20 10:51:07,5857,Win32_WIN32_TERMINALSERVICE_Prov,0x0,4936,%SystemRoot%\system32\tscfgwmi.dll
+2021-09-20 11:16:00,5857,UserProfileProvider,0x0,4936,%systemroot%\system32\profprov.dll
+2021-09-20 11:16:02,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll
+2021-09-20 11:24:25,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-20 11:42:11,5857,WMI Kernel Trace Event Provider,0x0,3368,C:\Windows\System32\wbem\krnlprov.dll
+2021-09-20 12:18:11,5857,CIMWin32a,0x0,4936,%systemroot%\system32\wbem\wmipcima.dll

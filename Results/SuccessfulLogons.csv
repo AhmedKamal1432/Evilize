@@ -1,0 +1,1130 @@
+TimeGenerated,EventID,Username,Domain,LogonType,AuthPackage,Workstation,ProcessName,SourceIP
+2018-11-29 19:41:02,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-11-29 19:41:02,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-11-29 19:41:02,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-29 19:41:02,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-29 19:41:02,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-29 19:41:32,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-11-29 19:44:44,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-11-29 19:44:44,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-11-29 21:45:44,4624,SANSDFIR,SANS-SIFT,2,Advapi  ,SANS-SIFT,C:\Windows\ImmersiveControlPanel\SystemSettings.exe,-
+2018-11-29 21:45:44,4624,SANSDFIR,SANS-SIFT,2,Advapi  ,SANS-SIFT,C:\Windows\ImmersiveControlPanel\SystemSettings.exe,-
+2018-11-29 21:45:58,4624,SANSDFIR,SANS-SIFT,2,Advapi  ,SANS-SIFT,C:\Windows\System32\lsass.exe,-
+2018-11-29 21:45:58,4624,SANSDFIR,SANS-SIFT,2,Advapi  ,SANS-SIFT,C:\Windows\System32\lsass.exe,-
+2018-11-30 10:41:15,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-11-30 10:41:15,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-11-30 10:41:17,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-30 10:41:17,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-30 10:41:17,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-11-30 15:41:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-11-30 15:41:42,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-11-30 15:41:42,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-11-30 15:41:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-11-30 15:41:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 02:37:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 02:37:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 10:26:25,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-01 10:26:26,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-01 10:26:26,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-01 10:26:26,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-01 10:26:26,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-01 15:26:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-01 15:27:10,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 15:27:10,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 15:28:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-01 15:28:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-03 00:51:39,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-03 00:51:40,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-03 00:51:41,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-03 00:51:41,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-03 00:51:41,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-03 05:51:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-03 05:59:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-03 05:59:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 01:42:16,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:42:16,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:44:08,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:44:08,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:46:36,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:46:36,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:50:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 01:50:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 05:28:04,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 05:28:04,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 22:52:24,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-05 22:52:24,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-05 22:52:24,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 22:52:25,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 22:52:25,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 22:52:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-05 22:53:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 22:53:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 22:54:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 22:54:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 22:56:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 22:56:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 22:59:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 22:59:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:03:28,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:03:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:03:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:03:36,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:04:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,SANS-SIFT,-,-
+2018-12-05 23:17:37,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-05 23:17:37,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-05 23:17:37,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 23:17:37,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 23:17:37,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-05 23:17:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-05 23:17:51,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 23:17:51,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 23:18:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-05 23:18:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 07:01:55,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-06 07:01:56,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-06 07:01:56,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 07:01:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 07:01:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 07:03:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-06 07:04:31,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 07:04:31,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 12:59:39,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-06 12:59:39,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 12:59:39,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-06 12:59:50,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 12:59:50,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-06 13:00:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 13:00:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 18:02:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-06 18:22:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-06 18:22:53,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 02:03:28,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 02:03:28,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 04:36:22,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-07 04:36:23,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-07 04:36:23,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 04:36:23,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 04:36:23,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 04:36:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-07 04:37:12,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 04:37:12,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 04:37:19,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 04:37:19,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 17:14:31,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-07 17:14:31,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-07 17:14:32,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 17:14:32,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 17:14:32,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-07 22:14:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-07 22:15:23,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-07 22:15:23,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 17:19:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 17:19:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 12:59:52,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-09 12:59:52,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-09 12:59:52,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-09 12:59:52,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-09 12:59:52,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-09 17:59:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-09 18:01:12,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 18:01:12,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 18:01:20,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-09 18:01:20,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 00:59:34,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-10 00:59:35,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-10 00:59:36,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 00:59:36,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 00:59:36,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 05:59:42,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-10 05:59:59,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 05:59:59,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 06:00:06,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 06:00:06,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 14:12:43,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-10 14:12:43,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 14:12:43,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-10 14:12:44,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 14:12:44,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-10 19:13:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-10 19:15:27,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 19:15:27,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 19:15:38,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-10 19:15:38,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 21:58:29,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-11 21:58:29,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-11 21:58:29,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 21:58:29,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 21:58:29,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 21:58:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-11 22:00:30,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:00:30,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:30:04,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-11 22:30:05,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-11 22:30:05,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:30:05,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:30:05,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:30:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-11 22:31:02,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:31:02,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:34:23,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-11 22:34:23,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:34:23,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-11 22:34:23,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:34:23,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-11 22:34:37,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-11 22:35:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:35:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:36:18,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-11 22:36:18,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-12 14:40:12,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-12 14:40:14,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-12 14:40:14,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-12 14:40:14,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-12 14:40:14,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-12 19:40:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-12 19:40:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-12 19:40:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-12 19:41:14,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-12 19:41:14,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-13 01:01:56,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-13 01:01:56,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-13 23:55:57,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-13 23:55:57,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-13 23:55:57,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-13 23:55:57,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-13 23:55:57,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-13 23:56:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-13 23:56:21,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-13 23:56:21,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 21:13:34,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-14 21:13:34,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-14 21:13:34,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 21:13:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 21:13:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 21:13:48,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 21:13:48,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 21:13:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-14 21:13:56,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 21:13:56,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 22:51:24,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-14 22:51:25,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 22:51:25,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-14 22:51:25,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 22:51:25,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-14 22:51:38,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-14 22:52:01,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 22:52:01,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 22:52:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-14 22:52:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-15 04:48:00,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-15 04:48:00,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-20 16:30:58,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-20 16:30:58,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-20 16:30:58,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-20 16:30:58,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-20 16:30:58,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-20 21:31:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-20 21:31:21,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-20 21:31:21,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-20 21:31:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-20 21:31:46,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-22 22:23:31,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2018-12-22 22:23:31,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2018-12-22 22:23:33,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-22 22:23:33,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-22 22:23:33,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2018-12-23 03:23:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2018-12-23 03:23:54,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-23 03:23:54,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-23 03:26:33,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2018-12-23 03:26:33,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-02 11:52:34,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-02 11:52:34,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-02 11:52:36,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-02 11:52:36,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-02 11:52:36,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-02 16:52:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-02 16:55:04,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-02 16:55:04,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-02 16:55:15,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-02 16:55:15,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 01:59:15,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-06 01:59:15,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-06 01:59:15,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 01:59:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 01:59:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 01:59:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-06 02:04:29,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 02:04:29,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 02:04:35,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 02:04:35,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 15:28:10,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-06 15:28:11,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-06 15:28:11,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 15:28:11,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 15:28:11,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 15:28:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-06 20:28:30,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 20:28:30,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 20:28:38,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 20:28:38,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-06 23:51:34,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-06 23:51:34,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-06 23:51:34,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 23:51:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-06 23:51:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-07 04:51:43,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 04:51:43,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 04:51:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-07 04:51:55,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 04:51:55,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 04:59:44,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-07 04:59:44,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-07 04:59:45,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-07 04:59:45,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-07 04:59:45,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-07 04:59:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-07 05:00:39,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 05:00:39,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 05:00:44,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-07 05:00:44,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-08 12:27:57,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-08 12:27:57,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-08 12:27:58,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-08 12:27:58,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-08 12:27:58,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-08 17:28:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-08 17:28:11,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-08 17:28:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-08 17:28:32,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-08 17:28:32,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-11 16:45:09,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-11 16:45:09,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-11 16:45:10,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-11 16:45:10,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-11 16:45:10,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-11 21:45:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-11 21:45:26,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-11 21:45:26,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-11 21:45:34,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-11 21:45:34,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-12 00:01:08,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2019-01-12 00:01:08,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2019-01-12 00:01:08,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-12 00:01:09,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-12 00:01:09,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2019-01-12 05:01:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2019-01-12 21:03:08,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-12 21:03:08,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-12 21:03:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2019-01-12 21:03:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:20:45,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-07 19:20:46,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-07 19:20:46,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:20:47,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:20:47,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:20:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-07 19:21:04,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:21:04,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:21:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:21:16,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:23:15,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-07 19:23:15,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-07 19:23:15,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:23:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:23:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 19:23:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-07 19:23:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 19:23:36,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-07 17:57:17,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 17:57:19,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 17:57:19,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 17:57:19,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-07 17:57:22,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-07 17:57:22,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-07 18:01:25,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 19:46:18,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 19:46:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 19:58:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 20:01:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 20:19:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 23:07:02,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-07 23:09:38,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-07 23:09:38,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-08 01:24:23,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-08 01:24:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 11:30:32,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-14 11:30:32,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-14 11:30:33,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:30:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:30:34,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:30:44,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-14 11:32:56,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 11:32:57,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:32:58,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:32:58,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-14 11:33:00,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 11:33:00,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 11:33:39,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 12:55:39,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 12:55:41,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 12:55:41,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 12:57:20,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 12:57:32,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 14:40:22,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 15:57:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 21:46:45,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 21:46:48,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 21:46:48,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-14 21:46:51,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-14 23:07:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 13:49:15,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-15 13:49:15,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-15 13:50:57,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 13:50:59,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-15 13:50:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-15 13:50:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-15 13:51:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-15 13:51:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-15 13:51:11,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 14:28:53,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 14:28:56,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 15:28:30,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 16:38:27,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 17:38:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 18:40:02,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 20:57:51,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 20:57:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 21:51:26,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 22:16:42,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-15 23:13:50,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-16 00:48:12,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 16:07:24,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-21 16:07:24,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-21 16:10:52,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-21 16:10:52,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-21 16:10:53,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:10:54,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:10:54,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:11:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-21 16:11:28,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-21 16:11:28,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-21 16:14:24,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 16:14:26,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:14:26,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:14:26,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-21 16:14:29,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-21 16:14:29,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-21 16:14:31,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 17:33:01,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 18:39:18,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 18:40:03,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 18:40:16,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 18:47:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:05:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:11:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:17:42,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:23:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:29:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:35:44,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:41:45,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:47:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:53:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 19:59:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 20:05:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 20:11:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 20:33:43,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 20:33:46,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-21 20:33:46,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-21 20:33:46,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 21:11:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 23:00:45,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-21 23:01:01,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 15:07:58,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-22 15:07:58,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-22 15:07:58,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:08:00,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:08:00,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:08:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 15:12:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-22 15:14:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 15:14:21,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:14:24,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:14:24,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:14:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-22 15:14:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-22 15:38:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 15:38:35,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:38:35,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:38:35,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-22 15:38:37,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-22 15:38:37,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-22 16:05:39,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:13:53,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:29:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:34:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:43:45,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:51:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 16:54:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 17:28:44,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 18:46:24,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 18:55:37,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 18:56:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:14:33,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:19:32,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:25:42,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:31:33,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:37:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:43:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:49:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 20:55:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:01:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:07:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:12:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:13:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:16:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:16:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-22 21:18:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 16:38:50,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 16:38:51,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-23 16:38:51,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-23 16:58:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 16:59:42,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-23 16:59:42,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-23 17:04:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 17:10:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 17:16:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 17:20:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 17:37:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 17:38:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:01:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:03:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:18:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:19:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:19:41,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-23 18:19:42,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-23 18:19:42,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-23 18:19:43,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-23 18:19:43,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-23 18:24:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:30:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:36:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:42:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:48:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 18:54:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-23 19:00:52,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-27 17:18:40,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-11-27 17:18:41,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:18:41,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-11-27 17:18:43,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:18:43,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:19:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-27 17:19:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2020-11-27 17:19:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-11-27 17:20:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-27 17:21:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-27 17:21:57,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:21:57,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:21:57,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-11-27 17:22:00,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-27 17:22:00,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-27 18:00:52,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-27 20:40:06,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-27 20:47:37,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 18:12:11,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 18:12:14,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-28 18:12:14,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-28 18:35:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 18:35:57,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 19:01:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 19:05:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 19:06:23,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 19:07:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 19:23:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 21:43:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 21:45:08,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 21:46:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 21:51:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 21:57:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:03:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:08:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:14:53,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:19:53,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:25:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:31:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-28 22:35:53,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 16:18:15,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 16:18:18,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-29 16:18:18,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-29 16:36:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 16:50:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 16:56:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:02:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:08:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:14:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:20:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:26:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:32:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:38:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:44:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:50:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 17:56:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:02:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:08:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:14:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:20:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:26:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:28:08,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:35:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:41:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:47:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:53:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 18:59:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:05:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:11:32,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:18:33,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:24:33,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:30:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:36:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:42:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:48:37,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 19:54:37,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:00:38,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:06:39,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:15:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:21:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:27:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:33:42,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:39:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:45:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:51:45,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 20:57:45,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:03:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:09:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:15:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:21:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:27:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:33:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:39:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:45:51,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:51:52,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 21:57:53,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:03:54,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:09:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:15:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:21:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:27:57,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:33:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:39:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:45:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:52:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 22:53:08,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-29 23:03:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 12:44:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 12:44:46,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 12:44:49,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-30 12:44:49,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-11-30 12:51:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 12:57:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:03:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:09:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:17:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:30:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:36:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:42:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:48:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 13:54:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:00:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:06:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:12:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:18:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:24:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:30:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:41:19,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:48:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 14:54:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:00:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:06:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:12:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:17:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:24:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:32:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:33:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:34:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:40:48,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 15:47:39,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:00:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:01:07,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:24:10,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:25:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:25:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:26:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:36:25,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:37:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:38:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 16:49:44,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:39:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:39:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:41:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:45:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:51:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 17:58:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:04:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:10:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:16:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:22:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:28:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:41:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:47:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:53:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 18:59:08,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:05:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:11:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:17:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:21:04,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:28:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:42:34,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:50:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 19:56:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:02:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:02:59,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:08:08,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:13:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:20:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:23:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:29:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-11-30 20:47:07,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 11:22:30,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2020-12-01 11:22:33,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2020-12-01 11:22:33,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 11:22:46,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 11:22:46,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 11:24:35,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 11:25:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2020-12-01 11:51:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 11:51:44,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 11:57:45,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:03:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:09:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:15:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:21:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:27:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:33:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:39:49,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:45:08,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:45:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:50:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 12:57:51,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:03:52,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:09:52,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:15:54,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:21:53,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:27:54,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:33:55,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:36:52,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:36:53,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 13:36:53,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 13:36:53,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2020-12-01 13:36:58,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-01 13:36:58,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-01 13:39:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:45:47,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:51:52,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 13:57:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:03:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:10:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:16:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:22:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:26:48,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:28:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:34:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:40:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:46:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:52:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 14:58:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:04:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:10:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:16:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:22:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:28:08,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:34:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:40:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:46:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:52:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 15:58:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:04:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:10:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:16:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:22:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:28:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:34:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:40:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:46:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 16:54:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:00:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:06:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:12:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:18:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:24:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:30:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:36:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:43:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:49:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:55:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-01 17:58:19,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 20:32:56,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 20:32:58,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-05 20:32:58,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-05 20:50:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 20:56:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:02:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:08:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:14:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:20:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:26:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:32:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:38:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:44:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:50:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 21:56:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:02:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:08:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:14:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:20:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:26:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:32:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:38:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:44:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:48:45,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:49:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:54:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:57:44,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 22:58:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:04:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:10:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:16:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:22:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:26:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:32:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:38:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-05 23:44:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 10:41:01,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 10:41:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-06 10:41:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-06 10:56:13,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:15:26,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:22:38,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:29:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:34:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:40:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:46:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 11:52:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 12:37:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 12:42:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 12:49:01,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 12:49:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-06 12:49:04,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-06 12:53:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 12:58:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:05:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:14:50,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:21:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:27:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:33:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:34:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:41:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:47:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:53:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 13:59:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:05:06,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:11:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:18:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:24:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:30:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:36:10,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:42:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:48:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 14:54:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:00:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:06:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:12:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:18:15,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:24:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:30:16,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:36:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:42:17,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:48:18,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 15:54:19,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:00:20,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:06:21,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:12:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:18:22,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:24:23,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:30:24,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:36:25,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:42:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:48:27,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 16:54:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:00:29,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:06:30,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:12:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:14:40,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:18:32,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:24:28,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:33:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:39:34,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:45:35,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:51:36,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 17:57:37,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:03:37,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:09:38,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:15:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:21:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:28:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:34:41,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:40:42,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:46:43,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:52:39,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 18:58:44,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:04:46,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:10:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:16:57,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:22:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:28:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:34:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:41:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:47:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:53:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 19:59:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:05:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:09:32,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:26:54,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:32:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:38:56,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:44:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:50:58,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 20:56:59,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:03:00,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:08:57,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:15:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:21:02,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:27:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:33:04,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:39:05,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:45:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:51:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 21:57:08,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:03:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:09:09,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:15:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:21:11,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:27:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:33:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 22:39:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 23:06:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-06 23:12:14,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 17:39:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 17:40:00,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-07 17:40:00,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-07 17:53:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:00:01,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:05:48,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:17:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:23:03,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:31:54,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:32:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:33:12,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:34:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 18:57:26,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 20:50:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 21:01:57,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 21:13:20,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 21:32:17,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 22:04:31,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 23:13:23,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-07 23:26:39,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-08 11:28:03,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2020-12-08 11:28:06,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-08 11:28:06,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2020-12-08 14:50:56,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-01-04 15:33:06,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-01-04 15:33:06,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-02-03 18:14:01,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2021-02-03 18:14:02,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2021-02-03 18:14:02,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-03 18:14:04,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-03 18:14:04,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-03 18:14:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-02-03 18:14:41,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-02-03 18:15:07,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2021-02-07 13:02:37,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-07 13:02:38,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-07 13:02:39,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-07 13:02:39,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-07 13:02:41,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-07 13:02:41,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-07 18:42:39,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-07 18:42:42,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-07 18:42:42,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-07 20:50:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-07 22:28:56,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-07 22:42:41,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-07 22:43:51,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-02-07 22:43:51,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-02-24 10:21:21,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2021-02-24 10:21:22,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2021-02-24 10:21:22,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:21:24,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:21:24,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:21:57,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2021-02-24 10:22:14,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-24 10:22:16,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:22:16,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:22:16,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:24:28,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-24 10:24:29,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:24:29,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:24:29,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-02-24 10:24:33,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-24 10:24:33,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.10
+2021-02-24 12:27:57,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-02-24 13:07:41,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.10
+2021-03-04 13:59:57,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2021-03-04 13:59:58,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2021-03-04 13:59:58,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 13:59:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 13:59:59,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 14:00:31,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2021-03-04 14:02:07,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-04 14:02:08,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 14:02:08,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 14:02:08,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-04 14:02:12,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-04 14:02:12,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-04 16:19:17,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-04 20:16:53,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-04 20:44:04,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-09 14:20:42,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-09 14:20:44,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-09 14:20:44,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-09 16:23:00,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-09 16:43:44,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-09 16:45:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-09 20:49:36,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-10 09:57:09,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-10 09:57:12,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-10 09:57:12,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-17 15:05:16,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2021-03-17 15:05:16,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:05:16,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2021-03-17 15:05:17,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:05:17,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:05:40,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2021-03-17 15:09:27,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-17 15:09:29,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:09:29,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:09:29,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-03-17 15:09:42,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-17 15:09:42,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-17 17:53:55,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-17 21:32:52,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-21 15:20:00,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-21 15:20:09,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-21 15:20:09,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-31 15:38:42,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-03-31 15:38:45,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-31 15:38:45,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-03-31 16:19:20,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-01 07:49:12,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-01 09:45:26,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-08 13:06:45,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-08 13:06:48,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-08 13:06:48,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-11 15:25:03,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-11 15:25:06,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-11 15:25:06,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-11 16:51:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-11 19:38:58,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-11 20:47:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-11 23:12:23,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-23 10:51:24,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-04-23 10:51:27,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-23 10:51:27,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-04-23 11:37:23,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-05-04 10:49:19,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-05-04 10:49:19,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-06-08 16:44:49,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-06-08 16:44:53,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:44:56,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-06-08 16:44:56,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-06-08 16:44:56,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:44:56,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:51:58,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-06-08 16:51:58,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-06-08 16:53:24,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-06-08 16:53:26,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:53:26,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:53:26,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-06-08 16:53:28,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-06-08 16:53:28,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-01 14:36:13,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-01 14:36:17,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-01 14:36:17,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-06-13 15:30:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-06-13 15:30:07,4624,SANSDFIR,SANS-SIFT,2,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,127.0.0.1
+2021-08-03 13:38:58,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-03 13:39:00,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-03 13:39:00,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-03 13:39:00,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-03 13:39:03,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-03 13:39:03,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-03 23:13:41,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-03 23:14:12,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-04 01:01:43,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-04 09:44:57,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-04 09:45:06,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 00:02:07,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 09:23:39,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 09:24:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 11:30:33,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 11:30:41,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 18:18:51,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-05 18:24:20,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-06 21:57:04,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-06 21:57:07,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-06 21:57:07,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-15 17:55:14,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:34:16,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:35:10,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:42:51,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:45:29,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:46:05,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-15 20:46:24,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-22 13:13:14,4624,SYSTEM,NT AUTHORITY,0,-,-,,-
+2021-08-22 13:13:14,4624,UMFD-0,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\wininit.exe,-
+2021-08-22 13:13:14,4624,UMFD-1,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:13:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:13:16,4624,DWM-1,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:14:13,4624,ANONYMOUS LOGON,NT AUTHORITY,3,NtLmSsp ,-,-,-
+2021-08-22 13:15:14,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-22 13:15:15,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:15:15,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:15:15,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:21:14,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-22 13:21:14,4624,UMFD-2,Font Driver Host,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:21:14,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:21:14,4624,DWM-2,Window Manager,2,Advapi  ,-,C:\Windows\System32\winlogon.exe,-
+2021-08-22 13:21:20,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-22 13:21:20,4624,SANSDFIR,SANS-SIFT,10,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-08-25 17:00:06,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-08-25 17:00:27,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-09-01 16:38:35,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-09-01 16:38:40,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-09-01 16:38:40,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-09-12 15:03:21,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-09-12 15:03:25,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-09-12 15:03:25,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-09-12 19:18:46,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-09-20 10:50:22,4624,SANSDFIR,SANS-SIFT,3,NtLmSsp ,MEA-AHMEDK1,-,192.168.1.9
+2021-09-20 10:50:24,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
+2021-09-20 10:50:24,4624,SANSDFIR,SANS-SIFT,7,User32 ,SANS-SIFT,C:\Windows\System32\svchost.exe,192.168.1.9
