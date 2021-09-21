@@ -25,116 +25,66 @@
 #### Destination
 | Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
-
-ComputerToValidate(Security.evtx, event id= 4776)\
-parsed values: Time created, Logon username, Source workstation
-
-KerberosAuthRequest(Security.evtx, event id =4768)\
-parsed values: Time created, Logon username, Source workstation
-
-KerberosServiceRequest( Security.evtx, event id=4769)\
-parsed values: Time created, Destination hostname, Logon username, Source IP
-
-NetworkShareAccessed (Security.evtx, event id =5140)\
-parsed values: Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name
-
-AuditingofSharedfiles(Security.evtx, event id=5145)\
-parsed values: Time created, Share name, Relative target, Source IP, Accesses
-
+|AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| ComputerToValidate | Security.evtx | 4776 | Time created, Logon username, Source workstation |
+| KerberosAuthRequest | Security.evtx | 4768 | Time created, Logon username, Source workstation |
+| KerberosServiceRequest | Security.evtx | event id=4769 | Time created, Destination hostname, Logon username, Source IP |
+| NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
+| AuditingofSharedfiles | Security.evtx | 5145 | Time created, Share name, Relative target, Source IP, Accesses |
 #### Source
-ExplicitCreds (Security.evtx, event id =4648)\
-parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
-
-FailedLogintoDestination (Microsoft-WindowsSmbClient%4Security.evtx , event id=31001)\
-TODO
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
+| FailedLogintoDestination | Microsoft-WindowsSmbClient%4Security.evtx | 31001| TODO
 
 ## Remote Execution
 ### PsExec
 #### Destination
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
-
-NetworkShareAccessed (Security.evtx, event id =5140)\
-parsed values: Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name
-
-ServiceInstall (System.evtx, event id =7045)\
-parsed values: Time created, Service name, Service file name, Service type, Service start type
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
+| ServiceInstall | System.evtx | event id =7045 | Time created, Service name, Service file name, Service type, Service start type |
 
 #### Source
-ExplicitCreds (Security.evtx, event id =4648)\
-parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
 
 ### Scheduled Tasks
 #### Destination
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
-
-ScheduleTaskCreated (Security.evtx, event id= 4698)\
-parsed values: Time created, Logon username, Task name, Task content
-
-ScheduleTaskDeleted (Security.evtx, event id= 4699)\
-parsed values: Time created, Logon username, Task name, Task content
-
-ScheduleTaskEnabled (Security.evtx, event id= 4700)\
-parsed values: Time created, Logon username, Task name, Task content
-
-ScheduleTaskDisabled (Security.evtx, event id= 4701)\
-parsed values: Time created, Logon username, Task name, Task content
-
-ScheduleTaskUpdated (Security.evtx, event id= 4702)\
-parsed values: Time created, Logon username, Task name, Task content
-
-CreatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 106)\
-parsed values: Time created, Task name, Logon username
-
-UpdatingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 140)\
-parsed values: Time created, Task name, Logon username
-
-DeletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id =141 )\
-parsed values: Time created, Task name, Logon username, Instance
-
-ExecutingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id 200)\
-parsed values: Time created, Task name, Logon username, Task action, Instance
-
-CompletingTaskSchedulerTask (Microsoft-Windows-TaskScheduler%4Maintenance.evtx, event id= 201)\
-parsed values: Time created, Task name, Logon username,Task action, Instance
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP | 
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| ScheduleTaskCreated | Security.evtx | 4698| Time created, Logon username, Task name, Task content |
+| ScheduleTaskDeleted | Security.evtx | 4699 | Time created, Logon username, Task name, Task content |
+| ScheduleTaskEnabled | Security.evtx | 4700 | Time created, Logon username, Task name, Task content |
+| ScheduleTaskDisabled | Security.evtx | 4701 | Time created, Logon username, Task name, Task content |
+| ScheduleTaskUpdated | Security.evtx | 4702 | Time created, Logon username, Task name, Task content |
+| CreatingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 106 | Time created, Task name, Logon username |
+| UpdatingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 140 | Time created, Task name, Logon username |
+| DeletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 141 | Time created, Task name, Logon username, Instance |
+| ExecutingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 200 | Time created, Task name, Logon username, Task action, Instance |
+| CompletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 201 | Time created, Task name, Logon username,Task action, Instance |
 #### Source
-ExplicitCreds (Security.evtx, event id =4648)\
-parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
 
 ### Services
 #### Destination
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
-
-ServiceCrashed (System.evtx, event id=7034)\
-parsed values :Time created, Service name, Times
-
-ServiceSentControl (System.evtx, event id=7035)\
-parsed values :Time created, Service name, Request sent
-
-ServiceStartorStop (System.evtx, event id=7036)\
-parsed values :Time created, Service name, State
-
-StartTypeChanged (System.evtx, event id =7040)\
-parsed values: Time created, Service name, Changed from, Changed to
-
-ServiceInstall (System.evtx, event id =7045)\
-parsed values: Time created, Service name, Service file name, Service type, Service start type
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| ServiceCrashed | System.evtx | 7034 | Time created, Service name, Times |
+| ServiceSentControl | System.evtx | 7035 | Time created, Service name, Request sent |
+| ServiceStartorStop | System.evtx | 7036 | Time created, Service name, State |
+| StartTypeChanged | System.evtx | 7040 | Time created, Service name, Changed from, Changed to |
+| ServiceInstall | System.evtx | 7045 | Time created, Service name, Service file name, Service type, Service start type |
 
 ### WMI/WMIC
 #### Destination 
