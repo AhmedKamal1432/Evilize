@@ -2,9 +2,9 @@
 ## Remote Access
 ### Remote Desktop 
 #### Destination
-| Event log | Parsed values |
-| --- | --- |
-| AllSuccessfulLogons (Security.evtx, event id= 4624) | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP|
+| Event Name | Event Log | Event ID |Parsed values |
+| --- | --- | -- | -- |
+| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP|
 | RDPreconnected (Security.evtx, event id= 4778)| Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
 | RDPDisconnected (Security.evtx, event id= 4779) | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
 | RDPConnectionAttempts (Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx, event id =131) | Time created, Destination host name, Transport layer protocol, Client IP |
