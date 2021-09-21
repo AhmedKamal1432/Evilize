@@ -88,11 +88,8 @@
 
 ### WMI/WMIC
 #### Destination 
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
+| AllSuccessfulLogons | Security.evtx | event id= 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | event id =4672 | Time created, Login ID, Logon username, Account domain |
 
 SystemQueryWMI (Microsoft-Windows-WMI-Activity%4Operational.evtx, event id =5857)\
 parsed values: Time created, dll path
