@@ -1,12 +1,11 @@
-Write-Host  "Welcome to Evilize" 
-$Logs_Path = Read-Host -Prompt "Please, Enter Events logs path" 
+$Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
 $Destination_Path=Read-Host -Prompt "Please, Enter Path of Results you want to save to"
 
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
 $DestPathTest=Test-Path -Path "$Destination_Path"
 if((($LogsPathTest -eq $true) -and ($DestPathTest -eq $true)) -ne $true ){
-        Write-Host "Error 0x001: Invalid Paths, Enter a valid path"
+        Write-Host "Error: Invalid Paths, Enter a valid path"
         exit
     }
 ##Create Results Directory
@@ -18,17 +17,55 @@ if ($DestPathTest -eq $false) {
     New-Item -Path $Destination_Path -ItemType Directory    
 }
 
-#Event Logs Paths
+## Convert evt to evtx
+$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
 $Security_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
+$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
 $System_Path= Join-Path -Path $Logs_Path -ChildPath "System.evtx"
 $RDPCORETS_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx"
+$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
 $WMI_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evtx"
+$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
 $PowerShellOperational_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evtx"
+$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
 $WinPowerShell_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evtx"
+$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
 $WinRM_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evtx"
+$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
 $TaskScheduler_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evtx"
+$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
 $TerminalServices_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
+$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
 $RemoteConnection_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
+$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
+
+function Evt2Evtx {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$EvtPath,
+        [Parameter(Mandatory=$true)]
+        [string]$EvtxPath
+    )
+    if (((Test-Path -Path $EvtPath) -eq $true) -and ((Test-Path -Path $EvtxPath) -eq $false)) {
+        wevtutil epl $EvtPath $EvtxPath /lf:true    
+    }
+    else {
+        return
+    }   
+}
+Evt2Evtx $Securityevt_Path $Security_Path
+Evt2Evtx $Systemevt_Path  $System_Path
+Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
+Evt2Evtx $WMIevt_Path $WMI_Path
+Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
+Evt2Evtx $WinRMevt_Path $WinRM_Path
+Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
+Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
+Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
+Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
+#Event Logs Paths
+
+
 
 ## Testing if the log file exist ? 
 $Valid_Security_Path= Test-Path -Path $Security_Path
