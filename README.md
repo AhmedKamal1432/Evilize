@@ -88,31 +88,25 @@
 
 ### WMI/WMIC
 #### Destination 
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
 | AllSuccessfulLogons | Security.evtx | event id= 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
 | AdminLogonCreated | Security.evtx | event id =4672 | Time created, Login ID, Logon username, Account domain |
-
-SystemQueryWMI (Microsoft-Windows-WMI-Activity%4Operational.evtx, event id =5857)\
-parsed values: Time created, dll path
-
-TemporaryEventConsumer (Microsoft-Windows-WMI-Activity%4Operational.evtx, event id=5860)\
-parsed values: Time created,namespace, query
-
-PermenantEventConsumer (Microsoft-Windows-WMI-Activity%4Operational.evtx, event id=5861)\
-parsed values: Time created,name space, query)
- 
+| SystemQueryWMI | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5857 | Time created, dll path |
+| TemporaryEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5860 | Time created,namespace, query |
+| PermenantEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5861 | Time created,name space, query |
 #### Source
-ExplicitCreds (Security.evtx, event id =4648)\
-parsed values: Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
 
 ### PowerShell Remoting
 #### Destination
-AllSuccessfulLogons (Security.evtx, event id= 4624)\
-parsed values: Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
-
-AdminLogonCreated(Security.evtx, event id =4672)\
-parsed values: Time created, Login ID, Logon username, Account domain
-
-ScriptBlockLogging( Microsoft-Windows-PowerShell%4Operational.evtx, event id =4103)\
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| ScriptBlockLogging | Microsoft-Windows-PowerShell%4Operational.evtx | 4103 | 
 
 
 
