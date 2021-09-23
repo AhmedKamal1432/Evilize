@@ -1,10 +1,10 @@
-mkdir RemoteDesktop
-mkdir MapNetworkShares
-mkdir PsExec
-mkdir ScheduledTasks
-mkdir WMI_WMIC
-mkdir Services
-mkdir PowerShellRemoting
+mkdir RemoteDesktopcsv
+mkdir MapNetworkSharescsv
+mkdir PsExeccsv
+mkdir ScheduledTaskscsv
+mkdir WMI_WMICcsv
+mkdir Servicescsv
+mkdir PowerShellRemotingcsv
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
 
 ## Convert evt to evtx
@@ -52,45 +52,45 @@ Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
 	#Remote desktop
 		#destination#
 . .\RemoteDesktop\AllSuccessfulLogons.ps1
-Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path RemoteDesktop\AllSuccessfulLogons.csv -NoTypeInformation 
+Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path RemoteDesktopcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 . .\RemoteDesktop\RDPreconnected.ps1
-Get-RDPreconnected -Path $Security_Path  | Export-Csv -Path RemoteDesktop\RDPreconnected.csv -NoTypeInformation 
+Get-RDPreconnected -Path $Security_Path  | Export-Csv -Path RemoteDesktopcsv\RDPreconnected.csv -NoTypeInformation 
 
 . .\RemoteDesktop\RDPDisconnected.ps1
-Get-RDPDisconnected -Path $Security_Path  | Export-Csv -Path RemoteDesktop\RDPDisconnected.csv -NoTypeInformation
+Get-RDPDisconnected -Path $Security_Path  | Export-Csv -Path RemoteDesktopcsv\RDPDisconnected.csv -NoTypeInformation
 
 . .\RemoteDesktop\RDPConnectionAttempts.ps1
-Get-RDPConnectionAttempts -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktop\RDPConnectionAttempts.csv -NoTypeInformation
+Get-RDPConnectionAttempts -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktopcsv\RDPConnectionAttempts.csv -NoTypeInformation
 
 . .\RemoteDesktop\RDPSuccessfulConnections.ps1
-Get-RDPSuccessfulConnections -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktop\RDPSuccessfulConnections.csv -NoTypeInformation
+Get-RDPSuccessfulConnections -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktopcsv\RDPSuccessfulConnections.csv -NoTypeInformation
 
 . .\RemoteDesktop\UserAuthSucceeded.ps1
-Get-UserAuthSucceeded -Path $RemoteConnection_Path | Export-Csv -Path RemoteDesktop\UserAuthSucceeded.csv -NoTypeInformation
+Get-UserAuthSucceeded -Path $RemoteConnection_Path | Export-Csv -Path RemoteDesktopcsv\UserAuthSucceeded.csv -NoTypeInformation
 
 . .\RemoteDesktop\RDPSessionLogonSucceed.ps1
-Get-RDPSessionLogonSucceed -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktop\RDPSessionLogonSucceed.csv -NoTypeInformation
+Get-RDPSessionLogonSucceed -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktopcsv\RDPSessionLogonSucceed.csv -NoTypeInformation
 
 . .\RemoteDesktop\RDPShellStartNotificationReceived.ps1
-Get-RDPShellStartNotificationReceived -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktop\RDPShellStartNotificationReceived.csv -NoTypeInformation
+Get-RDPShellStartNotificationReceived -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktopcsv\RDPShellStartNotificationReceived.csv -NoTypeInformation
 
 . .\RemoteDesktop\RDPShellSessionReconnectedSucceeded.ps1
-Get-RDPShellSessionReconnectedSucceeded -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktop\RDPShellSessionReconnectedSucceeded.csv -NoTypeInformation
+Get-RDPShellSessionReconnectedSucceeded -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktopcsv\RDPShellSessionReconnectedSucceeded.csv -NoTypeInformation
 
 . .\RDPbeginSession.ps1
-Get-RDPbeginSession -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktop\RDPbeginSession.csv -NoTypeInformation
+Get-RDPbeginSession -Path $TerminalServices_Path  | Export-Csv -Path RemoteDesktopcsv\RDPbeginSession.csv -NoTypeInformation
 
 # Remote Access
 	#Remote desktop
 		#source
-#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktop\ExplicitCreds.ps1
+#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopcsv\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path RemoteDesktop\ExplicitCreds.csv -NoTypeInformation
 
-#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktop\RDPConnectingtoServer.ps1
+#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopcsv\RDPConnectingtoServer.ps1
 #Get-RDPConnectingtoServer -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktop\RDPConnectingtoServer.csv -NoTypeInformation
 
-#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopRDPConnectionInitiated.ps1
+#. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopcsv\RDPConnectionInitiated.ps1
 #Get-RDPConnectionInitiated  -Path $RDPCORETS_Path  | Export-Csv -Path RemoteDesktop\RDPConnectionInitiated.csv -NoTypeInformation
 #################################################################################################################################################3
 
@@ -98,30 +98,30 @@ Get-RDPbeginSession -Path $TerminalServices_Path  | Export-Csv -Path RemoteDeskt
 	# Map Network Shares 
 		#destination
 #. .\MapNetworkShares\NetworkLogons.ps1
-#Get-NetworkLogons -Path $Security_Path  | Export-Csv -Path MapNetworkShares\NetworkLogons.csv -NoTypeInformation
+#Get-NetworkLogons -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\NetworkLogons.csv -NoTypeInformation
 
 . .\MapNetworkShares\AdminLogonCreated.ps1
-Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path MapNetworkShares\AdminLogonCreated.csv -NoTypeInformation
+Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\AdminLogonCreated.csv -NoTypeInformation
 
 . .\MapNetworkShares\ComputerToValidate.ps1
-Get-ComputerToValidate -Path $Security_Path  | Export-Csv -Path MapNetworkShares\ComputerToValidate.csv -NoTypeInformation
+Get-ComputerToValidate -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\ComputerToValidate.csv -NoTypeInformation
 
 . .\MapNetworkShares\KerberosAuthRequest.ps1
-Get-KerberosAuthRequest -Path $Security_Path  | Export-Csv -Path MapNetworkShares\KerberosAuthRequest.csv -NoTypeInformation
+Get-KerberosAuthRequest -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\KerberosAuthRequest.csv -NoTypeInformation
 
 . .\MapNetworkShares\KerberosServiceRequest.ps1
-Get-KerberosServiceRequest -Path $Security_Path  | Export-Csv -Path MapNetworkShares\KerberosServiceRequest.csv -NoTypeInformation
+Get-KerberosServiceRequest -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\KerberosServiceRequest.csv -NoTypeInformation
 
 . .\MapNetworkShares\NetworkShareAccessed.ps1
-Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path MapNetworkShares\NetworkShareAccessed.csv -NoTypeInformation
+Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\NetworkShareAccessed.csv -NoTypeInformation
 
 . .\MapNetworkShares\AuditingofSharedfiles.ps1
-Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path MapNetworkShares\AuditingofSharedfiles.csv -NoTypeInformation
+Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\AuditingofSharedfiles.csv -NoTypeInformation
 # Remote Access 
 	#Map Network Shares
 		# source
 #. .\MapNetworkShares\ExplicitCreds.ps1
-#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path MapNetworkShares\ExplicitCreds.csv -NoTypeInformation
+#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path MapNetworkSharescsv\ExplicitCreds.csv -NoTypeInformation
 
 #FailedLogintoDestination TODO
 
@@ -131,21 +131,21 @@ Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path MapNetworkSha
 	#PsExec
 		#Destination
 #. .\PsExec\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path PsExec\AllSuccessfulLogons.csv -NoTypeInformation 
+#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path PsExeccsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 #. .\PsExec\AdminLogonCreated.ps1
-#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path PsExec\AdminLogonCreated.csv -NoTypeInformation
+#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path PsExeccsv\AdminLogonCreated.csv -NoTypeInformation
 
 . .\PsExec\NetworkShareAccessed.ps1
-Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path PsExec\NetworkShareAccessed.csv -NoTypeInformation
+Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path PsExeccsv\NetworkShareAccessed.csv -NoTypeInformation
 
 . .\PsExec\ServiceInstall.ps1
-Get-ServiceInstall -Path $System_Path  | Export-Csv -Path PsExec\ServiceInstall.csv -NoTypeInformation
+Get-ServiceInstall -Path $System_Path  | Export-Csv -Path PsExeccsv\ServiceInstall.csv -NoTypeInformation
 #Remote Execution
 	#PsExec
 		#source
 #. .\PsExec\ExplicitCreds.ps1
-#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path PsExec\ExplicitCreds.csv -NoTypeInformation
+#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path PsExeccsv\ExplicitCreds.csv -NoTypeInformation
 
 ############################################################################################################################
 
@@ -153,95 +153,95 @@ Get-ServiceInstall -Path $System_Path  | Export-Csv -Path PsExec\ServiceInstall.
 	#Scheduled Tasks
 		#Destination
 #. .\ScheduledTasks\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path ScheduledTasks\AllSuccessfulLogons.csv -NoTypeInformation 
+#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path ScheduledTaskscsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 #. .\ScheduledTasks\AdminLogonCreated.ps1
-#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path ScheduledTasks\AdminLogonCreated.csv -NoTypeInformation
+#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path ScheduledTaskscsv\AdminLogonCreated.csv -NoTypeInformation
 
 . .\ScheduledTasks\ScheduleTaskCreated.ps1
-Get-ScheduleTaskCreated -Path $Security_Path | Export-Csv -Path ScheduledTasks\ScheduleTaskCreated.csv -NoTypeInformation
+Get-ScheduleTaskCreated -Path $Security_Path | Export-Csv -Path ScheduledTaskscsv\ScheduleTaskCreated.csv -NoTypeInformation
 
 . .\ScheduledTasks\ScheduleTaskDeleted.ps1
-Get-ScheduleTaskDeleted -Path  $Security_Path | Export-Csv -Path ScheduledTasks\ScheduleTaskDeleted.csv -NoTypeInformation
+Get-ScheduleTaskDeleted -Path  $Security_Path | Export-Csv -Path ScheduledTaskscsv\ScheduleTaskDeleted.csv -NoTypeInformation
 
 . .\ScheduledTasks\ScheduleTaskEnabled.ps1
-Get-ScheduleTaskEnabled -Path  $Security_Path | Export-Csv -Path ScheduledTasks\ScheduleTaskEnabled.csv -NoTypeInformation
+Get-ScheduleTaskEnabled -Path  $Security_Path | Export-Csv -Path ScheduledTaskscsv\ScheduleTaskEnabled.csv -NoTypeInformation
 
 . .\ScheduledTasks\ScheduleTaskDisabled.ps1
-Get-ScheduleTaskDisabled -Path  $Security_Path | Export-Csv -Path ScheduledTasks\ScheduleTaskDisabled.csv -NoTypeInformation
+Get-ScheduleTaskDisabled -Path  $Security_Path | Export-Csv -Path ScheduledTaskscsv\ScheduleTaskDisabled.csv -NoTypeInformation
 
 . .\ScheduledTasks\ScheduleTaskUpdated.ps1
-Get-ScheduleTaskUpdated -Path  $Security_Path | Export-Csv -Path ScheduledTasks\ScheduleTaskUpdated.csv -NoTypeInformation
+Get-ScheduleTaskUpdated -Path  $Security_Path | Export-Csv -Path ScheduledTaskscsv\ScheduleTaskUpdated.csv -NoTypeInformation
 
 . .\ScheduledTasks\CreatingTaskSchedulerTask .ps1
-Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTasks\CreatingTaskSchedulerTask .csv -NoTypeInformation
+Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTaskscsv\CreatingTaskSchedulerTask .csv -NoTypeInformation
 
 . .\ScheduledTasks\UpdatingTaskSchedulerTask.ps1
-Get-UpdatingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTasks\UpdatingTaskSchedulerTask.csv -NoTypeInformation
+Get-UpdatingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTaskscsv\UpdatingTaskSchedulerTask.csv -NoTypeInformation
 
 . .\ScheduledTasks\DeletingTaskSchedulerTask .ps1
-Get-DeletingTaskSchedulerTask  -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTasks\DeletingTaskSchedulerTask .csv -NoTypeInformation
+Get-DeletingTaskSchedulerTask  -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTaskscsv\DeletingTaskSchedulerTask .csv -NoTypeInformation
 
 . .\ScheduledTasks\ExecutingTaskSchedulerTask.ps1
-Get-ExecutingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTasks\ExecutingTaskSchedulerTask.csv -NoTypeInformation
+Get-ExecutingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTaskscsv\ExecutingTaskSchedulerTask.csv -NoTypeInformation
 
 . .\ScheduledTasks\CompletingTaskSchedulerTask.ps1
-Get-CompletingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTasks\CompletingTaskSchedulerTask.csv -NoTypeInformation
+Get-CompletingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path ScheduledTaskscsv\CompletingTaskSchedulerTask.csv -NoTypeInformation
 #Remote Execution
 	#Scheduled Tasks
 		#source
 #. .\ScheduledTasks\ExplicitCreds.ps1
-#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path ScheduledTasks\ExplicitCreds.csv -NoTypeInformation
+#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path ScheduledTaskscsv\ExplicitCreds.csv -NoTypeInformation
 
 #####################################################################################################################################
 #Remote Execution
 	#services
 		#destination
 #. .\Services\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Services\AllSuccessfulLogons.csv -NoTypeInformation 
+#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Servicescsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 . .\Services\ServiceInstalledonSystem.ps1
-Get-ServiceInstalledonSystem -Path $Security_Path  | Export-Csv -Path Services\ServiceInstalledonSystem.csv -NoTypeInformation
+Get-ServiceInstalledonSystem -Path $Security_Path  | Export-Csv -Path Servicescsv\ServiceInstalledonSystem.csv -NoTypeInformation
 
 . .\Services\ServiceCrashed.ps1
-Get-ServiceCrashed-Path $System_Path  | Export-Csv -Path Services\ServiceCrashed.csv -NoTypeInformation
+Get-ServiceCrashed-Path $System_Path  | Export-Csv -Path Servicescsv\ServiceCrashed.csv -NoTypeInformation
 
 . .\Services\ServiceSentControl.ps1
-Get-ServiceSentControl -Path $System_Path  | Export-Csv -Path Services\ServiceSentControl.csv -NoTypeInformation
+Get-ServiceSentControl -Path $System_Path  | Export-Csv -Path Servicescsv\ServiceSentControl.csv -NoTypeInformation
 
 . .\Services\ServiceStartorStop.ps1
-Get-ServiceStartorStop-Path $System_Path  | Export-Csv -Path Services\ServiceStartorStop.csv -NoTypeInformation
+Get-ServiceStartorStop-Path $System_Path  | Export-Csv -Path Servicescsv\ServiceStartorStop.csv -NoTypeInformation
 
 . .\Services\StartTypeChanged.ps1
-Get-StartTypeChanged -Path $System_Path  | Export-Csv -Path Services\StartTypeChanged.csv -NoTypeInformation
+Get-StartTypeChanged -Path $System_Path  | Export-Csv -Path Servicescsv\StartTypeChanged.csv -NoTypeInformation
 
 #. .\Services\ServiceInstall.ps1
-#Get-ServiceInstall -Path $System_Path  | Export-Csv -Path Services\ServiceInstall.csv -NoTypeInformation
+#Get-ServiceInstall -Path $System_Path  | Export-Csv -Path Servicescsv\ServiceInstall.csv -NoTypeInformation
 
 ####################################################################################################################################
 #Remote Execution
 	#WMI\WMIC
 		#destination
 #. .\WMI_WMIC\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path WMI_WMIC\AllSuccessfulLogons.csv -NoTypeInformation 
+#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path WMI_WMICcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 . .\WMI_WMICAdminLogonCreated.ps1
-Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path WMI_WMIC\AdminLogonCreated.csv -NoTypeInformation
+Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path WMI_WMICcsv\AdminLogonCreated.csv -NoTypeInformation
 
 . .\WMI_WMIC\SystemQueryWMI.ps1
-Get-SystemQueryWMI -Path $WinRM_Path  | Export-Csv -Path WMI_WMIC\SystemQueryWMI.csv -NoTypeInformation
+Get-SystemQueryWMI -Path $WinRM_Path  | Export-Csv -Path WMI_WMICcsv\SystemQueryWMI.csv -NoTypeInformation
 
 . .\WMI_WMIC\TemporaryEventConsumer.ps1
-Get-TemporaryEventConsumer -Path $WinRM_Path | Export-Csv -Path WMI_WMIC\TemporaryEventConsumer.csv -NoTypeInformation
+Get-TemporaryEventConsumer -Path $WinRM_Path | Export-Csv -Path WMI_WMICcsv\TemporaryEventConsumer.csv -NoTypeInformation
 
 . .\WMI_WMIC\PermenantEventConsumer.ps1
-Get-PermenantEventConsumer -Path $WinRM_Path   | Export-Csv -Path WMI_WMIC\PermenantEventConsumer.csv -NoTypeInformation
+Get-PermenantEventConsumer -Path $WinRM_Path   | Export-Csv -Path WMI_WMICcsv\PermenantEventConsumer.csv -NoTypeInformation
 
 #Remote Execution
 	#WMI\WMIC
 		#source
 #. .\WMI\WMIC\ExplicitCreds.ps1
-#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path WMI_WMIC\ExplicitCreds.csv -NoTypeInformation
+#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path WMI_WMICcsv\ExplicitCreds.csv -NoTypeInformation
 ####################################################################################################################################3
 
 #Remote Execution
@@ -249,28 +249,28 @@ Get-PermenantEventConsumer -Path $WinRM_Path   | Export-Csv -Path WMI_WMIC\Perme
 		#destination
 
 #. .\PowerShellRemoting\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path PowerShellRemoting\AllSuccessfulLogons.csv -NoTypeInformation 
+#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path PowerShellRemotingcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 #. .\PowerShellRemoting\AdminLogonCreated.ps1
-#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path PowerShellRemoting\AdminLogonCreated.csv -NoTypeInformation
+#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path PowerShellRemotingcsv\AdminLogonCreated.csv -NoTypeInformation
 
 . .\PowerShellRemoting\ScriptBlockLogging.ps1
-Get-ScriptBlockLogging -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemoting\ScriptBlockLogging.csv -NoTypeInformation
+Get-ScriptBlockLogging -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemotingcsv\ScriptBlockLogging.csv -NoTypeInformation
 
 . .\PowerShellRemoting\ScriptBlockAuditing.ps1
-Get-ScriptBlockAuditing -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemoting\ScriptBlockAuditing.csv -NoTypeInformation
+Get-ScriptBlockAuditing -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemotingcsv\ScriptBlockAuditing.csv -NoTypeInformation
 
 . .\PowerShellRemoting\LateralMovementDetection.ps1
-LateralMovementDetection -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemoting\LateralMovementDetection.csv -NoTypeInformation
+LateralMovementDetection -Path $PowerShellOperational_Path  | Export-Csv -Path PowerShellRemotingcsv\LateralMovementDetection.csv -NoTypeInformation
 
 . .\PowerShellRemoting\StartPSRemoteSession.ps1
-Get-StartPSRemoteSession -Path $WinPowerShell_Path  | Export-Csv -Path PowerShellRemoting\StartPSRemoteSession.csv -NoTypeInformation
+Get-StartPSRemoteSession -Path $WinPowerShell_Path  | Export-Csv -Path PowerShellRemotingcsv\StartPSRemoteSession.csv -NoTypeInformation
 
 . .\PowerShellRemoting\EndPSRemoteSession.ps1
-Get-EndPSRemoteSession -Path $WinPowerShell_Path | Export-Csv -Path PowerShellRemoting\EndPSRemoteSession.csv -NoTypeInformation
+Get-EndPSRemoteSession -Path $WinPowerShell_Path | Export-Csv -Path PowerShellRemotingcsv\EndPSRemoteSession.csv -NoTypeInformation
 
 . .\PowerShellRemoting\PipelineExecution.ps1
-Get-PipelineExecution -Path $WinPowerShell_Path| Export-Csv -Path PowerShellRemoting\PipelineExecution.csv -NoTypeInformation
+Get-PipelineExecution -Path $WinPowerShell_Path| Export-Csv -Path PowerShellRemotingcsv\PipelineExecution.csv -NoTypeInformation
 
 #Remote Execution
 	#powershell remoting
