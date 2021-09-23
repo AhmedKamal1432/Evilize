@@ -106,7 +106,29 @@
 | --- | --- | -- | -- |
 | AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
 | AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| ScriptBlockLogging | Microsoft-Windows-PowerShell%4Operational.evtx | 4103 | 
+| ScriptBlockLogging | Microsoft-Windows-PowerShell%4Operational.evtx | 4103 | Time created, Command invoced |
+| ScriptBlockAuditing | Microsoft-Windows-PowerShell%4Operational.evtx |4104 | Time created, Command invoced |
+| LateralMovementDetection | Microsoft-Windows-PowerShell%4Operational.evtx | 53504 | Time created, App domain |
+| StartPSRemoteSession | Windows PowerShell.evtx | 400 | Time created, Details |
+| EndPSRemoteSession | Windows PowerShell.evtx | 403 | Time created, Details |
+| PipelineExecution | Windows PowerShell.evtx | 800 | Time created, Command line, Context information, Details |
+| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | TODO |
+| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | TODO |
+ #### Source
+| Event Name | Event Log | ID |Parsed values |
+| --- | --- | -- | -- |
+| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
+| OpeningWSManSession | Microsoft-Windows-WinRM%4Operational.evtx | 6 | TODO |
+| ClosingWSManSession | Microsoft-Windows-WinRM%4Operational.evtx | 8 | Time created, Logon username |
+| ClosingWSManCommand | Microsoft-Windows-WinRM%4Operational.evtx | 15 | Time created, Logon username |
+| ClosingWSManShell | Microsoft-Windows-WinRM%4Operational.evtx | 16 | Time created, Logon username |
+| ClosingWSManSessionSucceeded | Microsoft-Windows-WinRM%4Operational.evtx | 33 | Time created, Logon username |
+| TODO |
+| TODO |
+| CreatingRunspaceObject | Microsoft-Windows-PowerShell%4Operational | 8193 | Time created, Instance ID |
+| CreatingRunspacePoolObject | Microsoft-Windows-PowerShell%4Operational | 8194 | Time created, Instance ID |
+| RunspaceState | Microsoft-Windows-PowerShell%4Operational | 8197 | Time created, Runspace state |
+
 
 
 
