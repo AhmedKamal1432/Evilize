@@ -5,7 +5,7 @@ function Get-ServiceSentControl  {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=7035; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=7035; Path = $Path } -ErrorAction SilentlyContinue
 $global:ServiceSentControlcount=0
 $A | ForEach-Object -process{
        
