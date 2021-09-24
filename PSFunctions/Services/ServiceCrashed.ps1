@@ -19,5 +19,5 @@ $A | ForEach-Object -process{
 	$global:ServiceCrashedcount++
     $Logon
 
-} 
+} }
 "Number of ServiceCrashed  events:"+ $ServiceCrashedcount
