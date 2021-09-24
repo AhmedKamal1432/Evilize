@@ -7,7 +7,7 @@ function Get-ServiceInstall {
     )
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
-    $A = Get-WinEvent -FilterHashtable @{ Id=7045; Path = $Path }
+    $A = Get-WinEvent -FilterHashtable @{ Id=7045; Path = $Path } -ErrorAction SilentlyContinue
 	$global:ServiceInstallcount=0
     $A | ForEach-Object -process{
         $service = New-Object psobject
