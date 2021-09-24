@@ -5,7 +5,7 @@ function Get-ServiceInstalledonSystem {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4697; Path = 'logs\Security.evtx' }
+$A = Get-WinEvent -FilterHashtable @{ Id=4697; Path = $Path }
 $global:ServiceInstalledonSystemcount=0
 $A | ForEach-Object -process{
        
