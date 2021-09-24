@@ -1,0 +1,4 @@
+# ignore Results directory
+CSVResults/*
+# ignore csv files
+*.csv
