@@ -5,7 +5,7 @@ function Get-RDPreconnected {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4778; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=4778; Path = $Path } -ErrorAction SilentlyContinue
 $global:RDPreconnectedcount = 0
 $A | ForEach-Object -process{
 
