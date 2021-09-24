@@ -5,7 +5,7 @@ function Get-ScheduleTaskCreated {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{ Id=4698; Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{ Id=4698; Path = $Path } -ErrorAction SilentlyContinue
 $global:ScheduleTaskCreatedcount=0
 $A | ForEach-Object -process{
        	
