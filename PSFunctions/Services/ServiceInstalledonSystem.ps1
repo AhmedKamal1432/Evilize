@@ -30,5 +30,5 @@ $A | ForEach-Object -process{
 	$global:ServiceInstalledonSystemcount++
     $Logon
 
-} 
+} }
 "Number of ServiceInstalledonSystem  events:"+ $ServiceInstalledonSystemcount
