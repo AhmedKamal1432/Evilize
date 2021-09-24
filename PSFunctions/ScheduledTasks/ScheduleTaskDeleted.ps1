@@ -5,7 +5,7 @@ function Get-ScheduleTaskDeleted {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{ Id=4699; Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{ Id=4699; Path = $Path } -ErrorAction SilentlyContinue
 $global:ScheduleTaskDeletedcount=0
 $A | ForEach-Object -process{
        	
