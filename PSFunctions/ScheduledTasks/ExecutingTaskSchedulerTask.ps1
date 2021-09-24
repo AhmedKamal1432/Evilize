@@ -5,7 +5,7 @@ function Get-ExecutingTaskSchedulerTask {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=200; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=200; Path = $Path } -ErrorAction SilentlyContinue
 $global:ExecutingTaskSchedulerTaskcount = 0
 $A | ForEach-Object -process{
 
