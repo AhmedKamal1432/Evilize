@@ -5,7 +5,7 @@ function Get-AdminLogonCreated{
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4672; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=4672; Path = $Path } -ErrorAction SilentlyContinue
 $global:AdminLogonCreatedcount=0
 $A | ForEach-Object -process{
        
