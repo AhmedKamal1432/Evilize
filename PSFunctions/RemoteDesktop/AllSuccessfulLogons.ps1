@@ -5,7 +5,7 @@ function Get-AllSuccessfulLogons {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4624; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=4624; Path = $Path } -ErrorAction SilentlyContinue
 $global:SuccessfullLogoncount = 0
 $A | ForEach-Object -process{
 
