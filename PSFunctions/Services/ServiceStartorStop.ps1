@@ -19,5 +19,5 @@ $A | ForEach-Object -process{
 	$global:ServiceStartorStopcount++
     $Logon
 
-} 
+} }
 "Number of ServiceStartorStop  events:"+ $ServiceStartorStopcount
