@@ -6,7 +6,7 @@ function Get-EndPSRemoteSession {
         [String] $LogID = "200"
     )
 	
-$A= Get-WinEvent -FilterHashtable @{Id=403 ;Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{Id=403 ;Path = $Path } -ErrorAction SilentlyContinue
 $global:EndPSRemoteSessioncount=0
 $A | ForEach-Object -process{
 	
