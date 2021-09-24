@@ -5,7 +5,7 @@ function Get-SystemQueryWMI {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=5857; Path = $Path}
+$A = Get-WinEvent -FilterHashtable @{ Id=5857; Path = $Path} -ErrorAction SilentlyContinue
 $global:SystemQueryWMIcount=0
 $A | ForEach-Object -process{
        
