@@ -5,7 +5,7 @@ function Get-TemporaryEventConsumer {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{Id=5860 ;Path = $Path 	}
+$A= Get-WinEvent -FilterHashtable @{Id=5860 ;Path = $Path } -ErrorAction SilentlyContinue
 $global:TemporaryEventConsumercount=0
 $A | ForEach-Object -process{
 	
