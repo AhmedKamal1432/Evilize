@@ -5,7 +5,7 @@ function Get-ServiceInstalledonSystem {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4697; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=4697; Path = $Path } -ErrorAction SilentlyContinue
 $global:ServiceInstalledonSystemcount=0
 $A | ForEach-Object -process{
        
