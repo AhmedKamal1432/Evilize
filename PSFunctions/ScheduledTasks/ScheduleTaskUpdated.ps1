@@ -5,7 +5,7 @@ function Get-ScheduleTaskUpdated {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{ Id=4702; Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{ Id=4702; Path = $Path } -ErrorAction SilentlyContinue
 $global:ScheduleTaskUpdatedcount=0
 $A | ForEach-Object -process{
        	
