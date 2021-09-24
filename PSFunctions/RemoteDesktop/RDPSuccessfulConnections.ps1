@@ -5,7 +5,7 @@ function Get-RDPSuccessfulConnections{
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=98; Path = 'logs\Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx' }
+$A = Get-WinEvent -FilterHashtable @{ Id=98; Path = $Path }
 $global:RDPSuccessfulConnectionscount=0
 $A | ForEach-Object -process{
 	
