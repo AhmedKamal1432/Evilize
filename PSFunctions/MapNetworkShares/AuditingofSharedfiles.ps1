@@ -5,7 +5,7 @@ function Get-AuditingofSharedfiles {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=5145; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=5145; Path = $Path } -ErrorAction SilentlyContinue
 $global:AuditingofSharedfilescount=0
 $A | ForEach-Object -process{
        
