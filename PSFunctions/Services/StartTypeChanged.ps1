@@ -5,7 +5,7 @@ function Get-StartTypeChanged   {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=7040; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=7040; Path = $Path } -ErrorAction SilentlyContinue
 $global:StartTypeChangedcount=0
 $A | ForEach-Object -process{
        
