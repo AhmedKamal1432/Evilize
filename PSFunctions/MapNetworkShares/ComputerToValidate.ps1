@@ -7,7 +7,7 @@ function Get-ComputerToValidate {
     )
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
-    $A = Get-WinEvent -FilterHashtable @{ Id=4776; Path = $Path }
+    $A = Get-WinEvent -FilterHashtable @{ Id=4776; Path = $Path } -ErrorAction SilentlyContinue
 	$global:ComputerToValidatecount=0
     $A | ForEach-Object -process{
         $service = New-Object psobject
