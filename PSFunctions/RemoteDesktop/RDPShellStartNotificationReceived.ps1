@@ -7,7 +7,7 @@ function Get-RDPShellStartNotificationReceived {
     )
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
-    $A = Get-WinEvent -FilterHashtable @{ Id=22; Path = $Path }
+    $A = Get-WinEvent -FilterHashtable @{ Id=22; Path = $Path } -ErrorAction SilentlyContinue
 	$global:RDPShellStartNotificationReceivedcount=0
     $A | ForEach-Object -process{
         $service = New-Object psobject
