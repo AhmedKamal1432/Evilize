@@ -5,7 +5,7 @@ function Get-PipelineExecution {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{ Id=800; Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{ Id=800; Path = $Path } -ErrorAction SilentlyContinue
 $global:PipelineExecutioncount=0
 $A | ForEach-Object -process{	
 	
