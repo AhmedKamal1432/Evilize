@@ -5,7 +5,7 @@ function Get-ServiceStartorStop  {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=7036; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=7036; Path = $Path } -ErrorAction SilentlyContinue
 $global:ServiceStartorStopcount=0
 $A | ForEach-Object -process{
        
