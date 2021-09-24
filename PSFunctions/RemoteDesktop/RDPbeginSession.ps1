@@ -7,7 +7,7 @@ function Get-RDPbeginSession {
     )
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
-    $A = Get-WinEvent -FilterHashtable @{ Id=41; Path = $Path }
+    $A = Get-WinEvent -FilterHashtable @{ Id=41; Path = $Path } -ErrorAction SilentlyContinue
 	$global:RDPbeginSessioncount=0
     $A | ForEach-Object -process{
         $service = New-Object psobject
