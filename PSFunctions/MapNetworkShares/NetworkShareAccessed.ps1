@@ -5,7 +5,7 @@ function Get-NetworkShareAccessed {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=5140; Path = 'logs\Security.evtx' }
+$A = Get-WinEvent -FilterHashtable @{ Id=5140; Path = $Path }
 $global:NetworkShareAccessedcount=0
 $A | ForEach-Object -process{
        
