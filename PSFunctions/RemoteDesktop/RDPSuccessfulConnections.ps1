@@ -5,7 +5,7 @@ function Get-RDPSuccessfulConnections{
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=98; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=98; Path = $Path } -ErrorAction SilentlyContinue
 $global:RDPSuccessfulConnectionscount=0
 $A | ForEach-Object -process{
 	
