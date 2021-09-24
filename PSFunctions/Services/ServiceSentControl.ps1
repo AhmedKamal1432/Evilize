@@ -19,5 +19,5 @@ $A | ForEach-Object -process{
 	$global:ServiceSentControlcount++
     $Logon
 
-} 
+} }
 "Number of ServiceSentControl  events:"+ $ServiceSentControlcount
