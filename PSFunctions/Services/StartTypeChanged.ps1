@@ -6,7 +6,7 @@ function Get-StartTypeChanged   {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=7040; Path = $Path }
-$global:StartTypeChanged count=0
+$global:StartTypeChangedcount=0
 $A | ForEach-Object -process{
        
 	
@@ -17,8 +17,8 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name ChangedTo -value $_.properties[2].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-	$global:StartTypeChanged count++
+	$global:StartTypeChangedcount++
     $Logon
 
-} 
-"Number of StartTypeChanged  events:"+ $StartTypeChanged count
+} }
+"Number of StartTypeChanged  events:"+ $StartTypeChangedcount
