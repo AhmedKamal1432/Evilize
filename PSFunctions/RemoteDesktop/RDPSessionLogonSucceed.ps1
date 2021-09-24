@@ -8,7 +8,7 @@ function Get-RDPSessionLogonSucceed {
     )
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
-    $A = Get-WinEvent -FilterHashtable @{ Id=21; Path = $Path }
+    $A = Get-WinEvent -FilterHashtable @{ Id=21; Path = $Path } -ErrorAction SilentlyContinue
 	$global:RDPSessionLogonSucceedcount=0
     $A | ForEach-Object -process{
         $service = New-Object psobject
