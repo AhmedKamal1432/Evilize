@@ -5,7 +5,7 @@ function Get-ScheduleTaskDisabled {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A= Get-WinEvent -FilterHashtable @{ Id=4701; Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{ Id=4701; Path = $Path } -ErrorAction SilentlyContinue
 $global:ScheduleTaskDisabledcount=0
 $A | ForEach-Object -process{
        	
