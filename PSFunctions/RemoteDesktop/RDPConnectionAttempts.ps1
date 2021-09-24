@@ -5,7 +5,7 @@ function Get-RDPConnectionAttempts{
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=131; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=131; Path = $Path } -ErrorAction SilentlyContinue
 $global:RDPConnectionAttemptscount=0
 $A | ForEach-Object -process{
 	
