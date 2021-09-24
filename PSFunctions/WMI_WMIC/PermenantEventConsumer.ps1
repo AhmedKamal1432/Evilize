@@ -6,7 +6,7 @@ function Get-PermenantEventConsumer {
         [String] $LogID = "200"
     )
 	
-$A= Get-WinEvent -FilterHashtable @{Id=5861 ;Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{Id=5861 ;Path = $Path } -ErrorAction SilentlyContinue
 $global:PermenantEventConsumercount=0
 $A | ForEach-Object -process{
 	
