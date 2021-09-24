@@ -6,7 +6,7 @@ function Get-ScriptBlockAuditing {
         [String] $LogID = "200"
     )
 	
-$A= Get-WinEvent -FilterHashtable @{Id=4104 ;Path = $Path }
+$A= Get-WinEvent -FilterHashtable @{Id=4104 ;Path = $Path } -ErrorAction SilentlyContinue
 $global:ScriptBlockAuditingcount=0
 $A | ForEach-Object -process{
 	
