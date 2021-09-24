@@ -6,7 +6,7 @@ function Get-RDPDisconnected{
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4779; Path = $Path }
+$A = Get-WinEvent -FilterHashtable @{ Id=4779; Path = $Path } -ErrorAction SilentlyContinue
 $global:RDPDisconnectedcount = 0
 $A | ForEach-Object -process{
 
