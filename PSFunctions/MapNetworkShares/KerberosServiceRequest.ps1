@@ -5,7 +5,7 @@ function Get-KerberosServiceRequest {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=4769; Path = 'logs\Security.evtx' }
+$A = Get-WinEvent -FilterHashtable @{ Id=4769; Path = $Path }
 $global:KerberosServiceRequestcount=0
 $A | ForEach-Object -process{
        
