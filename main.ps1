@@ -1,50 +1,11 @@
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
-$Destination_Path=Read-Host -Prompt "Please, Enter Path of Results you want to save to"
 
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
-$DestPathTest=Test-Path -Path "$Destination_Path"
-if((($LogsPathTest -eq $true) -and ($DestPathTest -eq $true)) -ne $true ){
-        Write-Host "Error: Invalid Paths, Enter a valid path"
-        exit
-    }
-$Destination_Path= Join-Path -Path $Destination_Path -ChildPath "Results"
-$RemoteDesktop= Join-Path -Path $Destination_Path -ChildPath "RemoteDesktopcsv"
-$MapNetworkShares= Join-Path -Path $Destination_Path -ChildPath "MapNetworkSharescsv"
-$PSExec= Join-Path -Path $Destination_Path -ChildPath "PSExeccsv"
-$ScheduledTasks= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskscsv"
-$WMI_WMIC= Join-Path -Path $Destination_Path -ChildPath "WMI_WMICcsv"
-$Services= Join-Path -Path $Destination_Path -ChildPath "Servicescsv"
-$PowerShellRemoting= Join-Path -Path $Destination_Path -ChildPath "PowerShellRemotingcsv"
 
-
-#check if it's already exist
-#if ($Destination_Path -eq $false) {
- #   New-Item -Path $Destination_Path -ItemType Directory    
-#}
-if ($RemoteDesktop -eq $false) {
-    New-Item -Path $RemoteDesktop -ItemType Directory    
-}
-if ($MapNetworkShares -eq $false) {
-    New-Item -Path $MapNetworkShares -ItemType Directory    
-}
-if ($PSExec -eq $false) {
-    New-Item -Path $PSExec -ItemType Directory    
-}
-if ($ScheduledTasks -eq $false) {
-    New-Item -Path $ScheduledTasks -ItemType Directory    
-}
-if ($WMI_WMIC -eq $false) {
-    New-Item -Path $WMI_WMIC -ItemType Directory    
-}
-if ($Services -eq $false) {
-    New-Item -Path $Services -ItemType Directory    
-}
-if ($PowerShellRemoting -eq $false) {
-    New-Item -Path $PowerShellRemoting -ItemType Directory    
-}
 
 ## Convert evt to evtx
+
 $Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
 $Security_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
 $Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
@@ -97,6 +58,8 @@ $Valid_WinRM_Path= Test-Path -Path $WinRM_Path
 $Valid_TaskScheduler_Path= Test-Path -Path $TaskScheduler_Path
 $Valid_TerminalServices_Path= Test-Path -Path $TerminalServices_Path
 $Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
+
+
 # Remote Access
 	#Remote desktop
 		#destination#
