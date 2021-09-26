@@ -1,5 +1,5 @@
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
-$Destination_Path=Read-Host -Prompt "Please, Enter Path of Results you want to save to"
+$Destination_Path=$Logs_Path
 
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
@@ -11,11 +11,46 @@ if((($LogsPathTest -eq $true) -and ($DestPathTest -eq $true)) -ne $true ){
 ##Create Results Directory
 
 $Destination_Path= Join-Path -Path $Destination_Path -ChildPath "Results"
-$DestPathTest=Test-Path -Path "$Destination_Path"
 #check if it's already exist
-if ($DestPathTest -eq $false) {
+if ((Test-Path -Path "$Destination_Path")-eq $false) {
     New-Item -Path $Destination_Path -ItemType Directory    
 }
+$RemoteDesktop_Path=Join-Path -Path $Destination_Path -ChildPath "RemoteDesktop"
+#Check if Remote Desktop already exist
+if ((Test-Path -Path "$RemoteDesktop_Path")-eq $false) {
+    New-Item -Path $RemoteDesktop_Path -ItemType Directory    
+}
+$MapNetworkShares_Path=Join-Path -Path $Destination_Path -ChildPath "MapNetworkShares"
+#Check if MapNetworkShares already exist
+if ((Test-Path -Path "$MapNetworkShares_Path")-eq $false) {
+    New-Item -Path $MapNetworkShares_Path -ItemType Directory    
+}
+$PsExec_Path=Join-Path -Path $Destination_Path -ChildPath "PsExec"
+#Check if PsExec already exist
+if ((Test-Path -Path "$PsExec_Path")-eq $false) {
+    New-Item -Path $PsExec_Path -ItemType Directory    
+}
+$ScheduledTasks_Path=Join-Path -Path $Destination_Path -ChildPath "ScheduledTasks"
+#Check if ScheduledTasks already exist
+if ((Test-Path -Path "$ScheduledTasks_Path")-eq $false) {
+    New-Item -Path $ScheduledTasks_Path -ItemType Directory    
+}
+$Services_Path=Join-Path -Path $Destination_Path -ChildPath "Services"
+#Check if Services already exist
+if ((Test-Path -Path "$Services_Path")-eq $false) {
+    New-Item -Path $Services_Path -ItemType Directory    
+}
+$WMIOut_Path=Join-Path -Path $Destination_Path -ChildPath "WMI"
+#Check if WMI already exist
+if ((Test-Path -Path "$WMIOut_Path")-eq $false) {
+    New-Item -Path $WMIOut_Path -ItemType Directory    
+}
+$PowerShellRemoting_Path=Join-Path -Path $Destination_Path -ChildPath "PowerShellRemoting"
+#Check if PowerShellRemoting already exist
+if ((Test-Path -Path "$PowerShellRemoting_Path")-eq $false) {
+    New-Item -Path $PowerShellRemoting_Path -ItemType Directory    
+}
+
 
 ## Convert evt to evtx
 $Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
@@ -65,8 +100,6 @@ Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
 Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
 #Event Logs Paths
 
-
-
 ## Testing if the log file exist ? 
 $Valid_Security_Path= Test-Path -Path $Security_Path
 $Valid_System_Path= Test-Path -Path $System_Path
@@ -100,7 +133,7 @@ function SuccessfulLogons {
         return  
     }
     $EventID=4624
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "SuccessfulLogons.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "SuccessfulLogons.csv"
     $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
     LogParser.exe -stats:OFF -i:EVT $Query
     $SuccessfulLogons= GetStats $OutputFile
@@ -114,7 +147,7 @@ function AdminLogonCreated  {
         return  
     }
     $EventID=4672
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "AdminLogonCreated.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AdminLogonCreated.csv"
     $Query="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $AdminLogonsCreated= GetStats $OutputFile
@@ -129,7 +162,7 @@ function InstalledServices {
         return  
     }
     $EventID=4697
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "InstalledServices.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "InstalledServices.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $InstalledServices= GetStats $OutputFile
@@ -139,72 +172,72 @@ function InstalledServices {
 
 
 
-function ScheduledTaskCreated {
+function ScheduledTaskCreatedSec {
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=4698
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskCreated.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTaskCreatedSec.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTaskCreated= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Created: " $ScheduledTaskCreated -ForegroundColor Green
+    $ScheduledTaskCreatedSec= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Created [Security Log]: " $ScheduledTaskCreatedSec -ForegroundColor Green
     
 }
 
-function ScheduledTaskDeleted {
+function ScheduledTaskDeletedSec {
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=4699
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskDeleted.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTaskDeletedSec.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTaskDeleted= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Deleted: " $ScheduledTaskDeleted -ForegroundColor Green
+    $ScheduledTaskDeletedSec= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Deleted [Security Log]: " $ScheduledTaskDeletedSec -ForegroundColor Green
     
 }
 
-function ScheduledTaskEnabled {
+function ScheduledTaskEnabledSec {
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=4700
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskEnabled.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTaskEnabledSec.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTaskEnabled= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Enbaled: " $ScheduledTaskEnabled -ForegroundColor Green
+    $ScheduledTaskEnabledSec= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Enbaled [Security Log]: " $ScheduledTaskEnabledSec -ForegroundColor Green
 }
 
-function ScheduledTaskDisabled{
+function ScheduledTaskDisabledSec{
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=4701
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskDisabled.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTaskDisabledSec.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTaskDisabled= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Disabled: " $ScheduledTaskDisabled -ForegroundColor Green
+    $ScheduledTaskDisabledSec= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Disabled [Security Log]: " $ScheduledTaskDisabledSec -ForegroundColor Green
 }
 
 
-function ScheduledTaskUpdated{
+function ScheduledTaskUpdatedSec{
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=4702
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTaskUpdated.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTaskUpdatedSec.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTaskUpdated= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Updated: " $ScheduledTaskUpdated -ForegroundColor Green
+    $ScheduledTaskUpdatedSec= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Updated [Security Log]: " $ScheduledTaskUpdatedSec -ForegroundColor Green
 }
 
 
@@ -214,7 +247,7 @@ function KerberosAuthenticationRequested {
         return  
     }
     $EventID=4768
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "KerberosAuthenticationRequested.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosAuthenticationRequested.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 9, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 10, '|') AS SourcePort INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $KerberosAuthenticationRequested= GetStats $OutputFile
@@ -228,7 +261,7 @@ function KerberosServiceRequested {
         return  
     }
     $EventID=4769
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "KerberosServiceRequested.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosServiceRequested.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceName ,EXTRACT_TOKEN(Strings, 6, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 7, '|') AS SourcePort INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $KerberosServiceRequested= GetStats $OutputFile
@@ -243,7 +276,7 @@ function ComputerToValidate  {
         return  
     }
     $EventID=4776
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ComputerToValidate.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "ComputerToValidate.csv"
     $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID " 
     LogParser.exe -stats:OFF -i:EVT $Query
     $ComputerToValidate= GetStats $OutputFile
@@ -257,7 +290,7 @@ function RDPReconnected  {
         return  
     }
     $EventID=4778
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPReconnected.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPReconnected.csv"
     $Query= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID" 
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPReconencted= GetStats $OutputFile
@@ -273,7 +306,7 @@ function RDPDisconnected  {
         return  
     }
     $EventID=4779
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPDisconnected.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPDisconnected.csv"
     $Query= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID" 
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPDisconnected= GetStats $OutputFile
@@ -285,7 +318,7 @@ function NetworkShareAccessed  {
         return  
     }
     $EventID=5140
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "NetworkShareAccessed.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "NetworkShareAccessed.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $NetworkShareAccessed= GetStats $OutputFile
@@ -298,7 +331,7 @@ function NetworkShareChecked  {
         return  
     }
     $EventID=5145
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "NetworkShareChecked.csv"
+    $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "NetworkShareChecked.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccounName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ObjectType, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 6, '|') AS SourePort, EXTRACT_TOKEN(Strings, 7, '|') AS ShareName, EXTRACT_TOKEN(Strings, 8, '|') AS SharePath, EXTRACT_TOKEN(Strings, 11, '|') as Accesses, EXTRACT_TOKEN(Strings, 12, '|') as AccessesCheckResult INTO $OutputFile FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $NetworkShareChecked= GetStats $OutputFile
@@ -313,7 +346,7 @@ function ServiceCrashedUnexpect {
         return  
     }
     $EventID=7034
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServiceCrashedUnexpect.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceCrashedUnexpect.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS Times INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServiceCrashedUnexpect= GetStats $OutputFile
@@ -326,8 +359,8 @@ function ServicesStatus {
         return  
     }
     $EventID=7036
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServicesStatus.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS State INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServicesStatus.csv"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServicesStatus= GetStats $OutputFile
     Write-Host "Services Stopped Or Started: " $ServicesStatus -ForegroundColor Green
@@ -339,7 +372,7 @@ function ServiceSentStartStopControl {
         return  
     }
     $EventID=7035
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServiceSentStartStopControl.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceSentStartStopControl.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS RequestSent INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServiceSentStartStopControl= GetStats $OutputFile
@@ -352,7 +385,7 @@ function ServiceStartTypeChanged {
         return  
     }
     $EventID=7040
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServiceStartTypeChanged.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartTypeChanged.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ChangedFrom , EXTRACT_TOKEN(Strings, 2, '|') AS ChangedTo INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServiceStartTypeChanged= GetStats $OutputFile
@@ -365,7 +398,7 @@ function SystemInstalledServices {
         return  
     }
     $EventID=7045
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "SystemInstalledServices.csv"
+    $OutputFile= Join-Path -Path $PsExec_Path -ChildPath "SystemInstalledServices.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO $OutputFile FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $SystemInstalledServices= GetStats $OutputFile
@@ -379,7 +412,7 @@ function WMIOperationStarted {
         return  
     }
     $EventID=5857
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "WMIOperationStarted.csv"
+    $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "WMIOperationStarted.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO $OutputFile FROM '$WMI_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $WMIOperationStarted= GetStats $OutputFile
@@ -393,7 +426,7 @@ function WMIOperationTemporaryEssStarted {
         return  
     }
     $EventID=5860
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "WMIOperationTemporaryEssStarted.csv"
+    $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "WMIOperationTemporaryEssStarted.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS Query,EXTRACT_TOKEN(Strings, 2, '|') AS User ,EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ClientMachine INTO $OutputFile FROM '$WMI_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $WMIOperationTemporaryEssStarted= GetStats $OutputFile
@@ -407,7 +440,7 @@ function WMIOperationESStoConsumerBinding {
         return  
     }
     $EventID=5861
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "WMIOperationESStoConsumerBinding.csv"
+    $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "WMIOperationESStoConsumerBinding.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS ESS,EXTRACT_TOKEN(Strings, 2, '|') AS Consumer ,EXTRACT_TOKEN(Strings, 3, '|') AS PossibleCause INTO $OutputFile FROM '$WMI_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $WMIOperationESStoConsumerBinding= GetStats $OutputFile
@@ -422,7 +455,7 @@ function PSModuleLogging {
         return  
     }
     $EventID=4103
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "PSModuleLogging.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSModuleLogging.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ContextINFO, EXTRACT_TOKEN(Strings, 2, '|') AS Payload INTO $OutputFile FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $PSModuleLogging= GetStats $OutputFile
@@ -436,7 +469,7 @@ function PSScriptBlockLogging  {
         return  
     }
     $EventID=4104
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "PSScriptBlockLogging.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSScriptBlockLogging.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS MessageNumber, EXTRACT_TOKEN(Strings, 1, '|') AS TotalMessages, EXTRACT_TOKEN(Strings, 2, '|') AS ScriptBlockText , EXTRACT_TOKEN(Strings, 3, '|') AS ScriptBlockID , EXTRACT_TOKEN(Strings,4 , '|') AS ScriptPath INTO $OutputFile FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $PSScriptBlockLogging= GetStats $OutputFile
@@ -450,7 +483,7 @@ function PSAuthneticatingUser  {
         return  
     }
     $EventID=53504
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "PSAuthneticatingUser.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSAuthneticatingUser.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS Process, EXTRACT_TOKEN(Strings, 1, '|') AS AppDomain INTO $OutputFile FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $PSAuthneticatingUser= GetStats $OutputFile
@@ -464,7 +497,7 @@ function SessionCreated {
         return  
     }
     $EventID=91
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "SessionCreated.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "SessionCreated.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ResourceUrl INTO $OutputFile FROM '$WinRM_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $SessionCreated= GetStats $OutputFile
@@ -478,7 +511,7 @@ function WinRMAuthneticatingUser {
         return  
     }
     $EventID=168
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "WinRMAuthneticatingUser.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WinRMAuthneticatingUser.csv"
     $Query= "Select TimeGenerated,EventID, Message INTO $OutputFile FROM '$WinRM_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $WinRMAuthneticatingUser= GetStats $OutputFile
@@ -493,7 +526,7 @@ function ServerRemoteHostStarted {
         return  
     }
     $EventID=400
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServerRemoteHostStarted.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ServerRemoteHostStarted.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO $OutputFile FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServerRemoteHostStarted= GetStats $OutputFile
@@ -507,7 +540,7 @@ function ServerRemoteHostEnded {
         return  
     }
     $EventID=403
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ServerRemoteHostEnded.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ServerRemoteHostEnded.csv"
     $Query= "Select TimeGenerated,EventID,  EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO $OutputFile FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $ServerRemoteHostEnded= GetStats $OutputFile
@@ -520,7 +553,7 @@ function PSPartialCode {
         return  
     }
     $EventID=800
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "PSPartialCode.csv"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSPartialCode.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication  INTO $OutputFile FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $PSPartialCode= GetStats $OutputFile
@@ -529,73 +562,73 @@ function PSPartialCode {
 
 #==============Task Scheduler=============
 
-function ScheduledTasksCreated {
+function ScheduledTasksCreatedTS {
     if ($Valid_TaskScheduler_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=106
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTasksCreated.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTasksCreatedTS.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO $OutputFile FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTasksCreated= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Updated : " $ScheduledTasksCreated  -ForegroundColor Green
+    $ScheduledTasksCreatedTS= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Updated [Task Scheduler Log] : " $ScheduledTasksCreatedTS  -ForegroundColor Green
  
 }
 
-function ScheduledTasksUpdated {
+function ScheduledTasksUpdatedTS {
     if ($Valid_TaskScheduler_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=140
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTasksUpdated.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTasksUpdatedTS.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO $OutputFile FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTasksUpdated= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Updated : " $ScheduledTasksUpdated  -ForegroundColor Green
+    $ScheduledTasksUpdatedTS= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Updated [Task Scheduler Log]: " $ScheduledTasksUpdatedTS  -ForegroundColor Green
  
 }
 
-function ScheduledTasksDeleted {
+function ScheduledTasksDeletedTS {
     if ($Valid_TaskScheduler_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=141
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTasksDeleted.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTasksDeletedTS.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO $OutputFile FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTasksDeleted= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Deleted : " $ScheduledTasksDeleted  -ForegroundColor Green
+    $ScheduledTasksDeletedTS= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Deleted [Task Scheduler Log] : " $ScheduledTasksDeletedTS  -ForegroundColor Green
  
 }
 
-function ScheduledTasksExecuted {
+function ScheduledTasksExecutedTS {
     if ($Valid_TaskScheduler_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=200
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTasksExecuted.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTasksExecutedTS.csv"
     $Query= "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO $OutputFile FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTasksExecuted= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Executed : " $ScheduledTasksExecuted  -ForegroundColor Green
+    $ScheduledTasksExecutedTS= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Executed [Task Scheduler Log]: " $ScheduledTasksExecutedTS  -ForegroundColor Green
 }
 
 
-function ScheduledTasksCompleted {
+function ScheduledTasksCompletedTS {
     if ($Valid_TaskScheduler_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red
         return  
     }
     $EventID=201
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "ScheduledTasksCompleted.csv"
+    $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduledTasksCompletedTS.csv"
     $Query= "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO $OutputFile FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduledTasksCompleted= GetStats $OutputFile
-    Write-Host "Scheduled Tasks Completed : " $ScheduledTasksCompleted  -ForegroundColor Green
+    $ScheduledTasksCompletedTS= GetStats $OutputFile
+    Write-Host "Scheduled Tasks Completed [Task Scheduler Log] : " $ScheduledTasksCompletedTS  -ForegroundColor Green
 }
 
 ##============= Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx============
@@ -605,7 +638,7 @@ function RDPLocalSuccessfulLogon1 {
         return  
     }
     $EventID=21
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPLocalSuccessfulLogon1.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPLocalSuccessfulLogon1.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO $OutputFile FROM '$TerminalServices_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPLocalSuccessfulLogon1= GetStats $OutputFile
@@ -618,7 +651,7 @@ function RDPLocalSuccessfulLogon2 {
         return  
     }
     $EventID=22
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPLocalSuccessfulLogon2.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPLocalSuccessfulLogon2.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO $OutputFile FROM '$TerminalServices_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPLocalSuccessfulLogon2= GetStats $OutputFile
@@ -630,12 +663,24 @@ function RDPLocalSuccessfulReconnection {
         write-host "Error: Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational event log is not found" -ForegroundColor Red
         return  
     }
-    $EventID=22
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPLocalSuccessfulReconnection.csv"
+    $EventID=25
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPLocalSuccessfulReconnection.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO $OutputFile FROM '$TerminalServices_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPLocalSuccessfulReconnection= GetStats $OutputFile
     Write-Host "RDP Local Successful Reconnections: " $RDPLocalSuccessfulReconnection -ForegroundColor Green
+}
+function RDPBegainSession {
+    if ($Valid_TerminalServices_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID=41
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPBeginSession.csv"
+    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID INTO $OutputFile FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $RDPBeginSession= GetStats $OutputFile
+    Write-Host "RDP Sessios Begain : " $RDPBeginSession -ForegroundColor Green
 }
 
 #=========================Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx=======================
@@ -645,7 +690,7 @@ function RDPConnectionEstablished {
         return  
     }
     $EventID=1149
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPConnectionEstablished.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPConnectionEstablished.csv"
     $Query= "Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as Domain ,extract_token(strings,2, '|') as SourceIP   INTO $OutputFile FROM '$RemoteConnection_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPConnectionEstablished= GetStats $OutputFile
@@ -663,7 +708,7 @@ function RDPConnectionsAttempts {
         return  
     }
     $EventID=131
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPConnectionsAttempts.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPConnectionsAttempts.csv"
     $Query= "Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as ConnectionType, extract_token(strings, 1, '|') as CLientIP INTO $OutputFile FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPConnectionsAttempts= GetStats $OutputFile
@@ -676,7 +721,7 @@ function RDPSuccessfulTCPConnections {
         return  
     }
     $EventID=98
-    $OutputFile= Join-Path -Path $Destination_Path -ChildPath "RDPSuccessfulTCPConnections.csv"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPSuccessfulTCPConnections.csv"
     $Query= "Select TimeGenerated,EventID  INTO $OutputFile FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $RDPSuccessfulTCPConnections= GetStats $OutputFile

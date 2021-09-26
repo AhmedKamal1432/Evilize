@@ -13,11 +13,11 @@ It uses Logpraser , which is  a powerful tool that provides universal query acce
 | 4624       | SuccessfulLogons.csv                 | TimeGenerated, EventID, Username, Domain, LogonType, AuthPackage, Workstation, ProcessName, SourceIP |
 | 4672       | AdminLogonCreated.csv                | TimeGenerated, EventID, Username, Domain, LogonID            |
 | 4697       | InstalledServices.csv                | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, ServiceName, ServiceFileName, ServiceType, ServiceStartType |
-| 4698       | ScheduledTaskCreated.csv             | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
-| 4699       | ScheduledTaskDeleted.csv             | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
-| 4700       | ScheduledTaskEnabled.csv             | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
-| 4701       | ScheduledTaskDisabled.csv            | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
-| 4702       | ScheduledTaskUpdated.csv             | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4698       | ScheduledTaskCreatedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4699       | ScheduledTaskDeletedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4700       | ScheduledTaskEnabledSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4701       | ScheduledTaskDisabledSec.csv         | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4702       | ScheduledTaskUpdatedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
 | 4768       | KerberosAuthenticationRequested.csv  | TimeGenerated, EventID, AccountName, AccountDomain, SourceIP, SourcePort |
 | 4769       | KerberosServiceRequested.csv         | TimeGenerated, EventID, AccountName, AccountDomain, ServiceName, SourceIP, SourcePort |
 | 4776       | ComputerToValidate.csv               | TimeGenerated, EventID, AccountName, AccountDomain           |
@@ -41,14 +41,15 @@ It uses Logpraser , which is  a powerful tool that provides universal query acce
 | *** 400**  | ServerRemoteHostStarted.csv          | TimeGenerated, EventID, HostApplication                      |
 | *** 403**  | ServerRemoteHostEnded.csv            | TimeGenerated, EventID, HostApplication                      |
 | *** 800**  | PSPartialCode.csv                    | TimeGenerated, EventID, HostApplication                      |
-| 106        | ScheduledTasksCreated.csv            | TimeGenerated, EventID, TaskName, User                       |
-| 140        | ScheduledTasksUpdated.csv            | TimeGenerated, EventID, TaskName, User                       |
-| 141        | ScheduledTasksDeleted.csv            | TimeGenerated, EventID, TaskName, User                       |
-| 200        | ScheduledTasksExecuted.csv           | TimeGenerated, EventID,  TaskName, TaskAction, Instance      |
-| 201        | ScheduledTasksCompleted.csv          | TimeGenerated, EventID, TaskName, TaskAction, Instance       |
+| 106        | ScheduledTasksCreatedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 140        | ScheduledTasksUpdatedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 141        | ScheduledTasksDeletedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 200        | ScheduledTasksExecutedTS.csv         | TimeGenerated, EventID,  TaskName, TaskAction, Instance      |
+| 201        | ScheduledTasksCompletedTS.csv        | TimeGenerated, EventID, TaskName, TaskAction, Instance       |
 | 21         | RDPLocalSuccessfulLogon1.csv         | TimeGenerated, EventID, User, SessionID, SourceIP            |
 | 22         | RDPLocalSuccessfulLogon2.csv         | TimeGenerated, EventID, User, SessionID, SourceIP            |
-| 22         | RDPLocalSuccessfulReconnection.csv   | TimeGenerated, EventID, User, SessionID, SourceIP            |
+| 25         | RDPLocalSuccessfulReconnection.csv   | TimeGenerated, EventID, User, SessionID, SourceIP            |
+| 41         | RDPBegainSession.csv                 | TimeGenerated, EventID, User, SessionID                      |
 | 1149       | RDPConnectionEstablished.csv         | TimeGenerated, EventID, User, Domain, SourceIP               |
 | 131        | RDPConnectionsAttempts .csv          | TimeGenerated, EventID, ConnectionType, CLientIP             |
 | 98         | RDPSuccessfulTCPConnections.csv      | TimeGenerated, EventID                                       |
