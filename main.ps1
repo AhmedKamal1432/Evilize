@@ -1,52 +1,52 @@
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
-
+$securityparam= Read-Host -Prompt "Do you want to parse the security event log? yes\no"  
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
-
-
-## Convert evt to evtx
-
-$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
 $Security_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
-$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
 $System_Path= Join-Path -Path $Logs_Path -ChildPath "System.evtx"
 $RDPCORETS_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx"
-$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
 $WMI_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evtx"
-$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
 $PowerShellOperational_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evtx"
-$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
 $WinPowerShell_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evtx"
-$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
 $WinRM_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evtx"
-$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
 $TaskScheduler_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evtx"
-$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
 $TerminalServices_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
-$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
 $RemoteConnection_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
-$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
+$evtFiles = Get-ChildItem -Recurse -Path $Logs_Path -filter (-NOT '*.evtx') 
+if (-NOT ($evtFiles -eq $null)){
+	write-output $evtFiles
+	## Convert evt to evtx
+	$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
+	$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
+	$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
+	$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
+	$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
+	$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
+	$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
+	$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
+	$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
+	$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
 
-function Evt2Evtx {
-    param (
-        [Parameter(Mandatory=$true)]
-        [string]$EvtPath,
-        [Parameter(Mandatory=$true)]
-        [string]$EvtxPath
-    )
-        wevtutil epl $EvtPath $EvtxPath /lf:true      
+	function Evt2Evtx {
+		param (
+			[Parameter(Mandatory=$true)]
+			[string]$EvtPath,
+			[Parameter(Mandatory=$true)]
+			[string]$EvtxPath
+		)
+			wevtutil epl $EvtPath $EvtxPath /lf:true      
+	}
+	Evt2Evtx $Securityevt_Path $Security_Path
+	Evt2Evtx $Systemevt_Path  $System_Path
+	Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
+	Evt2Evtx $WMIevt_Path $WMI_Path
+	Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
+	Evt2Evtx $WinRMevt_Path $WinRM_Path
+	Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
+	Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
+	Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
+	Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
 }
-Evt2Evtx $Securityevt_Path $Security_Path
-Evt2Evtx $Systemevt_Path  $System_Path
-Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
-Evt2Evtx $WMIevt_Path $WMI_Path
-Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
-Evt2Evtx $WinRMevt_Path $WinRM_Path
-Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
-Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
-Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
-Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
-
 ## Testing if the log file exist ? 
 $Valid_Security_Path= Test-Path -Path $Security_Path
 $Valid_System_Path= Test-Path -Path $System_Path
@@ -63,6 +63,7 @@ $Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
 # Remote Access
 	#Remote desktop
 		#destination#
+if ($securityparam -eq "yes") {
 . .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
 Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Results\RemoteDesktopcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
@@ -71,7 +72,7 @@ Get-RDPreconnected -Path $Security_Path  | Export-Csv -Path Results\RemoteDeskto
 
 . .\PSFunctions\RemoteDesktop\RDPDisconnected.ps1
 Get-RDPDisconnected -Path $Security_Path  | Export-Csv -Path Results\RemoteDesktopcsv\RDPDisconnected.csv -NoTypeInformation
-
+}
 . .\PSFunctions\RemoteDesktop\RDPConnectionAttempts.ps1
 Get-RDPConnectionAttempts -Path $RDPCORETS_Path  | Export-Csv -Path Results\RemoteDesktopcsv\RDPConnectionAttempts.csv -NoTypeInformation
 
@@ -96,9 +97,10 @@ Get-RDPbeginSession -Path $TerminalServices_Path  | Export-Csv -Path Results\Rem
 # Remote Access
 	#Remote desktop
 		#source
+if ($securityparam -eq "yes") {
 #. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopcsv\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\RemoteDesktopcsv\ExplicitCreds.csv -NoTypeInformation
-
+}
 #. D:\EJUST\Internships\TMinternship\evilize_project\RemoteDesktopcsv\RDPConnectingtoServer.ps1
 #Get-RDPConnectingtoServer -Path $RDPCORETS_Path  | Export-Csv -Path Results\RemoteDesktopcsv\RDPConnectingtoServer.csv -NoTypeInformation
 
@@ -109,6 +111,7 @@ Get-RDPbeginSession -Path $TerminalServices_Path  | Export-Csv -Path Results\Rem
 #Remote Access	
 	# Map Network Shares 
 		#destination
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Results\RemoteDesktopcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
@@ -129,12 +132,14 @@ Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path Results\MapNet
 
 . .\PSFunctions\MapNetworkShares\AuditingofSharedfiles.ps1
 Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path Results\MapNetworkSharescsv\AuditingofSharedfiles.csv -NoTypeInformation
+}
 # Remote Access 
 	#Map Network Shares
 		# source
+if ($securityparam -eq "yes") {
 #. .\MapNetworkShares\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\MapNetworkSharescsv\ExplicitCreds.csv -NoTypeInformation
-
+}
 #FailedLogintoDestination TODO
 
 #######################################################################################################################
@@ -142,6 +147,7 @@ Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path Results\MapNe
 #Remote Execution
 	#PsExec
 		#Destination
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\PsExec\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Results\PsExeccsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
@@ -150,20 +156,22 @@ Get-AuditingofSharedfiles -Path $Security_Path  | Export-Csv -Path Results\MapNe
 
 #. .\PSFunctions\PsExec\NetworkShareAccessed.ps1
 #Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path Results\PsExeccsv\NetworkShareAccessed.csv -NoTypeInformation
-
+}
 . .\PSFunctions\PsExec\ServiceInstall.ps1
 Get-ServiceInstall -Path $System_Path  | Export-Csv -Path Results\PsExeccsv\ServiceInstall.csv -NoTypeInformation
 #Remote Execution
 	#PsExec
 		#source
+if ($securityparam -eq "yes") {
 #. .\PsExec\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\PsExeccsv\ExplicitCreds.csv -NoTypeInformation
-
+}
 ############################################################################################################################
 
 #Remote Execution
 	#Scheduled Tasks
 		#Destination
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\ScheduledTasks\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path Results\ScheduledTaskscsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
@@ -184,7 +192,7 @@ Get-ScheduleTaskDisabled -Path  $Security_Path | Export-Csv -Path Results\Schedu
 
 . .\PSFunctions\ScheduledTasks\ScheduleTaskUpdated.ps1
 Get-ScheduleTaskUpdated -Path  $Security_Path | Export-Csv -Path Results\ScheduledTaskscsv\ScheduleTaskUpdated.csv -NoTypeInformation
-
+}
 . .\PSFunctions\ScheduledTasks\CreatingTaskSchedulerTask .ps1
 Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path | Export-Csv -Path Results\ScheduledTaskscsv\CreatingTaskSchedulerTask.csv -NoTypeInformation
 
@@ -203,18 +211,20 @@ Get-CompletingTaskSchedulerTask -Path  $TaskScheduler_Path | Export-Csv -Path Re
 	#Scheduled Tasks
 		#source
 #. .\ScheduledTasks\ExplicitCreds.ps1
+if ($securityparam -eq "yes") {
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\ScheduledTaskscsv\ExplicitCreds.csv -NoTypeInformation
-
+}
 #####################################################################################################################################
 #Remote Execution
 	#services
 		#destination
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\Services\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Results\Servicescsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 . .\PSFunctions\Services\ServiceInstalledonSystem.ps1
 Get-ServiceInstalledonSystem -Path $Security_Path  | Export-Csv -Path Results\Servicescsv\ServiceInstalledonSystem.csv -NoTypeInformation
-
+}
 . .\PSFunctions\Services\ServiceCrashed.ps1
 Get-ServiceCrashed -Path $System_Path  | Export-Csv -Path Results\Servicescsv\ServiceCrashed.csv -NoTypeInformation
 
@@ -234,12 +244,13 @@ Get-StartTypeChanged -Path $System_Path  | Export-Csv -Path Results\Servicescsv\
 #Remote Execution
 	#WMI\WMIC
 		#destination
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\WMI_WMIC\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path Results\WMI_WMICcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 #. .\PSFunctions\WMI_WMIC\AdminLogonCreated.ps1
 #Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path Results\WMI_WMICcsv\AdminLogonCreated.csv -NoTypeInformation
-
+}
 . .\PSFunctions\WMI_WMIC\SystemQueryWMI.ps1
 Get-SystemQueryWMI -Path $WinRM_Path  | Export-Csv -Path Results\WMI_WMICcsv\SystemQueryWMI.csv -NoTypeInformation
 
@@ -253,19 +264,21 @@ Get-PermenantEventConsumer -Path $WinRM_Path   | Export-Csv -Path Results\WMI_WM
 	#WMI\WMIC
 		#source
 #. .\WMI\WMIC\ExplicitCreds.ps1
+if ($securityparam -eq "yes") {
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\WMI_WMICcsv\ExplicitCreds.csv -NoTypeInformation
+}
 ####################################################################################################################################3
 
 #Remote Execution
 	#powershell remoting
 		#destination
-
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\PowerShellRemoting\AllSuccessfulLogons.ps1
 #Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path Results\PowerShellRemotingcsv\AllSuccessfulLogons.csv -NoTypeInformation 
 
 #. .\PSFunctions\PowerShellRemoting\AdminLogonCreated.ps1
 #Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path Results\PowerShellRemotingcsv\AdminLogonCreated.csv -NoTypeInformation
-
+}
 . .\PSFunctions\PowerShellRemoting\ScriptBlockLogging.ps1
 Get-ScriptBlockLogging -Path $PowerShellOperational_Path  | Export-Csv -Path Results\PowerShellRemotingcsv\ScriptBlockLogging.csv -NoTypeInformation
 
@@ -287,9 +300,10 @@ Get-PipelineExecution -Path $WinPowerShell_Path| Export-Csv -Path Results\PowerS
 #Remote Execution
 	#powershell remoting
 		#source
+if ($securityparam -eq "yes") {
 #. .\PSFunctions\PowerShellRemoting\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\PowerShellRemoting\ExplicitCreds.csv -NoTypeInformation
-
+}
 #. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
 #Get-RDPreconnected -Path $WinRM_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
 
