@@ -6,7 +6,7 @@ function Get-CompletingTaskSchedulerTask {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=201; Path = $Path } -ErrorAction SilentlyContinue
-$global:CompletingTaskSchedulerTaskcount = 0
+
 $A | ForEach-Object -process{
 
 
@@ -18,8 +18,8 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
     	
 
-    $global:CompletingTaskSchedulerTaskcount++
+   
     $Logon
 }
 }
-"Number of CompletingTaskSchedulerTask events: " + $CompletingTaskSchedulerTaskcount 
+
