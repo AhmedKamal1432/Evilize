@@ -6,7 +6,7 @@ function Get-NetworkShareAccessed {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=5140; Path = $Path } -ErrorAction SilentlyContinue
-$global:NetworkShareAccessedcount=0
+
 $A | ForEach-Object -process{
        
     # Account, Domain, ID
@@ -34,8 +34,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name ShareName -value $share_name
 	$Logon | Add-Member -MemberType NoteProperty -name ObjectType -value $object_type
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
-    $global:NetworkShareAccessedcount++
+ 
     $Logon
 
 } }
-"Number of NetworkShareAccessed events:"+ $NetworkShareAccessedcount
+
