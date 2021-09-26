@@ -6,7 +6,7 @@ function Get-AuditingofSharedfiles {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=5145; Path = $Path } -ErrorAction SilentlyContinue
-$global:AuditingofSharedfilescount=0
+
 $A | ForEach-Object -process{
        
     $share_name = $_.Message.split([Environment]::NewLine)| Select-String -Pattern "(Share Name:)\t*(.*)" |ForEach-Object {$_.Matches[0].Groups[2].Value}
@@ -22,8 +22,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name Accesses -value $accesses
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-    $global:AuditingofSharedfilescount++
+ 
     $Logon
 
 }}
-"Number of AuditingofSharedfiles events:"+ $AuditingofSharedfilescount
+
