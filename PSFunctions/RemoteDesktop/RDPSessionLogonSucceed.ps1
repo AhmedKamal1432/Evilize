@@ -9,7 +9,7 @@ function Get-RDPSessionLogonSucceed {
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
     $A = Get-WinEvent -FilterHashtable @{ Id=21; Path = $Path } -ErrorAction SilentlyContinue
-	$global:RDPSessionLogonSucceedcount=0
+	
     $A | ForEach-Object -process{
         $service = New-Object psobject
         $service | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
@@ -26,8 +26,8 @@ function Get-RDPSessionLogonSucceed {
              }
          }
          $outItems.Add($service)
-		 $global:RDPSessionLogonSucceedcount++
+		
         }
     $outItems.ToArray()
 }
-"Number of RDPSessionLogonSucceed events:"+ $RDPSessionLogonSucceedcount
+
