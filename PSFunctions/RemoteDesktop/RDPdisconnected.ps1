@@ -7,7 +7,7 @@ function Get-RDPDisconnected{
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4779; Path = $Path } -ErrorAction SilentlyContinue
-$global:RDPDisconnectedcount = 0
+
 $A | ForEach-Object -process{
 
     # Account, Domain, ID
@@ -30,8 +30,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name Sourcesystemname -value $client_name
     $Logon | Add-Member -MemberType NoteProperty -name LogonID -value $login_ID
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
-	$global:RDPDisconnectedcount++
+	
     $Logon
 } 
 }
-"Number of  RDPDisconnected events: " + $RDPDisconnectedcount
+
