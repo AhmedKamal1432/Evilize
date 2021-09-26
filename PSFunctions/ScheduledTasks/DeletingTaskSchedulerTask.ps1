@@ -6,7 +6,7 @@ function Get-DeletingTaskSchedulerTask {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=106; Path = $Path } -ErrorAction SilentlyContinue
-$global:DeletingTaskSchedulerTaskcount = 0
+
 $A | ForEach-Object -process{
 
 
@@ -17,8 +17,8 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
     	
 
-    $global:DeletingTaskSchedulerTaskcount++
+ 
     $Logon
 }
 }
-"Number of DeletingTaskSchedulerTask events: " + $DeletingTaskSchedulerTaskcount 
+
