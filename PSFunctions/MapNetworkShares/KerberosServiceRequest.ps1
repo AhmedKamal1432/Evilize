@@ -6,7 +6,7 @@ function Get-KerberosServiceRequest {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4769; Path = $Path } -ErrorAction SilentlyContinue
-$global:KerberosServiceRequestcount=0
+
 $A | ForEach-Object -process{
        
     $account_name = $_.Context.PostContext|Select-String -Pattern "(Account Name:)\t*(\w+)" | ForEach-Object {$_.Matches[0].Groups[2].Value}
@@ -20,8 +20,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name SourceIP -value $Client_address
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-    $global:KerberosServiceRequestcount++
+   
     $Logon
 
 }}
-"Number of KerberosServiceRequest  events:"+ $KerberosServiceRequestcount
+
