@@ -6,7 +6,7 @@ function Get-ServiceSentControl  {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=7035; Path = $Path } -ErrorAction SilentlyContinue
-$global:ServiceSentControlcount=0
+
 $A | ForEach-Object -process{
        
 	
@@ -16,8 +16,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name RequestSent -value $_.properties[1].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-	$global:ServiceSentControlcount++
+	
     $Logon
 
 } }
-"Number of ServiceSentControl  events:"+ $ServiceSentControlcount
+
