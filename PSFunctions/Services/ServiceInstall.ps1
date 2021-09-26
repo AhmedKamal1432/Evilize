@@ -8,7 +8,7 @@ function Get-ServiceInstall {
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
     $A = Get-WinEvent -FilterHashtable @{ Id=7045; Path = $Path } -ErrorAction SilentlyContinue
-	$global:ServiceInstallcount=0
+	
     $A | ForEach-Object -process{
         $service = New-Object psobject
         $service | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
@@ -27,9 +27,9 @@ function Get-ServiceInstall {
              }
          }
          $outItems.Add($service)
-		 $global:ServiceInstallcount++
+	
         }
 		
     $outItems.ToArray()
 }
-"Number of ServiceInstall events:"+ $ServiceInstallcount
+
