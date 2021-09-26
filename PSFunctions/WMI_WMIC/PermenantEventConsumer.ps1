@@ -7,7 +7,7 @@ function Get-PermenantEventConsumer {
     )
 	
 $A= Get-WinEvent -FilterHashtable @{Id=5861 ;Path = $Path } -ErrorAction SilentlyContinue
-$global:PermenantEventConsumercount=0
+
 $A | ForEach-Object -process{
 	
     $Logon = New-Object psobject
@@ -15,7 +15,7 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name NameSpacename -value $_.properties[0].value
 	$Logon | Add-Member -MemberType NoteProperty -name Query -value $_.properties[1].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
-	$global:PermenantEventConsumercount++
+	
     $Logon
  }}
- "Number of PermenantEventConsumer events:"+ $PermenantEventConsumercount
+ 
