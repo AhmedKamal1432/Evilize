@@ -6,7 +6,7 @@ function Get-AdminLogonCreated{
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4672; Path = $Path } -ErrorAction SilentlyContinue
-$global:AdminLogonCreatedcount=0
+
 $A | ForEach-Object -process{
        
     # Account, Domain, ID
@@ -23,8 +23,7 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name AccountDomain -value $account_domain
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-   $global:AdminLogonCreatedcount++
+
    $Logon
 
 } }
-"Number of AdminLogonCreated  events:"+ $AdminLogonCreatedcount
