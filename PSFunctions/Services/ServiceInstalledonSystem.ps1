@@ -6,7 +6,7 @@ function Get-ServiceInstalledonSystem {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4697; Path = $Path } -ErrorAction SilentlyContinue
-$global:ServiceInstalledonSystemcount=0
+
 $A | ForEach-Object -process{
        
     # Account, Domain, ID
@@ -27,8 +27,8 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name ServiceFileName -value $service_file_name
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-	$global:ServiceInstalledonSystemcount++
+	
     $Logon
 
 } }
-"Number of ServiceInstalledonSystem  events:"+ $ServiceInstalledonSystemcount
+
