@@ -6,7 +6,7 @@ function Get-AllSuccessfulLogons {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4624; Path = $Path } -ErrorAction SilentlyContinue
-$global:SuccessfullLogoncount = 0
+
 $A | ForEach-Object -process{
 
     # Logon Type
@@ -38,8 +38,7 @@ $A | ForEach-Object -process{
     
 	
 
-    $global:SuccessfullLogoncount++
     $Logon
 }
 }
-"Successfull Logons: " + $SuccessfullLogoncount 
+
