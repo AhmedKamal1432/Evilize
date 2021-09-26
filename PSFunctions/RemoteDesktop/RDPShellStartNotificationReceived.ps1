@@ -8,7 +8,7 @@ function Get-RDPShellStartNotificationReceived {
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
     $A = Get-WinEvent -FilterHashtable @{ Id=22; Path = $Path } -ErrorAction SilentlyContinue
-	$global:RDPShellStartNotificationReceivedcount=0
+	
     $A | ForEach-Object -process{
         $service = New-Object psobject
         $service | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
@@ -25,8 +25,8 @@ function Get-RDPShellStartNotificationReceived {
              }
          }
          $outItems.Add($service)
-		 $global:RDPShellStartNotificationReceivedcount++
+		
         }
     $outItems.ToArray()
 }
-"Number of RDPShellStartNotificationReceived events:"+ $RDPShellStartNotificationReceivedcount
+
