@@ -6,7 +6,7 @@ function Get-ServiceCrashed  {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=7034; Path = $Path } -ErrorAction SilentlyContinue
-$global:ServiceCrashedcount=0
+
 $A | ForEach-Object -process{
        
 	
@@ -16,8 +16,7 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name Times -value $_.properties[1].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-	$global:ServiceCrashedcount++
+	
     $Logon
 
 } }
-"Number of ServiceCrashed  events:"+ $ServiceCrashedcount
