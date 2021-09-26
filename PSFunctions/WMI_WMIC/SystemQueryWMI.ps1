@@ -6,7 +6,7 @@ function Get-SystemQueryWMI {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=5857; Path = $Path} -ErrorAction SilentlyContinue
-$global:SystemQueryWMIcount=0
+
 $A | ForEach-Object -process{
        
   	
@@ -14,9 +14,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
     $Logon | Add-Member -MemberType NoteProperty -name  DllPath -value $_.properties[4].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
-
-	$global:SystemQueryWMIcount++
+	
     $Logon
 
 } }
-"Number of SystemQueryWMI  events:"+ $SystemQueryWMIcount
+
