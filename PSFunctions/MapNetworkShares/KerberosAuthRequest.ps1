@@ -8,7 +8,7 @@ function Get-KerberosAuthRequest {
 
     $outItems = New-Object System.Collections.Generic.List[System.Object]
     $A = Get-WinEvent -FilterHashtable @{ Id=4768; Path = $Path } -ErrorAction SilentlyContinue
-	$global:KerberosAuthRequestcount=0
+
     $A | ForEach-Object -process{
         $service = New-Object psobject
         $service | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
@@ -24,9 +24,9 @@ function Get-KerberosAuthRequest {
              }
          }
          $outItems.Add($service)
-		 $global:KerberosAuthRequestcount++
+		
         }
 		
     $outItems.ToArray()
 }
-"Number of KerberosAuthRequest  events:"+ $KerberosAuthRequestcount
+
