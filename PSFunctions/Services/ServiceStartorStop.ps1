@@ -6,7 +6,7 @@ function Get-ServiceStartorStop  {
         [String] $LogID = "200"
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=7036; Path = $Path } -ErrorAction SilentlyContinue
-$global:ServiceStartorStopcount=0
+
 $A | ForEach-Object -process{
        
 	
@@ -16,8 +16,8 @@ $A | ForEach-Object -process{
     $Logon | Add-Member -MemberType NoteProperty -name State -value $_.properties[1].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 
-	$global:ServiceStartorStopcount++
+	
     $Logon
 
 } }
-"Number of ServiceStartorStop  events:"+ $ServiceStartorStopcount
+
