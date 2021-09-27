@@ -2,6 +2,7 @@
 . .\Helper\helper.ps1
 # calling function inside the script itself 
 #====RemoteDesktop
+
 Write-Host "Parsing Successsful Logons"
 SuccessfulLogons
 Write-Host "Parsing RDP Sessions Began"
@@ -97,7 +98,10 @@ Write-Host "Parsing Server Remote Hosts Started"
 ServerRemoteHostStarted
 Write-Host "Parsing Server Remote Host Ended"
 ServerRemoteHostEnded
-
-
-
-
+$ResultsArray.GetEnumerator() |
+    Select-Object @{n='Event ID';e={$_.Name.Substring(0,5)}},
+                  @{n='SANS Category';e={$_.Name.Substring(5,18)}},
+                  @{n='Event';e={$_.Name.Substring(23)}},
+                  @{n='Number Of Occurrences';e={$_.Value}} |
+                Out-GridView
+                 
