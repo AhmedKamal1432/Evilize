@@ -50,40 +50,38 @@ $WinRM_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Ope
 $TaskScheduler_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evtx"
 $TerminalServices_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
 $RemoteConnection_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
-$evtFiles = Get-ChildItem -Recurse -Path $Logs_Path -filter (-NOT '*.evtx') 
-if (-NOT ($evtFiles -eq $null)){
-	## Convert evt to evtx
-	$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
-	$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
-	$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
-	$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
-	$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
-	$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
-	$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
-	$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
-	$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
-	$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
+## Convert evt to evtx
+$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
+$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
+$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
+$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
+$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
+$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
+$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
+$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
+$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
+$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
 
-	function Evt2Evtx {
-		param (
-			[Parameter(Mandatory=$true)]
-			[string]$EvtPath,
-			[Parameter(Mandatory=$true)]
-			[string]$EvtxPath
+function Evt2Evtx {
+	param (
+		[Parameter(Mandatory=$true)]
+		[string]$EvtPath,
+		[Parameter(Mandatory=$true)]
+		[string]$EvtxPath
 		)
-			wevtutil epl $EvtPath $EvtxPath /lf:true      
+	wevtutil epl $EvtPath $EvtxPath /lf:true      
 	}
-	Evt2Evtx $Securityevt_Path $Security_Path
-	Evt2Evtx $Systemevt_Path  $System_Path
-	Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
-	Evt2Evtx $WMIevt_Path $WMI_Path
-	Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
-	Evt2Evtx $WinRMevt_Path $WinRM_Path
-	Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
-	Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
-	Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
-	Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
-}
+Evt2Evtx $Securityevt_Path $Security_Path
+Evt2Evtx $Systemevt_Path  $System_Path
+Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
+Evt2Evtx $WMIevt_Path $WMI_Path
+Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
+Evt2Evtx $WinRMevt_Path $WinRM_Path
+Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
+Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
+Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
+Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
+
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
 ## Testing if the log file exist ? 
@@ -107,7 +105,7 @@ if ($securityparam -eq "yes") {
 . .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
 Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path $RemoteDesktop_Path\AllSuccessfulLogons.csv -NoTypeInformation 
 write-host  "Number of AllSuccessfulLogons:" , (Import-Csv $RemoteDesktop_Path\AllSuccessfulLogons.csv).count
-$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="RemoteDesktop"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $RemoteDesktop_Path\RDPConnectionAttempts.csv).count}
+$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="RemoteDesktop"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $RemoteDesktop_Path\\AllSuccessfulLogons.csv).count}
 $ResultsArray+=$hash
 
 . .\PSFunctions\RemoteDesktop\RDPreconnected.ps1
