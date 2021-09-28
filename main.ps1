@@ -51,6 +51,7 @@ $TaskScheduler_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-Tas
 $TerminalServices_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
 $RemoteConnection_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
 ## Convert evt to evtx
+
 $Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
 $Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
 $RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
@@ -61,7 +62,8 @@ $WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4
 $TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
 $TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
 $RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
-
+$evtFiles = Get-ChildItem -Recurse -Path $Logs_Path -filter (-NOT '*.evtx') 
+if (-NOT ($evtFiles -eq $null)){
 function Evt2Evtx {
 	param (
 		[Parameter(Mandatory=$true)]
@@ -81,7 +83,7 @@ Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
 Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
 Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
 Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
-
+}
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
 ## Testing if the log file exist ? 
