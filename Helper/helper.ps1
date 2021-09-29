@@ -1,5 +1,3 @@
-$Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
-$Destination_Path=$Logs_Path
 
 ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
@@ -130,6 +128,14 @@ function GetStats {
     }
 }
 function SuccessfulLogons {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -146,6 +152,15 @@ function SuccessfulLogons {
 
 
 function AdminLogonCreated  {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -162,6 +177,15 @@ function AdminLogonCreated  {
 
 
 function InstalledServices {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -179,6 +203,15 @@ function InstalledServices {
 
 
 function ScheduledTaskCreatedSec {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -194,6 +227,15 @@ function ScheduledTaskCreatedSec {
 }
 
 function ScheduledTaskDeletedSec {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -209,6 +251,15 @@ function ScheduledTaskDeletedSec {
 }
 
 function ScheduledTaskEnabledSec {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -224,6 +275,15 @@ function ScheduledTaskEnabledSec {
 }
 
 function ScheduledTaskDisabledSec{
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -240,6 +300,15 @@ function ScheduledTaskDisabledSec{
 
 
 function ScheduledTaskUpdatedSec{
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -256,6 +325,15 @@ function ScheduledTaskUpdatedSec{
 
 
 function KerberosAuthenticationRequested {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -271,6 +349,15 @@ function KerberosAuthenticationRequested {
 }
 
 function KerberosServiceRequested {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -287,6 +374,15 @@ function KerberosServiceRequested {
 }
 
 function ComputerToValidate  {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -303,6 +399,15 @@ function ComputerToValidate  {
 }
 
 function RDPReconnected  {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -319,8 +424,16 @@ function RDPReconnected  {
     
 }
 
-
 function RDPDisconnected  {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -335,6 +448,15 @@ function RDPDisconnected  {
     Write-Host "RDP sessions Disconnected: " $RDPDisconnected  -ForegroundColor Green 
 }
 function NetworkShareAccessed  {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -350,6 +472,15 @@ function NetworkShareAccessed  {
 }
 
 function NetworkShareChecked  {
+      param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+        return
+    }
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  

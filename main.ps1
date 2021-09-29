@@ -1,10 +1,15 @@
+$Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
+$Destination_Path=$Logs_Path
+$NoSecurity = Read-Host -Prompt "Optimize Runtime if security log is too big, Is it ? (yes/no)"  
 #Dot-sourcing to the helper script
 . .\Helper\helper.ps1
 # calling function inside the script itself 
 
 #====RemoteDesktop
+Function main{
+
 Write-Host "Parsing Successsful Logons"
-SuccessfulLogons
+SuccessfulLogons $NoSecurity
 Write-Host "Parsing RDP Sessions Began"
 RDPBegainSession
 Write-Host "Parsing RDP Connections Attempts"
@@ -18,41 +23,41 @@ RDPLocalSuccessfulLogon2
 Write-Host "Parsing RDP Successful TCP Connections"
 RDPSuccessfulTCPConnections
 Write-Host "Parsing RDP Sessions Reconnected"
-RDPReconnected
+RDPReconnected $NoSecurity
 Write-Host "Parsing RDP Sessions Disconnected"
-RDPDisconnected
+RDPDisconnected $NoSecurity
 #=====MapNetworkShare
 Write-Host "Parsing Network Share Object Accessed"
-NetworkShareAccessed
+NetworkShareAccessed $NoSecurity
 Write-Host "Parsing Network Share Object Checked"
-NetworkShareChecked
+NetworkShareChecked $NoSecurity
 Write-Host "Parsing Admin Logons Created"
-AdminLogonCreated
+AdminLogonCreated $NoSecurity
 Write-Host "Parsing Domain Controller attempts to validate accounts' credentials"
-ComputerToValidate
+ComputerToValidate $NoSecurity
 Write-Host "Parsing Kerberos Authentications Requested"
-KerberosAuthenticationRequested
+KerberosAuthenticationRequested $NoSecurity
 Write-Host "Parsing Kerberos Services Requested"
-KerberosServiceRequested
+KerberosServiceRequested $NoSecurity
 #=======PsExec
 Write-Host "Parsing Installed Services [System Log]"
 SystemInstalledServices
 
 #=====ScheduledTasks 
 Write-Host "Parsing Scheduled Tasks Created [Security Log]"
-ScheduledTaskCreatedSec
+ScheduledTaskCreatedSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Deleted [Security Log]"
-ScheduledTaskDeletedSec
+ScheduledTaskDeletedSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Enabled [Security Log]"
-ScheduledTaskEnabledSec
+ScheduledTaskEnabledSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Disabled [Security Log]"
-ScheduledTaskDisabledSec
+ScheduledTaskDisabledSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Updated [Security Log]"
-ScheduledTaskUpdatedSec
+ScheduledTaskUpdatedSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Created [Task Scheduler Log]"
-ScheduledTasksCreatedTS
+ScheduledTasksCreatedTS 
 Write-Host "Parsing Scheduled Tasks Deleted [Task Scheduler Log]"
-ScheduledTasksDeletedTS
+ScheduledTasksDeletedTS 
 Write-Host "Parsing Scheduled Tasks Executed [Task Scheduler Log]"
 ScheduledTasksExecutedTS
 Write-Host "Parsing Scheduled Tasks Completed [Task Scheduler Log]"
@@ -71,7 +76,7 @@ WMIOperationESStoConsumerBinding
 
 #=====Services
 Write-Host "Parsing Installed Services [Security Log]"
-InstalledServices
+InstalledServices $NoSecurity
 Write-Host "Parsing Services Crashed Unexpectedely"
 ServiceCrashedUnexpect
 Write-Host "Parsing Services Status"
@@ -98,4 +103,6 @@ Write-Host "Parsing Server Remote Hosts Started"
 ServerRemoteHostStarted
 Write-Host "Parsing Server Remote Host Ended"
 ServerRemoteHostEnded
+}
+main
 $ResultsArray| Out-GridView
