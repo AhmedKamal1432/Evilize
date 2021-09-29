@@ -1,6 +1,9 @@
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
 $Destination_Path=$Logs_Path
-$NoSecurity = Read-Host -Prompt "Optimize Runtime if security log is too big, Is it ? (yes/no)"  
+$NoSecurity = Read-Host -Prompt "Do you want to parse the security event log? yes\no [Default is no]"
+if($NoSecurity -eq ""){
+    $NoSecurity="no"
+}
 #Dot-sourcing to the helper script
 . .\Helper\helper.ps1
 # calling function inside the script itself 
