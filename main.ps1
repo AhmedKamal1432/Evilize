@@ -10,7 +10,9 @@ if($NoSecurity -eq ""){
 
 #====RemoteDesktop
 Function main{
-
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*            Remote Desktop                  *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Successsful Logons"
 SuccessfulLogons $NoSecurity
 Write-Host "Parsing RDP Sessions Began"
@@ -30,6 +32,9 @@ RDPReconnected $NoSecurity
 Write-Host "Parsing RDP Sessions Disconnected"
 RDPDisconnected $NoSecurity
 #=====MapNetworkShare
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*            Map Network Share               *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Network Share Object Accessed"
 NetworkShareAccessed $NoSecurity
 Write-Host "Parsing Network Share Object Checked"
@@ -43,10 +48,16 @@ KerberosAuthenticationRequested $NoSecurity
 Write-Host "Parsing Kerberos Services Requested"
 KerberosServiceRequested $NoSecurity
 #=======PsExec
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*            Powershell Execution            *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Installed Services [System Log]"
 SystemInstalledServices
 
 #=====ScheduledTasks 
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*            Scheduled Tasks                 *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Scheduled Tasks Created [Security Log]"
 ScheduledTaskCreatedSec $NoSecurity
 Write-Host "Parsing Scheduled Tasks Deleted [Security Log]"
@@ -69,6 +80,9 @@ Write-Host "Parsing Scheduled Tasks Updated [Task Scheduler Log]"
 ScheduledTasksUpdatedTS
 
 #======WMI 
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*                WMI/WMIC                    *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing WMI Operations Started"
 WMIOperationStarted
 Write-Host "Parsing WMI Operations Temporary Ess Started"
@@ -78,6 +92,9 @@ WMIOperationESStoConsumerBinding
 
 
 #=====Services
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*                Services                    *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Installed Services [Security Log]"
 InstalledServices $NoSecurity
 Write-Host "Parsing Services Crashed Unexpectedely"
@@ -90,6 +107,9 @@ Write-Host "Parsing Services Start Type Changed"
 ServiceStartTypeChanged
 
 #======PowerShellRemoting 
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "*            PowerShellRemoting              *"  -ForegroundColor yellow -BackgroundColor black
+Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing PowerShell Module Logging"
 PSModuleLogging
 Write-Host "Parsing PowerShell Script Blocking Logging"
