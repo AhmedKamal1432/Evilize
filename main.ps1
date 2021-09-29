@@ -71,7 +71,8 @@ function Evt2Evtx {
 		[Parameter(Mandatory=$true)]
 		[string]$EvtxPath
 		)
-	wevtutil epl $EvtPath $EvtxPath /lf:true      
+	if (((Test-Path -Path $EvtPath) -eq $true) -and ((Test-Path -Path $EvtxPath) -eq $false)) {
+		wevtutil epl $EvtPath $EvtxPath /lf:true }     
 	}
 Evt2Evtx $Securityevt_Path $Security_Path
 Evt2Evtx $Systemevt_Path  $System_Path
