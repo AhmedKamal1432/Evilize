@@ -1,4 +1,4 @@
 # ignore Results directory
-Results/*
+#Results/*
 # ignore csv files
 *.csv
