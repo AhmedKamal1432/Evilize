@@ -4,6 +4,117 @@ $NoSecurity = Read-Host -Prompt "Do you want to parse the security event log? ye
 if($NoSecurity -eq ""){
     $NoSecurity="no"
 }
+##Validating Paths
+$LogsPathTest=Test-Path -Path "$Logs_Path"
+$DestPathTest=Test-Path -Path "$Destination_Path"
+if((($LogsPathTest -eq $true) -and ($DestPathTest -eq $true)) -ne $true ){
+        Write-Host "Error: Invalid Paths, Enter a valid path"
+        exit
+    }
+##Create Results Directory
+
+$Destination_Path= Join-Path -Path $Destination_Path -ChildPath "Results"
+#check if it's already exist
+if ((Test-Path -Path "$Destination_Path")-eq $false) {
+    New-Item -Path $Destination_Path -ItemType Directory    
+}
+$RemoteDesktop_Path=Join-Path -Path $Destination_Path -ChildPath "RemoteDesktop"
+#Check if Remote Desktop already exist
+if ((Test-Path -Path "$RemoteDesktop_Path")-eq $false) {
+    New-Item -Path $RemoteDesktop_Path -ItemType Directory    
+}
+$MapNetworkShares_Path=Join-Path -Path $Destination_Path -ChildPath "MapNetworkShares"
+#Check if MapNetworkShares already exist
+if ((Test-Path -Path "$MapNetworkShares_Path")-eq $false) {
+    New-Item -Path $MapNetworkShares_Path -ItemType Directory    
+}
+$PsExec_Path=Join-Path -Path $Destination_Path -ChildPath "PsExec"
+#Check if PsExec already exist
+if ((Test-Path -Path "$PsExec_Path")-eq $false) {
+    New-Item -Path $PsExec_Path -ItemType Directory    
+}
+$ScheduledTasks_Path=Join-Path -Path $Destination_Path -ChildPath "ScheduledTasks"
+#Check if ScheduledTasks already exist
+if ((Test-Path -Path "$ScheduledTasks_Path")-eq $false) {
+    New-Item -Path $ScheduledTasks_Path -ItemType Directory    
+}
+$Services_Path=Join-Path -Path $Destination_Path -ChildPath "Services"
+#Check if Services already exist
+if ((Test-Path -Path "$Services_Path")-eq $false) {
+    New-Item -Path $Services_Path -ItemType Directory    
+}
+$WMIOut_Path=Join-Path -Path $Destination_Path -ChildPath "WMI"
+#Check if WMI already exist
+if ((Test-Path -Path "$WMIOut_Path")-eq $false) {
+    New-Item -Path $WMIOut_Path -ItemType Directory    
+}
+$PowerShellRemoting_Path=Join-Path -Path $Destination_Path -ChildPath "PowerShellRemoting"
+#Check if PowerShellRemoting already exist
+if ((Test-Path -Path "$PowerShellRemoting_Path")-eq $false) {
+    New-Item -Path $PowerShellRemoting_Path -ItemType Directory    
+}
+
+
+## Convert evt to evtx
+$Securityevt_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evt"
+$Security_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
+$Systemevt_Path= Join-Path -Path $Logs_Path -ChildPath "System.evt"
+$System_Path= Join-Path -Path $Logs_Path -ChildPath "System.evtx"
+$RDPCORETS_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx"
+$RDPCORETSevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
+$WMI_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evtx"
+$WMIevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
+$PowerShellOperational_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evtx"
+$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
+$WinPowerShell_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evtx"
+$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
+$WinRM_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evtx"
+$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
+$TaskScheduler_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Operational.evtx"
+$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Operational.evt"
+$TerminalServices_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
+$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
+$RemoteConnection_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
+$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
+
+function Evt2Evtx {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$EvtPath,
+        [Parameter(Mandatory=$true)]
+        [string]$EvtxPath
+    )
+    if (((Test-Path -Path $EvtPath) -eq $true) -and ((Test-Path -Path $EvtxPath) -eq $false)) {
+        wevtutil epl $EvtPath $EvtxPath /lf:true    
+    }
+    else {
+        return
+    }   
+}
+Evt2Evtx $Securityevt_Path $Security_Path
+Evt2Evtx $Systemevt_Path  $System_Path
+Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
+Evt2Evtx $WMIevt_Path $WMI_Path
+Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
+Evt2Evtx $WinRMevt_Path $WinRM_Path
+Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
+Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
+Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
+Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
+#Event Logs Paths
+
+## Testing if the log file exist ? 
+$Valid_Security_Path= Test-Path -Path $Security_Path
+$Valid_System_Path= Test-Path -Path $System_Path
+$Valid_RDPCORETS_Path= Test-Path -Path $RDPCORETS_Path
+$Valid_WMI_Path= Test-Path -Path $WMI_Path
+$Valid_PowerShellOperational_Path=Test-Path -Path $PowerShellOperational_Path
+$Valid_WinPowerShell_Path= Test-Path -Path $WinPowerShell_Path
+$Valid_WinRM_Path= Test-Path -Path $WinRM_Path
+$Valid_TaskScheduler_Path= Test-Path -Path $TaskScheduler_Path
+$Valid_TerminalServices_Path= Test-Path -Path $TerminalServices_Path
+$Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
+# array to stor results
 #Dot-sourcing to the helper script
 . .\Helper\helper.ps1
 # calling function inside the script itself 
