@@ -1,4 +1,5 @@
 # ignore Results directory
 #Results/*
 # ignore csv files
-#*.csv
+<<<<<<< HEAD
+>>>>>>> b4d9875dab254f317b07ff5ca0dfe4827ad5abe8
