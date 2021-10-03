@@ -1,3 +1,18 @@
+Write-host "
+    ______           _     __    _            
+   / ____/ _   __   (_)   / /   (_) ____  ___ 
+  / __/   | | / /  / /   / /   / / /_  / / _ \
+ / /___   | |/ /  / /   / /   / /   / /_/  __/
+/_____/   |___/  /_/   /_/   /_/   /___/\___/ 
+                                              
+" -ForegroundColor Red -BackgroundColor black
+Write-host "  
+                                                          _____ 
+\            / _   |\   |    ___    _   __   ___   |\   |   |
+ \    /\    / (_)  | \  |   / _ \  | | / /  / _ \  | \  |   |
+  \  /  \  /  | |  |  \ |  /  __/  | |/ /  /  __/  |  \ |   |
+   \/    \/   |_|  |   \|  \___/   |___/   \___/   |   \|   |
+" -ForegroundColor Red -BackgroundColor black
 #inputing the log path
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path" 
 $securityparam= Read-Host -Prompt "Do you want to parse the security event log? yes\no [default is no because security event is usually very big]"
