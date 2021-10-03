@@ -7,7 +7,7 @@ function Get-AllSuccessfulLogons {
     )
 $A = Get-WinEvent -FilterHashtable @{ Id=4624; Path = $Path } -ErrorAction SilentlyContinue
 
-$A | ForEach-Object -Parallel{
+$A | ForEach-Object -process{
 
     # Logon Type
     $logon_type = $_.Message.split([Environment]::NewLine)| Select-String -Pattern "(Logon Type:).*([0-9]+)" |ForEach-Object {$_.Matches[0].Groups[2].Value}
