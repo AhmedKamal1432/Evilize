@@ -1,5 +1,3 @@
-
-
 Write-host "
     ______           _     __    _            
    / ____/ _   __   (_)   / /   (_) ____  ___ 
@@ -128,7 +126,23 @@ $Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
 #Dot-sourcing to the helper script
 . .\Helper\helper.ps1
 # calling function inside the script itself 
+$OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "SuccessfulLogons.csv"
+$Query1="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = 4624  And LogonType<>'5'"  
+$OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AdminLogonCreated.csv"
+$Query2="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = 4672"
+$OutputFile= Join-Path -Path $Services_Path -ChildPath "InstalledServices.csv"
+$Query3= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = 4697"
+$OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "ComputerToValidate.csv"
+$Query4="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = 4776 " 
+$OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPReconnected.csv"
+$Query5= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = 4778" 
+$OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "NetworkShareAccessed.csv"
+$Query6= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO '$OutputFile' FROM '$Security_Path' WHERE EventID =5140"
+$array=@($Query1,$Query2,$Query3,$Query4,$Query5,$Query6)
+Measure-Command{ $array | ForEach-Object -parallel {
 
+        LogParser.exe -stats:OFF -i:EVT $_
+}-ThrottleLimit 6  } 
 #====RemoteDesktop
 Function main{
 Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
@@ -248,5 +262,5 @@ ServerRemoteHostStarted
 Write-Host "Parsing Server Remote Host Ended"
 ServerRemoteHostEnded
 }
-main
+#main
 $ResultsArray| Out-GridView
