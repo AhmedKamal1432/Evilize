@@ -1,3 +1,13 @@
+
+
+Write-host "
+    ______           _     __    _            
+   / ____/ _   __   (_)   / /   (_) ____  ___ 
+  / __/   | | / /  / /   / /   / / /_  / / _ \
+ / /___   | |/ /  / /   / /   / /   / /_/  __/
+/_____/   |___/  /_/   /_/   /_/   /___/\___/ 
+                                              
+" -ForegroundColor Red -BackgroundColor black
 $Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
 $Destination_Path=$Logs_Path
 $NoSecurity = Read-Host -Prompt "Do you want to parse the security event log? yes\no [Default is no]"
