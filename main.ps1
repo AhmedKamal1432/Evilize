@@ -193,6 +193,9 @@ $ResultsArray+=$hash
         
  }
 }
+else {
+	write-host " AllSuccessfulLogons- RDPreconnected -RDPDisconnected depend on Security event log which you choose not to parse" -ForegroundColor Red
+}
 
 if ($Valid_RDPCORETS_Path -eq $true) {
 
@@ -267,6 +270,9 @@ $ResultsArray+=$hash
  else{ 
   write-host "Error: Security event log is not found" -ForegroundColor Red  
  }
+}
+else {
+	write-host " ExplicitCreds depends on Security event log which you choose not to parse" -ForegroundColor Red
 }
 
 if ($Valid_RDPCORETS_Path -eq $true) {
@@ -371,6 +377,9 @@ $ResultsArray+=$hash
   write-host "Error: Security event log is not found" -ForegroundColor Red   
 	}
 }
+else{
+write-host " AdminLogonCreated- ComputerToValidate-KerberosAuthRequest-KerberosServiceRequest-NetworkShareAccessed-AuditingofSharedfiles depend on Security event log which you choose not to parse" -ForegroundColor Red
+}
 if ($Valid_System_Path -eq $true) {
 
 $x= Get-ServiceInstall -Path $System_Path  
@@ -445,6 +454,9 @@ $ResultsArray+=$hash
 	  write-host "Error: Security event log is not found" -ForegroundColor Red   
 	}
 }
+else{
+write-host " ScheduleTaskCreated- ScheduleTaskDeleted-ScheduleTaskEnabled-ScheduleTaskDisabled-ScheduleTaskUpdated depend on Security event log which you choose not to parse" -ForegroundColor Red
+}
 if ($Valid_TaskScheduler_Path -eq $true) {
 
 $x= Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path 
@@ -511,6 +523,9 @@ $ResultsArray+=$hash
 	else{ 
   write-host "Error: Security event log is not found" -ForegroundColor Red   
 	}
+}
+else{
+ write-host "ServiceInstalledonSystem depend on Security event log which you choose not to parse" -ForegroundColor Red
 }
 
 if ($Valid_System_Path -eq $true) {
