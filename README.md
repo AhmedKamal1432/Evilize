@@ -89,8 +89,8 @@
 | StartPSRemoteSession | Windows PowerShell.evtx | 400 | Time created, Details |
 | EndPSRemoteSession | Windows PowerShell.evtx | 403 | Time created, Details |
 | PipelineExecution | Windows PowerShell.evtx | 800 | Time created, Command line, Context information, Details |
-| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | TODO |
-| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | TODO |
+| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | Time created, ResourceURL |
+| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | Time created, message |
 
 ### Extra Events
 | Event Name | Event Log | ID |Parsed values |
