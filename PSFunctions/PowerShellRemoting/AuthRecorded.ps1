@@ -5,7 +5,7 @@ function Get-AuthRecorded {
         [Parameter(Mandatory=$false)]
         [String] $LogID = "200"
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=161; Path = $Path } -ErrorAction SilentlyContinue
+$A = Get-WinEvent -FilterHashtable @{ Id=168; Path = $Path } -ErrorAction SilentlyContinue
 
 $A | ForEach-Object -process{
 
