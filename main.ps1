@@ -700,7 +700,7 @@ $ResultsArray+=$hash
 $x= Get-AuthRecorded -Path $WinRM_Path
 write-host  "Number of AuthRecorded  events:" , $x.count
 $x | Export-Csv -Path $PowerShellRemoting_Path\AuthRecorded.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="161";SANSCateogry="PowerShellRemoting"; Event="Authentication recorded "; NumberOfOccurences=$x.count}
+$hash= New-Object PSObject -property @{EventID="168";SANSCateogry="PowerShellRemoting"; Event="Authentication recorded "; NumberOfOccurences=$x.count}
 $ResultsArray+=$hash	
 }
 else{ 
