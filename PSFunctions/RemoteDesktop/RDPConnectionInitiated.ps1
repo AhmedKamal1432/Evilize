@@ -1,4 +1,4 @@
-function Get-RDPConnectionInitiated {
+function Get-EventlogCleared {
     param(
         [Parameter(Mandatory=$true)]
         [String] $Path,
