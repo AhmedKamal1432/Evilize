@@ -19,7 +19,7 @@ _    ____ ____ ___  ____ ____ ____ ____ ____
      Write-Host "
 _ _ _ _ _  _ ____ _  _ ____ _  _ ___ 
 | | | | |\ | |___ |  | |___ |\ |  |  
-|_|_| | | \| |___  \/  |___ | \|  | " -ForegroundColor green -BackgroundColor black
+|_|_| | | \| |___  \/  |___ | \|  | " -ForegroundColor green
  }
 }
 #=====logo print 

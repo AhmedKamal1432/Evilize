@@ -320,6 +320,30 @@ function ComputerToValidate  {
     Write-Host "Computer to validate: " $ComputerToValidate -ForegroundColor Green
 
 }
+function EventlogCleared  {
+    param (
+      [Parameter(Mandatory=$true)]
+      [string]$NoSecurity
+  )
+  if($NoSecurity -eq "no"){
+              Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+
+      return
+  }
+  if ($Valid_Security_Path -eq $false) {
+      write-host "Error: Security event log is not found" -ForegroundColor Red
+      return  
+  }
+  $EventID=1102
+  $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "EventlogCleared.csv"
+  $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+  LogParser.exe -stats:OFF -i:EVT $Query
+  $EventlogCleared= GetStats $OutputFile
+  $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="PsExec"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogCleared}
+  $global:ResultsArray+=$hash
+  Write-Host "Cleared Event Log: " $EventlogCleared -ForegroundColor Green
+
+}
 
 function RDPReconnected  {
       param (
@@ -494,6 +518,7 @@ function SystemInstalledServices {
     $global:ResultsArray+=$hash
     Write-Host "Services Installed on System [System Log]: " $SystemInstalledServices -ForegroundColor Green
 }
+
 
 ########################################## WMI ################################################
 function WMIOperationStarted {

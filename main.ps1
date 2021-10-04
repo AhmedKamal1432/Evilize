@@ -61,6 +61,9 @@ Print_Seprator "Powershell Execution"
 Write-Host "Parsing Installed Services [System Log]"
 SystemInstalledServices
 
+Write-Host "Parsing CLeared Event Logs"
+EventlogCleared $NoSecurity
+
 #=====ScheduledTasks============ 
 Print_Seprator "ScheduledTasks"
 Write-Host "Parsing Scheduled Tasks Created [Security Log]"
