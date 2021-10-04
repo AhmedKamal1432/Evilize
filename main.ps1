@@ -139,7 +139,7 @@ $ResultsArray=@()
 . .\PSFunctions\RemoteDesktop\RDPbeginSession.ps1
 . .\PSFunctions\RemoteDesktop\ExplicitCreds.ps1
 . .\PSFunctions\RemoteDesktop\RDPConnectingtoServer.ps1
-. .\PSFunctions\RemoteDesktop\RDPConnectionInitiated.ps1
+
 #Map network shares
 . .\PSFunctions\MapNetworkShares\AdminLogonCreated.ps1
 . .\PSFunctions\MapNetworkShares\ComputerToValidate.ps1
