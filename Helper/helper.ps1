@@ -1,3 +1,18 @@
+
+## Testing if the log file exist ? 
+#Event Logs Paths
+$Valid_Security_Path= Test-Path -Path $Security_Path
+$Valid_System_Path= Test-Path -Path $System_Path
+$Valid_RDPCORETS_Path= Test-Path -Path $RDPCORETS_Path
+$Valid_WMI_Path= Test-Path -Path $WMI_Path
+$Valid_PowerShellOperational_Path=Test-Path -Path $PowerShellOperational_Path
+$Valid_WinPowerShell_Path= Test-Path -Path $WinPowerShell_Path
+$Valid_WinRM_Path= Test-Path -Path $WinRM_Path
+$Valid_TaskScheduler_Path= Test-Path -Path $TaskScheduler_Path
+$Valid_TerminalServices_Path= Test-Path -Path $TerminalServices_Path
+$Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
+
+#array to store results
 $global:ResultsArray= @()
 function GetStats {
     param (
@@ -75,7 +90,7 @@ function AdminLogonCreated  {
     }
     $EventID=4672
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AdminLogonCreated.csv"
-    $Query="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID, EXTRACT_TOKEN(Strings, 4, '|') as PrivilegeList INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     $AdminLogonsCreated= GetStats $OutputFile
     $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Admin Logons Created"; NumberOfOccurences=$AdminLogonsCreated}
