@@ -136,6 +136,8 @@ Write-Host  "*            Remote Desktop                  *"  -ForegroundColor y
 Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
 Write-Host "Parsing Successsful Logons"
 SuccessfulLogons $NoSecurity
+Write-Host "Parsing UnSuccesssful Logons"
+UnSuccessfulLogons $NoSecurity
 Write-Host "Parsing RDP Sessions Began"
 RDPBegainSession
 Write-Host "Parsing RDP Connections Attempts"

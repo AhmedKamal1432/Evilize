@@ -36,7 +36,28 @@ function SuccessfulLogons {
     $global:ResultsArray += $hash
     Write-Host "Successful Logons:" $SuccessfulLogons -ForegroundColor Green
 }
-
+function UnSuccessfulLogons {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$NoSecurity
+    )
+    if($NoSecurity -eq "no"){
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+        return
+    }
+    if ($Valid_Security_Path -eq $false) {
+        write-host "Error: Security event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID=4625
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "UnSuccessfulLogons.csv"
+    $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 10, '|') as LogonType,EXTRACT_TOKEN(strings, 11, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 13, '|') AS Workstation, EXTRACT_TOKEN(Strings, 11, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS ProcessPath ,EXTRACT_TOKEN(Strings, 19, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 20, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $UnSuccessfulLogons= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="UnSuccessful Logons"; NumberOfOccurences=$UnSuccessfulLogons}
+    $global:ResultsArray += $hash
+    Write-Host "UnSuccessful Logons:" $UnSuccessfulLogons -ForegroundColor Green
+}
 
 function AdminLogonCreated  {
     param (

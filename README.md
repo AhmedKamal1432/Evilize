@@ -11,6 +11,7 @@ It uses Logpraser , which is  a powerful tool that provides universal query acce
 | Event ID   | Output File Name                     | Parsed Values                                                |
 | ---------- | ------------------------------------ | ------------------------------------------------------------ |
 | 4624       | SuccessfulLogons.csv                 | TimeGenerated, EventID, Username, Domain, LogonType, AuthPackage, Workstation, ProcessName, SourceIP |
+| 4625       | UnSuccessfulLogons.csv               | TimeGenerated, EventID, Username, Domain, LogonType, AuthPackage, Workstation, ProcessName, ProcessPath, SourceIP, SourcePort |
 | 4672       | AdminLogonCreated.csv                | TimeGenerated, EventID, Username, Domain, LogonID            |
 | 4697       | InstalledServices.csv                | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, ServiceName, ServiceFileName, ServiceType, ServiceStartType |
 | 4698       | ScheduledTaskCreatedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
