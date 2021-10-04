@@ -1,7 +1,7 @@
 #Dot-sourcing to Operational Helper and helper  files
 . .\Helper\OperationalHelper.ps1
 . .\Helper\helper.ps1
-Function main{
+function LogparserCalls  {
 #====RemoteDesktop============
 Print_Seprator "RemoteDesktop"
 Write-Host "Parsing Successsful Logons"
@@ -148,6 +148,10 @@ ServerRemoteHostStarted
 Write-Host "Parsing Server Remote Host Ended"
 ServerRemoteHostEnded
 
+    
+}
+Function main{
+LogparserCalls
 }
 main
 $ResultsArray| Out-GridView

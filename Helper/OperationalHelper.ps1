@@ -8,22 +8,18 @@ function print_logo {
      ______           _     __    _            
     / ____/ _   __   (_)   / /   (_) ____  ___ 
    / __/   | | / /  / /   / /   / / /_  / / _ \
-  / /___   | |/ /  / /   / /   / /   / /_/  __/ 
- /_____/   |___/  /_/   /_/   /_/   /___/\___/ 
-                                              
- " -ForegroundColor Red -BackgroundColor black
+  / /___   | |/ /  / /   / /   / /   / /_/  __/
+ /_____/   |___/  /_/   /_/   /_/   /___/\___/ " -ForegroundColor Red 
  if(($Method -eq 'Logparser' )-or($Method -eq $null)){
         Write-Host "
 _    ____ ____ ___  ____ ____ ____ ____ ____ 
 |    |  | | __ |__] |__| |__/ [__  |___ |__/ 
-|___ |__| |__] |    |  | |  \ ___] |___ |  \                                                                                                                                     
-"-ForegroundColor green -BackgroundColor black}
+|___ |__| |__] |    |  | |  \ ___] |___ |  \ "-ForegroundColor green }
  else{
      Write-Host "
 _ _ _ _ _  _ ____ _  _ ____ _  _ ___ 
 | | | | |\ | |___ |  | |___ |\ |  |  
-|_|_| | | \| |___  \/  |___ | \|  |                                                                      
-" -ForegroundColor green -BackgroundColor black
+|_|_| | | \| |___  \/  |___ | \|  | " -ForegroundColor green -BackgroundColor black
  }
 }
 #=====logo print 
@@ -139,9 +135,9 @@ function Print_Seprator  {
         [String]
         $Name
     )
-    Write-Host "**********************************************"  -ForegroundColor yellow -BackgroundColor black
-    Write-Host  "              $Name                  "  -ForegroundColor yellow -BackgroundColor black
-    Write-Host  "**********************************************"  -ForegroundColor yellow -BackgroundColor black
+    Write-Host "**********************************************"  -ForegroundColor yellow 
+    Write-Host  "              $Name                  "  -ForegroundColor yellow 
+    Write-Host  "**********************************************"  -ForegroundColor yellow 
     
 }
 
