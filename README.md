@@ -23,7 +23,7 @@
 | AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
 | ComputerToValidate | Security.evtx | 4776 | Time created, Logon username, Source workstation |
 | KerberosAuthRequest | Security.evtx | 4768 | Time created, Logon username, Source workstation |
-| KerberosServiceRequest | Security.evtx | event id=4769 | Time created, Destination hostname, Logon username, Source IP |
+| KerberosServiceRequest | Security.evtx | 4769 | Time created, Destination hostname, Logon username, Source IP |
 | NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
 | AuditingofSharedfiles | Security.evtx | 5145 | Time created, Share name, Relative target, Source IP, Accesses |
 
