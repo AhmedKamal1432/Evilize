@@ -71,8 +71,8 @@
 #### Destination 
 | Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | event id= 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | event id =4672 | Time created, Login ID, Logon username, Account domain |
+| AllSuccessfulLogons | Security.evtx |  4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
 | SystemQueryWMI | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5857 | Time created, dll path |
 | TemporaryEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5860 | Time created,namespace, query |
 | PermenantEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5861 | Time created,name space, query |
