@@ -1,0 +1,20 @@
+function Get-AuthRecorded {
+    param(
+        [Parameter(Mandatory=$true)]
+        [String] $Path,
+        [Parameter(Mandatory=$false)]
+        [String] $LogID = "200"
+    )
+$A = Get-WinEvent -FilterHashtable @{ Id=161; Path = $Path } -ErrorAction SilentlyContinue
+
+$A | ForEach-Object -process{
+
+
+    $Logon = New-Object psobject
+    $Logon | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
+	$Logon | Add-Member -MemberType NoteProperty -name Message -value $_.properties[0].value
+	
+
+   
+    $Logon
+} }
