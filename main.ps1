@@ -57,6 +57,11 @@ $PowerShellRemoting_Path=Join-Path -Path $Destination_Path -ChildPath "PowerShel
 if ((Test-Path -Path "$PowerShellRemoting_Path")-eq $false) {
     New-Item -Path $PowerShellRemoting_Path -ItemType Directory    
 }
+$ExtraEvents_Path=Join-Path -Path $Destination_Path -ChildPath "ExtraEvents"
+#Check if ExtraEvents already exist
+if ((Test-Path -Path "$ExtraEvents_Path")-eq $false) {
+    New-Item -Path $ExtraEvents_Path -ItemType Directory    
+}
 
 $Security_Path= Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
 $System_Path= Join-Path -Path $Logs_Path -ChildPath "System.evtx"
@@ -179,6 +184,10 @@ $ResultsArray=@()
 . .\PSFunctions\PowerShellRemoting\CreatingRunspaceObject.ps1
 . .\PSFunctions\PowerShellRemoting\CreatingRunspacePoolObject.ps1
 . .\PSFunctions\PowerShellRemoting\RunspaceState.ps1
+#extra events
+. .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
+. .\PSFunctions\ExtraEvents\EventlogCleared.ps1
+
 # Remote Access
 	#Remote desktop
 		#destination#
@@ -273,39 +282,35 @@ else { write-host "Error: Microsoft-Windows-TerminalServices-LocalSessionManager
 # Remote Access
 	#Remote desktop
 		#source
-if ($securityparam -eq "yes") {
- if ($Valid_Security_Path -eq $true) {
+#if ($securityparam -eq "yes") {
+ #if ($Valid_Security_Path -eq $true) {
 
-$x= Get-ExplicitCreds -Path $Security_Path  
-write-host  "Number of ExplicitCreds  events:" , $x.count
-$x | Export-Csv -Path $RemoteDesktop_Path\ExplicitCreds.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="4648";SANSCateogry="RemoteDesktop"; Event="Exolicit Credentials"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
-	}
- else{ 
-  write-host "Error: Security event log is not found" -ForegroundColor Red  
- }
-}
-else {
-	write-host " ExplicitCreds depends on Security event log which you choose not to parse" -ForegroundColor Red
-}
+#$x= Get-ExplicitCreds -Path $Security_Path  
+#write-host  "Number of ExplicitCreds  events:" , $x.count
+#$x | Export-Csv -Path $RemoteDesktop_Path\ExplicitCreds.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="4648";SANSCateogry="RemoteDesktop"; Event="Exolicit Credentials"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
+	#}
+ #else{ 
+  #write-host "Error: Security event log is not found" -ForegroundColor Red  
+ #}
+#}
+#else {
+#	write-host " ExplicitCreds depends on Security event log which you choose not to parse" -ForegroundColor Red
+#}
 
 if ($Valid_RDPCORETS_Path -eq $true) {
 
-$x= Get-RDPConnectingtoServer -Path $RDPCORETS_Path  
-write-host  "Number of RDPConnectingtoServer  events:" , $x.count
-$x | Export-Csv -Path $RemoteDesktop_Path\RDPConnectingtoServer.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="1024";SANSCateogry="RemoteDesktop"; Event="RDP Connecting to Server"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#$x= Get-RDPConnectingtoServer -Path $RDPCORETS_Path  
+#write-host  "Number of RDPConnectingtoServer  events:" , $x.count
+#$x | Export-Csv -Path $RemoteDesktop_Path\RDPConnectingtoServer.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="1024";SANSCateogry="RemoteDesktop"; Event="RDP Connecting to Server"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
 
-$x= Get-RDPConnectionInitiated  -Path $RDPCORETS_Path 
-write-host  "Number of RDPConnectionInitiated  events:" , $x.count
-$x  | Export-Csv -Path $RemoteDesktop_Path\RDPConnectionInitiated.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="1102";SANSCateogry="RemoteDesktop"; Event="RDP Connection Initiated"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+
 }
 else{ write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
-        }
+       }
 #################################################################################################################################################3
 
 #Remote Access	
@@ -698,44 +703,39 @@ else{
 #Remote Execution
 	#powershell remoting
 		#source
-if ($securityparam -eq "yes") {
+#if ($securityparam -eq "yes") {
 #. .\PSFunctions\PowerShellRemoting\ExplicitCreds.ps1
 #Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\PowerShellRemoting\ExplicitCreds.csv -NoTypeInformation
 #$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count}
 #$ResultsArray+=$hash
-}
+#}
 #. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
 #Get-RDPreconnected -Path $WinRM_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
 #$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count}
 #$ResultsArray+=$hash
 
-$x= Get-ClosingWSManSession -Path $WinRM_Path  
-write-host  "Number of ClosingWSManSession  events:" , $x.count
-$x | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManSession.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="8";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Session"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#$x= Get-ClosingWSManSession -Path $WinRM_Path  
+#write-host  "Number of ClosingWSManSession  events:" , $x.count
+#$x | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManSession.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="8";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Session"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
 
-$x= Get-ClosingWSManCommand  -Path $WinRM_Path 
-write-host  "Number of ClosingWSManCommand  events:" , $x.count
-$x  | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManCommand.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="15";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Command"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#$x= Get-ClosingWSManCommand  -Path $WinRM_Path 
+#write-host  "Number of ClosingWSManCommand  events:" , $x.count
+#$x  | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManCommand.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="15";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Command"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
 
-$x= Get-ClosingWSManShell -Path $WinRM_Path  
-write-host  "Number of ClosingWSManShell  events:" , $x.count
-$x | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManShell.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="16";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Shell"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#$x= Get-ClosingWSManShell -Path $WinRM_Path  
+#write-host  "Number of ClosingWSManShell  events:" , $x.count
+#$x | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManShell.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="16";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Shell"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
 
-$x= Get-ClosingWSManSessionSucceeded -Path $WinRM_Path 
-write-host  "Number of ClosingWSManSessionSucceeded  events:" , $x.count
-$x  | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManSessionSucceeded.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="33";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Session Succeeded"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
-
-#. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
-#Get-RDPreconnected -Path $PowerShellOperational_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
-#$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count}
+#$x= Get-ClosingWSManSessionSucceeded -Path $WinRM_Path 
+#write-host  "Number of ClosingWSManSessionSucceeded  events:" , $x.count
+#$x  | Export-Csv -Path  $PowerShellRemoting_Path\ClosingWSManSessionSucceeded.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="33";SANSCateogry="PowerShellRemoting"; Event="Closing WSMan Session Succeeded"; NumberOfOccurences=$x.count}
 #$ResultsArray+=$hash
 
 #. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
@@ -743,21 +743,55 @@ $ResultsArray+=$hash
 #$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count}
 #$ResultsArray+=$hash
 
-$x= Get-CreatingRunspaceObject -Path $PowerShellOperational_Path  
-write-host  "Number of CreatingRunspaceObject  events:" , $x.count
-$x | Export-Csv -Path  $PowerShellRemoting_Path\reatingRunspaceObject.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="8193";SANSCateogry="PowerShellRemoting"; Event="Creating Runspace Object"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
+#Get-RDPreconnected -Path $PowerShellOperational_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="131";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count}
+#$ResultsArray+=$hash
 
-$x= Get-CreatingRunspacePoolObject -Path $PowerShellOperational_Path  
-write-host  "Number of CreatingRunspacePoolObject  events:" , $x.count
-$x | Export-Csv -Path  $PowerShellRemoting_Path\CreatingRunspacePoolObject.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="8194";SANSCateogry="PowerShellRemoting"; Event="Creating Runspace Pool Object"; NumberOfOccurences=$x.count}
-$ResultsArray+=$hash
+#$x= Get-CreatingRunspaceObject -Path $PowerShellOperational_Path  
+#write-host  "Number of CreatingRunspaceObject  events:" , $x.count
+#$x | Export-Csv -Path  $PowerShellRemoting_Path\reatingRunspaceObject.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="8193";SANSCateogry="PowerShellRemoting"; Event="Creating Runspace Object"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
 
-$x= Get-RunspaceState -Path $PowerShellOperational_Path 
-write-host  "Number of RunspaceState  events:" , $x.count
-$x  | Export-Csv -Path  $PowerShellRemoting_Path\RunspaceState.csv -NoTypeInformation
-$hash= New-Object PSObject -property @{EventID="8197";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=$x.count}
+#$x= Get-CreatingRunspacePoolObject -Path $PowerShellOperational_Path  
+#write-host  "Number of CreatingRunspacePoolObject  events:" , $x.count
+#$x | Export-Csv -Path  $PowerShellRemoting_Path\CreatingRunspacePoolObject.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="8194";SANSCateogry="PowerShellRemoting"; Event="Creating Runspace Pool Object"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
+
+#$x= Get-RunspaceState -Path $PowerShellOperational_Path 
+#write-host  "Number of RunspaceState  events:" , $x.count
+#$x  | Export-Csv -Path  $PowerShellRemoting_Path\RunspaceState.csv -NoTypeInformation
+#$hash= New-Object PSObject -property @{EventID="8197";SANSCateogry="PowerShellRemoting"; Event="RDP Connection Attempts"; NumberOfOccurences=$x.count}
+#$ResultsArray+=$hash
+
+#Extra events
+if ($securityparam -eq "yes") {
+	if ($Valid_Security_Path -eq $true) {
+	$x= Get-UnsuccessfulLogons  -Path $Security_Path
+	write-host  "Number of UnsuccessfulLogons events:" , $x.count
+	$x  | Export-Csv -Path $ExtraEvents_Path\UnsuccessfulLogons.csv -NoTypeInformation
+	$hash= New-Object PSObject -property @{EventID="4625";SANSCateogry="Extra Events"; Event="Unsuccessful Logons"; NumberOfOccurences=$x.count}
+	$ResultsArray+=$hash
+	}
+	else{ 
+		write-host "Error: Security event log is not found" -ForegroundColor Red   
+	}
+}
+else{
+ write-host "UnsuccessfulLogons depend on Security event log which you choose not to parse" -ForegroundColor Red
+}
+
+
+if ($Valid_RDPCORETS_Path -eq $true) {
+$x= Get-EventlogCleared  -Path $RDPCORETS_Path 
+write-host  "Number of EventlogCleared events:" , $x.count
+$x  | Export-Csv -Path $ExtraEvents_Path\EventlogCleared.csv -NoTypeInformation
+$hash= New-Object PSObject -property @{EventID="1102";SANSCateogry="Extra Events"; Event="Event log Cleared"; NumberOfOccurences=$x.count}
 $ResultsArray+=$hash
+}
+else{ write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
+       } 
+
 $ResultsArray| Out-GridView
