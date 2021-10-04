@@ -177,6 +177,8 @@ $ResultsArray=@()
 . .\PSFunctions\PowerShellRemoting\StartPSRemoteSession.ps1
 . .\PSFunctions\PowerShellRemoting\EndPSRemoteSession.ps1
 . .\PSFunctions\PowerShellRemoting\PipelineExecution.ps1
+. .\PSFunctions\PowerShellRemoting\SessionCreated.ps1
+. .\PSFunctions\PowerShellRemoting\AuthRecorded.ps1
 . .\PSFunctions\PowerShellRemoting\ClosingWSManSession.ps1
 . .\PSFunctions\PowerShellRemoting\ClosingWSManCommand.ps1
 . .\PSFunctions\PowerShellRemoting\ClosingWSManShell.ps1
@@ -638,19 +640,6 @@ if ($securityparam -eq "yes") {
 #Remote Execution
 	#powershell remoting
 		#destination
-if ($securityparam -eq "yes") {
-#. .\PSFunctions\PowerShellRemoting\AllSuccessfulLogons.ps1
-#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path $PowerShellRemoting_Path\AllSuccessfulLogons.csv -NoTypeInformation 
-#write-host  "Number of AllSuccessfulLogons  events:" , ((Import-Csv $PowerShellRemoting_Path\AllSuccessfulLogons.csv).count)
-#$hash= New-Object PSObject -property @{EventID="4624";SANSCateogry="PowerShellRemoting"; Event="All Successful Logons"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\AllSuccessfulLogons.csv).count}
-#$ResultsArray+=$hash
-
-#. .\PSFunctions\PowerShellRemoting\AdminLogonCreated.ps1
-#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path $PowerShellRemoting_Path\AdminLogonCreated.csv -NoTypeInformation
-#write-host  "Number of AdminLogonCreated  events:" , ((Import-Csv $PowerShellRemoting_Path\AdminLogonCreated.csv).count)
-#$hash= New-Object PSObject -property @{EventID="4672";SANSCateogry="PowerShellRemoting"; Event="Admin Logon Created"; NumberOfOccurences=(Import-Csv $PowerShellRemoting_Path\AdminLogonCreated.csv).count}
-#$ResultsArray+=$hash
-}
 
 if ($Valid_PowerShellOperational_Path -eq $true) {
 
@@ -699,6 +688,23 @@ $ResultsArray+=$hash
 }
 else{ 
   write-host "Error: Windows PowerShell event log is not found" -ForegroundColor Red   
+	}
+	
+if ($Valid_WinRM_Path -eq $true) {
+$x= Get-SessionCreated -Path $WinRM_Path
+write-host  "Number of SessionCreated  events:" , $x.count
+$x | Export-Csv -Path $PowerShellRemoting_Path\SessionCreated.csv -NoTypeInformation
+$hash= New-Object PSObject -property @{EventID="91";SANSCateogry="PowerShellRemoting"; Event="Session Created"; NumberOfOccurences=$x.count}
+$ResultsArray+=$hash
+
+$x= Get-AuthRecorded -Path $WinRM_Path
+write-host  "Number of AuthRecorded  events:" , $x.count
+$x | Export-Csv -Path $PowerShellRemoting_Path\AuthRecorded.csv -NoTypeInformation
+$hash= New-Object PSObject -property @{EventID="161";SANSCateogry="PowerShellRemoting"; Event="Authentication recorded "; NumberOfOccurences=$x.count}
+$ResultsArray+=$hash	
+}
+else{ 
+  write-host "Error: Microsoft-Windows-WinRM%4Operational.evtx event log is not found" -ForegroundColor Red   
 	}
 #Remote Execution
 	#powershell remoting
@@ -791,7 +797,7 @@ $x  | Export-Csv -Path $ExtraEvents_Path\EventlogCleared.csv -NoTypeInformation
 $hash= New-Object PSObject -property @{EventID="1102";SANSCateogry="Extra Events"; Event="Event log Cleared"; NumberOfOccurences=$x.count}
 $ResultsArray+=$hash
 }
-else{ write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
+else{ write-host "Error: 	 event log is not found" -ForegroundColor Red
        } 
 
 $ResultsArray| Out-GridView
