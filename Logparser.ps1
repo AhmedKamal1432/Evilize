@@ -139,7 +139,7 @@ Write-Host "Parsing Session Created"
 SessionCreated
 
 Write-Host "Parsing WinRM Authenticating User "
-WinRMAuthneticatingUser
+AuthRecorded
 
 Write-Host "Parsing Server Remote Hosts Started"
 StartPSRemoteSession
