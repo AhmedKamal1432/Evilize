@@ -1,4 +1,10 @@
 # ignore Results directory
+<<<<<<< HEAD
 #Results/*
 # ignore csv files
 #*.csv
+=======
+CSVResults/*
+# ignore csv files
+*.csv
+>>>>>>> origin/WinEvent

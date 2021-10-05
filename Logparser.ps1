@@ -5,31 +5,31 @@ function LogparserCalls  {
 #====RemoteDesktop============
 Print_Seprator "RemoteDesktop"
 Write-Host "Parsing Successsful Logons"
-SuccessfulLogons $NoSecurity
-
-Write-Host "Parsing UnSuccesssful Logons"
-UnSuccessfulLogons $NoSecurity
+AllSuccessfulLogons $NoSecurity
 
 Write-Host "Parsing RDP Sessions Began"
-RDPBegainSession
+RDPbeginSession
 
 Write-Host "Parsing RDP Connections Attempts"
 RDPConnectionsAttempts
 
 Write-Host "Parsing RDP Connections Established"
-RDPConnectionEstablished
+UserAuthSucceeded
 
 Write-Host "Parsing RDP Local Successful Logons 1"
-RDPLocalSuccessfulLogon1
+RDPSessionLogonSucceeded
 
 Write-Host "Parsing RDP Local Successful Logons 2"
-RDPLocalSuccessfulLogon2
+RDPShellStartNotificationReceived
 
 Write-Host "Parsing RDP Successful TCP Connections"
-RDPSuccessfulTCPConnections
+RDPSuccessfulConnections
+
+Write-Host "RDP Successful Shell Sessions Reconnected"
+RDPShellSessionReconnectedSucceeded $NoSecurity
 
 Write-Host "Parsing RDP Sessions Reconnected"
-RDPReconnected $NoSecurity
+RDPreconnected $NoSecurity
 
 Write-Host "Parsing RDP Sessions Disconnected"
 RDPDisconnected $NoSecurity
@@ -41,7 +41,7 @@ Write-Host "Parsing Network Share Object Accessed"
 NetworkShareAccessed $NoSecurity
 
 Write-Host "Parsing Network Share Object Checked"
-NetworkShareChecked $NoSecurity
+AuditingofSharedfiles $NoSecurity
 
 Write-Host "Parsing Admin Logons Created"
 AdminLogonCreated $NoSecurity
@@ -50,94 +50,90 @@ Write-Host "Parsing Domain Controller attempts to validate accounts' credentials
 ComputerToValidate $NoSecurity
 
 Write-Host "Parsing Kerberos Authentications Requested"
-KerberosAuthenticationRequested $NoSecurity
+KerberosAuthRequest $NoSecurity
 
 Write-Host "Parsing Kerberos Services Requested"
-KerberosServiceRequested $NoSecurity
+KerberosServiceRequest $NoSecurity
 
 
 #=======PsExec==========
 Print_Seprator "Powershell Execution"
 Write-Host "Parsing Installed Services [System Log]"
-SystemInstalledServices
-
-Write-Host "Parsing CLeared Event Logs"
-EventlogCleared $NoSecurity
+ServiceInstall
 
 #=====ScheduledTasks============ 
 Print_Seprator "ScheduledTasks"
 Write-Host "Parsing Scheduled Tasks Created [Security Log]"
-ScheduledTaskCreatedSec $NoSecurity
+ScheduleTaskCreated $NoSecurity
 
 Write-Host "Parsing Scheduled Tasks Deleted [Security Log]"
-ScheduledTaskDeletedSec $NoSecurity
+ScheduleTaskDeleted $NoSecurity
 
 Write-Host "Parsing Scheduled Tasks Enabled [Security Log]"
-ScheduledTaskEnabledSec $NoSecurity
+ScheduleTaskEnabled $NoSecurity
 
 Write-Host "Parsing Scheduled Tasks Disabled [Security Log]"
-ScheduledTaskDisabledSec $NoSecurity
+ScheduleTaskDisabled $NoSecurity
 
 Write-Host "Parsing Scheduled Tasks Updated [Security Log]"
-ScheduledTaskUpdatedSec $NoSecurity
+ScheduleTaskUpdated $NoSecurity
 
 Write-Host "Parsing Scheduled Tasks Created [Task Scheduler Log]"
-ScheduledTasksCreatedTS 
+CreatingTaskSchedulerTask 
 
 Write-Host "Parsing Scheduled Tasks Deleted [Task Scheduler Log]"
-ScheduledTasksDeletedTS 
+DeletingTaskSchedulerTask 
 
 Write-Host "Parsing Scheduled Tasks Executed [Task Scheduler Log]"
-ScheduledTasksExecutedTS
+ExecutingTaskSchedulerTask
 
 Write-Host "Parsing Scheduled Tasks Completed [Task Scheduler Log]"
-ScheduledTasksCompletedTS
+CompletingTaskSchedulerTask
 
 Write-Host "Parsing Scheduled Tasks Updated [Task Scheduler Log]"
-ScheduledTasksUpdatedTS
+UpdatingTaskSchedulerTask
 
 #======WMI ==================
 Print_Seprator "WMI/WMIC"
 Write-Host "Parsing WMI Operations Started"
-WMIOperationStarted
+SystemQueryWMI
 
 Write-Host "Parsing WMI Operations Temporary Ess Started"
-WMIOperationTemporaryEssStarted
+TemporaryEventConsumer
 
 Write-Host "Parsing WMI Operations To Consumer Binding"
-WMIOperationESStoConsumerBinding
-
+PermenantEventConsumer
 
 #=======Services========
 Print_Seprator "Services"
 Write-Host "Parsing Installed Services [Security Log]"
-InstalledServices $NoSecurity
+ServiceInstalledonSystem $NoSecurity
 
 Write-Host "Parsing Services Crashed Unexpectedely"
-ServiceCrashedUnexpect
+ServiceCrashed
 
 Write-Host "Parsing Services Status"
-ServicesStatus
+ServiceStartorStop
 
 Write-Host "Parsing Services Requested Start Stop Controls"
-ServiceSentStartStopControl
+ServiceSentControl
 
 Write-Host "Parsing Services Start Type Changed"
-ServiceStartTypeChanged
+StartTypeChanged
 
 #======PowerShellRemoting 
 Print_Seprator "PowerShellRemoting"
 Write-Host "Parsing PowerShell Module Logging"
-PSModuleLogging
+ScriptBlockLogging
 
 Write-Host "Parsing PowerShell Script Blocking Logging"
-PSScriptBlockLogging
+ScriptBlockAuditing	
 
 Write-Host "Parsing PowerShell Authneticating User"
-PSAuthneticatingUser
+LateralMovementDetection
 
 Write-Host "Parsing PowerShell Partial Code"
-PSPartialCode
+PipelineExecution
 
 Write-Host "Parsing Session Created"
 SessionCreated
@@ -146,12 +142,17 @@ Write-Host "Parsing WinRM Authenticating User "
 WinRMAuthneticatingUser
 
 Write-Host "Parsing Server Remote Hosts Started"
-ServerRemoteHostStarted
+StartPSRemoteSession
 
 Write-Host "Parsing Server Remote Host Ended"
-ServerRemoteHostEnded
+EndPSRemoteSession
+#=======ExtraEvents
+Print_Seprator "Extra Events"
+Write-Host "Parsing UnSuccesssful Logons"
+UnsuccessfulLogons $NoSecurity
 
-    
+Write-Host "Parsing CLeared Event Logs"
+EventlogCleared $NoSecurity
 }
 Function main{
 LogparserCalls

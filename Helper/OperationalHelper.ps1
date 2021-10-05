@@ -10,7 +10,7 @@ function print_logo {
    / __/   | | / /  / /   / /   / / /_  / / _ \
   / /___   | |/ /  / /   / /   / /   / /_/  __/
  /_____/   |___/  /_/   /_/   /_/   /___/\___/ " -ForegroundColor Red 
- if(($Method -eq 'Logparser' )-or($Method -eq $null)){
+ if(($Method -eq 'Logparser' )-or($Method -eq '')){
         Write-Host "
 _    ____ ____ ___  ____ ____ ____ ____ ____ 
 |    |  | | __ |__] |__| |__/ [__  |___ |__/ 
@@ -23,7 +23,7 @@ _ _ _ _ _  _ ____ _  _ ____ _  _ ___
  }
 }
 #=====logo print 
-print_logo "Logparser"
+print_logo $Method
 
 
 $global:Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
@@ -126,6 +126,11 @@ $PowerShellRemoting_Path=Join-Path -Path $Destination_Path -ChildPath "PowerShel
 #Check if PowerShellRemoting already exist
 if ((Test-Path -Path "$PowerShellRemoting_Path")-eq $false) {
     New-Item -Path $PowerShellRemoting_Path -ItemType Directory    
+}
+$ExtraEvents_Path=Join-Path -Path $Destination_Path -ChildPath "ExtraEvents"
+#Check if PowerShellRemoting already exist
+if ((Test-Path -Path "$ExtraEvents_Path")-eq $false) {
+    New-Item -Path $ExtraEvents_Path -ItemType Directory    
 }
 
 function Print_Seprator  {
