@@ -14,12 +14,6 @@
 | RDPShellStartNotificationReceived | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 22 | Time created, Logon username, Source IP, Session ID|
 | RDPShellSessionReconnectedSucceeded | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 25 | Time created, Logon username, Source IP, Session ID |
 | RDPbeginSession | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 41 | Time created, Logon username |
-#### Source
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
-| RDPConnnectingtoServer | Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx | 1024 | Time created, Destination hostname, Destination IP |
-| RDPConnnectionInitiated | Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx | 1102 | Time created, Destination hostname, Destination IP |
 
 ### Map Network Shares (net.exe)
 #### Destination
@@ -29,14 +23,9 @@
 | AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
 | ComputerToValidate | Security.evtx | 4776 | Time created, Logon username, Source workstation |
 | KerberosAuthRequest | Security.evtx | 4768 | Time created, Logon username, Source workstation |
-| KerberosServiceRequest | Security.evtx | event id=4769 | Time created, Destination hostname, Logon username, Source IP |
+| KerberosServiceRequest | Security.evtx | 4769 | Time created, Destination hostname, Logon username, Source IP |
 | NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
 | AuditingofSharedfiles | Security.evtx | 5145 | Time created, Share name, Relative target, Source IP, Accesses |
-#### Source
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
-| FailedLogintoDestination | Microsoft-WindowsSmbClient%4Security.evtx | 31001| TODO
 
 ## Remote Execution
 ### PsExec
@@ -46,12 +35,7 @@
 | AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
 | AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
 | NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
-| ServiceInstall | System.evtx | event id =7045 | Time created, Service name, Service file name, Service type, Service start type |
-
-#### Source
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
+| ServiceInstall | System.evtx | 7045 | Time created, Service name, Service file name, Service type, Service start type |
 
 ### Scheduled Tasks
 #### Destination
@@ -69,10 +53,6 @@
 | DeletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 141 | Time created, Task name, Logon username, Instance |
 | ExecutingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 200 | Time created, Task name, Logon username, Task action, Instance |
 | CompletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 201 | Time created, Task name, Logon username,Task action, Instance |
-#### Source
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
 
 ### Services
 #### Destination
@@ -80,6 +60,7 @@
 | --- | --- | -- | -- |
 | AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
 | AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
+| ServiceInstalledonSystem | Security.evtx | 4697 | Time created, Service name, Service Type, Service Start type, Service Account, Service File name, Event ID | 
 | ServiceCrashed | System.evtx | 7034 | Time created, Service name, Times |
 | ServiceSentControl | System.evtx | 7035 | Time created, Service name, Request sent |
 | ServiceStartorStop | System.evtx | 7036 | Time created, Service name, State |
@@ -90,15 +71,11 @@
 #### Destination 
 | Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | event id= 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | event id =4672 | Time created, Login ID, Logon username, Account domain |
+| AllSuccessfulLogons | Security.evtx |  4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
+| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
 | SystemQueryWMI | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5857 | Time created, dll path |
 | TemporaryEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5860 | Time created,namespace, query |
 | PermenantEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5861 | Time created,name space, query |
-#### Source
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
 
 ### PowerShell Remoting
 #### Destination
@@ -112,23 +89,14 @@
 | StartPSRemoteSession | Windows PowerShell.evtx | 400 | Time created, Details |
 | EndPSRemoteSession | Windows PowerShell.evtx | 403 | Time created, Details |
 | PipelineExecution | Windows PowerShell.evtx | 800 | Time created, Command line, Context information, Details |
-| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | TODO |
-| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | TODO |
- #### Source
+| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | Time created, ResourceURL |
+| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | Time created, message |
+
+### Extra Events
 | Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
-| ExplicitCreds | Security.evtx | 4648 | Time created, Logon ID, Logon username, Account domain, Alternate username, Alternate domain, Destination host name, Destination IP, Destination port, Destination info, Process name |
-| OpeningWSManSession | Microsoft-Windows-WinRM%4Operational.evtx | 6 | TODO |
-| ClosingWSManSession | Microsoft-Windows-WinRM%4Operational.evtx | 8 | Time created, Logon username |
-| ClosingWSManCommand | Microsoft-Windows-WinRM%4Operational.evtx | 15 | Time created, Logon username |
-| ClosingWSManShell | Microsoft-Windows-WinRM%4Operational.evtx | 16 | Time created, Logon username |
-| ClosingWSManSessionSucceeded | Microsoft-Windows-WinRM%4Operational.evtx | 33 | Time created, Logon username |
-| TODO |
-| TODO |
-| CreatingRunspaceObject | Microsoft-Windows-PowerShell%4Operational | 8193 | Time created, Instance ID |
-| CreatingRunspacePoolObject | Microsoft-Windows-PowerShell%4Operational | 8194 | Time created, Instance ID |
-| RunspaceState | Microsoft-Windows-PowerShell%4Operational | 8197 | Time created, Runspace state |
-
+| UnsuccessfulLogons | Security.evtx | 4625 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication Package, Source Workstation, Process name, Source IP |
+| EventlogCleared | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 1102 | Time created, Destination hostname, DestinationIP |
 
 
 
