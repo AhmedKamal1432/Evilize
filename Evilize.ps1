@@ -3,7 +3,7 @@ function Evilize  {
     IF(($Method -eq "Logparser") -or ($Method -eq "")){
         . .\Logparser.ps1
     }
-    elseif (($Method -eq "WinEve")) {
+    elseif (($Method -eq "WinEvent")) {
         . .\WinEvent.ps1
     }
 }
