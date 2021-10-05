@@ -13,7 +13,7 @@ $A | ForEach-Object -process{
     $Logon = New-Object psobject
     $Logon | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
 	$Logon | Add-Member -MemberType NoteProperty -name NameSpacename -value $_.properties[0].value
-	$Logon | Add-Member -MemberType NoteProperty -name Query -value $_.properties[1].value
+	$Logon | Add-Member -MemberType NoteProperty -name Query -value $_.properties[3].value
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
 	
     $Logon
