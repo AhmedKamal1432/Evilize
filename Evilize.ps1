@@ -7,4 +7,4 @@ function Evilize  {
         . .\WinEvent.ps1
     }
 }
-
+Evilize
