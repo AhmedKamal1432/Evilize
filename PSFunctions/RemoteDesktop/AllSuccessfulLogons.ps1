@@ -12,7 +12,7 @@ $A | ForEach-Object -process{
     # Logon Type
     $logon_type = $_.Message.split([Environment]::NewLine)| Select-String -Pattern "(Logon Type:).*([0-9]+)" |ForEach-Object {$_.Matches[0].Groups[2].Value}
 	
-       
+    if ( 5-ne $logon_type ){
     # Account, Domain, ID
     $_.Message.split([Environment]::NewLine)| Select-String -Pattern "New Logon:" -Context 0,10 |ForEach-Object {
         $account_name = $_.Context.PostContext|Select-String -Pattern "(Account Name:)\t*(\w+)" | ForEach-Object {$_.Matches[0].Groups[2].Value}
@@ -37,8 +37,8 @@ $A | ForEach-Object -process{
 	$Logon | Add-Member -MemberType NoteProperty -name EventID -value $_.Id
     
 	
-
     $Logon
+	}
 }
 }
 
