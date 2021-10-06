@@ -1,106 +1,75 @@
 # Evilize
-## Remote Access
-### Remote Desktop 
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP|
-| RDPreconnected | Security.evtx | 4778 | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
-| RDPDisconnected | Security.evtx | 4779 | Time created, Logon username, Account domain, Source IP, Source system name, Logon ID |
-| RDPConnectionAttempts | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 131 | Time created, Destination host name, Transport layer protocol, Client IP |
-| RDPSuccessfulConnections | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 98 | Time created, Destination host name, User ID |
-| UserAuthSucceeded | Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational | 1149 | Time created, Logon username, Source IP |
-| RDPSessionLogonSuccessed | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 21 | Time created, Logon username, Source IP, Session ID |
-| RDPShellStartNotificationReceived | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 22 | Time created, Logon username, Source IP, Session ID|
-| RDPShellSessionReconnectedSucceeded | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 25 | Time created, Logon username, Source IP, Session ID |
-| RDPbeginSession | Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx | 41 | Time created, Logon username |
 
-### Map Network Shares (net.exe)
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-|AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| ComputerToValidate | Security.evtx | 4776 | Time created, Logon username, Source workstation |
-| KerberosAuthRequest | Security.evtx | 4768 | Time created, Logon username, Source workstation |
-| KerberosServiceRequest | Security.evtx | 4769 | Time created, Destination hostname, Logon username, Source IP |
-| NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
-| AuditingofSharedfiles | Security.evtx | 5145 | Time created, Share name, Relative target, Source IP, Accesses |
+An incident response framework in Powershell that parses Windows Event Logs and exports valuable events IDs' values into CSV file.
 
-## Remote Execution
-### PsExec
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| NetworkShareAccessed | Security.evtx | 5140 | Time created, Logon ID, Logon username, account domain, Security ID, Source port, Source IP, Share name |
-| ServiceInstall | System.evtx | 7045 | Time created, Service name, Service file name, Service type, Service start type |
+## Functionality
 
-### Scheduled Tasks
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP | 
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| ScheduleTaskCreated | Security.evtx | 4698| Time created, Logon username, Task name, Task content |
-| ScheduleTaskDeleted | Security.evtx | 4699 | Time created, Logon username, Task name, Task content |
-| ScheduleTaskEnabled | Security.evtx | 4700 | Time created, Logon username, Task name, Task content |
-| ScheduleTaskDisabled | Security.evtx | 4701 | Time created, Logon username, Task name, Task content |
-| ScheduleTaskUpdated | Security.evtx | 4702 | Time created, Logon username, Task name, Task content |
-| CreatingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 106 | Time created, Task name, Logon username |
-| UpdatingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 140 | Time created, Task name, Logon username |
-| DeletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 141 | Time created, Task name, Logon username, Instance |
-| ExecutingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 200 | Time created, Task name, Logon username, Task action, Instance |
-| CompletingTaskSchedulerTask | Microsoft-Windows-TaskScheduler%4Maintenance.evtx | 201 | Time created, Task name, Logon username,Task action, Instance |
+It uses Logpraser , which is  a powerful tool that provides universal query access to text-based data such as log files, XML files and CSV files, to parse windows event IDs. It focuses only on the important event IDs according to [SANS Poster](https://share.ialab.dsu.edu/CRRC/Incident%20Response/Supplementary%20Material/SANS_Poster_2018_Hunt_Evil_FINAL.pdf). 
 
-### Services
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP 
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| ServiceInstalledonSystem | Security.evtx | 4697 | Time created, Service name, Service Type, Service Start type, Service Account, Service File name, Event ID | 
-| ServiceCrashed | System.evtx | 7034 | Time created, Service name, Times |
-| ServiceSentControl | System.evtx | 7035 | Time created, Service name, Request sent |
-| ServiceStartorStop | System.evtx | 7036 | Time created, Service name, State |
-| StartTypeChanged | System.evtx | 7040 | Time created, Service name, Changed from, Changed to |
-| ServiceInstall | System.evtx | 7045 | Time created, Service name, Service file name, Service type, Service start type |
+## َResults Mapping
 
-### WMI/WMIC
-#### Destination 
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx |  4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| SystemQueryWMI | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5857 | Time created, dll path |
-| TemporaryEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5860 | Time created,namespace, query |
-| PermenantEventConsumer | Microsoft-Windows-WMI-Activity%4Operational.evtx | 5861 | Time created,name space, query |
-
-### PowerShell Remoting
-#### Destination
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| AllSuccessfulLogons | Security.evtx | 4624 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication package, Source workstation, Process name, Source IP |
-| AdminLogonCreated | Security.evtx | 4672 | Time created, Login ID, Logon username, Account domain |
-| ScriptBlockLogging | Microsoft-Windows-PowerShell%4Operational.evtx | 4103 | Time created, Command invoced |
-| ScriptBlockAuditing | Microsoft-Windows-PowerShell%4Operational.evtx |4104 | Time created, Command invoced |
-| LateralMovementDetection | Microsoft-Windows-PowerShell%4Operational.evtx | 53504 | Time created, App domain |
-| StartPSRemoteSession | Windows PowerShell.evtx | 400 | Time created, Details |
-| EndPSRemoteSession | Windows PowerShell.evtx | 403 | Time created, Details |
-| PipelineExecution | Windows PowerShell.evtx | 800 | Time created, Command line, Context information, Details |
-| SessionCreated | Microsoft-Windows-WinRM%4Operational.evtx | 91 | Time created, ResourceURL |
-| AuthRecorded | Microsoft-Windows-WinRM%4Operational.evtx | 168 | Time created, message |
-
-### Extra Events
-| Event Name | Event Log | ID |Parsed values |
-| --- | --- | -- | -- |
-| UnsuccessfulLogons | Security.evtx | 4625 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication Package, Source Workstation, Process name, Source IP |
-| EventlogCleared | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 1102 | Time created, Destination hostname, DestinationIP |
+| Event ID   | Output File Name                     | Parsed Values                                                |
+| ---------- | ------------------------------------ | ------------------------------------------------------------ |
+| 4624       | SuccessfulLogons.csv                 | TimeGenerated, EventID, Username, Domain, LogonType, AuthPackage, Workstation, ProcessName, SourceIP |
+| 4625       | UnSuccessfulLogons.csv               | TimeGenerated, EventID, Username, Domain, LogonType, AuthPackage, Workstation, ProcessName, ProcessPath, SourceIP, SourcePort |
+| 4672       | AdminLogonCreated.csv                | TimeGenerated, EventID, Username, Domain, LogonID            |
+| 4697       | InstalledServices.csv                | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, ServiceName, ServiceFileName, ServiceType, ServiceStartType |
+| 4698       | ScheduledTaskCreatedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4699       | ScheduledTaskDeletedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4700       | ScheduledTaskEnabledSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4701       | ScheduledTaskDisabledSec.csv         | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4702       | ScheduledTaskUpdatedSec.csv          | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, TaskName, TaskContent |
+| 4768       | KerberosAuthenticationRequested.csv  | TimeGenerated, EventID, AccountName, AccountDomain, SourceIP, SourcePort |
+| 4769       | KerberosServiceRequested.csv         | TimeGenerated, EventID, AccountName, AccountDomain, ServiceName, SourceIP, SourcePort |
+| 4776       | ComputerToValidate.csv               | TimeGenerated, EventID, AccountName, AccountDomain           |
+| 4778       | RDPReconnected.csv                   | TimeGenerated, EventID, Username, Domain, Workstation, SourceIP |
+| 4779       | RDPDisconnected.csv                  | TimeGenerated, EventID, Username, Domain, Workstation, SourceIP |
+| 5140       | NetworkShareAccessed.csv             | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, SourceIP, SourcePort, ShareName |
+| 5145       | NetworkShareChecked.csv              | TimeGenerated, EventID, AccountName, AccountDomain, LogonID, ObjectType, SourceIP, SourcePort, ShareName, SharePath, Accessess, AccessesCheckResult |
+| 7034       | ServiceCrashedUnexpect.csv           | TimeGenerated, EventID, ServiceName, Times                   |
+| 7036       | ServicesStatus.csv                   | TimeGenerated, EventID, ServiceName, State                   |
+| 7035       | ServiceSentStartStopControl.csv      | TimeGenerated, EventID, ServiceName, RequestSent             |
+| 7040       | ServiceStartTypeChanged.csv          | TimeGenerated, EventID, ServiceName, ChangedFrom, ChangedTo  |
+| 7045       | SystemInstalledServices.csv          | TimeGenerated, EventID, ServiceName, ImagePath, ServiceType, StartType, AccountName, |
+| 5857       | WMIOperationStarted.csv              | TimeGenerated, EventID, ProviderName, Code, ProcessID, ProviderPath |
+| 5860       | WMIOperationTemporaryEssStarted.csv  | TimeGenerated, EventID, NameSpace, Query, User, ProcessID, ClientMachine |
+| 5861       | WMIOperationESStoConsumerBinding.csv | TimeGenerated, EventID, NameSapace, ESS, Consumer, PossibleCause |
+| *** 4103** | PSModuleLogging.csv                  | TimeGenerated, EventID, ContextINFO, Payload                 |
+| *** 4104** | PSScriptBlockLogging.csv             | TimeGenerated, EventID, MessageNumber, TotalMessages, ScriptBlockText, ScriptBlockID, ScriptPath |
+| 53504      | PSAuthneticatingUser.csv             | TimeGenerated, EventID, Process, AppDomain                   |
+| 91         | SessionCreated.csv                   | TimeGenerated, EventID, ResourceUrl                          |
+| *** 168**  | WinRMAuthneticatingUser.csv          | TimeGenerated, EventID, Message                              |
+| *** 400**  | ServerRemoteHostStarted.csv          | TimeGenerated, EventID, HostApplication                      |
+| *** 403**  | ServerRemoteHostEnded.csv            | TimeGenerated, EventID, HostApplication                      |
+| *** 800**  | PSPartialCode.csv                    | TimeGenerated, EventID, HostApplication                      |
+| 106        | ScheduledTasksCreatedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 140        | ScheduledTasksUpdatedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 141        | ScheduledTasksDeletedTS.csv          | TimeGenerated, EventID, TaskName, User                       |
+| 200        | ScheduledTasksExecutedTS.csv         | TimeGenerated, EventID,  TaskName, TaskAction, Instance      |
+| 201        | ScheduledTasksCompletedTS.csv        | TimeGenerated, EventID, TaskName, TaskAction, Instance       |
+| 21         | RDPLocalSuccessfulLogon1.csv         | TimeGenerated, EventID, User, SessionID, SourceIP            |
+| 22         | RDPLocalSuccessfulLogon2.csv         | TimeGenerated, EventID, User, SessionID, SourceIP            |
+| 25         | RDPLocalSuccessfulReconnection.csv   | TimeGenerated, EventID, User, SessionID, SourceIP            |
+| 41         | RDPBegainSession.csv                 | TimeGenerated, EventID, User, SessionID                      |
+| 1149       | RDPConnectionEstablished.csv         | TimeGenerated, EventID, User, Domain, SourceIP               |
+| 131        | RDPConnectionsAttempts .csv          | TimeGenerated, EventID, ConnectionType, CLientIP             |
+| 98         | RDPSuccessfulTCPConnections.csv      | TimeGenerated, EventID                                       |
 
 
 
+The following Event IDs will be revised again since the output values is not formatted well:
 
+`[4103, 4104 ,168, 400, 403, 800]`
 
+- 168 => Need a sample of this event to know its content in order to parse its values
 
+  ## Usage
+
+  1. Download and Install [Logparser](https://www.microsoft.com/en-us/download/details.aspx?id=24659).
+  2. Add Log parser path to your machine environment variables [[Guide](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)]
+  3. Clone this repository
+  4. Run the main file using Windows PowerShell `.\main.ps1`
+  5. Enter the Event logs' path you want to parse
+     1. If it's in the system partition you need to run with root privileges
+  6. Enter the Destination of the results
 
