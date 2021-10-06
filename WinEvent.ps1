@@ -603,7 +603,7 @@ if ($securityparam -eq "yes") {
 #$ResultsArray+=$hash
 }
 
-if ($Valid_$WMI_Path -eq $true) {
+if ($Valid_WMI_Path -eq $true) {
 
 $x= Get-SystemQueryWMI -Path $WMI_Path  
 write-host  "Number of SystemQueryWMI  events:" , $x.count
