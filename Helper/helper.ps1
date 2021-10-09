@@ -80,10 +80,12 @@ function Print_Seprator {
         [String]
         $Name
     )
+    Write-Host ""  -ForegroundColor yellow 
+    Write-Host ""  -ForegroundColor yellow 
     Write-Host "**********************************************"  -ForegroundColor yellow 
     Write-Host  "              $Name                  "  -ForegroundColor yellow 
     Write-Host  "**********************************************"  -ForegroundColor yellow 
-    
+   
 }
 
 function check_logs_path {
@@ -522,7 +524,7 @@ function ComputerToValidate  {
     Write-Host "Computer to validate: " $ComputerToValidate -ForegroundColor Green
 
 }
-function EventlogCleared  {
+function EventlogClearedSecurity  {
     param (
       [Parameter(Mandatory=$true)]
       [string]$NoSecurity
@@ -537,16 +539,31 @@ function EventlogCleared  {
       return  
   }
   $EventID=1102
-  $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogCleared.csv"
+  $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSecurity.csv"
   $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
   LogParser.exe -stats:OFF -i:EVT $Query
   $EventlogCleared= GetStats $OutputFile
   $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogCleared}
   $global:ResultsArray+=$hash
-  Write-Host "Cleared Event Log: " $EventlogCleared -ForegroundColor Green
-
+  Write-Host "Cleared Event Log [Security.evtx]: " $EventlogCleared -ForegroundColor Green
 }
 
+function EventlogClearedSystem  {
+    if ($Valid_System_Path -eq $false) {
+      write-host "Error: System event log is not found" -ForegroundColor Red
+      return  
+    }
+    $EventID=104
+    $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSystem.csv"
+    
+    $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    
+    $EventlogCleared= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogCleared}
+    $global:ResultsArray+=$hash
+    Write-Host "Cleared Event Log [System.evtx]: " $EventlogCleared -ForegroundColor Green
+}
 function RDPreconnected  {
       param (
         [Parameter(Mandatory=$true)]
