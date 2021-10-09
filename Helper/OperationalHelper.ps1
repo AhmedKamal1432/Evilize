@@ -25,13 +25,11 @@ _ _ _ _ _  _ ____ _  _ ____ _  _ ___
 #=====logo print 
 print_logo $Method
 
-
-$global:Logs_Path = Read-Host -Prompt "Please, Enter Events logs path"  
 $global:Destination_Path=$Logs_Path
-$global:NoSecurity = Read-Host -Prompt "Do you want to parse the security event log? yes\no [Default is no]"
-if($NoSecurity -eq ""){
-        $NoSecurity="no"
-    }
+$NoSecurity = "no"
+if($security){
+        $NoSecurity="yes"
+}
     ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
 $DestPathTest=Test-Path -Path "$Destination_Path"
