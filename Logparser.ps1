@@ -4,7 +4,7 @@ function LogparserCalls {
     #====RemoteDesktop============
     Print_Seprator "RemoteDesktop"
     Write-Host "Parsing Successsful Logons"
-    AllSuccessfulLogons $NoSecurity
+    AllSuccessfulLogons $security
 
     Write-Host "Parsing RDP Sessions Began"
     RDPbeginSession
@@ -25,34 +25,34 @@ function LogparserCalls {
     RDPSuccessfulConnections
 
     Write-Host "RDP Successful Shell Sessions Reconnected"
-    RDPShellSessionReconnectedSucceeded $NoSecurity
+    RDPShellSessionReconnectedSucceeded $security
 
     Write-Host "Parsing RDP Sessions Reconnected"
-    RDPreconnected $NoSecurity
+    RDPreconnected $security
 
     Write-Host "Parsing RDP Sessions Disconnected"
-    RDPDisconnected $NoSecurity
+    RDPDisconnected $security
 
 
     #=====MapNetworkShare===============
     Print_Seprator "MapNetworkShare"
     Write-Host "Parsing Network Share Object Accessed"
-    NetworkShareAccessed $NoSecurity
+    NetworkShareAccessed $security
 
     Write-Host "Parsing Network Share Object Checked"
-    AuditingofSharedfiles $NoSecurity
+    AuditingofSharedfiles $security
 
     Write-Host "Parsing Admin Logons Created"
-    AdminLogonCreated $NoSecurity
+    AdminLogonCreated $security
 
     Write-Host "Parsing Domain Controller attempts to validate accounts' credentials"
-    ComputerToValidate $NoSecurity
+    ComputerToValidate $security
 
     Write-Host "Parsing Kerberos Authentications Requested"
-    KerberosAuthRequest $NoSecurity
+    KerberosAuthRequest $security
 
     Write-Host "Parsing Kerberos Services Requested"
-    KerberosServiceRequest $NoSecurity
+    KerberosServiceRequest $security
 
 
     #=======PsExec==========
@@ -63,19 +63,19 @@ function LogparserCalls {
     #=====ScheduledTasks============ 
     Print_Seprator "ScheduledTasks"
     Write-Host "Parsing Scheduled Tasks Created [Security Log]"
-    ScheduleTaskCreated $NoSecurity
+    ScheduleTaskCreated $security
 
     Write-Host "Parsing Scheduled Tasks Deleted [Security Log]"
-    ScheduleTaskDeleted $NoSecurity
+    ScheduleTaskDeleted $security
 
     Write-Host "Parsing Scheduled Tasks Enabled [Security Log]"
-    ScheduleTaskEnabled $NoSecurity
+    ScheduleTaskEnabled $security
 
     Write-Host "Parsing Scheduled Tasks Disabled [Security Log]"
-    ScheduleTaskDisabled $NoSecurity
+    ScheduleTaskDisabled $security
 
     Write-Host "Parsing Scheduled Tasks Updated [Security Log]"
-    ScheduleTaskUpdated $NoSecurity
+    ScheduleTaskUpdated $security
 
     Write-Host "Parsing Scheduled Tasks Created [Task Scheduler Log]"
     CreatingTaskSchedulerTask 
@@ -106,7 +106,7 @@ function LogparserCalls {
     #=======Services========
     Print_Seprator "Services"
     Write-Host "Parsing Installed Services [Security Log]"
-    ServiceInstalledonSystem $NoSecurity
+    ServiceInstalledonSystem $security
 
     Write-Host "Parsing Services Crashed Unexpectedely"
     ServiceCrashed
@@ -148,10 +148,10 @@ function LogparserCalls {
     #=======ExtraEvents
     Print_Seprator "Extra Events"
     Write-Host "Parsing UnSuccesssful Logons"
-    UnsuccessfulLogons $NoSecurity
+    UnsuccessfulLogons $security
 
     Write-Host "Parsing CLeared Event Logs"
-    EventlogClearedSecurity $NoSecurity
+    EventlogClearedSecurity $security
     EventlogClearedSystem
 }
 
