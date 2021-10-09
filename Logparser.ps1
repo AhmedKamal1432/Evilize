@@ -151,7 +151,8 @@ function LogparserCalls {
     UnsuccessfulLogons $NoSecurity
 
     Write-Host "Parsing CLeared Event Logs"
-    EventlogCleared $NoSecurity
+    EventlogClearedSecurity $NoSecurity
+    EventlogClearedSystem
 }
 
 Function main {
