@@ -86,7 +86,7 @@ if (-NOT ($evtFiles -eq $null)){
 	$PowerShellOperationalevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
 	$WinPowerShellevt_Path= Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
 	$WinRMevt_Path= Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
-	$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Maintenance.evt"
+	$TaskSchedulerevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Operational.evt"
 	$TerminalServiceevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
 	$RemoteConnectionevt_Path=Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
 
@@ -513,7 +513,7 @@ $hash= New-Object PSObject -property @{EventID="201";SANSCateogry="ScheduledTask
 $ResultsArray+=$hash
 }
 else{ 
-  write-host "Error: Microsoft-Windows-TaskScheduler%4Maintenance event log is not found" -ForegroundColor Red   
+  write-host "Error: Microsoft-Windows-TaskScheduler%4en4Operational event log is not found" -ForegroundColor Red   
 }
 
 #Remote Execution
