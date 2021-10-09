@@ -26,9 +26,10 @@ _ _ _ _ _  _ ____ _  _ ____ _  _ ___
 print_logo $Method
 
 $global:Destination_Path=$Logs_Path
-$NoSecurity = "yes"
-if($securiy -eq $false){
-        $NoSecurity="no"
+
+$NoSecurity = "no"
+if($security){
+        $NoSecurity="yes"
 }
     ##Validating Paths
 $LogsPathTest=Test-Path -Path "$Logs_Path"
