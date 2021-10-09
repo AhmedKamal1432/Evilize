@@ -14,8 +14,9 @@ Write-host "
    \/    \/   |_|  |   \|  \___/   |___/   \___/   |   \|   |
 " -ForegroundColor Red -BackgroundColor black
 #inputing the log path
-$Logs_Path = Read-Host -Prompt "Please, Enter Events logs path" 
-$securityparam= Read-Host -Prompt "Do you want to parse the security event log? yes\no [default is no because security event is usually very big]"
+if ($security) {
+	$securityparam = "yes"
+}
 
 #making results and its sub directories
 $Destination_Path= Join-Path -Path $Logs_Path -ChildPath "Results"
