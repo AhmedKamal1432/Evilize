@@ -238,9 +238,9 @@ function GetStats {
 function AllSuccessfulLogons {
     param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
         Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
@@ -260,9 +260,9 @@ function AllSuccessfulLogons {
 function UnsuccessfulLogons {
     param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
         Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
@@ -283,9 +283,9 @@ function UnsuccessfulLogons {
 function AdminLogonCreated  {
     param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -308,9 +308,9 @@ function AdminLogonCreated  {
 function ServiceInstalledonSystem {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -332,9 +332,9 @@ function ServiceInstalledonSystem {
 function ScheduleTaskCreated {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -356,9 +356,9 @@ function ScheduleTaskCreated {
 function ScheduleTaskDeleted {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -380,9 +380,9 @@ function ScheduleTaskDeleted {
 function ScheduleTaskEnabled {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -404,9 +404,9 @@ function ScheduleTaskEnabled {
 function ScheduleTaskDisabled{
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -429,9 +429,9 @@ function ScheduleTaskDisabled{
 function ScheduleTaskUpdated{
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -454,9 +454,9 @@ function ScheduleTaskUpdated{
 function KerberosAuthRequest {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -478,9 +478,9 @@ function KerberosAuthRequest {
 function KerberosServiceRequest {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -503,9 +503,9 @@ function KerberosServiceRequest {
 function ComputerToValidate  {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -527,9 +527,9 @@ function ComputerToValidate  {
 function EventlogClearedSecurity  {
     param (
       [Parameter(Mandatory=$true)]
-      [string]$NoSecurity
+      [string]$security
   )
-  if($NoSecurity -eq "no"){
+  if($security -eq $false){
               Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
       return
@@ -567,9 +567,9 @@ function EventlogClearedSystem  {
 function RDPreconnected  {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -593,9 +593,9 @@ function RDPreconnected  {
 function RDPDisconnected  {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -616,9 +616,9 @@ function RDPDisconnected  {
 function NetworkShareAccessed  {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
@@ -640,9 +640,9 @@ function NetworkShareAccessed  {
 function AuditingofSharedfiles  {
       param (
         [Parameter(Mandatory=$true)]
-        [string]$NoSecurity
+        [string]$security
     )
-    if($NoSecurity -eq "no"){
+    if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
 
         return
