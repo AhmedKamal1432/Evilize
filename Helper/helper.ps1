@@ -80,12 +80,12 @@ function Print_Seprator {
         [String]
         $Name
     )
+
     Write-Host ""  -ForegroundColor yellow 
     Write-Host ""  -ForegroundColor yellow 
     Write-Host "**********************************************"  -ForegroundColor yellow 
     Write-Host  "              $Name                  "  -ForegroundColor yellow 
     Write-Host  "**********************************************"  -ForegroundColor yellow 
-   
 }
 
 function check_logs_path {
