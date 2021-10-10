@@ -57,7 +57,7 @@ function LogparserCalls {
 
 
     #=======PsExec==========
-    Print_Seprator "Powershell Execution"
+    Print_Seprator "PsExec"
     Write-Host "Parsing Installed Services [System Log]"
     ServiceInstall
 
@@ -146,6 +146,7 @@ function LogparserCalls {
 
     Write-Host "Parsing Server Remote Host Ended"
     EndPSRemoteSession
+    
     #=======ExtraEvents
     Print_Seprator "Extra Events"
     Write-Host "Parsing UnSuccesssful Logons"
@@ -191,4 +192,4 @@ Function main {
     
 }
 main
-$ResultsArray | Out-GridView
+$ResultsArray | Out-GridView -Title "Evilize"
