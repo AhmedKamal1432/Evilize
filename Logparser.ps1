@@ -1,7 +1,7 @@
 #Dot-sourcing to Operational Helper and helper  files
 . .\Helper\helper.ps1
 function LogparserCalls {
-    <#
+    
     #====RemoteDesktop============
     Print_Seprator "RemoteDesktop"
     Write-Host "Parsing Successsful Logons"
@@ -143,7 +143,7 @@ function LogparserCalls {
 
     Write-Host "Parsing Server Remote Hosts Started"
     StartPSRemoteSession
-#>
+
     Write-Host "Parsing Server Remote Host Ended"
     EndPSRemoteSession
     #=======ExtraEvents

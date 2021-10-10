@@ -235,10 +235,10 @@ function GetStats {
     )
     $Valid=Test-Path -Path "$FilePath"
     if($Valid -eq $true){
-        (Import-Csv $FilePath).count
-        <#$NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
+        #(Import-Csv $FilePath).count
+        $NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
         ($NumRows.Substring([int](29))).Trim()
-        #>
+        
 } 
     else {
         Return 0
