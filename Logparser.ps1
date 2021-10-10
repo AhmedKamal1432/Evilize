@@ -172,4 +172,4 @@ Function main {
     
 }
 main
-$ResultsArray | Out-GridView
+$ResultsArray | Out-GridView -Title "Evilize"

@@ -801,4 +801,4 @@ $ResultsArray+=$hash
 else{ write-host "Error: 	 event log is not found" -ForegroundColor Red
        } 
 
-$ResultsArray| Out-GridView
+$ResultsArray| Out-GridView -Title "Evilize"
