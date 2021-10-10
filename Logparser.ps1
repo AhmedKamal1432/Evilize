@@ -1,6 +1,7 @@
 #Dot-sourcing to Operational Helper and helper  files
 . .\Helper\helper.ps1
 function LogparserCalls {
+    <#
     #====RemoteDesktop============
     Print_Seprator "RemoteDesktop"
     Write-Host "Parsing Successsful Logons"
@@ -142,7 +143,7 @@ function LogparserCalls {
 
     Write-Host "Parsing Server Remote Hosts Started"
     StartPSRemoteSession
-
+#>
     Write-Host "Parsing Server Remote Host Ended"
     EndPSRemoteSession
     #=======ExtraEvents
@@ -152,7 +153,26 @@ function LogparserCalls {
 
     Write-Host "Parsing CLeared Event Logs"
     EventlogClearedSecurity $security
+    Write-Host "Parsing CLeared Event Logs"
     EventlogClearedSystem
+    #===== SourceEvents
+    Write-Host "Parsing Explicit credentials used"
+    ExplicitCreds $security $Source_Events
+
+    Write-Host "Parsing RDP ActiveX Controls"
+    RDPActiveXControls $Source_Events 
+
+    Write-Host "Parsing RDP Multitransport Connections"
+    RDPAMultitransportCon $Source_Events
+
+    Write-Host "Parsing WSMan Sessions Created"
+    WSManSessions $Source_Events
+
+    Write-Host "Parsing Powershell Sessions Created"
+    PSSessionsCreated $Source_Events
+    
+    Write-Host "Parsing Powershell Sessions Closed"
+    PSSessionsClosed $Source_Events
 }
 
 Function main {

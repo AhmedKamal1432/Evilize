@@ -5,7 +5,10 @@ param (
     [Parameter(Mandatory=$false, Position=1, HelpMessage="parse the logs by WinEvent cmdlet not LogParser")]
     [switch] $winevent,
     [Parameter(Mandatory=$false, Position=2, HelpMessage="parse security logs which may takes time")]
-    [switch] $security
+    [switch] $security,
+    [Parameter(Mandatory=$false, Position=2, HelpMessage="Parse source event IDs")]
+    [switch] $Source_Events
+
 
 )
 function Evilize  {
