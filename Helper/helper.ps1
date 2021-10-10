@@ -17,6 +17,8 @@ $global:WinRMevt_Path = ""
 $global:TaskScheduler_Path = ""
 $global:TaskSchedulerevt_Path = ""
 $global:TerminalServices_Path = ""
+$global:TerminalServicesRDP_Path=""
+$global:TerminalServicesRDPevt_Path=""
 $global:TerminalServiceevt_Path = ""
 $global:RemoteConnection_Path = ""
 $global:RemoteConnectionevt_Path = ""
@@ -32,6 +34,8 @@ $global:Valid_WinRM_Path= ""
 $global:Valid_TaskScheduler_Path= ""
 $global:Valid_TerminalServices_Path= ""
 $global:Valid_RemoteConnection_Path= ""
+$global:Valid_TerminalServicesRDP_Path=""
+
 
 
 $global:Destination_Path=""
@@ -43,6 +47,7 @@ $global:Services_Path=""
 $global:WMIOut_Path=""
 $global:PowerShellRemoting_Path=""
 $global:ExtraEvents_Path=""
+$global:SourceEvents_Path_Path=""
 
 #array to store results
 $global:ResultsArray= @()
@@ -141,6 +146,8 @@ function evt_conversion {
     $TerminalServiceevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
     $global:RemoteConnection_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
     $RemoteConnectionevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
+    $global:TerminalServicesRDP_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx"
+    $TerminalServicesRDPevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evt"
     Evt2Evtx $Securityevt_Path $Security_Path
     Evt2Evtx $Systemevt_Path  $System_Path
     Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
@@ -150,7 +157,8 @@ function evt_conversion {
     Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
     Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
     Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
-    Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path   
+    Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path  
+    Evt2Evtx $TerminalServicesRDPevt_Path $TerminalServicesRDP_Path
 }
 
 function check_individual_logs {
@@ -164,6 +172,7 @@ function check_individual_logs {
     $global:Valid_TaskScheduler_Path= Test-Path -Path $TaskScheduler_Path
     $global:Valid_TerminalServices_Path= Test-Path -Path $TerminalServices_Path
     $global:Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
+    $global:Valid_TerminalServicesRDP_Path= Test-Path -Path $TerminalServicesRDP_Path
 }
 function csv_output_directories {
     param(
@@ -226,9 +235,10 @@ function GetStats {
     )
     $Valid=Test-Path -Path "$FilePath"
     if($Valid -eq $true){
-        (Import-Csv $FilePath).count
-        <#$NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
-        $NumRows.Substring([int](29))#>
+        #(Import-Csv $FilePath).count
+        $NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
+        ($NumRows.Substring([int](29))).Trim()
+        
 } 
     else {
         Return 0
@@ -542,10 +552,10 @@ function EventlogClearedSecurity  {
   $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSecurity.csv"
   $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
   LogParser.exe -stats:OFF -i:EVT $Query
-  $EventlogCleared= GetStats $OutputFile
-  $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogCleared}
+  $EventlogClearedSec= GetStats $OutputFile
+  $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogClearedSec}
   $global:ResultsArray+=$hash
-  Write-Host "Cleared Event Log [Security.evtx]: " $EventlogCleared -ForegroundColor Green
+  Write-Host "Cleared Event Log [Security.evtx]: " $EventlogClearedSec -ForegroundColor Green
 }
 
 function EventlogClearedSystem  {
@@ -559,10 +569,10 @@ function EventlogClearedSystem  {
     $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
     
-    $EventlogCleared= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogCleared}
+    $EventlogClearedSys= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogClearedSys}
     $global:ResultsArray+=$hash
-    Write-Host "Cleared Event Log [System.evtx]: " $EventlogCleared -ForegroundColor Green
+    Write-Host "Cleared Event Log [System.evtx]: " $EventlogClearedSys -ForegroundColor Green
 }
 function RDPreconnected  {
       param (
@@ -1107,3 +1117,163 @@ function RDPSuccessfulConnections {
     $global:ResultsArray+=$hash
     Write-Host "RDP Successful TCP Connections: " $RDPSuccessfulTCPConnections -ForegroundColor Green
 }
+##==========================Source Event IDs============
+##Security.evtx
+function ExplicitCreds {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$security,
+        [Parameter(Mandatory=$true)]
+        [string]$Source_Events
+    )
+    if ($Source_Events -eq $true) {
+        if($security -eq $false){
+                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+                return
+        }
+    }
+    else {return}
+    if ($Valid_Security_Path -eq $false) {
+        write-host "Error: Security event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="4648"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "ExplicitCreds.csv"
+    $Query= "SELECT TimeGenerated,EventID, extract_token(Strings, 1, '|') as SubjectUserName, extract_token(Strings, 2, '|') as SubjectDomain, extract_token(Strings, 5, '|') as TargetUsername, extract_token(Strings, 6, '|') as TargetDomain, extract_token(Strings, 8, '|') as TargetServer, extract_token(strings, 9, '|') as TargetInfo, extract_token(strings, 11, '|') as ProcessName, extract_token(strings, 12, '|') as SourceIP,extract_token(strings, 13, '|') as SourcePort INTO '$OutputFile' from '$Security_Path' WHERE EventID = $EventID" 
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $ExplicitCreds= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="Explicit Credentials Used"; NumberOfOccurences=$ExplicitCreds}
+    $global:ResultsArray+=$hash
+    Write-Host "Logons using Explicit Credential: " $ExplicitCreds -ForegroundColor Green
+}
+##Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx
+function RDPActiveXControls {
+    if ($Source_Event -eq $false) {return}
+    if ($global:Valid_TerminalServicesRDP_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-TerminalServices-RDPClient%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="1024"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPActiveXControls.csv"
+    $Query= "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $RDPActiveXControls= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP client ActiveX Controls"; NumberOfOccurences=$RDPActiveXControls}
+    $global:ResultsArray+=$hash
+    Write-Host "RDP Destination Hostname [ActiveX controls]: " $RDPActiveXControls -ForegroundColor Green
+}
+function RDPAMultitransportCon {
+    if ($Source_Event -eq $false) {return}
+    if ($global:Valid_TerminalServicesRDP_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-TerminalServices-RDPClient%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="1102"
+    $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPAMultitransportCon.csv"
+    $Query= "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $RDPAMultitransportCon= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP client Multitransport Connections"; NumberOfOccurences=$RDPAMultitransportCon}
+    $global:ResultsArray+=$hash
+    Write-Host "RDP Destination IPs [client Multitransport Connections]: " $RDPAMultitransportCon -ForegroundColor Green
+}
+###=====Microsoft-Windows-WinRM%4Operational.evtx
+function WSManSessions {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_WinRM_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="6"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsCreated.csv"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ConnectionString INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $WSManSessions= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Sessions Created"; NumberOfOccurences=$WSManSessions}
+    $global:ResultsArray+=$hash
+    Write-Host "WSMan Sessions Created : " $WSManSessions -ForegroundColor Green  
+}  
+function WSManClosedCommand {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_WinRM_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="15"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedCommand.csv"
+    $Query= "Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $WSManClosedCommand= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Commands"; NumberOfOccurences=$WSManClosedCommand}
+    $global:ResultsArray+=$hash
+    Write-Host "WSMan Closed Commands : " $WSManClosedCommand -ForegroundColor Green  
+}  
+
+function WSManClosedShell {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_WinRM_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="16"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedShell.csv"
+    $Query= "Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $WSManClosedShell= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Shells"; NumberOfOccurences=$WSManClosedShell}
+    $global:ResultsArray+=$hash
+    Write-Host "WSMan Closed Shells : " $WSManClosedShell -ForegroundColor Green  
+}  
+function WSManSessionsClosed {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_WinRM_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="33"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsClosed.csv"
+    $Query= "Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $WSManSessionsClosed= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Sessions"; NumberOfOccurences=$WSManSessionsClosed}
+    $global:ResultsArray+=$hash
+    Write-Host "WSMan Closed Sessions : " $WSManClosedShell -ForegroundColor Green  
+}  
+#=========Microsoft-Windows-PowerShell%4Operational.evtx
+#EventID=40691 =>Local initiation of PowerShell.exe and associated user =>ToDo
+#EventID=40692 =>Local initiation of PowerShell.exe and associated user =>ToDo
+#EventID=8193 =>
+function PSSessionsCreated {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_PowerShellOperational_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="8194"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsCreated.csv"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS InstanceID, EXTRACT_TOKEN(Strings, 1, '|') AS MinRunSpaces, EXTRACT_TOKEN(Strings, 2, '|') AS MaxRunspaces  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $PSSessionsCreated= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Created Sessions"; NumberOfOccurences=$PSSessionsCreated}
+    $global:ResultsArray+=$hash
+    Write-Host "PS Created Sessions: " $PSSessionsCreated -ForegroundColor Green
+
+}
+
+function PSSessionsClosed {
+    if ($Source_Event -eq $false) {return}
+    if ($Valid_PowerShellOperational_Path -eq $false) {
+        write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red
+        return  
+    }
+    $EventID="8197"
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsClosed.csv"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS State  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID and State = 'Closed'"
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $PSSessionsClosed= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Closed Sessions"; NumberOfOccurences=$PSSessionsClosed}
+    $global:ResultsArray+=$hash
+    Write-Host "PS Closed Sessions: " $PSSessionsClosed -ForegroundColor Green
+
+}
+
