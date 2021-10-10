@@ -245,6 +245,27 @@ function GetStats {
     }
 }
 
+function parse_log {
+    param (
+        [Parameter(Mandatory=$true, Position=0)]
+        [string] $EventID,
+        [Parameter(Mandatory=$true, Position=1)]
+        [string] $Query,
+        [Parameter(Mandatory=$true, Position=2)]
+        [string] $OutputFile,
+        [Parameter(Mandatory=$true, Position=3)]
+        [string] $event_file_type,
+        [Parameter(Mandatory=$true, Position=4)]
+        [string] $sans_catagory,
+        [Parameter(Mandatory=$true, Position=5)]
+        [string] $event_name
+    )
+    LogParser.exe -stats:OFF -i:EVT $Query
+    $AllSuccessfulLogons= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog=$event_file_type;SANSCateogry=$sans_catagory; Event=$event_name; NumberOfOccurences=$AllSuccessfulLogons}
+    $global:ResultsArray += $hash
+    Write-Host $event_name":" $AllSuccessfulLogons -ForegroundColor Green
+}
 function AllSuccessfulLogons {
     param (
         [Parameter(Mandatory=$true)]
@@ -565,14 +586,9 @@ function EventlogClearedSystem  {
     }
     $EventID="104"
     $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSystem.csv"
-    
     $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
     
-    $EventlogClearedSys= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogClearedSys}
-    $global:ResultsArray+=$hash
-    Write-Host "Cleared Event Log [System.evtx]: " $EventlogClearedSys -ForegroundColor Green
+    parse_log $EventID $Query $OutputFile "System.evtx" "Extra Events" "Cleared Event Log"
 }
 function RDPreconnected  {
       param (
