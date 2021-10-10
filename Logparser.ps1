@@ -145,6 +145,7 @@ function LogparserCalls {
 
     Write-Host "Parsing Server Remote Host Ended"
     EndPSRemoteSession
+    
     #=======ExtraEvents
     Print_Seprator "Extra Events"
     Write-Host "Parsing UnSuccesssful Logons"

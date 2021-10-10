@@ -634,6 +634,10 @@ function NetworkShareAccessed  {
     $NetworkShareAccessed= GetStats $
     $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Network Share Objects Accessed"; NumberOfOccurences=$NetworkShareAccessed}
     $global:ResultsArray+=$hash
+
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="PsExec"; Event="Network Share Objects Accessed"; NumberOfOccurences=$NetworkShareAccessed}
+    $global:ResultsArray+=$hash
+
     Write-Host "Network Share Objects Accessed: " $NetworkShareAccessed -ForegroundColor Green
 }
 
