@@ -56,7 +56,7 @@ function LogparserCalls {
 
 
     #=======PsExec==========
-    Print_Seprator "Powershell Execution"
+    Print_Seprator "PsExec"
     Write-Host "Parsing Installed Services [System Log]"
     ServiceInstall
 
