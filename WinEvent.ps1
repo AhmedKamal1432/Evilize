@@ -127,7 +127,7 @@ $Valid_TaskScheduler_Path = Test-Path -Path $TaskScheduler_Path
 $Valid_TerminalServices_Path = Test-Path -Path $TerminalServices_Path
 $Valid_RemoteConnection_Path = Test-Path -Path $RemoteConnection_Path
 
-$ResultsArray = @()
+$global:ResultsArray = @()
 #Remote desktop
 . .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
 . .\PSFunctions\RemoteDesktop\RDPreconnected.ps1
@@ -192,6 +192,29 @@ $ResultsArray = @()
 . .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
 . .\PSFunctions\ExtraEvents\EventlogCleared.ps1
 
+function export_data {
+	param (
+		[Parameter(Mandatory = $true, Position = 0)]
+		[string] $EventID,
+		[Parameter(Mandatory = $true, Position = 1)]
+		[AllowEmptyCollection()]
+		[system.Object[]] $events,
+		[Parameter(Mandatory = $true, Position = 2)]
+		[string] $OutputFile,
+		[Parameter(Mandatory = $true, Position = 3)]
+		[string] $event_file_type,
+		[Parameter(Mandatory = $true, Position = 4)]
+		[string] $sans_catagory,
+		[Parameter(Mandatory = $true, Position = 5)]
+		[string] $event_name
+	)
+	$events | Export-Csv -Path $OutputFile -NoTypeInformation 
+	$hash = New-Object PSObject -property @{EventID = $EventID; EventLog = $event_file_type; SANSCateogry = $sans_catagory; Event = $event_name; NumberOfOccurences = $events.count }
+	$global:ResultsArray += $hash
+	Write-Host $event_name":" $events.count -ForegroundColor Green
+
+}
+
 # Remote Access
 #Remote desktop
 #destination#
@@ -199,22 +222,17 @@ if ($securityparam -eq "yes") {
  if ($Valid_Security_Path -eq $true) {
 
 		$x = Get-AllSuccessfulLogons -Path $Security_Path  
-		write-host  "Number of AllSuccessfulLogons:" , $x.count
-		$x | Export-Csv -Path $RemoteDesktop_Path\AllSuccessfulLogons.csv -NoTypeInformation 
-		$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "RemoteDesktop"; Event = "All Successful Logons"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4624" $x $RemoteDesktop_Path\AllSuccessfulLogons.csv "Security.evtx" "RemoteDesktop" "All Successful Logons"
 
-		$x = Get-RDPreconnected -Path $Security_Path  
-		write-host  "Number of RDPreconnected  events:" , $x.count
-		$x |  Export-Csv -Path $RemoteDesktop_Path\RDPreconnected.csv -NoTypeInformation 
-		$hash = New-Object PSObject -property @{EventID = "4778"; SANSCateogry = "RemoteDesktop"; Event = "RDP sessions reconnected"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
-
+		$x = Get-RDPreconnected -Path $Security_Path
+		if ($x -eq $null) { $x = @() }
+		export_data "4778" $x $RemoteDesktop_Path\RDPreconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions reconnected"
+		
 		$x = Get-RDPDisconnected -Path $Security_Path 
-		write-host  "Number of RDPDisconnected  events:" , $x.count
-		$x  | Export-Csv -Path $RemoteDesktop_Path\RDPDisconnected.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4779"; SANSCateogry = "RemoteDesktop"; Event = "RDP sessions disconnected"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4779" $x $RemoteDesktop_Path\RDPDisconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions disconnected"
+
 	}
  else { 
   write-host "Error: Security event log is not found" -ForegroundColor Red
@@ -228,17 +246,12 @@ else {
 if ($Valid_RDPCORETS_Path -eq $true) {
 
 	$x = Get-RDPConnectionAttempts -Path $RDPCORETS_Path  
-	write-host  "Number of RDPConnectionAttempts  events:" , $x.count
-	$x | Export-Csv -Path $RemoteDesktop_Path\RDPConnectionAttempts.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "RemoteDesktop"; Event = "RDP Connection Attempts"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
-
+	if ($x -eq $null) { $x = @() }
+	export_data "131" $x $RemoteDesktop_Path\RDPConnectionAttempts.csv "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Connection Attempts"
 
 	$x = Get-RDPSuccessfulConnections -Path $RDPCORETS_Path 
-	$x = write-host  "Number of RDPSuccessfulConnections  events:" , $x.count
-	$x  | Export-Csv -Path $RemoteDesktop_Path\RDPSuccessfulConnections.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "98"; SANSCateogry = "RemoteDesktop"; Event = "RDP Successful Connections"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "98" $x $RemoteDesktop_Path\RDPSuccessfulConnections.csv "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Successful Connections"
 }
 else {
  write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
@@ -247,10 +260,9 @@ else {
 if ($Valid_RemoteConnection_Path -eq $true) {
 
 	$x = Get-UserAuthSucceeded -Path $RemoteConnection_Path  
-	write-host  "Number of UserAuthSucceeded  events:" , $x.count
-	$x | Export-Csv -Path $RemoteDesktop_Path\UserAuthSucceeded.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "1149"; SANSCateogry = "RemoteDesktop"; Event = "User authentication succeeded"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "1149" $x $RemoteDesktop_Path\UserAuthSucceeded.csv.csv "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx" "RemoteDesktop" "RDP User authentication succeeded"
+	
 }
 else {
  write-host "Error: Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational event log is not found" -ForegroundColor Red
@@ -259,28 +271,21 @@ else {
 if ($Valid_TerminalServices_Path -eq $true) {
 
 	$x = Get-RDPSessionLogonSucceed -Path $TerminalServices_Path 
-	write-host  "Number of RDPSessionLogonSucceed  events:" , $x.count
-	$x  | Export-Csv -Path $RemoteDesktop_Path\RDPSessionLogonSucceed.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "21"; SANSCateogry = "RemoteDesktop"; Event = "RDP Session Logon suceeded"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "21" $x $RemoteDesktop_Path\RDPSessionLogonSucceeded.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Successful Logons Sessions"
 
 	$x = Get-RDPShellStartNotificationReceived -Path $TerminalServices_Path  
-	write-host  "Number of RDPShellStartNotificationReceived  events:" , $x.count
-	$x | Export-Csv -Path $RemoteDesktop_Path\RDPShellStartNotificationReceived.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "22"; SANSCateogry = "RemoteDesktop"; Event = "RDP Shell Start Notification recieved"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "22" $x $RemoteDesktop_Path\RDPShellStartNotificationReceived.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Start Notification recieved"
 
 	$x = Get-RDPShellSessionReconnectedSucceeded -Path $TerminalServices_Path 
-	write-host  "Number of RDPShellSessionReconnectedSucceeded  events:" , $x.count
-	$x  | Export-Csv -Path $RemoteDesktop_Path\RDPShellSessionReconnectedSucceeded.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "25"; SANSCateogry = "RemoteDesktop"; Event = "RDP Shell Session reconnection succeeded"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "25" $x $RemoteDesktop_Path\RDPShellSessionReconnectedSucceeded.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Session reconnection succeeded"
 
 	$x = Get-RDPbeginSession -Path $TerminalServices_Path 
-	write-host  "Number of RDPbeginSession  events:" , $x.count
-	$x  | Export-Csv -Path $RemoteDesktop_Path\RDPbeginSession.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "41"; SANSCateogry = "RemoteDesktop"; Event = "RDP Begin Session"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "41" $x $RemoteDesktop_Path\RDPbeginSession.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Begin Session"
+
 }
 else {
  write-host "Error: Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational event log is not found" -ForegroundColor Red
@@ -326,157 +331,92 @@ else {
 #destination
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		#. .\PSFunctions\MapNetworkShares\AllSuccessfulLogons.ps1
-		#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path $MapNetworkShares_Path\AllSuccessfulLogons.csv -NoTypeInformation
-		#write-host  "Number of AllSuccessfulLogons  events:" , ((Get-Content Results\MapNetworkSharescsv\AllSuccessfulLogons.csv).Length -1)
-		#$hash= New-Object PSObject -property @{EventID="4624";SANSCateogry="MapNetworkShares"; Event="Succesful Logons"; NumberOfOccurences=(Import-Csv $RemoteDesktop_Path\AllSuccessfulLogons.csv).count}
-		#$ResultsArray+=$hash 
-
 		$x = Get-AdminLogonCreated -Path $Security_Path  
-		write-host  "Number of AdminLogonCreated  events:" , $x.count
-		$x | Export-Csv -Path $MapNetworkShares_Path\AdminLogonCreated.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4672"; SANSCateogry = "MapNetworkShares"; Event = "Admin Logon created"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4672" $x $MapNetworkShares_Path\AdminLogonCreated.csv "Security.evtx" "MapNetworkShares" "Admin Logon created"
 
 		$x = Get-ComputerToValidate -Path $Security_Path 
-		write-host  "Number of ComputerToValidate  events:" , $x.count
-		$x  | Export-Csv -Path $MapNetworkShares_Path\ComputerToValidate.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4776"; SANSCateogry = "MapNetworkShares"; Event = "Computer to validate"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4776" $x $MapNetworkShares_Path\ComputerToValidate.csv "Security.evtx" "MapNetworkShares" "Computer to validate"
 
 		$x = Get-KerberosAuthRequest -Path $Security_Path 
-		write-host  "Number of KerberosAuthRequest  events:" , $x.count
-		$x  | Export-Csv -Path $MapNetworkShares_Path\KerberosAuthRequest.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4768"; SANSCateogry = "MapNetworkShares"; Event = "Kerberos Authentication Request"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4768" $x $MapNetworkShares_Path\KerberosAuthRequest.csv "Security.evtx" "MapNetworkShares" "Kerberos Authentication Request"
 
 		$x = Get-KerberosServiceRequest -Path $Security_Path 
-		write-host  "Number of KerberosServiceRequest  events:" , $x.count
-		$x  | Export-Csv -Path $MapNetworkShares_Path\KerberosServiceRequest.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4769"; SANSCateogry = "MapNetworkShares"; Event = "Kerberos Service Request"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4769" $x $MapNetworkShares_Path\KerberosServiceRequest.csv "Security.evtx" "MapNetworkShares" "Kerberos Service Request"
 
 		$x = Get-NetworkShareAccessed -Path $Security_Path  
-		write-host  "Number of NetworkShareAccessed  events:" , $x.count
-		$x | Export-Csv -Path $MapNetworkShares_Path\NetworkShareAccessed.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "5140"; SANSCateogry = "MapNetworkShares"; Event = "Network Share Accessed"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "5140" $x $MapNetworkShares_Path\NetworkShareAccessed.csv "Security.evtx" "MapNetworkShares" "Network Share Accessed"
 
 		$x = Get-AuditingofSharedfiles -Path $Security_Path  
-		write-host  "Number of AuditingofSharedfiles  events:" , $x.count
-		$x | Export-Csv -Path $MapNetworkShares_Path\AuditingofSharedfiles.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "5145"; SANSCateogry = "MapNetworkShares"; Event = "Auditing of Shared Files"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "5145" $x $MapNetworkShares_Path\AuditingofSharedfiles.csv "Security.evtx" "MapNetworkShares" "Auditing of Shared Files"
 
 		# Remote Access 
 		#Map Network Shares
 		# source
-		#. .\MapNetworkShares\ExplicitCreds.ps1
-		#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path $MapNetworkShares_Path\ExplicitCreds.csv -NoTypeInformation
-		#$hash= New-Object PSObject -property @{EventID="4648";SANSCateogry="MapNetworkShares"; Event="RDP Connection Attempts"; NumberOfOccurences=(Import-Csv $MapNetworkShares_Path\ExplicitCreds.csv).count}
-		#$ResultsArray+=$hash
-		#FailedLogintoDestination TODO
+		function Source_NetworkMap {
+			. .\MapNetworkShares\ExplicitCreds.ps1
+			Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path $MapNetworkShares_Path\ExplicitCreds.csv -NoTypeInformation
+			$hash = New-Object PSObject -property @{EventID = "4648"; SANSCateogry = "MapNetworkShares"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $MapNetworkShares_Path\ExplicitCreds.csv).count }
+			$ResultsArray += $hash
+			FailedLogintoDestination TODO
+		}
 
 		#######################################################################################################################
 
-		#Remote Execution
-		#PsExec
-		#Destination
-
-		#. .\PSFunctions\PsExec\AllSuccessfulLogons.ps1
-		#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path $PsExec_Path\AllSuccessfulLogons.csv -NoTypeInformation 
-		#write-host  "Number of AllSuccessfulLogons  events:" , ((Import-Csv $PsExec_Path\AllSuccessfulLogons.csv).count)
-		#$hash= New-Object PSObject -property @{EventID="4624";SANSCateogry="PSExec"; Event="Successful Logons"; NumberOfOccurences=(Import-Csv $PsExec_Path\AllSuccessfulLogons.csv).count}
-		#$ResultsArray+=$hash
-
-		#. .\PSFunctions\PsExec\AdminLogonCreated.ps1
-		#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path $PsExec_Path\AdminLogonCreated.csv -NoTypeInformation
-		#write-host  "Number of AdminLogonCreated  events:" , ((Import-Csv $PsExec_Path\AdminLogonCreated.csv).count)
-		#$hash= New-Object PSObject -property @{EventID="4672";SANSCateogry="PSExec"; Event="Admin Logon created"; NumberOfOccurences=(Import-Csv $PsExec_Path\AdminLogonCreated.csv).count}
-		#$ResultsArray+=$hash
-
-		#. .\PSFunctions\PsExec\NetworkShareAccessed.ps1
-		#Get-NetworkShareAccessed -Path $Security_Path  | Export-Csv -Path $PsExec_Path\NetworkShareAccessed.csv -NoTypeInformation
-		#write-host  "Number of NetworkShareAccessed  events:" , ((Import-Csv $PsExec_Path\NetworkShareAccessed.csv).count)
-		#$hash= New-Object PSObject -property @{EventID="5140";SANSCateogry="PSExec"; Event="Network Share Accessed"; NumberOfOccurences=(Import-Csv $PsExec_Path\NetworkShareAccessed.csv).count}
-		#$ResultsArray+=$hash
+		
 	}
 	else { 
-  write-host "Error: Security event log is not found" -ForegroundColor Red   
+		write-host "Error: Security event log is not found" -ForegroundColor Red   
 	}
 }
 else {
 	write-host " AdminLogonCreated- ComputerToValidate-KerberosAuthRequest-KerberosServiceRequest-NetworkShareAccessed-AuditingofSharedfiles depend on Security event log which you choose not to parse" -ForegroundColor Red
 }
-if ($Valid_System_Path -eq $true) {
 
+#Remote Execution
+#PsExec
+#Destination
+if ($Valid_System_Path -eq $true) {
 	$x = Get-ServiceInstall -Path $System_Path  
-	write-host  "Number of ServiceInstall  events:" , $x.count
-	$x | Export-Csv -Path $PsExec_Path\ServiceInstall.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "7045"; SANSCateogry = "PSExec"; Event = "Installed Service"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "5145" $x $PsExec_Path\ServiceInstall.csv "System.evtx" "PSExec" "Installed Service"
 }
 else { 
 	write-host "Error: System event log is not found" -ForegroundColor Red   
 }
 
+# PSExec/ source Repeated
+
 #Remote Execution
-#PsExec
-#source
+#Scheduled Tasks
+#Destination
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		#. .\PsExec\ExplicitCreds.ps1
-		#Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path $PsExec_Path\ExplicitCreds.csv -NoTypeInformation
-		#$hash= New-Object PSObject -property @{EventID="4648";SANSCateogry="PSExec"; Event="Exolicit Credentials"; NumberOfOccurences=(Import-Csv $PsExec_Path\ExplicitCreds.csv).count}
-		#$ResultsArray+=$hash
-
-		############################################################################################################################
-
-		#Remote Execution
-		#Scheduled Tasks
-		#Destination
-
-		#. .\PSFunctions\ScheduledTasks\AllSuccessfulLogons.ps1
-		#Get-AllSuccessfulLogons -Path $Security_Path | Export-Csv -Path $ScheduledTasks_Path\AllSuccessfulLogons.csv -NoTypeInformation 
-		#write-host  "Number of AllSuccessfulLogons  events:" , ((Import-Csv $ScheduledTasks_Path\AllSuccessfulLogons.csv).count)
-		#$hash= New-Object PSObject -property @{EventID="4624";SANSCateogry="ScheduledTasks"; Event="Successful Logons"; NumberOfOccurences=(Import-Csv $ScheduledTasks_Path\AllSuccessfulLogons.csv).count}
-		#$ResultsArray+=$hash
-
-		#. .\PSFunctions\ScheduledTasks\AdminLogonCreated.ps1
-		#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path $ScheduledTasks_Path\AdminLogonCreated.csv -NoTypeInformation
-		#write-host  "Number of AdminLogonCreated  events:" , ((Import-Csv $ScheduledTasks_Path\AdminLogonCreated.csv).count)
-		#$hash= New-Object PSObject -property @{EventID="4672";SANSCateogry="ScheduledTasks"; Event="Admin Logon Created"; NumberOfOccurences=(Import-Csv $ScheduledTasks_Path\AdminLogonCreated.csv).count}
-		#$ResultsArray+=$hash
 
 		$x = Get-ScheduleTaskCreated -Path $Security_Path
-		write-host  "Number of ScheduleTaskCreated  events:" , $x.count
-		$x  | Export-Csv -Path $ScheduledTasks_Path\ScheduleTaskCreated.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4698"; SANSCateogry = "ScheduledTasks"; Event = "Schedule Task Created"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4698" $x $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule Task Created"
 
 		$x = Get-ScheduleTaskDeleted -Path  $Security_Path 
-		write-host  "Number of ScheduleTaskDeleted  events:" , $x.count
-		$x | Export-Csv -Path $ScheduledTasks_Path\ScheduleTaskDeleted.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4699"; SANSCateogry = "ScheduledTasks"; Event = "Schedule Task Deleted"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4699" $x $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule Task Deleted"
 
 		$x = Get-ScheduleTaskEnabled -Path  $Security_Path 
-		write-host  "Number of ScheduleTaskEnabled  events:" , $x.count
-		$x | Export-Csv -Path $ScheduledTasks_Path\ScheduleTaskEnabled.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4700"; SANSCateogry = "ScheduledTasks"; Event = "Schedule Task Enabled"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4700" $x $ScheduledTasks_Path\ScheduleTaskEnabled.csv "Security.evtx" "ScheduledTasks" "Schedule Task Enabled"
 
 		$x = Get-ScheduleTaskDisabled -Path  $Security_Path 
-		write-host  "Number of ScheduleTaskDisabled  events:" , $x.count
-		$x | Export-Csv -Path $ScheduledTasks_Path\ScheduleTaskDisabled.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4701"; SANSCateogry = "ScheduledTasks"; Event = "Schedule Task Disabled"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4701" $x $ScheduledTasks_Path\ScheduleTaskDisabled.csv "Security.evtx" "ScheduledTasks" "Schedule Task Disabled"
 
 		$x = Get-ScheduleTaskUpdated -Path  $Security_Path 
-		write-host  "Number of ScheduleTaskUpdated  events:" , $x.count
-		$x | Export-Csv -Path $ScheduledTasks_Path\ScheduleTaskUpdated.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4702"; SANSCateogry = "ScheduledTasks"; Event = "Schedule Task Updated"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4702" $x $ScheduledTasks_Path\ScheduleTaskUpdated.csv "Security.evtx" "ScheduledTasks" "Schedule Task Updated"
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -488,34 +428,24 @@ else {
 if ($Valid_TaskScheduler_Path -eq $true) {
 
 	$x = Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path 
-	write-host  "Number of CreatingTaskSchedulerTask  events:" , $x.count
-	$x | Export-Csv -Path $ScheduledTasks_Path\CreatingTaskSchedulerTask.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "106"; SANSCateogry = "ScheduledTasks"; Event = "Creating TaskScheduler Task"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "106" $x $ScheduledTasks_Path\CreatingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Creating TaskScheduler Task"
 
 	$x = Get-UpdatingTaskSchedulerTask -Path  $TaskScheduler_Path
-	write-host  "Number of UpdatingTaskSchedulerTask  events:" , $x.count
-	$x  | Export-Csv -Path $ScheduledTasks_Path\UpdatingTaskSchedulerTask.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "140"; SANSCateogry = "ScheduledTasks"; Event = "Updating TaskScheduler Task"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "140" $x $ScheduledTasks_Path\UpdatingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Updating TaskScheduler Task"
 
 	$x = Get-DeletingTaskSchedulerTask  -Path  $TaskScheduler_Path 
-	write-host  "Number of DeletingTaskSchedulerTask  events:" , $x.count
-	$x | Export-Csv -Path $ScheduledTasks_Path\DeletingTaskSchedulerTask.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "141"; SANSCateogry = "ScheduledTasks"; Event = "Deleting TaskScheduler Task"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "141" $x $ScheduledTasks_Path\DeletingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Deleting TaskScheduler Task"
 
 	$x = Get-ExecutingTaskSchedulerTask -Path  $TaskScheduler_Path
-	write-host  "Number of ExecutingTaskSchedulerTask  events:" , $x.count
-	$x  | Export-Csv -Path $ScheduledTasks_Path\ExecutingTaskSchedulerTask.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "200"; SANSCateogry = "ScheduledTasks"; Event = "Executing TaskScheduler Task"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "200" $x $ScheduledTasks_Path\ExecutingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Executing TaskScheduler Task"
 
 	$x = Get-CompletingTaskSchedulerTask -Path  $TaskScheduler_Path 
-	write-host  "Number of CompletingTaskSchedulerTask  events:" , $x.count
-	$x | Export-Csv -Path $ScheduledTasks_Path\CompletingTaskSchedulerTask.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "201"; SANSCateogry = "ScheduledTasks"; Event = "Completing TaskScheduler Task"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "201" $x $ScheduledTasks_Path\CompletingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Completing TaskScheduler Task"
 }
 else { 
 	write-host "Error: Microsoft-Windows-TaskScheduler%4en4Operational event log is not found" -ForegroundColor Red   
@@ -543,10 +473,8 @@ if ($securityparam -eq "yes") {
 		#$ResultsArray+=$hash
 
 		$x = Get-ServiceInstalledonSystem -Path $Security_Path  
-		write-host  "Number of ServiceInstalledonSystem  events:" , $x.count
-		$x | Export-Csv -Path $Services_Path\ServiceInstalledonSystem.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4697"; SANSCateogry = "Services"; Event = "Service Installed on System"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4697" $x $Services_Path\ServiceInstalledonSystem.csv "Security.evtx" "Services" "Service Installed on System"
 	}
 	else { 
   write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -555,14 +483,11 @@ if ($securityparam -eq "yes") {
 else {
  write-host "ServiceInstalledonSystem depend on Security event log which you choose not to parse" -ForegroundColor Red
 }
-
 if ($Valid_System_Path -eq $true) {
 
 	$x = Get-ServiceCrashed -Path $System_Path  
-	write-host  "Number of ServiceCrashed  events:" , $x.count
-	$x | Export-Csv -Path $Services_Path\ServiceCrashed.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "7034"; SANSCateogry = "Services"; Event = "Service Crashed"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "7034" $x $Services_Path\ServiceCrashed.csv "System.evtx" "Services" "Service Crashed"
 
 	$x = Get-ServiceSentControl -Path $System_Path  
 	if ($x -eq $null) { $x = @() }
@@ -576,16 +501,12 @@ if ($Valid_System_Path -eq $true) {
 	}
 
 	$x = Get-StartTypeChanged -Path $System_Path  
-	write-host  "Number of StartTypeChanged  events:" , $x.count
-	$x | Export-Csv -Path $Services_Path\StartTypeChanged.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "7040"; SANSCateogry = "Services"; Event = "Start Type Changed"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "7040" $x $Services_Path\StartTypeChanged.csv "System.evtx" "Services" "Start Type Changed"
 
-	#. .\PSFunctions\Services\ServiceInstall.ps1
-	#Get-ServiceInstall -Path $System_Path  | Export-Csv -Path $Services_Path\ServiceInstall.csv -NoTypeInformation
-	#write-host  "Number of ServiceInstall  events:" , ((Import-Csv $Services_Path\ServiceInstall.csv).count)
-	#$hash= New-Object PSObject -property @{EventID="7045";SANSCateogry="Services"; Event="Service Install"; NumberOfOccurences=(Import-Csv $Services_Path\ServiceInstall.csv).count}
-	#$ResultsArray+=$hash
+	$x = Get-ServiceInstall -Path $System_Path  
+	if ($x -eq $null) { $x = @() }
+	export_data "7045" $x $Services_Path\ServiceInstall.csv "System.evtx" "Services" "Service Install"
 }
 else { 
 	write-host "Error: System event log is not found" -ForegroundColor Red   
@@ -594,39 +515,20 @@ else {
 #Remote Execution
 #WMI\WMIC
 #destination
-if ($securityparam -eq "yes") {
-	#. .\PSFunctions\WMI_WMIC\AllSuccessfulLogons.ps1
-	#Get-AllSuccessfulLogons -Path $Security_Path  | Export-Csv -Path $WMIOut_Path\AllSuccessfulLogons.csv -NoTypeInformation 
-	#write-host  "Number of AllSuccessfulLogons  events:" , ((Import-Csv $WMIOut_Path\AllSuccessfulLogons.csv).count)
-	#$hash= New-Object PSObject -property @{EventID="4624";SANSCateogry="WMI\WMIC"; Event="All Successful Logons"; NumberOfOccurences=(Import-Csv $WMIOut_Path\AllSuccessfulLogons.csv).count}
-	#$ResultsArray+=$hash
-
-	#. .\PSFunctions\WMI_WMIC\AdminLogonCreated.ps1
-	#Get-AdminLogonCreated -Path $Security_Path  | Export-Csv -Path $WMIOut_Path\AdminLogonCreated.csv -NoTypeInformation
-	#write-host  "Number of AdminLogonCreated  events:" , ((Import-Csv $WMIOut_Path\AdminLogonCreated.csv).count)
-	#$hash= New-Object PSObject -property @{EventID="4672";SANSCateogry="WMI\WMIC"; Event="Admin Logon Created"; NumberOfOccurences=(Import-Csv $WMIOut_Path\AdminLogonCreated.csv).count}
-	#$ResultsArray+=$hash
-}
 
 if ($Valid_WMI_Path -eq $true) {
 
 	$x = Get-SystemQueryWMI -Path $WMI_Path  
-	write-host  "Number of SystemQueryWMI  events:" , $x.count
-	$x | Export-Csv -Path $WMIOut_Path\SystemQueryWMI.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "5857"; SANSCateogry = "WMI\WMIC"; Event = "System Query WMI"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "5857" $x $WMIOut_Path\SystemQueryWMI.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "System Query WMI"
 
 	$x = Get-TemporaryEventConsumer -Path $WMI_Path 
-	write-host  "Number of TemporaryEventConsumer  events:" , $x.count
-	$x | Export-Csv -Path $WMIOut_Path\TemporaryEventConsumer.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "5860"; SANSCateogry = "WMI\WMIC"; Event = "Temporary Event Consumer"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "5860" $x $WMIOut_Path\TemporaryEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "Temporary Event Consumer"
 
 	$x = Get-PermenantEventConsumer -Path $WMI_Path
-	write-host  "Number of PermenantEventConsumer  events:" , $x.count
-	$x  | Export-Csv -Path $WMIOut_Path\PermenantEventConsumer.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "5861"; SANSCateogry = "WMI\WMIC"; Event = "Permenant Event Consumer"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "5861" $x $WMIOut_Path\PermenantEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "Permenant Event Consumer"
 }
 else { 
 	write-host "Error: Microsoft-Windows-WMI-Activity%4Operational event log is not found" -ForegroundColor Red   
@@ -649,22 +551,16 @@ if ($securityparam -eq "yes") {
 if ($Valid_PowerShellOperational_Path -eq $true) {
 
 	$x = Get-ScriptBlockLogging -Path $PowerShellOperational_Path  
-	write-host  "Number of ScriptBlockLogging  events:" , $x.count 
-	$x | Export-Csv -Path $PowerShellRemoting_Path\ScriptBlockLogging.csv -NoTypeInformation  -ErrorAction SilentlyContinue
-	$hash = New-Object PSObject -property @{EventID = "4103"; SANSCateogry = "PowerShellRemoting"; Event = "Script Block Logging"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "4103" $x $PowerShellRemoting_Path\ScriptBlockLogging.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Logging"
 
 	$x = Get-ScriptBlockAuditing -Path $PowerShellOperational_Path   
-	write-host  "Number of ScriptBlockAuditing  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\ScriptBlockAuditing.csv -NoTypeInformation 
-	$hash = New-Object PSObject -property @{EventID = "4104"; SANSCateogry = "PowerShellRemoting"; Event = "Script Block Auditing"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "4104" $x $PowerShellRemoting_Path\ScriptBlockAuditing.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Auditing"
 
 	$x = Get-LateralMovementDetection -Path $PowerShellOperational_Path  
-	write-host  "Number of LateralMovementDetection  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\LateralMovementDetection.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "53504"; SANSCateogry = "PowerShellRemoting"; Event = "Lateral Movement Detection"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "53504" $x $PowerShellRemoting_Path\PowerShellOperational_Path.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Lateral Movement Detection"
 }
 else { 
 	write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red   
@@ -673,23 +569,17 @@ else {
 if ($Valid_WinPowerShell_Path -eq $true) {
 
 	$x = Get-StartPSRemoteSession -Path $WinPowerShell_Path 
-	write-host  "Number of StartPSRemoteSession  events:" , $x.count
-	$x  | Export-Csv -Path $PowerShellRemoting_Path\StartPSRemoteSession.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "400"; SANSCateogry = "PowerShellRemoting"; Event = "Start PSRemote Session"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "400" $x $PowerShellRemoting_Path\StartPSRemoteSession.csv "Windows PowerShell.evtx" "PowerShellRemoting" "Start PSRemote Session"
 
 	$x = Get-EndPSRemoteSession -Path $WinPowerShell_Path 
-	write-host  "Number of EndPSRemoteSession  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\EndPSRemoteSession.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "403"; SANSCateogry = "PowerShellRemoting"; Event = "End PSRemote Session"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "403" $x $PowerShellRemoting_Path\EndPSRemoteSession.csv "Windows PowerShell.evtx" "PowerShellRemoting" "End PSRemote Session"
 
 
 	$x = Get-PipelineExecution -Path $WinPowerShell_Path
-	write-host  "Number of PipelineExecution  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\PipelineExecution.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "800"; SANSCateogry = "PowerShellRemoting"; Event = "Pipeline Execution"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "800" $x $PowerShellRemoting_Path\PipelineExecution.csv "Windows PowerShell.evtx" "PowerShellRemoting" "Partial Scripts Code"
 }
 else { 
 	write-host "Error: Windows PowerShell event log is not found" -ForegroundColor Red   
@@ -697,16 +587,12 @@ else {
 	
 if ($Valid_WinRM_Path -eq $true) {
 	$x = Get-SessionCreated -Path $WinRM_Path
-	write-host  "Number of SessionCreated  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\SessionCreated.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "91"; SANSCateogry = "PowerShellRemoting"; Event = "Session Created"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "800" $x $PowerShellRemoting_Path\SessionCreated.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Session Created"
 
 	$x = Get-AuthRecorded -Path $WinRM_Path
-	write-host  "Number of AuthRecorded  events:" , $x.count
-	$x | Export-Csv -Path $PowerShellRemoting_Path\AuthRecorded.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "168"; SANSCateogry = "PowerShellRemoting"; Event = "Authentication recorded "; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash	
+	if ($x -eq $null) { $x = @() }
+	export_data "168" $x $PowerShellRemoting_Path\AuthRecorded.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Authentication recorded"
 }
 else { 
 	write-host "Error: Microsoft-Windows-WinRM%4Operational.evtx event log is not found" -ForegroundColor Red   
@@ -781,10 +667,12 @@ else {
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 		$x = Get-UnsuccessfulLogons  -Path $Security_Path
-		write-host  "Number of UnsuccessfulLogons events:" , $x.count
-		$x  | Export-Csv -Path $ExtraEvents_Path\UnsuccessfulLogons.csv -NoTypeInformation
-		$hash = New-Object PSObject -property @{EventID = "4625"; SANSCateogry = "Extra Events"; Event = "Unsuccessful Logons"; NumberOfOccurences = $x.count }
-		$ResultsArray += $hash
+		if ($x -eq $null) { $x = @() }
+		export_data "4625" $x $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication recorded"
+
+		$x = Get-EventlogCleared  -Path $Security_Path 
+		if ($x -eq $null) { $x = @() }
+		export_data "1102" $x $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared"
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -794,16 +682,5 @@ else {
  write-host "UnsuccessfulLogons depend on Security event log which you choose not to parse" -ForegroundColor Red
 }
 
-
-if ($Valid_RDPCORETS_Path -eq $true) {
-	$x = Get-EventlogCleared  -Path $RDPCORETS_Path 
-	write-host  "Number of EventlogCleared events:" , $x.count
-	$x  | Export-Csv -Path $ExtraEvents_Path\EventlogCleared.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "1102"; SANSCateogry = "Extra Events"; Event = "Event log Cleared"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
-}
-else {
- write-host "Error: 	 event log is not found" -ForegroundColor Red
-} 
 
 $ResultsArray | Out-GridView -Title "Evilize"
