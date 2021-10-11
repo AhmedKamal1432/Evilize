@@ -565,16 +565,15 @@ if ($Valid_System_Path -eq $true) {
 	$ResultsArray += $hash
 
 	$x = Get-ServiceSentControl -Path $System_Path  
-	write-host  "Number of ServiceSentControl  events:" , $x.count
-	$x | Export-Csv -Path $Services_Path\ServiceSentControl.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "7035"; SANSCateogry = "Services"; Event = "Service Sent Control"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	if ($x -eq $null) { $x = @() }
+	export_data "7035" $x $Services_Path\ServiceSentControl.csv "System.evtx" "Services" "Service Sent Control"
 
-	$x = Get-ServiceStartorStop -Path $System_Path 
-	write-host  "Number of ServiceStartorStop  events:" , $x.count
-	$x  | Export-Csv -Path $Services_Path\ServiceStartorStop.csv -NoTypeInformation
-	$hash = New-Object PSObject -property @{EventID = "7036"; SANSCateogry = "Services"; Event = "Service Start or Stop"; NumberOfOccurences = $x.count }
-	$ResultsArray += $hash
+	# 99% Of system.evtx is this event
+	if($all_logs){
+		$x = Get-ServiceStartorStop -Path $System_Path 
+		if ($x -eq $null) { $x = @() }
+		export_data "7036" $x $Services_Path\ServiceStartorStop.csv "System.evtx" "Services" "Service Start or Stop"
+	}
 
 	$x = Get-StartTypeChanged -Path $System_Path  
 	write-host  "Number of StartTypeChanged  events:" , $x.count
