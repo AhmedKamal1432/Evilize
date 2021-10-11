@@ -713,15 +713,19 @@ function ServiceStartorStop {
         write-host "Error: System event log is not found" -ForegroundColor Red
         return  
     }
-    $EventID="7036"
-    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ServiceStartorStop= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Stopped Or Started"; NumberOfOccurences=$ServiceStartorStop}
-    $global:ResultsArray+=$hash 
-    Write-Host "Services Stopped Or Started: " $ServiceStartorStop -ForegroundColor Green
- 
+
+    # 99% Of system.evtx is this event
+    if ($all_logs) {
+        $EventID="7036"
+        $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
+        $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+        LogParser.exe -stats:OFF -i:EVT $Query
+        $ServiceStartorStop= GetStats $OutputFile
+        $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Stopped Or Started"; NumberOfOccurences=$ServiceStartorStop}
+        $global:ResultsArray+=$hash 
+        Write-Host "Services Stopped Or Started: " $ServiceStartorStop -ForegroundColor Green
+    }
+        
 }
 function ServiceSentControl {
     if ($Valid_System_Path -eq $false) {

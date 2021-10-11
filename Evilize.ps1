@@ -7,8 +7,9 @@ param (
     [Parameter(Mandatory=$false, Position=2, HelpMessage="parse security logs which may takes time")]
     [switch] $security,
     [Parameter(Mandatory=$false, Position=3, HelpMessage="Parse source event IDs")]
-    [switch] $Source_Events
-
+    [switch] $Source_Events,
+    [Parameter(Mandatory=$false, Position=4, HelpMessage="Parse source event IDs")]
+    [switch] $all_logs
 
 )
 function Evilize  {
