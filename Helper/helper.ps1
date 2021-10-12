@@ -783,7 +783,7 @@ function SystemQueryWMI {
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "SystemQueryWMI.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
     LogParser.exe -stats:OFF -i:EVT $Query
-    $SystemQueryWMI= GetStats $
+    $SystemQueryWMI= GetStats $OutputFile
     $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WMIActivity%4Operational.evtx";SANSCateogry="WMI/WMIC"; Event="Services Installed on System [System Log]"; NumberOfOccurences=$SystemQueryWMI}
     $global:ResultsArray+=$hash
     Write-Host "WMI Operations Started [WMI Log]: " $SystemQueryWMI   -ForegroundColor Green
