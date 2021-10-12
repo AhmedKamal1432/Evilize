@@ -192,13 +192,12 @@ $global:ResultsArray = @()
 . .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
 . .\PSFunctions\ExtraEvents\EventlogCleared.ps1
 
-function export_data {
+function parse_log_winevent {
 	param (
 		[Parameter(Mandatory = $true, Position = 0)]
 		[string] $EventID,
 		[Parameter(Mandatory = $true, Position = 1)]
-		[AllowEmptyCollection()]
-		[system.Object[]] $events,
+		[scriptblock] $parser,
 		[Parameter(Mandatory = $true, Position = 2)]
 		[string] $OutputFile,
 		[Parameter(Mandatory = $true, Position = 3)]
@@ -206,8 +205,11 @@ function export_data {
 		[Parameter(Mandatory = $true, Position = 4)]
 		[string] $sans_catagory,
 		[Parameter(Mandatory = $true, Position = 5)]
-		[string] $event_name
+		[string] $event_name,
+		[Parameter(Mandatory = $true, Position = 6)]
+		[string] $log_file_path
 	)
+	$events = $parser.invoke($log_file_path)
 	$events | Export-Csv -Path $OutputFile -NoTypeInformation 
 	$hash = New-Object PSObject -property @{EventID = $EventID; EventLog = $event_file_type; SANSCateogry = $sans_catagory; Event = $event_name; NumberOfOccurences = $events.count }
 	$global:ResultsArray += $hash
@@ -221,17 +223,11 @@ function export_data {
 if ($securityparam -eq "yes") {
  if ($Valid_Security_Path -eq $true) {
 
-		$x = Get-AllSuccessfulLogons -Path $Security_Path  
-		if ($x -eq $null) { $x = @() }
-		export_data "4624" $x $RemoteDesktop_Path\AllSuccessfulLogons.csv "Security.evtx" "RemoteDesktop" "All Successful Logons"
+	parse_log_winevent "4624" ${function:\Get-AllSuccessfulLogons} $RemoteDesktop_Path\AllSuccessfulLogons.csv "Security.evtx" "RemoteDesktop" "All Successful Logons" $Security_Path 
 
-		$x = Get-RDPreconnected -Path $Security_Path
-		if ($x -eq $null) { $x = @() }
-		export_data "4778" $x $RemoteDesktop_Path\RDPreconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions reconnected"
+	parse_log_winevent "4778" ${function:\Get-RDPreconnected} $RemoteDesktop_Path\RDPreconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions reconnected"  $Security_Path
 		
-		$x = Get-RDPDisconnected -Path $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4779" $x $RemoteDesktop_Path\RDPDisconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions disconnected"
+	parse_log_winevent "4779" ${function:\Get-RDPDisconnected} $RemoteDesktop_Path\RDPDisconnected.csv "Security.evtx" "RemoteDesktop" "RDP sessions disconnected"  $Security_Path 
 
 	}
  else { 
@@ -245,13 +241,9 @@ else {
 
 if ($Valid_RDPCORETS_Path -eq $true) {
 
-	$x = Get-RDPConnectionAttempts -Path $RDPCORETS_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "131" $x $RemoteDesktop_Path\RDPConnectionAttempts.csv "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Connection Attempts"
+	parse_log_winevent "131" ${function:\Get-RDPConnectionAttempts} $RemoteDesktop_Path\RDPConnectionAttempts.csv  "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Connection Attempts" $RDPCORETS_Path  
 
-	$x = Get-RDPSuccessfulConnections -Path $RDPCORETS_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "98" $x $RemoteDesktop_Path\RDPSuccessfulConnections.csv "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Successful Connections"
+	parse_log_winevent "98" ${function:\Get-RDPSuccessfulConnections} $RemoteDesktop_Path\RDPSuccessfulConnections.csv  "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "RemoteDesktop" "RDP Successful Connections" $RDPCORETS_Path 
 }
 else {
  write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
@@ -259,9 +251,7 @@ else {
 
 if ($Valid_RemoteConnection_Path -eq $true) {
 
-	$x = Get-UserAuthSucceeded -Path $RemoteConnection_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "1149" $x $RemoteDesktop_Path\UserAuthSucceeded.csv.csv "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx" "RemoteDesktop" "RDP User authentication succeeded"
+	parse_log_winevent "1149" ${function:\Get-UserAuthSucceeded} $RemoteDesktop_Path\UserAuthSucceeded.csv.csv "Microsoft-Windows-TerminalServices-RemoteC onnectionManager%4Operational.evtx" "RemoteDesktop" "RDP User authentication succeeded" $RemoteConnection_Path  
 	
 }
 else {
@@ -270,21 +260,13 @@ else {
 
 if ($Valid_TerminalServices_Path -eq $true) {
 
-	$x = Get-RDPSessionLogonSucceed -Path $TerminalServices_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "21" $x $RemoteDesktop_Path\RDPSessionLogonSucceeded.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Successful Logons Sessions"
+	parse_log_winevent "21" ${function:\Get-RDPSessionLogonSucceed} $RemoteDesktop_Path\RDPSessionLogonSucceeded.csv  "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Successful Logons Sessions" $TerminalServices_Path 
 
-	$x = Get-RDPShellStartNotificationReceived -Path $TerminalServices_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "22" $x $RemoteDesktop_Path\RDPShellStartNotificationReceived.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Start Notification recieved"
+	parse_log_winevent "22" ${function:\Get-RDPShellStartNotificationReceived} $RemoteDesktop_Path\RDPShellStartNotificationReceived.csv  "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Start Notification recieved" $TerminalServices_Path  
 
-	$x = Get-RDPShellSessionReconnectedSucceeded -Path $TerminalServices_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "25" $x $RemoteDesktop_Path\RDPShellSessionReconnectedSucceeded.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Session reconnection succeeded"
+	parse_log_winevent "25" ${function:\Get-RDPShellSessionReconnectedSucceeded} $RemoteDesktop_Path\RDPShellSessionReconnectedSucceeded.csv  "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Shell Session reconnection succeeded" $TerminalServices_Path 
 
-	$x = Get-RDPbeginSession -Path $TerminalServices_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "41" $x $RemoteDesktop_Path\RDPbeginSession.csv "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "RemoteDesktop" "RDP Begin Session"
+	parse_log_winevent "41" ${function:\Get-RDPbeginSession} $RemoteDesktop_Path\RDPbeginSession.csv "Microsoft-Windows-TerminalServices-LocalSessio nManager%4Operational.evtx" "RemoteDesktop" "RDP Begin Session" $TerminalServices_Path 
 
 }
 else {
@@ -331,29 +313,17 @@ function Source_RDP {
 #destination
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		$x = Get-AdminLogonCreated -Path $Security_Path  
-		if ($x -eq $null) { $x = @() }
-		export_data "4672" $x $MapNetworkShares_Path\AdminLogonCreated.csv "Security.evtx" "MapNetworkShares" "Admin Logon created"
+		parse_log_winevent "4672" ${function:\Get-AdminLogonCreated} $MapNetworkShares_Path\AdminLogonCreated.csv "Security.evtx" "MapNetworkShares" "Admin  Logon created" $Security_Path  
 
-		$x = Get-ComputerToValidate -Path $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4776" $x $MapNetworkShares_Path\ComputerToValidate.csv "Security.evtx" "MapNetworkShares" "Computer to validate"
+		parse_log_winevent "4776" ${function:\Get-ComputerToValidate} $MapNetworkShares_Path\ComputerToValidate.csv "Security.evtx" "MapNetworkShares"  "Computer to validate" $Security_Path 
 
-		$x = Get-KerberosAuthRequest -Path $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4768" $x $MapNetworkShares_Path\KerberosAuthRequest.csv "Security.evtx" "MapNetworkShares" "Kerberos Authentication Request"
+		parse_log_winevent "4768" ${function:\Get-KerberosAuthRequest} $MapNetworkShares_Path\KerberosAuthRequest.csv "Security.evtx" "MapNetworkShares"  "Kerberos Authentication Request" $Security_Path 
 
-		$x = Get-KerberosServiceRequest -Path $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4769" $x $MapNetworkShares_Path\KerberosServiceRequest.csv "Security.evtx" "MapNetworkShares" "Kerberos Service Request"
+		parse_log_winevent "4769" ${function:\Get-KerberosServiceRequest} $MapNetworkShares_Path\KerberosServiceRequest.csv "Security.evtx" "MapNetworkShares"  "Kerberos Service Request" $Security_Path 
 
-		$x = Get-NetworkShareAccessed -Path $Security_Path  
-		if ($x -eq $null) { $x = @() }
-		export_data "5140" $x $MapNetworkShares_Path\NetworkShareAccessed.csv "Security.evtx" "MapNetworkShares" "Network Share Accessed"
+		parse_log_winevent "5140" ${function:\Get-NetworkShareAccessed} $MapNetworkShares_Path\NetworkShareAccessed.csv "Security.evtx" "MapNetworkShares"  "Network Share Accessed" $Security_Path  
 
-		$x = Get-AuditingofSharedfiles -Path $Security_Path  
-		if ($x -eq $null) { $x = @() }
-		export_data "5145" $x $MapNetworkShares_Path\AuditingofSharedfiles.csv "Security.evtx" "MapNetworkShares" "Auditing of Shared Files"
+		parse_log_winevent "5145" ${function:\Get-AuditingofSharedfiles} $MapNetworkShares_Path\AuditingofSharedfiles.csv "Security.evtx" "MapNetworkShares"  "Auditing of Shared Files" $Security_Path  
 
 		# Remote Access 
 		#Map Network Shares
@@ -382,9 +352,7 @@ else {
 #PsExec
 #Destination
 if ($Valid_System_Path -eq $true) {
-	$x = Get-ServiceInstall -Path $System_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "5145" $x $PsExec_Path\ServiceInstall.csv "System.evtx" "PSExec" "Installed Service"
+	parse_log_winevent "5145" ${function:\Get-ServiceInstall} $PsExec_Path\ServiceInstall.csv "System.evtx" "PSExec" "Installed Service"  $System_Path  
 }
 else { 
 	write-host "Error: System event log is not found" -ForegroundColor Red   
@@ -398,25 +366,15 @@ else {
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 
-		$x = Get-ScheduleTaskCreated -Path $Security_Path
-		if ($x -eq $null) { $x = @() }
-		export_data "4698" $x $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule Task Created"
+		parse_log_winevent "4698" ${function:\Get-ScheduleTaskCreated} $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule  Task Created" $Security_Path
 
-		$x = Get-ScheduleTaskDeleted -Path  $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4699" $x $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule Task Deleted"
+		parse_log_winevent "4699" ${function:\Get-ScheduleTaskDeleted} $ScheduledTasks_Path\ScheduleTaskDeleted.csv "Security.evtx" "ScheduledTasks" "Schedule  Task Deleted" $Security_Path 
 
-		$x = Get-ScheduleTaskEnabled -Path  $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4700" $x $ScheduledTasks_Path\ScheduleTaskEnabled.csv "Security.evtx" "ScheduledTasks" "Schedule Task Enabled"
+		parse_log_winevent "4700" ${function:\Get-ScheduleTaskEnabled} $ScheduledTasks_Path\ScheduleTaskEnabled.csv "Security.evtx" "ScheduledTasks" "Schedule  Task Enabled" $Security_Path 
 
-		$x = Get-ScheduleTaskDisabled -Path  $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4701" $x $ScheduledTasks_Path\ScheduleTaskDisabled.csv "Security.evtx" "ScheduledTasks" "Schedule Task Disabled"
+		parse_log_winevent "4701" ${function:\Get-ScheduleTaskDisabled} $ScheduledTasks_Path\ScheduleTaskDisabled.csv "Security.evtx" "ScheduledTasks" "Schedule  Task Disabled" $Security_Path 
 
-		$x = Get-ScheduleTaskUpdated -Path  $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "4702" $x $ScheduledTasks_Path\ScheduleTaskUpdated.csv "Security.evtx" "ScheduledTasks" "Schedule Task Updated"
+		parse_log_winevent "4702" ${function:\Get-ScheduleTaskUpdated} $ScheduledTasks_Path\ScheduleTaskUpdated.csv "Security.evtx" "ScheduledTasks" "Schedule  Task Updated" $Security_Path 
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -427,25 +385,15 @@ else {
 }
 if ($Valid_TaskScheduler_Path -eq $true) {
 
-	$x = Get-CreatingTaskSchedulerTask  -Path  $TaskScheduler_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "106" $x $ScheduledTasks_Path\CreatingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Creating TaskScheduler Task"
+	parse_log_winevent "106" ${function:\Get-CreatingTaskSchedulerTask} $ScheduledTasks_Path\CreatingTaskSchedulerTask.csv  "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Creating TaskScheduler Task" $TaskScheduler_Path 
 
-	$x = Get-UpdatingTaskSchedulerTask -Path  $TaskScheduler_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "140" $x $ScheduledTasks_Path\UpdatingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Updating TaskScheduler Task"
+	parse_log_winevent "140" ${function:\Get-UpdatingTaskSchedulerTask} $ScheduledTasks_Path\UpdatingTaskSchedulerTask.csv  "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Updating TaskScheduler Task" $TaskScheduler_Path
 
-	$x = Get-DeletingTaskSchedulerTask  -Path  $TaskScheduler_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "141" $x $ScheduledTasks_Path\DeletingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Deleting TaskScheduler Task"
+	parse_log_winevent "141" ${function:\Get-DeletingTaskSchedulerTask} $ScheduledTasks_Path\DeletingTaskSchedulerTask.csv  "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Deleting TaskScheduler Task" $TaskScheduler_Path 
 
-	$x = Get-ExecutingTaskSchedulerTask -Path  $TaskScheduler_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "200" $x $ScheduledTasks_Path\ExecutingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Executing TaskScheduler Task"
+	parse_log_winevent "200" ${function:\Get-ExecutingTaskSchedulerTask} $ScheduledTasks_Path\ExecutingTaskSchedulerTask.csv  "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Executing TaskScheduler Task" $TaskScheduler_Path
 
-	$x = Get-CompletingTaskSchedulerTask -Path  $TaskScheduler_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "201" $x $ScheduledTasks_Path\CompletingTaskSchedulerTask.csv "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Completing TaskScheduler Task"
+	parse_log_winevent "201" ${function:\Get-CompletingTaskSchedulerTask} $ScheduledTasks_Path\CompletingTaskSchedulerTask.csv  "Microsoft-Windows-TaskScheduler%4Operational.evtx" "ScheduledTasks" "Completing TaskScheduler Task" $TaskScheduler_Path 
 }
 else { 
 	write-host "Error: Microsoft-Windows-TaskScheduler%4en4Operational event log is not found" -ForegroundColor Red   
@@ -460,9 +408,7 @@ else {
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 
-		$x = Get-ServiceInstalledonSystem -Path $Security_Path  
-		if ($x -eq $null) { $x = @() }
-		export_data "4697" $x $Services_Path\ServiceInstalledonSystem.csv "Security.evtx" "Services" "Service Installed on System"
+		parse_log_winevent "4697" ${function:\Get-ServiceInstalledonSystem} $Services_Path\ServiceInstalledonSystem.csv "Security.evtx" "Services" "Service  Installed on System" $Security_Path  
 	}
 	else { 
   write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -473,28 +419,18 @@ else {
 }
 if ($Valid_System_Path -eq $true) {
 
-	$x = Get-ServiceCrashed -Path $System_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "7034" $x $Services_Path\ServiceCrashed.csv "System.evtx" "Services" "Service Crashed"
+	parse_log_winevent "7034" ${function:\Get-ServiceCrashed} $Services_Path\ServiceCrashed.csv "System.evtx" "Services" "Service Crashed"  $System_Path  
 
-	$x = Get-ServiceSentControl -Path $System_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "7035" $x $Services_Path\ServiceSentControl.csv "System.evtx" "Services" "Service Sent Control"
+	parse_log_winevent "7035" ${function:\Get-ServiceSentControl} $Services_Path\ServiceSentControl.csv "System.evtx" "Services" "Service Sent Control"  $System_Path  
 
 	# 99% Of system.evtx is this event
 	if($all_logs){
-		$x = Get-ServiceStartorStop -Path $System_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "7036" $x $Services_Path\ServiceStartorStop.csv "System.evtx" "Services" "Service Start or Stop"
+		parse_log_winevent "7036" ${function:\Get-ServiceStartorStop} $Services_Path\ServiceStartorStop.csv "System.evtx" "Services" "Service Start or Stop"  $System_Path 
 	}
 
-	$x = Get-StartTypeChanged -Path $System_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "7040" $x $Services_Path\StartTypeChanged.csv "System.evtx" "Services" "Start Type Changed"
+	parse_log_winevent "7040" ${function:\Get-StartTypeChanged} $Services_Path\StartTypeChanged.csv "System.evtx" "Services" "Start Type Changed"  $System_Path  
 
-	$x = Get-ServiceInstall -Path $System_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "7045" $x $Services_Path\ServiceInstall.csv "System.evtx" "Services" "Service Install"
+	parse_log_winevent "7045" ${function:\Get-ServiceInstall} $Services_Path\ServiceInstall.csv "System.evtx" "Services" "Service Install"  $System_Path  
 }
 else { 
 	write-host "Error: System event log is not found" -ForegroundColor Red   
@@ -506,17 +442,11 @@ else {
 
 if ($Valid_WMI_Path -eq $true) {
 
-	$x = Get-SystemQueryWMI -Path $WMI_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "5857" $x $WMIOut_Path\SystemQueryWMI.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "System Query WMI"
+	parse_log_winevent "5857" ${function:\Get-SystemQueryWMI} $WMIOut_Path\SystemQueryWMI.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "System Query WMI"  $WMI_Path  
 
-	$x = Get-TemporaryEventConsumer -Path $WMI_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "5860" $x $WMIOut_Path\TemporaryEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "Temporary Event Consumer"
+	parse_log_winevent "5860" ${function:\Get-TemporaryEventConsumer} $WMIOut_Path\TemporaryEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx"  "WMI\WMIC" "Temporary Event Consumer" $WMI_Path 
 
-	$x = Get-PermenantEventConsumer -Path $WMI_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "5861" $x $WMIOut_Path\PermenantEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI\WMIC" "Permenant Event Consumer"
+	parse_log_winevent "5861" ${function:\Get-PermenantEventConsumer} $WMIOut_Path\PermenantEventConsumer.csv "Microsoft-Windows-WMIActivity%4Operational.evtx"  "WMI\WMIC" "Permenant Event Consumer" $WMI_Path
 }
 else { 
 	write-host "Error: Microsoft-Windows-WMI-Activity%4Operational event log is not found" -ForegroundColor Red   
@@ -530,17 +460,11 @@ else {
 
 if ($Valid_PowerShellOperational_Path -eq $true) {
 
-	$x = Get-ScriptBlockLogging -Path $PowerShellOperational_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "4103" $x $PowerShellRemoting_Path\ScriptBlockLogging.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Logging"
+	parse_log_winevent "4103" ${function:\Get-ScriptBlockLogging} $PowerShellRemoting_Path\ScriptBlockLogging.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Logging" $PowerShellOperational_Path  
 
-	$x = Get-ScriptBlockAuditing -Path $PowerShellOperational_Path   
-	if ($x -eq $null) { $x = @() }
-	export_data "4104" $x $PowerShellRemoting_Path\ScriptBlockAuditing.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Auditing"
+	parse_log_winevent "4104" ${function:\Get-ScriptBlockAuditing} $PowerShellRemoting_Path\ScriptBlockAuditing.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Script Block Auditing" $PowerShellOperational_Path   
 
-	$x = Get-LateralMovementDetection -Path $PowerShellOperational_Path  
-	if ($x -eq $null) { $x = @() }
-	export_data "53504" $x $PowerShellRemoting_Path\PowerShellOperational_Path.csv "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Lateral Movement Detection"
+	parse_log_winevent "53504" ${function:\Get-LateralMovementDetection} $PowerShellRemoting_Path\PowerShellOperational_Path.csv  "Microsoft-Windows-PowerShell%4Operational.evtx" "PowerShellRemoting" "Lateral Movement Detection" $PowerShellOperational_Path  
 }
 else { 
 	write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red   
@@ -548,31 +472,21 @@ else {
 
 if ($Valid_WinPowerShell_Path -eq $true) {
 
-	$x = Get-StartPSRemoteSession -Path $WinPowerShell_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "400" $x $PowerShellRemoting_Path\StartPSRemoteSession.csv "Windows PowerShell.evtx" "PowerShellRemoting" "Start PSRemote Session"
+	parse_log_winevent "400" ${function:\Get-StartPSRemoteSession} $PowerShellRemoting_Path\StartPSRemoteSession.csv "Wi ndows PowerShell.evtx" "PowerShellRemoting" "Start PSRemote Session" $WinPowerShell_Path 
 
-	$x = Get-EndPSRemoteSession -Path $WinPowerShell_Path 
-	if ($x -eq $null) { $x = @() }
-	export_data "403" $x $PowerShellRemoting_Path\EndPSRemoteSession.csv "Windows PowerShell.evtx" "PowerShellRemoting" "End PSRemote Session"
+	parse_log_winevent "403" ${function:\Get-EndPSRemoteSession} $PowerShellRemoting_Path\EndPSRemoteSession.csv "Wi ndows PowerShell.evtx" "PowerShellRemoting" "End PSRemote Session" $WinPowerShell_Path 
 
 
-	$x = Get-PipelineExecution -Path $WinPowerShell_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "800" $x $PowerShellRemoting_Path\PipelineExecution.csv "Windows PowerShell.evtx" "PowerShellRemoting" "Partial Scripts Code"
+	parse_log_winevent "800" ${function:\Get-PipelineExecution} $PowerShellRemoting_Path\PipelineExecution.csv "Wi ndows PowerShell.evtx" "PowerShellRemoting" "Partial Scripts Code" $WinPowerShell_Path
 }
 else { 
 	write-host "Error: Windows PowerShell event log is not found" -ForegroundColor Red   
 }
 	
 if ($Valid_WinRM_Path -eq $true) {
-	$x = Get-SessionCreated -Path $WinRM_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "800" $x $PowerShellRemoting_Path\SessionCreated.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Session Created"
+	parse_log_winevent "800" ${function:\Get-SessionCreated} $PowerShellRemoting_Path\SessionCreated.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Session Created"  $WinRM_Path
 
-	$x = Get-AuthRecorded -Path $WinRM_Path
-	if ($x -eq $null) { $x = @() }
-	export_data "168" $x $PowerShellRemoting_Path\AuthRecorded.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Authentication recorded"
+	parse_log_winevent "168" ${function:\Get-AuthRecorded} $PowerShellRemoting_Path\AuthRecorded.csv "Microsoft-Windows-WinRM%4Operational.evtx" "PowerShellRemoting" "Authentication recorded"  $WinRM_Path
 }
 else { 
 	write-host "Error: Microsoft-Windows-WinRM%4Operational.evtx event log is not found" -ForegroundColor Red   
@@ -649,13 +563,9 @@ function PS_remoting_source {
 #Extra events
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		$x = Get-UnsuccessfulLogons  -Path $Security_Path
-		if ($x -eq $null) { $x = @() }
-		export_data "4625" $x $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication recorded"
+		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication  recorded" $Security_Path
 
-		$x = Get-EventlogCleared  -Path $Security_Path 
-		if ($x -eq $null) { $x = @() }
-		export_data "1102" $x $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared"
+		parse_log_winevent "1102" ${function:\Get-EventlogCleared} $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared"  $Security_Path 
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -664,6 +574,5 @@ if ($securityparam -eq "yes") {
 else {
  write-host "UnsuccessfulLogons depend on Security event log which you choose not to parse" -ForegroundColor Red
 }
-
 
 $ResultsArray | Out-GridView -Title "Evilize"
