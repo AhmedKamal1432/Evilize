@@ -174,6 +174,7 @@ function LogparserCalls {
     
     Write-Host "Parsing Powershell Sessions Closed"
     PSSessionsClosed $Source_Events
+
 }
 
 Function main {
@@ -192,4 +193,5 @@ Function main {
     
 }
 main
-$ResultsArray | Out-GridView -Title "Evilize"
+$ResultsArray | Out-GridView -Title "Evilize Results" 
+

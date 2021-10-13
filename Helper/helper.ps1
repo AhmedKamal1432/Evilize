@@ -238,7 +238,6 @@ function GetStats {
         #(Import-Csv $FilePath).count
         $NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
         [int]($NumRows.Substring([int](29))).Trim()
-        
 } 
     else {
         Return 0
@@ -250,7 +249,7 @@ function parse_log {
         [Parameter(Mandatory=$true, Position=0)]
         [string] $EventID,
         [Parameter(Mandatory=$true, Position=1)]
-        [string] $Query,
+        [string] $event_name,
         [Parameter(Mandatory=$true, Position=2)]
         [string] $OutputFile,
         [Parameter(Mandatory=$true, Position=3)]
@@ -258,13 +257,13 @@ function parse_log {
         [Parameter(Mandatory=$true, Position=4)]
         [string] $sans_catagory,
         [Parameter(Mandatory=$true, Position=5)]
-        [string] $event_name
+        [string] $Query
     )
     LogParser.exe -stats:OFF -i:EVT $Query
-    $AllSuccessfulLogons= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog=$event_file_type;SANSCateogry=$sans_catagory; Event=$event_name; NumberOfOccurences=$AllSuccessfulLogons}
+    $StatsOut= GetStats $OutputFile
+    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog=$event_file_type;SANSCateogry=$sans_catagory; Event=$event_name; NumberOfOccurences=$StatsOut}
     $global:ResultsArray += $hash
-    Write-Host $event_name":" $AllSuccessfulLogons -ForegroundColor Green
+    Write-Host $event_name":" $StatsOut -ForegroundColor Green
 }
 function AllSuccessfulLogons {
     param (
@@ -281,12 +280,8 @@ function AllSuccessfulLogons {
     }
     $EventID="4624"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "AllSuccessfulLogons.csv"
-    $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $AllSuccessfulLogons= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="Successful Logons"; NumberOfOccurences=$AllSuccessfulLogons}
-    $global:ResultsArray += $hash
-    Write-Host "Successful Logons:" $AllSuccessfulLogons -ForegroundColor Green
+    $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"
+    parse_log $EventID "Successful Logons" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 function UnsuccessfulLogons {
     param (
@@ -304,11 +299,7 @@ function UnsuccessfulLogons {
     $EventID="4625"
     $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "UnsuccessfulLogons.csv"
     $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 10, '|') as LogonType,EXTRACT_TOKEN(strings, 11, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 13, '|') AS Workstation, EXTRACT_TOKEN(Strings, 11, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS ProcessPath ,EXTRACT_TOKEN(Strings, 19, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 20, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $UnsuccessfulLogons= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Extra Events"; Event="UnSuccessful Logons"; NumberOfOccurences=$UnsuccessfulLogons}
-    $global:ResultsArray += $hash
-    Write-Host "UnSuccessful Logons:" $UnsuccessfulLogons -ForegroundColor Green
+    parse_log $EventID "Unsuccessful Logons" $OutputFile "Security.evtx" "Extra Events" $Query
 }
 
 function AdminLogonCreated  {
@@ -318,7 +309,6 @@ function AdminLogonCreated  {
     )
     if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -328,11 +318,7 @@ function AdminLogonCreated  {
     $EventID="4672"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AdminLogonCreated.csv"
     $Query="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID, EXTRACT_TOKEN(Strings, 4, '|') as PrivilegeList INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $AdminLogonsCreated= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Admin Logons Created"; NumberOfOccurences=$AdminLogonsCreated}
-    $global:ResultsArray+=$hash
-    Write-Host "Admin Logons Created: " $AdminLogonsCreated -ForegroundColor Green  
+    parse_log $EventID "Admin Logons Created" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 
@@ -343,7 +329,6 @@ function ServiceInstalledonSystem {
     )
     if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -351,13 +336,9 @@ function ServiceInstalledonSystem {
         return  
     }
     $EventID="4697"
-    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstalledonSystem.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstalledonSystem.csv" 
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ServiceInstalledonSystem= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Services"; Event="Installed Services [Security Log]"; NumberOfOccurences=$ServiceInstalledonSystem}
-    $global:ResultsArray+=$hash
-    Write-Host "Installed Services [Security Log]: " $ServiceInstalledonSystem -ForegroundColor Green  
+    parse_log $EventID "Installed Services [Security Log]" $OutputFile "Security.evtx" "Services" $Query
 }
 
 function ScheduleTaskCreated {
@@ -367,7 +348,6 @@ function ScheduleTaskCreated {
     )
     if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -377,11 +357,7 @@ function ScheduleTaskCreated {
     $EventID="4698"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskCreated.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduleTaskCreated= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Created [Security Log]"; NumberOfOccurences=$ScheduleTaskCreated}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Created [Security Log]: " $ScheduleTaskCreated -ForegroundColor Green  
+    parse_log $EventID "Scheduled Tasks Created [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskDeleted {
@@ -391,7 +367,6 @@ function ScheduleTaskDeleted {
     )
     if($security -eq $false){
                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -401,11 +376,7 @@ function ScheduleTaskDeleted {
     $EventID="4699"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskDeleted.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduleTaskDeleted= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Deleted [Security Log]"; NumberOfOccurences=$ScheduleTaskDeleted}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Deleted [Security Log]: " $ScheduleTaskDeleted -ForegroundColor Green  
+    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskEnabled {
@@ -414,8 +385,7 @@ function ScheduleTaskEnabled {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+         Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -425,11 +395,7 @@ function ScheduleTaskEnabled {
     $EventID="4700"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskEnabled.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduleTaskEnabled= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Enbaled [Security Log]"; NumberOfOccurences=$ScheduleTaskEnabled}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Enbaled [Security Log]: " $ScheduleTaskEnabled -ForegroundColor Green
+    parse_log $EventID "Scheduled Tasks Enabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskDisabled{
@@ -438,8 +404,7 @@ function ScheduleTaskDisabled{
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -449,11 +414,7 @@ function ScheduleTaskDisabled{
     $EventID="4701"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskDisabled.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduleTaskDisabled= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Disabled [Security Log]"; NumberOfOccurences=$ScheduleTaskDisabled}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Disabled [Security Log]: " $ScheduleTaskDisabled -ForegroundColor Green
+    parse_log $EventID "Scheduled Tasks Disabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -463,8 +424,7 @@ function ScheduleTaskUpdated{
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+         Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -474,11 +434,7 @@ function ScheduleTaskUpdated{
     $EventID="4702"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskUpdated.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScheduleTaskUpdated= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Updated [Security Log]"; NumberOfOccurences=$ScheduleTaskUpdated}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Updated [Security Log]: " $ScheduleTaskUpdated -ForegroundColor Green
+    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -488,8 +444,7 @@ function KerberosAuthRequest {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -499,11 +454,7 @@ function KerberosAuthRequest {
     $EventID="4768"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosAuthRequest.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 9, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 10, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $KerberosAuthRequest= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Kerberos Authentication Tickets Requested"; NumberOfOccurences=$KerberosAuthRequest}
-    $global:ResultsArray+=$hash
-    Write-Host "Kerberos Authentication Tickets Requested: " $KerberosAuthRequest -ForegroundColor Green  
+    parse_log $EventID "Kerberos Authentication Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function KerberosServiceRequest {
@@ -512,8 +463,7 @@ function KerberosServiceRequest {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -523,12 +473,7 @@ function KerberosServiceRequest {
     $EventID="4769"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosServiceRequest.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceName ,EXTRACT_TOKEN(Strings, 6, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 7, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $KerberosServiceRequest= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Kerberos Services Tickets Requested"; NumberOfOccurences=$KerberosServiceRequest}
-    $global:ResultsArray+=$hash
-    Write-Host "Kerberos Services Tickets Requested: " $KerberosServiceRequest -ForegroundColor Green  
-    
+    parse_log $EventID "Kerberos Services Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function ComputerToValidate  {
@@ -537,8 +482,7 @@ function ComputerToValidate  {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -548,12 +492,7 @@ function ComputerToValidate  {
     $EventID="4776"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "ComputerToValidate.csv"
     $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID " 
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ComputerToValidate= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Computer to Validate"; NumberOfOccurences=$ComputerToValidate}
-    $global:ResultsArray+=$hash
-    Write-Host "Computer to validate: " $ComputerToValidate -ForegroundColor Green
-
+    parse_log $EventID "Computer to validate" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 function EventlogClearedSecurity  {
     param (
@@ -561,8 +500,7 @@ function EventlogClearedSecurity  {
       [string]$security
   )
   if($security -eq $false){
-              Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+      Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
       return
   }
   if ($Valid_Security_Path -eq $false) {
@@ -572,11 +510,7 @@ function EventlogClearedSecurity  {
   $EventID="1102"
   $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSecurity.csv"
   $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-  LogParser.exe -stats:OFF -i:EVT $Query
-  $EventlogClearedSec= GetStats $OutputFile
-  $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="Extra Events"; Event="Cleared Event Log"; NumberOfOccurences=$EventlogClearedSec}
-  $global:ResultsArray+=$hash
-  Write-Host "Cleared Event Log [Security.evtx]: " $EventlogClearedSec -ForegroundColor Green
+  parse_log $EventID "Cleared Event Log [Security log]" $OutputFile "Security.evtx" "Extra Events" $Query
 }
 
 function EventlogClearedSystem  {
@@ -587,17 +521,14 @@ function EventlogClearedSystem  {
     $EventID="104"
     $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSystem.csv"
     $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    
-    parse_log $EventID $Query $OutputFile "System.evtx" "Extra Events" "Cleared Event Log"
-}
+    parse_log $EventID "Cleared Event Log [System log]" $OutputFile "System.evtx" "Extra Events" $Query}
 function RDPreconnected  {
       param (
         [Parameter(Mandatory=$true)]
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -606,14 +537,8 @@ function RDPreconnected  {
     }
     $EventID="4778"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPreconnected.csv"
-    $Query= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID" 
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPreconnected= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="RDP sessions reconnected"; NumberOfOccurences=$RDPreconnected}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP sessions reconnected: " $RDPreconnected -ForegroundColor Green
-
-    
+    $Query="SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"     
+    parse_log $EventID "RDP sessions reconnected" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 
 function RDPDisconnected  {
@@ -622,8 +547,7 @@ function RDPDisconnected  {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -633,11 +557,7 @@ function RDPDisconnected  {
     $EventID="4779"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPDisconnected.csv"
     $Query= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID" 
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPDisconnected= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="RDP sessions Disconnected"; NumberOfOccurences=$RDPDisconnected}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP sessions Disconnected: " $RDPDisconnected  -ForegroundColor Green 
+    parse_log $EventID "RDP sessions disconnected" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 function NetworkShareAccessed  {
       param (
@@ -645,8 +565,7 @@ function NetworkShareAccessed  {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -655,16 +574,8 @@ function NetworkShareAccessed  {
     }
     $EventID="5140"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "NetworkShareAccessed.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $NetworkShareAccessed= GetStats $
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Network Share Objects Accessed"; NumberOfOccurences=$NetworkShareAccessed}
-    $global:ResultsArray+=$hash
-
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="PsExec"; Event="Network Share Objects Accessed"; NumberOfOccurences=$NetworkShareAccessed}
-    $global:ResultsArray+=$hash
-
-    Write-Host "Network Share Objects Accessed: " $NetworkShareAccessed -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Network Share Objects Accessed" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function AuditingofSharedfiles  {
@@ -673,8 +584,7 @@ function AuditingofSharedfiles  {
         [string]$security
     )
     if($security -eq $false){
-                Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
         return
     }
     if ($Valid_Security_Path -eq $false) {
@@ -683,12 +593,8 @@ function AuditingofSharedfiles  {
     }
     $EventID="5145"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AuditingofSharedfiles.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccounName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ObjectType, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 6, '|') AS SourePort, EXTRACT_TOKEN(Strings, 7, '|') AS ShareName, EXTRACT_TOKEN(Strings, 8, '|') AS SharePath, EXTRACT_TOKEN(Strings, 11, '|') as Accesses, EXTRACT_TOKEN(Strings, 12, '|') as AccessesCheckResult INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $AuditingofSharedfiles= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="MapNetworkShares"; Event="Network Share Objects Checked"; NumberOfOccurences=$AuditingofSharedfiles}
-    $global:ResultsArray+=$hash
-    Write-Host "Network Share Objects Checked : " $AuditingofSharedfiles -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccounName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ObjectType, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 6, '|') AS SourePort, EXTRACT_TOKEN(Strings, 7, '|') AS ShareName, EXTRACT_TOKEN(Strings, 8, '|') AS SharePath, EXTRACT_TOKEN(Strings, 11, '|') as Accesses, EXTRACT_TOKEN(Strings, 12, '|') as AccessesCheckResult INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Network Share Objects Checked" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 
@@ -700,12 +606,8 @@ function ServiceCrashed	 {
     }
     $EventID="7034"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceCrashed.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS Times INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ServiceCrashed= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Crashed unexpectedly"; NumberOfOccurences=$ServiceCrashed}
-    $global:ResultsArray+=$hash    
-    Write-Host "Services Crashed unexpectedly [System Log]: " $ServiceCrashed -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS Times INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Crashed unexpectedly" $OutputFile "System.evtx" "Services" $Query
 }
 
 function ServiceStartorStop {
@@ -713,19 +615,10 @@ function ServiceStartorStop {
         write-host "Error: System event log is not found" -ForegroundColor Red
         return  
     }
-
-    # 99% Of system.evtx is this event
-    if ($all_logs) {
-        $EventID="7036"
-        $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
-        $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-        LogParser.exe -stats:OFF -i:EVT $Query
-        $ServiceStartorStop= GetStats $OutputFile
-        $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Stopped Or Started"; NumberOfOccurences=$ServiceStartorStop}
-        $global:ResultsArray+=$hash 
-        Write-Host "Services Stopped Or Started: " $ServiceStartorStop -ForegroundColor Green
-    }
-        
+    $EventID="7036"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Stopped or Started" $OutputFile "System.evtx" "Services" $Query
 }
 function ServiceSentControl {
     if ($Valid_System_Path -eq $false) {
@@ -734,12 +627,8 @@ function ServiceSentControl {
     }
     $EventID="7035"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceSentControl.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS RequestSent INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ServiceSentControl= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Sent Stop/Start Control [System Log]"; NumberOfOccurences=$ServiceSentControl}
-    $global:ResultsArray+=$hash 
-    Write-Host "Services Sent Stop/Start Control [System Log]: " $ServiceSentControl -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS RequestSent INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Sent Stop/Start Control" $OutputFile "System.evtx" "Services" $Query
 }
 
 function StartTypeChanged {
@@ -749,12 +638,8 @@ function StartTypeChanged {
     }
     $EventID="7040"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "StartTypeChanged.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ChangedFrom , EXTRACT_TOKEN(Strings, 2, '|') AS ChangedTo INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $StartTypeChanged= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="Services"; Event="Services Start Type Changed [System Log]"; NumberOfOccurences=$StartTypeChanged}
-    $global:ResultsArray+=$hash     
-    Write-Host "Services Start Type Changed [System Log]: " $StartTypeChanged -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ChangedFrom , EXTRACT_TOKEN(Strings, 2, '|') AS ChangedTo INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Start Type Changed" $OutputFile "System.evtx" "Services" $Query
 }
 
 function ServiceInstall {
@@ -764,12 +649,8 @@ function ServiceInstall {
     }
     $EventID="7045"
     $OutputFile= Join-Path -Path $PsExec_Path -ChildPath "ServiceInstall.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ServiceInstall= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="System.evtx";SANSCateogry="PsExec"; Event="Services Installed on System [System Log]"; NumberOfOccurences=$ServiceInstall}
-    $global:ResultsArray+=$hash
-    Write-Host "Services Installed on System [System Log]: " $ServiceInstall -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Installed Services [System Log]" $OutputFile "System.evtx" "PsExec" $Query
 }
 
 
@@ -781,12 +662,8 @@ function SystemQueryWMI {
     }
     $EventID="5857"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "SystemQueryWMI.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $SystemQueryWMI= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WMIActivity%4Operational.evtx";SANSCateogry="WMI/WMIC"; Event="Services Installed on System [System Log]"; NumberOfOccurences=$SystemQueryWMI}
-    $global:ResultsArray+=$hash
-    Write-Host "WMI Operations Started [WMI Log]: " $SystemQueryWMI   -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Operations Started" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
 }
 
 
@@ -796,13 +673,9 @@ function TemporaryEventConsumer {
         return  
     }
     $EventID="5860"
-    $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "TemporaryEventConsumer.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS Query,EXTRACT_TOKEN(Strings, 2, '|') AS User ,EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ClientMachine INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $TemporaryEventConsumer= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WMIActivity%4Operational.evtx";SANSCateogry="WMI/WMIC"; Event="WMI Operations ESS Started [WMI Log]"; NumberOfOccurences=$TemporaryEventConsumer}
-    $global:ResultsArray+=$hash
-    Write-Host "WMI Operations ESS Started [WMI Log]: " $TemporaryEventConsumer  -ForegroundColor Green 
+    $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "TemporaryEventConsumer.csv" 
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS Query,EXTRACT_TOKEN(Strings, 2, '|') AS User ,EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ClientMachine INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Temporary Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
 }
 
 
@@ -813,15 +686,9 @@ function PermenantEventConsumer{
     }
     $EventID="5861"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "PermenantEventConsumer.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS ESS,EXTRACT_TOKEN(Strings, 2, '|') AS Consumer ,EXTRACT_TOKEN(Strings, 3, '|') AS PossibleCause INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $PermenantEventConsumer= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WMIActivity%4Operational.evtx";SANSCateogry="WMI/WMIC"; Event="WMI Operations ESS to Consumer Binding [WMI Log]"; NumberOfOccurences=$PermenantEventConsumer}
-    $global:ResultsArray+=$hash
-    Write-Host "WMI Operations ESS to Consumer Binding [WMI Log]: " $PermenantEventConsumer  -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS ESS,EXTRACT_TOKEN(Strings, 2, '|') AS Consumer ,EXTRACT_TOKEN(Strings, 3, '|') AS PossibleCause INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Permenant Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
 }
-
-
 #===============Microsoft-Windows-PowerShell%4Operational.evtx=========
 function ScriptBlockLogging {
     if ($Valid_PowerShellOperational_Path -eq $false) {
@@ -830,13 +697,8 @@ function ScriptBlockLogging {
     }
     $EventID="4103"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ScriptBlockLogging.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ContextINFO, EXTRACT_TOKEN(Strings, 2, '|') AS Payload INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScriptBlockLogging= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Modules Logged"; NumberOfOccurences=$ScriptBlockLogging}
-    $global:ResultsArray+=$hash
-    Write-Host "PS Script block Logged : " $ScriptBlockLogging -ForegroundColor Green
-
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ContextINFO, EXTRACT_TOKEN(Strings, 2, '|') AS Payload INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Script block Logged" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 function ScriptBlockAuditing  {
@@ -846,12 +708,8 @@ function ScriptBlockAuditing  {
     }
     $EventID="4104"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ScriptBlockAuditing.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS MessageNumber, EXTRACT_TOKEN(Strings, 1, '|') AS TotalMessages, EXTRACT_TOKEN(Strings, 2, '|') AS ScriptBlockText , EXTRACT_TOKEN(Strings, 3, '|') AS ScriptBlockID , EXTRACT_TOKEN(Strings,4 , '|') AS ScriptPath INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ScriptBlockAuditing= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Script Blocks Logged"; NumberOfOccurences=$ScriptBlockAuditing}
-    $global:ResultsArray+=$hash
-    Write-Host "PS Script Blocks Auditing : " $ScriptBlockAuditing -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS MessageNumber, EXTRACT_TOKEN(Strings, 1, '|') AS TotalMessages, EXTRACT_TOKEN(Strings, 2, '|') AS ScriptBlockText , EXTRACT_TOKEN(Strings, 3, '|') AS ScriptBlockID , EXTRACT_TOKEN(Strings,4 , '|') AS ScriptPath INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Script block Auditing" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }    
 
 function LateralMovementDetection  {
@@ -861,12 +719,8 @@ function LateralMovementDetection  {
     }
     $EventID="53504"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "LateralMovementDetection.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS Process, EXTRACT_TOKEN(Strings, 1, '|') AS AppDomain INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $LateralMovementDetection= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Authenticating User"; NumberOfOccurences=$LateralMovementDetection}
-    $global:ResultsArray+=$hash
-    Write-Host "PS Authenticating User : " $LateralMovementDetection -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS Process, EXTRACT_TOKEN(Strings, 1, '|') AS AppDomain INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"    
+    parse_log $EventID "PS Authenticating User" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 #=====================WinRM log=======================
 function SessionCreated {
@@ -875,13 +729,9 @@ function SessionCreated {
         return  
     }
     $EventID="91"
-    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "SessionCreated.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ResourceUrl INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $SessionCreated= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="Session Created [WinRM log]"; NumberOfOccurences=$SessionCreated}
-    $global:ResultsArray+=$hash
-    Write-Host "Sessions Created [WinRM log] : " $SessionCreated -ForegroundColor Green  
+    $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "SessionCreated.csv" 
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ResourceUrl INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 
 function AuthRecorded {
@@ -891,13 +741,8 @@ function AuthRecorded {
     }
     $EventID="168"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "AuthRecorded.csv"
-    $Query= "Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $AuthRecorded= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WinRM Authenticating User [WinRM log]"; NumberOfOccurences=$AuthRecorded}
-    $global:ResultsArray+=$hash
-    Write-Host "WinRM Authenticating User [WinRM log] : " $AuthRecorded -ForegroundColor Green
-
+    $Query="Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WinRM Authenticating User" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 #####======= Windows PowerShell.evtx======
@@ -908,14 +753,8 @@ function StartPSRemoteSession {
     }
     $EventID="400"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "StartPSRemoteSession.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $StartPSRemoteSession= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Windows PowerShell.evtx";SANSCateogry="PowerShellRemoting"; Event="Server Remote Hosts Started"; NumberOfOccurences=$StartPSRemoteSession}
-    $global:ResultsArray+=$hash
-    Write-Host "Server Remote Hosts Started : " $StartPSRemoteSession -ForegroundColor Green
-
-    
+    $Query="Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Remote Sessions Started" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 function EndPSRemoteSession {
     if ($Valid_WinPowerShell_Path -eq $false) {
@@ -924,12 +763,8 @@ function EndPSRemoteSession {
     }
     $EventID="403"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "EndPSRemoteSession.csv"
-    $Query= "Select TimeGenerated,EventID,  EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $EndPSRemoteSession= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Windows PowerShell.evtx";SANSCateogry="PowerShellRemoting"; Event="Server Remote Hosts Ended"; NumberOfOccurences=$EndPSRemoteSession}
-    $global:ResultsArray+=$hash
-    Write-Host "Server Remote Hosts Ended : " $EndPSRemoteSession -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID,  EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Remote Sessions Ended" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 
 function PipelineExecution {
@@ -939,12 +774,8 @@ function PipelineExecution {
     }
     $EventID="800"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PipelineExecution.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication  INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $PipelineExecution= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Windows PowerShell.evtx";SANSCateogry="PowerShellRemoting"; Event="Partial Scripts Code"; NumberOfOccurences=$PipelineExecution}
-    $global:ResultsArray+=$hash
-    Write-Host "Partial Scripts Code : " $PipelineExecution   -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication  INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Partial Scripts Content" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 
 #==============Task Scheduler=============
@@ -956,13 +787,8 @@ function CreatingTaskSchedulerTask {
     }
     $EventID="106"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "CreatingTaskSchedulerTask.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $CreatingTaskSchedulerTask= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TaskScheduler%4Operational.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Created [Task Scheduler Log]"; NumberOfOccurences=$CreatingTaskSchedulerTask}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Created [Task Scheduler Log] : " $CreatingTaskSchedulerTask  -ForegroundColor Green
- 
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Created [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function UpdatingTaskSchedulerTask {
@@ -972,13 +798,8 @@ function UpdatingTaskSchedulerTask {
     }
     $EventID="140"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "UpdatingTaskSchedulerTask.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $UpdatingTaskSchedulerTask= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TaskScheduler%4Operational.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Updated [Task Scheduler Log]"; NumberOfOccurences=$UpdatingTaskSchedulerTask}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Updated [Task Scheduler Log]: " $UpdatingTaskSchedulerTask  -ForegroundColor Green
- 
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Updated [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function DeletingTaskSchedulerTask {
@@ -988,13 +809,8 @@ function DeletingTaskSchedulerTask {
     }
     $EventID="141"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "DeletingTaskSchedulerTask.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $DeletingTaskSchedulerTask= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TaskScheduler%4Operational.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Deleted [Task Scheduler Log]"; NumberOfOccurences=$DeletingTaskSchedulerTask}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Deleted [Task Scheduler Log] : " $DeletingTaskSchedulerTask  -ForegroundColor Green
- 
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Deleted [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function ExecutingTaskSchedulerTask {
@@ -1004,12 +820,8 @@ function ExecutingTaskSchedulerTask {
     }
     $EventID="200"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ExecutingTaskSchedulerTask.csv"
-    $Query= "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ExecutingTaskSchedulerTask= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TaskScheduler%4Operational.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Executed [Task Scheduler Log]"; NumberOfOccurences=$ExecutingTaskSchedulerTask}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Executed [Task Scheduler Log]: " $ExecutingTaskSchedulerTask  -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Executed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -1020,12 +832,8 @@ function CompletingTaskSchedulerTask {
     }
     $EventID="201"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "CompletingTaskSchedulerTask.csv"
-    $Query= "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $CompletingTaskSchedulerTask= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TaskScheduler%4Operational.evtx";SANSCateogry="ScheduledTasks"; Event="Scheduled Tasks Completed [Task Scheduler Log]"; NumberOfOccurences=$CompletingTaskSchedulerTask}
-    $global:ResultsArray+=$hash
-    Write-Host "Scheduled Tasks Completed [Task Scheduler Log] : " $CompletingTaskSchedulerTask  -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Completed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 ##============= Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx============
@@ -1036,12 +844,8 @@ function RDPSessionLogonSucceeded {
     }
     $EventID="21"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPSessionLogonSucceeded.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPSessionLogonSucceeded= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP Successful Logons Sessions [EventID=21]"; NumberOfOccurences=$RDPSessionLogonSucceeded}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Successful Logons Sessions [EventID=21] : " $RDPSessionLogonSucceeded -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful Logons Sessions [EventID=21]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPShellStartNotificationReceived {
@@ -1051,12 +855,8 @@ function RDPShellStartNotificationReceived {
     }
     $EventID="22"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPShellStartNotificationReceived.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPShellStartNotificationReceived= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP Successful Logons Sessions [EventID=22]"; NumberOfOccurences=$RDPShellStartNotificationReceived}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Successful Logons Sessions  [EventID=22]: " $RDPShellStartNotificationReceived -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful Logons Sessions [EventID=22]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPShellSessionReconnectedSucceeded {
@@ -1067,11 +867,7 @@ function RDPShellSessionReconnectedSucceeded {
     $EventID="25"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPShellSessionReconnectedSucceeded.csv"
     $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPShellSessionReconnectedSucceeded= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event=" RDP Local Successful Reconnections"; NumberOfOccurences=$RDPShellSessionReconnectedSucceeded}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Successful Shell Sessions Reconnected : " $RDPShellSessionReconnectedSucceeded -ForegroundColor Green
+    parse_log $EventID "RDP Successful Shell Sessions Reconnected" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 function RDPbeginSession { 
     if ($Valid_TerminalServices_Path -eq $false) {
@@ -1080,14 +876,9 @@ function RDPbeginSession {
     }
     $EventID="41"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPBeginSession.csv"
-    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPBeginSession= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event=" RDP Sessios Begain"; NumberOfOccurences=$RDPBeginSession}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Sessions Begain : " $RDPBeginSession -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Sessions Begain" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
-
 #=========================Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx=======================
 function UserAuthSucceeded {
     if ($Valid_RemoteConnection_Path -eq $false) {
@@ -1096,18 +887,10 @@ function UserAuthSucceeded {
     }
     $EventID="1149"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "UserAuthSucceeded.csv"
-    $Query= "Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as Domain ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$RemoteConnection_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $UserAuthSucceeded= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP User authentication succeeded"; NumberOfOccurences=$UserAuthSucceeded}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP User authentication succeeded : " $UserAuthSucceeded -ForegroundColor Green  
-    
+    $Query="Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as Domain ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$RemoteConnection_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP User authentication succeeded" $OutputFile "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx" "Remote Desktop" $Query
 }
-
-
-#============Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx=============
-
+#============Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx============
 function RDPConnectionsAttempts {
     if ($Valid_RDPCORETS_Path -eq $false) {
         write-host "Error: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational event log is not found" -ForegroundColor Red
@@ -1115,12 +898,8 @@ function RDPConnectionsAttempts {
     }
     $EventID="131"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPConnectionsAttempts.csv"
-    $Query= "Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as ConnectionType, extract_token(strings, 1, '|') as CLientIP INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPConnectionsAttempts= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP Connections Attempts"; NumberOfOccurences=$RDPConnectionsAttempts}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Connections Attempts : " $RDPConnectionsAttempts -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID ,extract_token(strings, 0, '|') as ConnectionType, extract_token(strings, 1, '|') as CLientIP INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Connections Attempts" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPSuccessfulConnections {
@@ -1130,12 +909,8 @@ function RDPSuccessfulConnections {
     }
     $EventID="98"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPSuccessfulTCPConnections.csv"
-    $Query= "Select TimeGenerated,EventID  INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPSuccessfulTCPConnections= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP Successful TCP Connections"; NumberOfOccurences=$RDPSuccessfulTCPConnections}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Successful TCP Connections: " $RDPSuccessfulTCPConnections -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID  INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful TCP Connections" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" $Query
 }
 ##==========================Source Event IDs============
 ##Security.evtx
@@ -1148,8 +923,8 @@ function ExplicitCreds {
     )
     if ($Source_Events -eq $true) {
         if($security -eq $false){
-                 Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-                return
+             Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+            return
         }
     }
     else {return}
@@ -1159,12 +934,8 @@ function ExplicitCreds {
     }
     $EventID="4648"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "ExplicitCreds.csv"
-    $Query= "SELECT TimeGenerated,EventID, extract_token(Strings, 1, '|') as SubjectUserName, extract_token(Strings, 2, '|') as SubjectDomain, extract_token(Strings, 5, '|') as TargetUsername, extract_token(Strings, 6, '|') as TargetDomain, extract_token(Strings, 8, '|') as TargetServer, extract_token(strings, 9, '|') as TargetInfo, extract_token(strings, 11, '|') as ProcessName, extract_token(strings, 12, '|') as SourceIP,extract_token(strings, 13, '|') as SourcePort INTO '$OutputFile' from '$Security_Path' WHERE EventID = $EventID" 
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $ExplicitCreds= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Security.evtx";SANSCateogry="RemoteDesktop"; Event="Explicit Credentials Used"; NumberOfOccurences=$ExplicitCreds}
-    $global:ResultsArray+=$hash
-    Write-Host "Logons using Explicit Credential: " $ExplicitCreds -ForegroundColor Green
+    $Query="SELECT TimeGenerated,EventID, extract_token(Strings, 1, '|') as SubjectUserName, extract_token(Strings, 2, '|') as SubjectDomain, extract_token(Strings, 5, '|') as TargetUsername, extract_token(Strings, 6, '|') as TargetDomain, extract_token(Strings, 8, '|') as TargetServer, extract_token(strings, 9, '|') as TargetInfo, extract_token(strings, 11, '|') as ProcessName, extract_token(strings, 12, '|') as SourceIP,extract_token(strings, 13, '|') as SourcePort INTO '$OutputFile' from '$Security_Path' WHERE EventID = $EventID" 
+    parse_log $EventID "Logons using Explicit Credential" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 ##Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx
 function RDPActiveXControls {
@@ -1175,12 +946,8 @@ function RDPActiveXControls {
     }
     $EventID="1024"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPActiveXControls.csv"
-    $Query= "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPActiveXControls= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP client ActiveX Controls"; NumberOfOccurences=$RDPActiveXControls}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Destination Hostname [ActiveX controls]: " $RDPActiveXControls -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Destination Hostname [ActiveX controls]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" $Query
 }
 function RDPAMultitransportCon {
     if ($Source_Event -eq $false) {return}
@@ -1190,12 +957,8 @@ function RDPAMultitransportCon {
     }
     $EventID="1102"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPAMultitransportCon.csv"
-    $Query= "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $RDPAMultitransportCon= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx";SANSCateogry="RemoteDesktop"; Event="RDP client Multitransport Connections"; NumberOfOccurences=$RDPAMultitransportCon}
-    $global:ResultsArray+=$hash
-    Write-Host "RDP Destination IPs [client Multitransport Connections]: " $RDPAMultitransportCon -ForegroundColor Green
+    $Query="Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Destination IPs [client Multitransport Connections]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" $Query
 }
 ###=====Microsoft-Windows-WinRM%4Operational.evtx
 function WSManSessions {
@@ -1206,12 +969,8 @@ function WSManSessions {
     }
     $EventID="6"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsCreated.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ConnectionString INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $WSManSessions= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Sessions Created"; NumberOfOccurences=$WSManSessions}
-    $global:ResultsArray+=$hash
-    Write-Host "WSMan Sessions Created : " $WSManSessions -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ConnectionString INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"   
+    parse_log $EventID "WSMan Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManClosedCommand {
     if ($Source_Event -eq $false) {return}
@@ -1221,14 +980,9 @@ function WSManClosedCommand {
     }
     $EventID="15"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedCommand.csv"
-    $Query= "Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $WSManClosedCommand= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Commands"; NumberOfOccurences=$WSManClosedCommand}
-    $global:ResultsArray+=$hash
-    Write-Host "WSMan Closed Commands : " $WSManClosedCommand -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Commands" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
-
 function WSManClosedShell {
     if ($Source_Event -eq $false) {return}
     if ($Valid_WinRM_Path -eq $false) {
@@ -1237,12 +991,8 @@ function WSManClosedShell {
     }
     $EventID="16"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedShell.csv"
-    $Query= "Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $WSManClosedShell= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Shells"; NumberOfOccurences=$WSManClosedShell}
-    $global:ResultsArray+=$hash
-    Write-Host "WSMan Closed Shells : " $WSManClosedShell -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Shells" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManSessionsClosed {
     if ($Source_Event -eq $false) {return}
@@ -1252,17 +1002,10 @@ function WSManSessionsClosed {
     }
     $EventID="33"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsClosed.csv"
-    $Query= "Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $WSManSessionsClosed= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-WinRM%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="WSMan Closed Sessions"; NumberOfOccurences=$WSManSessionsClosed}
-    $global:ResultsArray+=$hash
-    Write-Host "WSMan Closed Sessions : " $WSManClosedShell -ForegroundColor Green  
+    $Query="Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Sessions" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 #=========Microsoft-Windows-PowerShell%4Operational.evtx
-#EventID=40691 =>Local initiation of PowerShell.exe and associated user =>ToDo
-#EventID=40692 =>Local initiation of PowerShell.exe and associated user =>ToDo
-#EventID=8193 =>
 function PSSessionsCreated {
     if ($Source_Event -eq $false) {return}
     if ($Valid_PowerShellOperational_Path -eq $false) {
@@ -1271,13 +1014,8 @@ function PSSessionsCreated {
     }
     $EventID="8194"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsCreated.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS InstanceID, EXTRACT_TOKEN(Strings, 1, '|') AS MinRunSpaces, EXTRACT_TOKEN(Strings, 2, '|') AS MaxRunspaces  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $PSSessionsCreated= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Created Sessions"; NumberOfOccurences=$PSSessionsCreated}
-    $global:ResultsArray+=$hash
-    Write-Host "PS Created Sessions: " $PSSessionsCreated -ForegroundColor Green
-
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS InstanceID, EXTRACT_TOKEN(Strings, 1, '|') AS MinRunSpaces, EXTRACT_TOKEN(Strings, 2, '|') AS MaxRunspaces  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Created Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 function PSSessionsClosed {
@@ -1288,12 +1026,7 @@ function PSSessionsClosed {
     }
     $EventID="8197"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsClosed.csv"
-    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS State  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID and State = 'Closed'"
-    LogParser.exe -stats:OFF -i:EVT $Query
-    $PSSessionsClosed= GetStats $OutputFile
-    $hash= New-Object PSObject -property @{EventID=$EventID;EventLog="Microsoft-Windows-PowerShell%4Operational.evtx";SANSCateogry="PowerShellRemoting"; Event="PS Closed Sessions"; NumberOfOccurences=$PSSessionsClosed}
-    $global:ResultsArray+=$hash
-    Write-Host "PS Closed Sessions: " $PSSessionsClosed -ForegroundColor Green
-
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS State  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID and State = 'Closed'"
+    parse_log $EventID "PS Closed Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
