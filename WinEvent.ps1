@@ -63,6 +63,7 @@
 #extra events
 . .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
 . .\PSFunctions\ExtraEvents\EventlogCleared.ps1
+. .\PSFunctions\ExtraEvents\EventlogClearedSystem.ps1
 
 $global:securityparam
 function winevent_main {
@@ -466,9 +467,10 @@ Print_Seprator "Extra Events"
 
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication  recorded" $Security_Path
+		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Unsuccessful Logons" $Security_Path
 
-		parse_log_winevent "1102" ${function:\Get-EventlogCleared} $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared"  $Security_Path 
+		parse_log_winevent "1102" ${function:\Get-EventlogCleared} $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared[Security.evtx]"  $Security_Path
+
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
@@ -476,6 +478,10 @@ if ($securityparam -eq "yes") {
 }
 else {
  write-host "UnsuccessfulLogons depend on Security event log which you choose not to parse" -ForegroundColor Red
+}
+
+if ($Valid_System_Path) {
+	parse_log_winevent "104" ${function:\Get-EventlogClearedSystem} $ExtraEvents_Path\EventlogClearedSystem.csv "Security.evtx" "Extra Events" "Event log Cleared[System.evtx]"  $System_Path
 }
 
 $ResultsArray | Out-GridView -Title "Evilize"
