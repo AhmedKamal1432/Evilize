@@ -237,7 +237,7 @@ function GetStats {
     if($Valid -eq $true){
         #(Import-Csv $FilePath).count
         $NumRows=LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
-        ($NumRows.Substring([int](29))).Trim() 
+        [int]($NumRows.Substring([int](29))).Trim()
 } 
     else {
         Return 0
@@ -644,8 +644,6 @@ function SystemQueryWMI {
     $EventID="5857"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "SystemQueryWMI.csv"
     parse_log $EventID "WMI Operations Started" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
-
-    
 }
 
 
