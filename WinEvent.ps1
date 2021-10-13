@@ -1,133 +1,5 @@
-Write-host "
-    ______           _     __    _            
-   / ____/ _   __   (_)   / /   (_) ____  ___ 
-  / __/   | | / /  / /   / /   / / /_  / / _ \
- / /___   | |/ /  / /   / /   / /   / /_/  __/
-/_____/   |___/  /_/   /_/   /_/   /___/\___/ 
-                                              
-" -ForegroundColor Red -BackgroundColor black
-Write-host "  
-                                                          _____ 
-\            / _   |\   |    ___    _   __   ___   |\   |   |
- \    /\    / (_)  | \  |   / _ \  | | / /  / _ \  | \  |   |
-  \  /  \  /  | |  |  \ |  /  __/  | |/ /  /  __/  |  \ |   |
-   \/    \/   |_|  |   \|  \___/   |___/   \___/   |   \|   |
-" -ForegroundColor Red -BackgroundColor black
-#inputing the log path
-if ($security) {
-	$securityparam = "yes"
-}
+. ./Helper/helper.ps1
 
-#making results and its sub directories
-$Destination_Path = Join-Path -Path $Logs_Path -ChildPath "Results"
-if ((Test-Path -Path "$Destination_Path") -eq $false) {
-	New-Item -Path $Destination_Path -ItemType Directory    
-} 
-$RemoteDesktop_Path = Join-Path -Path $Destination_Path -ChildPath "RemoteDesktop"
-#Check if Remote Desktop already exist
-if ((Test-Path -Path "$RemoteDesktop_Path") -eq $false) {
-	New-Item -Path $RemoteDesktop_Path -ItemType Directory    
-}
-$MapNetworkShares_Path = Join-Path -Path $Destination_Path -ChildPath "MapNetworkShares"
-#Check if MapNetworkShares already exist
-if ((Test-Path -Path "$MapNetworkShares_Path") -eq $false) {
-	New-Item -Path $MapNetworkShares_Path -ItemType Directory    
-}
-$PsExec_Path = Join-Path -Path $Destination_Path -ChildPath "PsExec"
-#Check if PsExec already exist
-if ((Test-Path -Path "$PsExec_Path") -eq $false) {
-	New-Item -Path $PsExec_Path -ItemType Directory    
-}
-$ScheduledTasks_Path = Join-Path -Path $Destination_Path -ChildPath "ScheduledTasks"
-#Check if ScheduledTasks already exist
-if ((Test-Path -Path "$ScheduledTasks_Path") -eq $false) {
-	New-Item -Path $ScheduledTasks_Path -ItemType Directory    
-}
-$Services_Path = Join-Path -Path $Destination_Path -ChildPath "Services"
-#Check if Services already exist
-if ((Test-Path -Path "$Services_Path") -eq $false) {
-	New-Item -Path $Services_Path -ItemType Directory    
-}
-$WMIOut_Path = Join-Path -Path $Destination_Path -ChildPath "WMI"
-#Check if WMI already exist
-if ((Test-Path -Path "$WMIOut_Path") -eq $false) {
-	New-Item -Path $WMIOut_Path -ItemType Directory    
-}
-$PowerShellRemoting_Path = Join-Path -Path $Destination_Path -ChildPath "PowerShellRemoting"
-#Check if PowerShellRemoting already exist
-if ((Test-Path -Path "$PowerShellRemoting_Path") -eq $false) {
-	New-Item -Path $PowerShellRemoting_Path -ItemType Directory    
-}
-$ExtraEvents_Path = Join-Path -Path $Destination_Path -ChildPath "ExtraEvents"
-#Check if ExtraEvents already exist
-if ((Test-Path -Path "$ExtraEvents_Path") -eq $false) {
-	New-Item -Path $ExtraEvents_Path -ItemType Directory    
-}
-
-$Security_Path = Join-Path -Path $Logs_Path -ChildPath "Security.evtx"
-$System_Path = Join-Path -Path $Logs_Path -ChildPath "System.evtx"
-$RDPCORETS_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx"
-$WMI_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evtx"
-$PowerShellOperational_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evtx"
-$WinPowerShell_Path = Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evtx"
-$WinRM_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evtx"
-$TaskScheduler_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Operational.evtx"
-$TerminalServices_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
-$RemoteConnection_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
-
-#converting evt to evtx files
-$evtFiles = Get-ChildItem -Recurse -Path $Logs_Path -filter (-NOT '*.evtx') 
-if (-NOT ($evtFiles -eq $null)) {
-	## Convert evt to evtx
-	$Securityevt_Path = Join-Path -Path $Logs_Path -ChildPath "Security.evt"
-	$Systemevt_Path = Join-Path -Path $Logs_Path -ChildPath "System.evt"
-	$RDPCORETSevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evt"
-	$WMIevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WMI-Activity%4Operational.evt"
-	$PowerShellOperationalevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-PowerShell%4Operational.evt"
-	$WinPowerShellevt_Path = Join-Path -Path $Logs_Path -ChildPath "Windows PowerShell.evt"
-	$WinRMevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-WinRM%4Operational.evt"
-	$TaskSchedulerevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TaskScheduler%4Operational.evt"
-	$TerminalServiceevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evt"
-	$RemoteConnectionevt_Path = Join-Path -Path $Logs_Path -ChildPath "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evt"
-
-	function Evt2Evtx {
-		param (
-			[Parameter(Mandatory = $true)]
-			[string]$EvtPath,
-			[Parameter(Mandatory = $true)]
-			[string]$EvtxPath
-		)
-		if (((Test-Path -Path $EvtPath) -eq $true) -and ((Test-Path -Path $EvtxPath) -eq $false)) {
-			wevtutil epl $EvtPath $EvtxPath /lf:true 
-		}     
-	}
-	Evt2Evtx $Securityevt_Path $Security_Path
-	Evt2Evtx $Systemevt_Path  $System_Path
-	Evt2Evtx $RDPCORETSevt_Path $RDPCORETS_Path
-	Evt2Evtx $WMIevt_Path $WMI_Path
-	Evt2Evtx $WinPowerShellevt_Path $WinPowerShell_Path
-	Evt2Evtx $WinRMevt_Path $WinRM_Path
-	Evt2Evtx $TaskSchedulerevt_Path $TaskScheduler_Path
-	Evt2Evtx $TerminalServiceevt_Path $TerminalServices_Path
-	Evt2Evtx $RemoteConnectionevt_Path $RemoteConnection_Path
-	Evt2Evtx $PowerShellOperationalevt_Path $PowerShellOperational_Path
-}
-
-## Testing if the log file exist ? 
-$LogsPathTest = Test-Path -Path "$Logs_Path"
-##Validating Paths
-$Valid_Security_Path = Test-Path -Path $Security_Path
-$Valid_System_Path = Test-Path -Path $System_Path
-$Valid_RDPCORETS_Path = Test-Path -Path $RDPCORETS_Path
-$Valid_WMI_Path = Test-Path -Path $WMI_Path
-$Valid_PowerShellOperational_Path = Test-Path -Path $PowerShellOperational_Path
-$Valid_WinPowerShell_Path = Test-Path -Path $WinPowerShell_Path
-$Valid_WinRM_Path = Test-Path -Path $WinRM_Path
-$Valid_TaskScheduler_Path = Test-Path -Path $TaskScheduler_Path
-$Valid_TerminalServices_Path = Test-Path -Path $TerminalServices_Path
-$Valid_RemoteConnection_Path = Test-Path -Path $RemoteConnection_Path
-
-$global:ResultsArray = @()
 #Remote desktop
 . .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
 . .\PSFunctions\RemoteDesktop\RDPreconnected.ps1
@@ -191,6 +63,23 @@ $global:ResultsArray = @()
 #extra events
 . .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
 . .\PSFunctions\ExtraEvents\EventlogCleared.ps1
+
+$global:securityparam
+function winevent_main {
+	print_logo "winevent"
+	if (check_logs_path $Logs_Path) {
+        evt_conversion $Logs_Path
+        csv_output_directories $Logs_Path
+        check_individual_logs
+        $global:securityparam = "no"
+		if ($security) {
+			$global:securityparam = "yes"
+		}
+    }
+	
+}
+winevent_main
+
 
 function parse_log_winevent {
 	param (
