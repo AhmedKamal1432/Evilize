@@ -466,7 +466,7 @@ Print_Seprator "Extra Events"
 
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
-		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication  recorded" $Security_Path
+		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Unsuccessful Logons" $Security_Path
 
 		parse_log_winevent "1102" ${function:\Get-EventlogCleared} $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared"  $Security_Path 
 	}
