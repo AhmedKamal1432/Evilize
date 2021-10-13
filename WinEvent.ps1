@@ -470,6 +470,7 @@ if ($securityparam -eq "yes") {
 		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Unsuccessful Logons" $Security_Path
 
 		parse_log_winevent "1102" ${function:\Get-EventlogCleared} $ExtraEvents_Path\EventlogCleared.csv "Security.evtx" "Extra Events" "Event log Cleared[Security.evtx]"  $Security_Path
+
 	}
 	else { 
 		write-host "Error: Security event log is not found" -ForegroundColor Red   
