@@ -109,6 +109,8 @@ function parse_log_winevent {
 # Remote Access
 #Remote desktop
 #destination#
+Print_Seprator "RemoteDesktop"
+
 if ($securityparam -eq "yes") {
  if ($Valid_Security_Path -eq $true) {
 
@@ -200,6 +202,8 @@ function Source_RDP {
 #Remote Access	
 # Map Network Shares 
 #destination
+Print_Seprator "MapNetworkShare"
+
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 		parse_log_winevent "4672" ${function:\Get-AdminLogonCreated} $MapNetworkShares_Path\AdminLogonCreated.csv "Security.evtx" "MapNetworkShares" "Admin  Logon created" $Security_Path  
@@ -240,6 +244,8 @@ else {
 #Remote Execution
 #PsExec
 #Destination
+Print_Seprator "PsExec"
+
 if ($Valid_System_Path -eq $true) {
 	parse_log_winevent "5145" ${function:\Get-ServiceInstall} $PsExec_Path\ServiceInstall.csv "System.evtx" "PSExec" "Installed Service"  $System_Path  
 }
@@ -252,6 +258,8 @@ else {
 #Remote Execution
 #Scheduled Tasks
 #Destination
+Print_Seprator "ScheduledTasks"
+
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 
@@ -294,6 +302,8 @@ else {
 #Remote Execution
 #services
 #destination
+Print_Seprator "Services"
+
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 
@@ -328,6 +338,7 @@ else {
 #Remote Execution
 #WMI\WMIC
 #destination
+Print_Seprator "WMI/WMIC"
 
 if ($Valid_WMI_Path -eq $true) {
 
@@ -346,6 +357,7 @@ else {
 #Remote Execution
 #powershell remoting
 #destination
+Print_Seprator "PowerShellRemoting"
 
 if ($Valid_PowerShellOperational_Path -eq $true) {
 
@@ -450,6 +462,8 @@ function PS_remoting_source {
 }
 
 #Extra events
+Print_Seprator "Extra Events"
+
 if ($securityparam -eq "yes") {
 	if ($Valid_Security_Path -eq $true) {
 		parse_log_winevent "4625" ${function:\Get-UnsuccessfulLogons} $ExtraEvents_Path\UnsuccessfulLogons.csv "Security.evtx" "Extra Events" "Authentication  recorded" $Security_Path
