@@ -174,7 +174,7 @@ function LogparserCalls {
     
     Write-Host "Parsing Powershell Sessions Closed"
     PSSessionsClosed $Source_Events
-    #>
+
 }
 
 Function main {
