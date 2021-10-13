@@ -280,7 +280,8 @@ function AllSuccessfulLogons {
     }
     $EventID="4624"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "AllSuccessfulLogons.csv"
-    parse_log $EventID "Successful Logons" $OutputFile "Security.evtx" "Remote Desktop" "SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"
+    $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 8, '|') as LogonType,EXTRACT_TOKEN(strings, 9, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 11, '|') AS Workstation, EXTRACT_TOKEN(Strings, 17, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS SourceIP INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"
+    parse_log $EventID "Successful Logons" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 function UnsuccessfulLogons {
     param (
@@ -297,7 +298,8 @@ function UnsuccessfulLogons {
     }
     $EventID="4625"
     $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "UnsuccessfulLogons.csv"
-    parse_log $EventID "Unsuccessful Logons" $OutputFile "Security.evtx" "Extra Events" "SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 10, '|') as LogonType,EXTRACT_TOKEN(strings, 11, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 13, '|') AS Workstation, EXTRACT_TOKEN(Strings, 11, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS ProcessPath ,EXTRACT_TOKEN(Strings, 19, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 20, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
+    $Query="SELECT TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 5, '|') as Username, EXTRACT_TOKEN(Strings, 6, '|') as Domain, EXTRACT_TOKEN(Strings, 10, '|') as LogonType,EXTRACT_TOKEN(strings, 11, '|') AS AuthPackage, EXTRACT_TOKEN(Strings, 13, '|') AS Workstation, EXTRACT_TOKEN(Strings, 11, '|') AS ProcessName, EXTRACT_TOKEN(Strings, 18, '|') AS ProcessPath ,EXTRACT_TOKEN(Strings, 19, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 20, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID  And LogonType<>'5'"  
+    parse_log $EventID "Unsuccessful Logons" $OutputFile "Security.evtx" "Extra Events" $Query
 }
 
 function AdminLogonCreated  {
@@ -315,8 +317,8 @@ function AdminLogonCreated  {
     }
     $EventID="4672"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AdminLogonCreated.csv"
-    parse_log $EventID "Admin Logons Created" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID, EXTRACT_TOKEN(Strings, 4, '|') as PrivilegeList INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-
+    $Query="Select TimeGenerated,EventID , EXTRACT_TOKEN(Strings, 1, '|') AS Username, EXTRACT_TOKEN(Strings, 2, '|') AS Domain , EXTRACT_TOKEN(Strings, 3, '|') as LogonID, EXTRACT_TOKEN(Strings, 4, '|') as PrivilegeList INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Admin Logons Created" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 
@@ -335,7 +337,8 @@ function ServiceInstalledonSystem {
     }
     $EventID="4697"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstalledonSystem.csv" 
-    parse_log $EventID "Installed Services [Security Log]" $OutputFile "Security.evtx" "Services" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Installed Services [Security Log]" $OutputFile "Security.evtx" "Services" $Query
 }
 
 function ScheduleTaskCreated {
@@ -353,7 +356,8 @@ function ScheduleTaskCreated {
     }
     $EventID="4698"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskCreated.csv"
-    parse_log $EventID "Scheduled Tasks Created [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Created [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskDeleted {
@@ -371,7 +375,8 @@ function ScheduleTaskDeleted {
     }
     $EventID="4699"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskDeleted.csv"
-    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskEnabled {
@@ -389,7 +394,8 @@ function ScheduleTaskEnabled {
     }
     $EventID="4700"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskEnabled.csv"
-    parse_log $EventID "Scheduled Tasks Enabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Enabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 function ScheduleTaskDisabled{
@@ -407,8 +413,8 @@ function ScheduleTaskDisabled{
     }
     $EventID="4701"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskDisabled.csv"
-    parse_log $EventID "Scheduled Tasks Disabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Disabled [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -427,7 +433,8 @@ function ScheduleTaskUpdated{
     }
     $EventID="4702"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskUpdated.csv"
-    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -446,7 +453,8 @@ function KerberosAuthRequest {
     }
     $EventID="4768"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosAuthRequest.csv"
-    parse_log $EventID "Kerberos Authentication Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 9, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 10, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 9, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 10, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Kerberos Authentication Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function KerberosServiceRequest {
@@ -464,8 +472,8 @@ function KerberosServiceRequest {
     }
     $EventID="4769"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "KerberosServiceRequest.csv"
-    parse_log $EventID "Kerberos Services Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceName ,EXTRACT_TOKEN(Strings, 6, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 7, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    
+    $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS AccountName, EXTRACT_TOKEN(Strings, 1, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceName ,EXTRACT_TOKEN(Strings, 6, '|') AS SourceIP , EXTRACT_TOKEN(Strings, 7, '|') AS SourcePort INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Kerberos Services Tickets Requested" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function ComputerToValidate  {
@@ -483,7 +491,8 @@ function ComputerToValidate  {
     }
     $EventID="4776"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "ComputerToValidate.csv"
-    parse_log $EventID "Computer to validate" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID "     
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID " 
+    parse_log $EventID "Computer to validate" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 function EventlogClearedSecurity  {
     param (
@@ -500,7 +509,8 @@ function EventlogClearedSecurity  {
   }
   $EventID="1102"
   $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSecurity.csv"
-  parse_log $EventID "Cleared Event Log [Security log]" $OutputFile "Security.evtx" "Extra Events" "SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+  $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 1, '|') as Username, EXTRACT_TOKEN(Strings, 2, '|') AS DomainName, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+  parse_log $EventID "Cleared Event Log [Security log]" $OutputFile "Security.evtx" "Extra Events" $Query
 }
 
 function EventlogClearedSystem  {
@@ -510,8 +520,8 @@ function EventlogClearedSystem  {
     }
     $EventID="104"
     $OutputFile= Join-Path -Path $ExtraEvents_Path -ChildPath "EventlogClearedSystem.csv"
-    parse_log $EventID "Cleared Event Log [System log]" $OutputFile "System.evtx" "Extra Events" "SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-}
+    $Query="SELECT TimeGenerated , EXTRACT_TOKEN(Strings, 0, '|') AS Username , EXTRACT_TOKEN(Strings, 1, '|') as Domain, EXTRACT_TOKEN(Strings, 2, '|') AS Channel INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Cleared Event Log [System log]" $OutputFile "System.evtx" "Extra Events" $Query}
 function RDPreconnected  {
       param (
         [Parameter(Mandatory=$true)]
@@ -527,7 +537,8 @@ function RDPreconnected  {
     }
     $EventID="4778"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPreconnected.csv"
-    parse_log $EventID "RDP sessions reconnected" $OutputFile "Security.evtx" "Remote Desktop"  "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"     
+    $Query="SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"     
+    parse_log $EventID "RDP sessions reconnected" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 
 function RDPDisconnected  {
@@ -545,7 +556,8 @@ function RDPDisconnected  {
     }
     $EventID="4779"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPDisconnected.csv"
-    parse_log $EventID "RDP sessions disconnected" $OutputFile "Security.evtx" "Remote Desktop"  "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID" 
+    $Query= "SELECT TimeGenerated,EventID ,EXTRACT_TOKEN(Strings, 0, '|') AS Username, EXTRACT_TOKEN(Strings, 1, '|') AS Domain, EXTRACT_TOKEN(Strings, 4, '|') AS Workstation, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID" 
+    parse_log $EventID "RDP sessions disconnected" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 function NetworkShareAccessed  {
       param (
@@ -562,7 +574,8 @@ function NetworkShareAccessed  {
     }
     $EventID="5140"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "NetworkShareAccessed.csv"
-    parse_log $EventID "Network Share Objects Accessed" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 5, '|') AS SourcePort, EXTRACT_TOKEN(Strings, 6, '|') AS ShareName INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Network Share Objects Accessed" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 function AuditingofSharedfiles  {
@@ -580,7 +593,8 @@ function AuditingofSharedfiles  {
     }
     $EventID="5145"
     $OutputFile= Join-Path -Path $MapNetworkShares_Path -ChildPath "AuditingofSharedfiles.csv"
-    parse_log $EventID "Network Share Objects Checked" $OutputFile "Security.evtx" "Map Network Shares" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccounName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ObjectType, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 6, '|') AS SourePort, EXTRACT_TOKEN(Strings, 7, '|') AS ShareName, EXTRACT_TOKEN(Strings, 8, '|') AS SharePath, EXTRACT_TOKEN(Strings, 11, '|') as Accesses, EXTRACT_TOKEN(Strings, 12, '|') as AccessesCheckResult INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccounName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ObjectType, EXTRACT_TOKEN(Strings, 5, '|') AS SourceIP, EXTRACT_TOKEN(Strings, 6, '|') AS SourePort, EXTRACT_TOKEN(Strings, 7, '|') AS ShareName, EXTRACT_TOKEN(Strings, 8, '|') AS SharePath, EXTRACT_TOKEN(Strings, 11, '|') as Accesses, EXTRACT_TOKEN(Strings, 12, '|') as AccessesCheckResult INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Network Share Objects Checked" $OutputFile "Security.evtx" "Map Network Shares" $Query
 }
 
 
@@ -592,7 +606,8 @@ function ServiceCrashed	 {
     }
     $EventID="7034"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceCrashed.csv"
-    parse_log $EventID "Services Crashed unexpectedly" $OutputFile "System.evtx" "Services" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS Times INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS Times INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Crashed unexpectedly" $OutputFile "System.evtx" "Services" $Query
 }
 
 function ServiceStartorStop {
@@ -602,7 +617,8 @@ function ServiceStartorStop {
     }
     $EventID="7036"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
-    parse_log $EventID "Services Stopped or Started" $OutputFile "System.evtx" "Services" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Stopped or Started" $OutputFile "System.evtx" "Services" $Query
 }
 function ServiceSentControl {
     if ($Valid_System_Path -eq $false) {
@@ -611,7 +627,8 @@ function ServiceSentControl {
     }
     $EventID="7035"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceSentControl.csv"
-    parse_log $EventID "Services Sent Stop/Start Control" $OutputFile "System.evtx" "Services" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS RequestSent INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS RequestSent INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Sent Stop/Start Control" $OutputFile "System.evtx" "Services" $Query
 }
 
 function StartTypeChanged {
@@ -621,7 +638,8 @@ function StartTypeChanged {
     }
     $EventID="7040"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "StartTypeChanged.csv"
-    parse_log $EventID "Services Start Type Changed" $OutputFile "System.evtx" "Services" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ChangedFrom , EXTRACT_TOKEN(Strings, 2, '|') AS ChangedTo INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ChangedFrom , EXTRACT_TOKEN(Strings, 2, '|') AS ChangedTo INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Services Start Type Changed" $OutputFile "System.evtx" "Services" $Query
 }
 
 function ServiceInstall {
@@ -631,7 +649,8 @@ function ServiceInstall {
     }
     $EventID="7045"
     $OutputFile= Join-Path -Path $PsExec_Path -ChildPath "ServiceInstall.csv"
-    parse_log $EventID "Installed Services [System Log]" $OutputFile "System.evtx" "PsExec" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Installed Services [System Log]" $OutputFile "System.evtx" "PsExec" $Query
 }
 
 
@@ -643,7 +662,8 @@ function SystemQueryWMI {
     }
     $EventID="5857"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "SystemQueryWMI.csv"
-    parse_log $EventID "WMI Operations Started" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ProviderName, EXTRACT_TOKEN(Strings, 1, '|') AS Code, EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ProviderPath INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Operations Started" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
 }
 
 
@@ -654,8 +674,9 @@ function TemporaryEventConsumer {
     }
     $EventID="5860"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "TemporaryEventConsumer.csv" 
-    parse_log $EventID "WMI Temporary Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS Query,EXTRACT_TOKEN(Strings, 2, '|') AS User ,EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ClientMachine INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
-    }
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS Query,EXTRACT_TOKEN(Strings, 2, '|') AS User ,EXTRACT_TOKEN(Strings, 3, '|') AS ProcessID, EXTRACT_TOKEN(Strings, 4, '|') AS ClientMachine INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Temporary Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
+}
 
 
 function PermenantEventConsumer{
@@ -665,7 +686,8 @@ function PermenantEventConsumer{
     }
     $EventID="5861"
     $OutputFile= Join-Path -Path $WMIOut_Path -ChildPath "PermenantEventConsumer.csv"
-    parse_log $EventID "WMI Permenant Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS ESS,EXTRACT_TOKEN(Strings, 2, '|') AS Consumer ,EXTRACT_TOKEN(Strings, 3, '|') AS PossibleCause INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS NameSpace, EXTRACT_TOKEN(Strings, 1, '|') AS ESS,EXTRACT_TOKEN(Strings, 2, '|') AS Consumer ,EXTRACT_TOKEN(Strings, 3, '|') AS PossibleCause INTO '$OutputFile' FROM '$WMI_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WMI Permenant Event Consumer" $OutputFile "Microsoft-Windows-WMIActivity%4Operational.evtx" "WMI/WMIC" $Query
 }
 #===============Microsoft-Windows-PowerShell%4Operational.evtx=========
 function ScriptBlockLogging {
@@ -675,7 +697,8 @@ function ScriptBlockLogging {
     }
     $EventID="4103"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ScriptBlockLogging.csv"
-    parse_log $EventID "PS Script block Logged" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ContextINFO, EXTRACT_TOKEN(Strings, 2, '|') AS Payload INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ContextINFO, EXTRACT_TOKEN(Strings, 2, '|') AS Payload INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Script block Logged" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 function ScriptBlockAuditing  {
@@ -685,7 +708,8 @@ function ScriptBlockAuditing  {
     }
     $EventID="4104"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "ScriptBlockAuditing.csv"
-    parse_log $EventID "PS Script block Auditing" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS MessageNumber, EXTRACT_TOKEN(Strings, 1, '|') AS TotalMessages, EXTRACT_TOKEN(Strings, 2, '|') AS ScriptBlockText , EXTRACT_TOKEN(Strings, 3, '|') AS ScriptBlockID , EXTRACT_TOKEN(Strings,4 , '|') AS ScriptPath INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS MessageNumber, EXTRACT_TOKEN(Strings, 1, '|') AS TotalMessages, EXTRACT_TOKEN(Strings, 2, '|') AS ScriptBlockText , EXTRACT_TOKEN(Strings, 3, '|') AS ScriptBlockID , EXTRACT_TOKEN(Strings,4 , '|') AS ScriptPath INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Script block Auditing" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }    
 
 function LateralMovementDetection  {
@@ -695,7 +719,8 @@ function LateralMovementDetection  {
     }
     $EventID="53504"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "LateralMovementDetection.csv"
-    parse_log $EventID "PS Authenticating User" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS Process, EXTRACT_TOKEN(Strings, 1, '|') AS AppDomain INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"    
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS Process, EXTRACT_TOKEN(Strings, 1, '|') AS AppDomain INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"    
+    parse_log $EventID "PS Authenticating User" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 #=====================WinRM log=======================
 function SessionCreated {
@@ -705,7 +730,8 @@ function SessionCreated {
     }
     $EventID="91"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "SessionCreated.csv" 
-    parse_log $EventID "Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ResourceUrl INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ResourceUrl INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 
 function AuthRecorded {
@@ -715,7 +741,8 @@ function AuthRecorded {
     }
     $EventID="168"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "AuthRecorded.csv"
-    parse_log $EventID "WinRM Authenticating User" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WinRM Authenticating User" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 #####======= Windows PowerShell.evtx======
@@ -726,7 +753,8 @@ function StartPSRemoteSession {
     }
     $EventID="400"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "StartPSRemoteSession.csv"
-    parse_log $EventID "PS Remote Sessions Started" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Remote Sessions Started" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 function EndPSRemoteSession {
     if ($Valid_WinPowerShell_Path -eq $false) {
@@ -735,7 +763,8 @@ function EndPSRemoteSession {
     }
     $EventID="403"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "EndPSRemoteSession.csv"
-    parse_log $EventID "PS Remote Sessions Ended" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID,  EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID,  EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Remote Sessions Ended" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 
 function PipelineExecution {
@@ -745,7 +774,8 @@ function PipelineExecution {
     }
     $EventID="800"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PipelineExecution.csv"
-    parse_log $EventID "Partial Scripts Content" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication  INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_Suffix(Message, 0, 'HostApplication=') AS HostApplication  INTO '$OutputFile' FROM '$WinPowerShell_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Partial Scripts Content" $OutputFile "Windows PowerShell.evtx" "Power Shell Remoting" $Query
 }
 
 #==============Task Scheduler=============
@@ -757,7 +787,8 @@ function CreatingTaskSchedulerTask {
     }
     $EventID="106"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "CreatingTaskSchedulerTask.csv"
-    parse_log $EventID "Scheduled Tasks Created [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Created [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function UpdatingTaskSchedulerTask {
@@ -767,7 +798,8 @@ function UpdatingTaskSchedulerTask {
     }
     $EventID="140"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "UpdatingTaskSchedulerTask.csv"
-    parse_log $EventID "Scheduled Tasks Updated [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Updated [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function DeletingTaskSchedulerTask {
@@ -777,7 +809,8 @@ function DeletingTaskSchedulerTask {
     }
     $EventID="141"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "DeletingTaskSchedulerTask.csv"
-    parse_log $EventID "Scheduled Tasks Deleted [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as TaskName, extract_token(strings, 1, '|') as User INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Deleted [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 function ExecutingTaskSchedulerTask {
@@ -787,7 +820,8 @@ function ExecutingTaskSchedulerTask {
     }
     $EventID="200"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ExecutingTaskSchedulerTask.csv"
-    parse_log $EventID "Scheduled Tasks Executed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Executed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 
@@ -798,7 +832,8 @@ function CompletingTaskSchedulerTask {
     }
     $EventID="201"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "CompletingTaskSchedulerTask.csv"
-    parse_log $EventID "Scheduled Tasks Completed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" "Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, extract_token(strings,0, '|') as TaskName, extract_token(strings, 1, '|') as TaskAction, extract_token(strings, 2, '|') as Instance  INTO '$OutputFile' FROM '$TaskScheduler_Path' WHERE EventID = $EventID"
+    parse_log $EventID "Scheduled Tasks Completed [Task Scheduler Log]" $OutputFile "Microsoft-Windows-TaskScheduler%4Operational.evtx" "Scheduled Tasks" $Query
 }
 
 ##============= Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx============
@@ -809,7 +844,8 @@ function RDPSessionLogonSucceeded {
     }
     $EventID="21"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPSessionLogonSucceeded.csv"
-    parse_log $EventID "RDP Successful Logons Sessions [EventID=21]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful Logons Sessions [EventID=21]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPShellStartNotificationReceived {
@@ -819,7 +855,8 @@ function RDPShellStartNotificationReceived {
     }
     $EventID="22"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPShellStartNotificationReceived.csv"
-    parse_log $EventID "RDP Successful Logons Sessions [EventID=22]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful Logons Sessions [EventID=22]" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPShellSessionReconnectedSucceeded {
@@ -829,7 +866,8 @@ function RDPShellSessionReconnectedSucceeded {
     }
     $EventID="25"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPShellSessionReconnectedSucceeded.csv"
-    parse_log $EventID "RDP Successful Shell Sessions Reconnected" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    $Query= "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful Shell Sessions Reconnected" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 function RDPbeginSession { 
     if ($Valid_TerminalServices_Path -eq $false) {
@@ -838,7 +876,8 @@ function RDPbeginSession {
     }
     $EventID="41"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPBeginSession.csv"
-    parse_log $EventID "RDP Sessions Begain" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID , extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as SessionID INTO '$OutputFile' FROM '$TerminalServices_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Sessions Begain" $OutputFile "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 #=========================Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx=======================
 function UserAuthSucceeded {
@@ -848,7 +887,8 @@ function UserAuthSucceeded {
     }
     $EventID="1149"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "UserAuthSucceeded.csv"
-    parse_log $EventID "RDP User authentication succeeded" $OutputFile "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as Domain ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$RemoteConnection_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID  ,extract_token(strings, 0, '|') as User, extract_token(strings, 1, '|') as Domain ,extract_token(strings,2, '|') as SourceIP   INTO '$OutputFile' FROM '$RemoteConnection_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP User authentication succeeded" $OutputFile "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx" "Remote Desktop" $Query
 }
 #============Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx============
 function RDPConnectionsAttempts {
@@ -858,7 +898,8 @@ function RDPConnectionsAttempts {
     }
     $EventID="131"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPConnectionsAttempts.csv"
-    parse_log $EventID "RDP Connections Attempts" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID ,extract_token(strings, 0, '|') as ConnectionType, extract_token(strings, 1, '|') as CLientIP INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID ,extract_token(strings, 0, '|') as ConnectionType, extract_token(strings, 1, '|') as CLientIP INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Connections Attempts" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" $Query
 }
 
 function RDPSuccessfulConnections {
@@ -868,7 +909,8 @@ function RDPSuccessfulConnections {
     }
     $EventID="98"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPSuccessfulTCPConnections.csv"
-    parse_log $EventID "RDP Successful TCP Connections" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID  INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID  INTO '$OutputFile' FROM '$RDPCORETS_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Successful TCP Connections" $OutputFile "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx" "Remote Desktop" $Query
 }
 ##==========================Source Event IDs============
 ##Security.evtx
@@ -892,7 +934,8 @@ function ExplicitCreds {
     }
     $EventID="4648"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "ExplicitCreds.csv"
-    parse_log $EventID "Logons using Explicit Credential" $OutputFile "Security.evtx" "Remote Desktop" "SELECT TimeGenerated,EventID, extract_token(Strings, 1, '|') as SubjectUserName, extract_token(Strings, 2, '|') as SubjectDomain, extract_token(Strings, 5, '|') as TargetUsername, extract_token(Strings, 6, '|') as TargetDomain, extract_token(Strings, 8, '|') as TargetServer, extract_token(strings, 9, '|') as TargetInfo, extract_token(strings, 11, '|') as ProcessName, extract_token(strings, 12, '|') as SourceIP,extract_token(strings, 13, '|') as SourcePort INTO '$OutputFile' from '$Security_Path' WHERE EventID = $EventID" 
+    $Query="SELECT TimeGenerated,EventID, extract_token(Strings, 1, '|') as SubjectUserName, extract_token(Strings, 2, '|') as SubjectDomain, extract_token(Strings, 5, '|') as TargetUsername, extract_token(Strings, 6, '|') as TargetDomain, extract_token(Strings, 8, '|') as TargetServer, extract_token(strings, 9, '|') as TargetInfo, extract_token(strings, 11, '|') as ProcessName, extract_token(strings, 12, '|') as SourceIP,extract_token(strings, 13, '|') as SourcePort INTO '$OutputFile' from '$Security_Path' WHERE EventID = $EventID" 
+    parse_log $EventID "Logons using Explicit Credential" $OutputFile "Security.evtx" "Remote Desktop" $Query
 }
 ##Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx
 function RDPActiveXControls {
@@ -903,7 +946,8 @@ function RDPActiveXControls {
     }
     $EventID="1024"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPActiveXControls.csv"
-    parse_log $EventID "RDP Destination Hostname [ActiveX controls]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Destination Hostname [ActiveX controls]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" $Query
 }
 function RDPAMultitransportCon {
     if ($Source_Event -eq $false) {return}
@@ -913,7 +957,8 @@ function RDPAMultitransportCon {
     }
     $EventID="1102"
     $OutputFile= Join-Path -Path $RemoteDesktop_Path -ChildPath "RDPAMultitransportCon.csv"
-    parse_log $EventID "RDP Destination IPs [client Multitransport Connections]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" "Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, extract_token(Strings, 0, '|') as Name, extract_token(Strings, 1, '|') as IP/HostName, extract_token(Strings, 2, '|') as Level INTO '$OutputFile' FROM '$TerminalServicesRDP_Path' WHERE EventID = $EventID"
+    parse_log $EventID "RDP Destination IPs [client Multitransport Connections]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" $Query
 }
 ###=====Microsoft-Windows-WinRM%4Operational.evtx
 function WSManSessions {
@@ -924,7 +969,8 @@ function WSManSessions {
     }
     $EventID="6"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsCreated.csv"
-    parse_log $EventID "WSMan Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ConnectionString INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"   
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ConnectionString INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"   
+    parse_log $EventID "WSMan Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManClosedCommand {
     if ($Source_Event -eq $false) {return}
@@ -934,7 +980,8 @@ function WSManClosedCommand {
     }
     $EventID="15"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedCommand.csv"
-    parse_log $EventID "WSMan Closed Commands" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting""Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Commands" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManClosedShell {
     if ($Source_Event -eq $false) {return}
@@ -944,7 +991,8 @@ function WSManClosedShell {
     }
     $EventID="16"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManClosedShell.csv"
-    parse_log $EventID "WSMan Closed Shells" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting""Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Shells" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManSessionsClosed {
     if ($Source_Event -eq $false) {return}
@@ -954,7 +1002,8 @@ function WSManSessionsClosed {
     }
     $EventID="33"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "WSManSessionsClosed.csv"
-    parse_log $EventID "WSMan Closed Sessions" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting""Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, Message INTO '$OutputFile' FROM '$WinRM_Path' WHERE EventID = $EventID"
+    parse_log $EventID "WSMan Closed Sessions" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 #=========Microsoft-Windows-PowerShell%4Operational.evtx
 function PSSessionsCreated {
@@ -965,7 +1014,8 @@ function PSSessionsCreated {
     }
     $EventID="8194"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsCreated.csv"
-    parse_log $EventID "PS Created Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS InstanceID, EXTRACT_TOKEN(Strings, 1, '|') AS MinRunSpaces, EXTRACT_TOKEN(Strings, 2, '|') AS MaxRunspaces  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS InstanceID, EXTRACT_TOKEN(Strings, 1, '|') AS MinRunSpaces, EXTRACT_TOKEN(Strings, 2, '|') AS MaxRunspaces  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID"
+    parse_log $EventID "PS Created Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
 function PSSessionsClosed {
@@ -976,6 +1026,7 @@ function PSSessionsClosed {
     }
     $EventID="8197"
     $OutputFile= Join-Path -Path $PowerShellRemoting_Path -ChildPath "PSSessionsClosed.csv"
-    parse_log $EventID "PS Closed Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS State  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID and State = 'Closed'"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS State  INTO '$OutputFile' FROM '$PowerShellOperational_Path' WHERE EventID = $EventID and State = 'Closed'"
+    parse_log $EventID "PS Closed Sessions" $OutputFile "Microsoft-Windows-PowerShell%4Operational.evtx" "Power Shell Remoting" $Query
 }
 
