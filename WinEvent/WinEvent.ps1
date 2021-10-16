@@ -1,69 +1,69 @@
 . ./Helper/helper.ps1
 
 #Remote desktop
-. .\PSFunctions\RemoteDesktop\AllSuccessfulLogons.ps1
-. .\PSFunctions\RemoteDesktop\RDPreconnected.ps1
-. .\PSFunctions\RemoteDesktop\RDPDisconnected.ps1
-. .\PSFunctions\RemoteDesktop\RDPConnectionAttempts.ps1
-. .\PSFunctions\RemoteDesktop\RDPSuccessfulConnections.ps1
-. .\PSFunctions\RemoteDesktop\UserAuthSucceeded.ps1
-. .\PSFunctions\RemoteDesktop\RDPSessionLogonSucceed.ps1
-. .\PSFunctions\RemoteDesktop\RDPShellStartNotificationReceived.ps1
-. .\PSFunctions\RemoteDesktop\RDPShellSessionReconnectedSucceeded.ps1
-. .\PSFunctions\RemoteDesktop\RDPbeginSession.ps1
-. .\PSFunctions\RemoteDesktop\ExplicitCreds.ps1
-. .\PSFunctions\RemoteDesktop\RDPConnectingtoServer.ps1
+. .\WinEvent\RemoteDesktop\AllSuccessfulLogons.ps1
+. .\WinEvent\RemoteDesktop\RDPreconnected.ps1
+. .\WinEvent\RemoteDesktop\RDPDisconnected.ps1
+. .\WinEvent\RemoteDesktop\RDPConnectionAttempts.ps1
+. .\WinEvent\RemoteDesktop\RDPSuccessfulConnections.ps1
+. .\WinEvent\RemoteDesktop\UserAuthSucceeded.ps1
+. .\WinEvent\RemoteDesktop\RDPSessionLogonSucceed.ps1
+. .\WinEvent\RemoteDesktop\RDPShellStartNotificationReceived.ps1
+. .\WinEvent\RemoteDesktop\RDPShellSessionReconnectedSucceeded.ps1
+. .\WinEvent\RemoteDesktop\RDPbeginSession.ps1
+. .\WinEvent\RemoteDesktop\ExplicitCreds.ps1
+. .\WinEvent\RemoteDesktop\RDPConnectingtoServer.ps1
 
 #Map network shares
-. .\PSFunctions\MapNetworkShares\AdminLogonCreated.ps1
-. .\PSFunctions\MapNetworkShares\ComputerToValidate.ps1
-. .\PSFunctions\MapNetworkShares\KerberosAuthRequest.ps1
-. .\PSFunctions\MapNetworkShares\KerberosServiceRequest.ps1
-. .\PSFunctions\MapNetworkShares\NetworkShareAccessed.ps1
-. .\PSFunctions\MapNetworkShares\AuditingofSharedfiles.ps1
+. .\WinEvent\MapNetworkShares\AdminLogonCreated.ps1
+. .\WinEvent\MapNetworkShares\ComputerToValidate.ps1
+. .\WinEvent\MapNetworkShares\KerberosAuthRequest.ps1
+. .\WinEvent\MapNetworkShares\KerberosServiceRequest.ps1
+. .\WinEvent\MapNetworkShares\NetworkShareAccessed.ps1
+. .\WinEvent\MapNetworkShares\AuditingofSharedfiles.ps1
 #PSExec
-. .\PSFunctions\PsExec\ServiceInstall.ps1
+. .\WinEvent\PsExec\ServiceInstall.ps1
 #Scheduled Tasks
-. .\PSFunctions\ScheduledTasks\ScheduleTaskCreated.ps1
-. .\PSFunctions\ScheduledTasks\ScheduleTaskDeleted.ps1
-. .\PSFunctions\ScheduledTasks\ScheduleTaskEnabled.ps1
-. .\PSFunctions\ScheduledTasks\ScheduleTaskDisabled.ps1
-. .\PSFunctions\ScheduledTasks\ScheduleTaskUpdated.ps1
-. .\PSFunctions\ScheduledTasks\CreatingTaskSchedulerTask.ps1
-. .\PSFunctions\ScheduledTasks\UpdatingTaskSchedulerTask.ps1
-. .\PSFunctions\ScheduledTasks\DeletingTaskSchedulerTask.ps1
-. .\PSFunctions\ScheduledTasks\ExecutingTaskSchedulerTask.ps1
-. .\PSFunctions\ScheduledTasks\CompletingTaskSchedulerTask.ps1
+. .\WinEvent\ScheduledTasks\ScheduleTaskCreated.ps1
+. .\WinEvent\ScheduledTasks\ScheduleTaskDeleted.ps1
+. .\WinEvent\ScheduledTasks\ScheduleTaskEnabled.ps1
+. .\WinEvent\ScheduledTasks\ScheduleTaskDisabled.ps1
+. .\WinEvent\ScheduledTasks\ScheduleTaskUpdated.ps1
+. .\WinEvent\ScheduledTasks\CreatingTaskSchedulerTask.ps1
+. .\WinEvent\ScheduledTasks\UpdatingTaskSchedulerTask.ps1
+. .\WinEvent\ScheduledTasks\DeletingTaskSchedulerTask.ps1
+. .\WinEvent\ScheduledTasks\ExecutingTaskSchedulerTask.ps1
+. .\WinEvent\ScheduledTasks\CompletingTaskSchedulerTask.ps1
 #Services
-. .\PSFunctions\Services\ServiceInstalledonSystem.ps1
-. .\PSFunctions\Services\ServiceCrashed.ps1
-. .\PSFunctions\Services\ServiceSentControl.ps1
-. .\PSFunctions\Services\ServiceStartorStop.ps1
-. .\PSFunctions\Services\StartTypeChanged.ps1
+. .\WinEvent\Services\ServiceInstalledonSystem.ps1
+. .\WinEvent\Services\ServiceCrashed.ps1
+. .\WinEvent\Services\ServiceSentControl.ps1
+. .\WinEvent\Services\ServiceStartorStop.ps1
+. .\WinEvent\Services\StartTypeChanged.ps1
 #	WMI\WMIC
-. .\PSFunctions\WMI_WMIC\SystemQueryWMI.ps1
-. .\PSFunctions\WMI_WMIC\TemporaryEventConsumer.ps1
-. .\PSFunctions\WMI_WMIC\PermenantEventConsumer.ps1
+. .\WinEvent\WMI_WMIC\SystemQueryWMI.ps1
+. .\WinEvent\WMI_WMIC\TemporaryEventConsumer.ps1
+. .\WinEvent\WMI_WMIC\PermenantEventConsumer.ps1
 #PowerShellRemoting
-. .\PSFunctions\PowerShellRemoting\ScriptBlockLogging.ps1
-. .\PSFunctions\PowerShellRemoting\ScriptBlockAuditing.ps1
-. .\PSFunctions\PowerShellRemoting\LateralMovementDetection.ps1
-. .\PSFunctions\PowerShellRemoting\StartPSRemoteSession.ps1
-. .\PSFunctions\PowerShellRemoting\EndPSRemoteSession.ps1
-. .\PSFunctions\PowerShellRemoting\PipelineExecution.ps1
-. .\PSFunctions\PowerShellRemoting\SessionCreated.ps1
-. .\PSFunctions\PowerShellRemoting\AuthRecorded.ps1
-. .\PSFunctions\PowerShellRemoting\ClosingWSManSession.ps1
-. .\PSFunctions\PowerShellRemoting\ClosingWSManCommand.ps1
-. .\PSFunctions\PowerShellRemoting\ClosingWSManShell.ps1
-. .\PSFunctions\PowerShellRemoting\ClosingWSManSessionSucceeded.ps1
-. .\PSFunctions\PowerShellRemoting\CreatingRunspaceObject.ps1
-. .\PSFunctions\PowerShellRemoting\CreatingRunspacePoolObject.ps1
-. .\PSFunctions\PowerShellRemoting\RunspaceState.ps1
+. .\WinEvent\PowerShellRemoting\ScriptBlockLogging.ps1
+. .\WinEvent\PowerShellRemoting\ScriptBlockAuditing.ps1
+. .\WinEvent\PowerShellRemoting\LateralMovementDetection.ps1
+. .\WinEvent\PowerShellRemoting\StartPSRemoteSession.ps1
+. .\WinEvent\PowerShellRemoting\EndPSRemoteSession.ps1
+. .\WinEvent\PowerShellRemoting\PipelineExecution.ps1
+. .\WinEvent\PowerShellRemoting\SessionCreated.ps1
+. .\WinEvent\PowerShellRemoting\AuthRecorded.ps1
+. .\WinEvent\PowerShellRemoting\ClosingWSManSession.ps1
+. .\WinEvent\PowerShellRemoting\ClosingWSManCommand.ps1
+. .\WinEvent\PowerShellRemoting\ClosingWSManShell.ps1
+. .\WinEvent\PowerShellRemoting\ClosingWSManSessionSucceeded.ps1
+. .\WinEvent\PowerShellRemoting\CreatingRunspaceObject.ps1
+. .\WinEvent\PowerShellRemoting\CreatingRunspacePoolObject.ps1
+. .\WinEvent\PowerShellRemoting\RunspaceState.ps1
 #extra events
-. .\PSFunctions\ExtraEvents\UnsuccessfulLogons.ps1
-. .\PSFunctions\ExtraEvents\EventlogCleared.ps1
-. .\PSFunctions\ExtraEvents\EventlogClearedSystem.ps1
+. .\WinEvent\ExtraEvents\UnsuccessfulLogons.ps1
+. .\WinEvent\ExtraEvents\EventlogCleared.ps1
+. .\WinEvent\ExtraEvents\EventlogClearedSystem.ps1
 
 $global:securityparam
 function winevent_main {
@@ -223,7 +223,7 @@ if ($securityparam -eq "yes") {
 		#Map Network Shares
 		# source
 		function Source_NetworkMap {
-			. .\MapNetworkShares\ExplicitCreds.ps1
+			. .\WinEvent\MapNetworkShares\ExplicitCreds.ps1
 			Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path $MapNetworkShares_Path\ExplicitCreds.csv -NoTypeInformation
 			$hash = New-Object PSObject -property @{EventID = "4648"; SANSCateogry = "MapNetworkShares"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $MapNetworkShares_Path\ExplicitCreds.csv).count }
 			$ResultsArray += $hash
@@ -399,12 +399,12 @@ else {
 function PS_remoting_source {
 	
 	if ($securityparam -eq "yes") {
-		. .\PSFunctions\PowerShellRemoting\ExplicitCreds.ps1
+		. .\WinEvent\PowerShellRemoting\ExplicitCreds.ps1
 		Get-ExplicitCreds -Path $Security_Path  | Export-Csv -Path Results\PowerShellRemoting\ExplicitCreds.csv -NoTypeInformation
 		$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "PowerShellRemoting"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count }
 		$ResultsArray += $hash
 	}
-	. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
+	. .\WinEvent\PowerShellRemoting\RDPreconnected.ps1
 	Get-RDPreconnected -Path $WinRM_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
 	$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "PowerShellRemoting"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count }
 	$ResultsArray += $hash
@@ -433,12 +433,12 @@ function PS_remoting_source {
 	$hash = New-Object PSObject -property @{EventID = "33"; SANSCateogry = "PowerShellRemoting"; Event = "Closing WSMan Session Succeeded"; NumberOfOccurences = $x.count }
 	$ResultsArray += $hash
 
-	. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
+	. .\WinEvent\PowerShellRemoting\RDPreconnected.ps1
 	Get-RDPreconnected -Path $PowerShellOperational_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
 	$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "PowerShellRemoting"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count }
 	$ResultsArray += $hash
 
-	. .\PSFunctions\PowerShellRemoting\RDPreconnected.ps1
+	. .\WinEvent\PowerShellRemoting\RDPreconnected.ps1
 	Get-RDPreconnected -Path $PowerShellOperational_Path  | Export-Csv -Path Results\PowerShellRemoting\RDPreconnected.csv -NoTypeInformation
 	$hash = New-Object PSObject -property @{EventID = "131"; SANSCateogry = "PowerShellRemoting"; Event = "RDP Connection Attempts"; NumberOfOccurences = (Import-Csv $PowerShellRemoting_Path\RDPConnectionAttempts.csv).count }
 	$ResultsArray += $hash

@@ -14,10 +14,10 @@ param (
 )
 function Evilize  {
    if ($winevent) {
-       . .\WinEvent.ps1
+       . .\WinEvent\WinEvent.ps1
     }
     else{
-        . .\Logparser.ps1
+        . .\LogParser\Logparser.ps1
     }
 }
 Evilize
