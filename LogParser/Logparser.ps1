@@ -1,6 +1,6 @@
 #Dot-sourcing to Operational Helper and helper  files
 . .\Helper\helper.ps1
-. .\Helper\parsers.ps1
+. .\LogParser\parsers.ps1
 
 function LogparserCalls {
     
