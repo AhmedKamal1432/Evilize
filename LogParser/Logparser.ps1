@@ -158,27 +158,27 @@ function LogparserCalls {
     EventlogClearedSecurity $security
     Write-Host "Parsing CLeared Event Logs"
     EventlogClearedSystem
-    #===== SourceEvents
-    Write-Host "Parsing Explicit credentials used"
-    ExplicitCreds $security $Source_Events
-
-    Write-Host "Parsing RDP ActiveX Controls"
-    RDPActiveXControls $Source_Events 
-
-    Write-Host "Parsing RDP Multitransport Connections"
-    RDPAMultitransportCon $Source_Events
-
-    Write-Host "Parsing WSMan Sessions Created"
-    WSManSessions $Source_Events
-
-    Write-Host "Parsing Powershell Sessions Created"
-    PSSessionsCreated $Source_Events
-    
-    Write-Host "Parsing Powershell Sessions Closed"
-    PSSessionsClosed $Source_Events
-
 }
 
+function Source_parsers {
+    Write-Host "Parsing Explicit credentials used"
+    ExplicitCreds $security
+
+    Write-Host "Parsing RDP ActiveX Controls"
+    RDPActiveXControls
+
+    Write-Host "Parsing RDP Multitransport Connections"
+    RDPAMultitransportCon
+
+    Write-Host "Parsing WSMan Sessions Created"
+    WSManSessions
+
+    Write-Host "Parsing Powershell Sessions Created"
+    PSSessionsCreated
+
+    Write-Host "Parsing Powershell Sessions Closed"
+    PSSessionsClosed
+}
 Function main {
     print_logo
     if (check_logs_path $Logs_Path) {
@@ -186,11 +186,10 @@ Function main {
         evt_conversion $Logs_Path
         csv_output_directories $Logs_Path
         check_individual_logs
-        $NoSecurity = "no"
-        if ($security) {
-            $NoSecurity = "yes"
-        }
         LogparserCalls
+        if($Source_Events){
+            Source_parsers
+        }
     }
     
 }

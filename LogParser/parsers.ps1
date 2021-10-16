@@ -671,17 +671,12 @@ function RDPSuccessfulConnections {
 function ExplicitCreds {
     param (
         [Parameter(Mandatory=$true)]
-        [string]$security,
-        [Parameter(Mandatory=$true)]
-        [string]$Source_Events
+        [string]$security
     )
-    if ($Source_Events -eq $true) {
-        if($security -eq $false){
-             Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
-            return
-        }
+    if($security -eq $false){
+        Write-Host "Discarded==> Depends on Security event log" -ForegroundColor Red
+        return
     }
-    else {return}
     if ($Valid_Security_Path -eq $false) {
         write-host "Error: Security event log is not found" -ForegroundColor Red
         return  
@@ -693,7 +688,6 @@ function ExplicitCreds {
 }
 ##Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx
 function RDPActiveXControls {
-    if ($Source_Event -eq $false) {return}
     if ($global:Valid_TerminalServicesRDP_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TerminalServices-RDPClient%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -704,7 +698,6 @@ function RDPActiveXControls {
     parse_log $EventID "RDP Destination Hostname [ActiveX controls]" $OutputFile "Microsoft-Windows-TerminalServices-RDPClient%4Operational.evtx" "Remote Desktop" $Query
 }
 function RDPAMultitransportCon {
-    if ($Source_Event -eq $false) {return}
     if ($global:Valid_TerminalServicesRDP_Path -eq $false) {
         write-host "Error: Microsoft-Windows-TerminalServices-RDPClient%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -716,7 +709,6 @@ function RDPAMultitransportCon {
 }
 ###=====Microsoft-Windows-WinRM%4Operational.evtx
 function WSManSessions {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_WinRM_Path -eq $false) {
         write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -727,7 +719,6 @@ function WSManSessions {
     parse_log $EventID "WSMan Sessions Created" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManClosedCommand {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_WinRM_Path -eq $false) {
         write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -738,7 +729,6 @@ function WSManClosedCommand {
     parse_log $EventID "WSMan Closed Commands" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManClosedShell {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_WinRM_Path -eq $false) {
         write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -749,7 +739,6 @@ function WSManClosedShell {
     parse_log $EventID "WSMan Closed Shells" $OutputFile "Microsoft-Windows-WinRM%4Operational.evtx" "Power Shell Remoting" $Query
 }  
 function WSManSessionsClosed {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_WinRM_Path -eq $false) {
         write-host "Error: Microsoft-Windows-WinRM%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -761,7 +750,6 @@ function WSManSessionsClosed {
 }  
 #=========Microsoft-Windows-PowerShell%4Operational.evtx
 function PSSessionsCreated {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_PowerShellOperational_Path -eq $false) {
         write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red
         return  
@@ -773,7 +761,6 @@ function PSSessionsCreated {
 }
 
 function PSSessionsClosed {
-    if ($Source_Event -eq $false) {return}
     if ($Valid_PowerShellOperational_Path -eq $false) {
         write-host "Error: Microsoft-Windows-PowerShell%4Operational event log is not found" -ForegroundColor Red
         return  
