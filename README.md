@@ -1,27 +1,10 @@
 <div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![GPL License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -30,19 +13,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/AhmedKamal1432/Evilize">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/AhmedKamal1432/Evilize/blob/main/Helper/images/Evilize-logos_transparent.png?raw=true" alt="Logo" width="30%" height="auto">
   </a>
-
-<h3 align="center">Evilize</h3>
-
   <p align="center">
     Hunting Evil by parsing Windows Event Logs files
     <br />
-    <a href="https://github.com/AhmedKamal1432/Evilize"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AhmedKamal1432/Evilize/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/AhmedKamal1432/Evilize">View Demo</a>
-    ·
     <a href="https://github.com/AhmedKamal1432/Evilize/issues">Report Bug</a>
     ·
     <a href="https://github.com/AhmedKamal1432/Evilize/issues">Request Feature</a>
@@ -81,9 +59,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="https://github.com/AhmedKamal1432/Evilize/blob/main/Helper/images/Evilize.gif?raw=true" alt="Tool GIF" width="100%" height="auto">
 
-<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `AhmedKamal1432`, `Evilize`, `twitter_handle`, `ahmed-kamal1432`, `email`, `email_client`, `Evilize`, `Hunting Evil By parsing Windows Event Logs files` -->
 An incident response tool parses Windows Event Logs to export infection-related logs across many log files. Mainly following [Hunt Evil Sans Poster](https://share.ialab.dsu.edu/CRRC/Incident%20Response/Supplementary%20Material/SANS_Poster_2018_Hunt_Evil_FINAL.pdf) to choose related events.
 
 what's new:
@@ -193,8 +170,6 @@ Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
 ## Acknowledgments
 
 * [Sans](https://www.sans.org/)
-* [Trendmicro](https://www.trendmicro.com/)
-* [E-JUST](https://ejust.edu.eg/)
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 * [Parserator](https://github.com/psanchezcordero/Parserator/blob/main/Parserator.ps1)
 
@@ -205,7 +180,7 @@ Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/AhmedKamal1432/Evilize.svg?style=for-the-badge
-[contributors-url]: https://github.com/AhmedKamal1432/Evilize/graphs/contributors
+[contributors-url]: https://github.com/AhmedKamal1432/Evilize/contributors
 [forks-shield]: https://img.shields.io/github/forks/AhmedKamal1432/Evilize.svg?style=for-the-badge
 [forks-url]: https://github.com/AhmedKamal1432/Evilize/network/members
 [stars-shield]: https://img.shields.io/github/stars/AhmedKamal1432/Evilize.svg?style=for-the-badge
@@ -213,7 +188,7 @@ Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
 [issues-shield]: https://img.shields.io/github/issues/AhmedKamal1432/Evilize.svg?style=for-the-badge
 [issues-url]: https://github.com/AhmedKamal1432/Evilize/issues
 [license-shield]: https://img.shields.io/github/license/AhmedKamal1432/Evilize.svg?style=for-the-badge
-[license-url]: https://github.com/AhmedKamal1432/Evilize/blob/master/LICENSE.txt
+[license-url]: https://github.com/AhmedKamal1432/Evilize/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ahmed-kamal1432
 [product-screenshot]: images/screenshot.png
