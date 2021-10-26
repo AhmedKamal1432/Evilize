@@ -107,15 +107,15 @@ what's new:
 * Change Directory to the Repo Folder
 * Run the .\Evilize.ps1 file with the directory of Events logs files (Don't run it on the logs in "C:\Windows\System32\winevt\Logs" )
 ```PS
-.\Evilize.ps1 C:\Users\username\Downloads\Events\EventLogs\
+.\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\"
 ```
 * As Security.evtx file may be to large, so it wll not parse it by default. if you want to parse it pass the `-security` parameter
 ```PS
-.\Evilize.ps1 C:\Users\username\Downloads\Events\EventLogs\ -security
+.\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -security
 ```
 *  `winevent` parameter to run WinEvent parsers
 ```PS
-.\Evilize.ps1 C:\Users\username\Downloads\Events\EventLogs\ -winevent -security
+.\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -winevent -security
 ```
 * _For more examples, please refer to the [Wiki](https://github.com/AhmedKamal1432/Evilize/wiki)_
 
