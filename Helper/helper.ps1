@@ -178,7 +178,7 @@ function csv_output_directories {
         [string] $Logs_Path
     )
     ##Create Results Directory
-    $Destination_Path = Join-Path -Path $Logs_Path -ChildPath "Results"
+    $global:Destination_Path = Join-Path -Path $Logs_Path -ChildPath "Results"
     if ((Test-Path -Path "$Destination_Path") -eq $false) {
         New-Item -Path $Destination_Path -ItemType Directory    
     }
