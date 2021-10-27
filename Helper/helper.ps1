@@ -242,3 +242,41 @@ function GetStats {
         Return 0
     }
 }
+
+
+function __merge_csvs {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$csvs_path,
+        [Parameter(Mandatory=$true)]
+        [string]$xlsx_name
+        )
+
+        $csvs = Get-ChildItem -Path $csvs_path\* -Include *.csv
+        $excelFileName = $Destination_Path + "\" + $xlsx_name
+        Remove-Item $excelFileName -ErrorAction Ignore
+        Write-Host "Creating: $excelFileName" -ForegroundColor Green
+
+        foreach ($csv in $csvs) {
+            $worksheetName = $csv.Name.Replace(".csv","")
+            Import-Csv -Path $csv.FullName| Export-Excel -Path $excelFileName -WorkSheetname $worksheetName
+        }
+}
+
+function merge_csvs {
+
+    if (Get-Module -ListAvailable -Name ImportExcel) {
+        Write-Host "Module exists"
+    }
+    else {
+        Write-Host "Module does not exist"
+        Install-Module ImportExcel -scope CurrentUser -Force
+    }
+    __merge_csvs $RemoteDesktop_Path "RemoteDesktop.xlsx"
+    __merge_csvs $MapNetworkShares_Path "MapNetworkShares.xlsx"
+    __merge_csvs $PsExec_Path "PsExec.xlsx"
+    __merge_csvs $ScheduledTasks_Path "ScheduledTasks.xlsx"
+    __merge_csvs $Services_Path "Services.xlsx"
+    __merge_csvs $WMIOut_Path "WMI.xlsx"
+    __merge_csvs $ExtraEvents_Path "ExtraEvents.xlsx"
+}

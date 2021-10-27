@@ -19,5 +19,6 @@ function Evilize  {
     else{
         . .\LogParser\Logparser.ps1
     }
+    merge_csvs
 }
 Evilize
