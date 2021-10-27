@@ -371,7 +371,7 @@ function ServiceStartorStop {
     }
     $EventID="7036"
     $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceStartorStop.csv"
-    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
+    $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ServiceStatus INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
     parse_log $EventID "Services Stopped or Started" $OutputFile "System.evtx" "Services" $Query
 }
 function ServiceSentControl {
