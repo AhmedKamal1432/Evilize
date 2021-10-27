@@ -68,7 +68,8 @@ what's new:
 * Having a map of analysis based on different categories based on Sans Poster. 
 * Tables of statistics of the number of indicators in every infections vector.
 * Export useful events with important attributes in CSV format for extra manual analysis.
-* analyise EVT and EVTX files
+* Analyizing EVT and EVTX files
+* One Excel file for every sans catagory with multiple sheets for every event ID
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -109,6 +110,7 @@ what's new:
 ```PS
 .\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\"
 ```
+* The tool creates a `Results` folder for csv files inside the Event logs path.
 * As Security.evtx file may be to large, so it wll not parse it by default. if you want to parse it pass the `-security` parameter
 ```PS
 .\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -security
