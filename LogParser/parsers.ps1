@@ -13,7 +13,7 @@ function parse_log {
         [Parameter(Mandatory=$true, Position=5)]
         [string] $Query
     )
-    LogParser.exe -stats:OFF -i:EVT $Query
+    LogParser\Executable\local-LogParser.exe -stats:OFF -i:EVT $Query
     $StatsOut= GetStats $OutputFile
     $hash= New-Object PSObject -property @{EventID=$EventID;EventLog=$event_file_type;SANSCateogry=$sans_catagory; Event=$event_name; NumberOfOccurences=$StatsOut}
     $global:ResultsArray += $hash
