@@ -279,4 +279,5 @@ function merge_csvs {
     __merge_csvs $Services_Path "Services.xlsx"
     __merge_csvs $WMIOut_Path "WMI.xlsx"
     __merge_csvs $ExtraEvents_Path "ExtraEvents.xlsx"
+    __merge_csvs $PowerShellRemoting_Path "PowerShellRemoting.xlsx"
 }
