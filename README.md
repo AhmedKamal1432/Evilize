@@ -39,18 +39,12 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contributers">Contributers</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#acknowledgments">Acknowledgment</a></li>
   </ol>
 </details>
 
@@ -65,60 +59,45 @@ An incident response tool parses Windows Event Logs to export infection-related 
 
 what's new:
 * One command to analyze all different infection-related Event logs files.
+* One Excel file for every SANS catagory with multiple sheets for every event ID
 * Having a map of analysis based on different categories based on Sans Poster. 
 * Tables of statistics of the number of indicators in every infections vector.
 * Export useful events with important attributes in CSV format for extra manual analysis.
 * Analyizing EVT and EVTX files
-* One Excel file for every sans catagory with multiple sheets for every event ID
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
+All Parsers are build with 2 different techniques:
 
 * [LogParser](https://www.microsoft.com/en-eg/download/details.aspx?id=24659)
     * This is the default option as it is a time-efficient and stable option.
 * [WinEvent](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-winevent?view=powershell-7.1)
     * This is a flexible and programmable option as you can add your own code for extra analysis.
+    * Use the `-winevent` parameter to parse the logs by WinEvent
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-
-
-### Installation
-
-* Download and Install [Logparser](https://www.microsoft.com/en-us/download/details.aspx?id=24659).
-*  Add Log parser path to your machine environment variables [[Guide](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)]
-* Clone the repo
-   ```sh
-   git clone https://github.com/AhmedKamal1432/Evilize.git
-   ```
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+* Clone the repo Or download it as Zip file then extract it
+   ```sh
+   git clone https://github.com/AhmedKamal1432/Evilize.git
+   ```
 * Change Directory to the Repo Folder
-* Run the .\Evilize.ps1 file with the directory of Events logs files (Don't run it on the logs in "C:\Windows\System32\winevt\Logs" )
-```PS
-.\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\"
-```
-* The tool creates a `Results` folder for csv files inside the Event logs path.
-* As Security.evtx file may be to large, so it wll not parse it by default. if you want to parse it pass the `-security` parameter
+* Run the .\Evilize.ps1 file the directory of Events logs files
 ```PS
 .\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -security
 ```
-*  `winevent` parameter to run WinEvent parsers
+* Don't run it on the local log files in "C:\Windows\System32\winevt\Logs"
+* The tool creates a `Results` folder for csv/xlsx files inside the Event logs path.
+  * ![Excel sheet](https://user-images.githubusercontent.com/7649285/139496004-027cbf27-faf7-41cd-b840-26802756fbf8.gif)
+* For using Winevent insteed of logparser to parse the same logs, use the `winevent` parameter
 ```PS
-.\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -winevent -security
+.\Evilize.ps1 -winevent "C:\Users\username\Downloads\Events\EventLogs\"
 ```
+
 * _For more examples, please refer to the [Wiki](https://github.com/AhmedKamal1432/Evilize/wiki)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
