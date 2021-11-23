@@ -58,11 +58,6 @@ function LogparserCalls {
     KerberosServiceRequest $security
 
 
-    #=======PsExec==========
-    Print_Seprator "PsExec"
-    Write-Host "Parsing Installed Services [System Log]"
-    ServiceInstall
-
     #=====ScheduledTasks============ 
     Print_Seprator "ScheduledTasks"
     Write-Host "Parsing Scheduled Tasks Created [Security Log]"
@@ -110,6 +105,9 @@ function LogparserCalls {
     Print_Seprator "Services"
     Write-Host "Parsing Installed Services [Security Log]"
     ServiceInstalledonSystem $security
+
+    Write-Host "Parsing Installed Services [System Log]"
+    ServiceInstall
 
     Write-Host "Parsing Services Crashed Unexpectedely"
     ServiceCrashed

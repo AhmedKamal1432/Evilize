@@ -90,7 +90,7 @@ function ServiceInstalledonSystem {
         return  
     }
     $EventID="4697"
-    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstalledonSystem.csv" 
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstalled_security.csv" 
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 5, '|') AS ServiceFileName, EXTRACT_TOKEN(Strings, 6, '|') AS ServiceType,  EXTRACT_TOKEN(Strings, 7, '|') AS ServiceStartType  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
     parse_log $EventID "Installed Services [Security Log]" $OutputFile "Security.evtx" "Services" $Query
 }
@@ -402,9 +402,9 @@ function ServiceInstall {
         return  
     }
     $EventID="7045"
-    $OutputFile= Join-Path -Path $PsExec_Path -ChildPath "ServiceInstall.csv"
+    $OutputFile= Join-Path -Path $Services_Path -ChildPath "ServiceInstall_system.csv"
     $Query="Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 0, '|') AS ServiceName, EXTRACT_TOKEN(Strings, 1, '|') AS ImagePath, EXTRACT_TOKEN(Strings, 2, '|') AS ServiceType , EXTRACT_TOKEN(Strings, 3, '|') AS StartType, EXTRACT_TOKEN(Strings, 4, '|') AS AccountName INTO '$OutputFile' FROM '$System_Path' WHERE EventID = $EventID"
-    parse_log $EventID "Installed Services [System Log]" $OutputFile "System.evtx" "PsExec" $Query
+    parse_log $EventID "Installed Services [System Log]" $OutputFile "System.evtx" "Services" $Query
 }
 
 
