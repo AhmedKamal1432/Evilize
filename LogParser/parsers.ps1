@@ -188,7 +188,7 @@ function ScheduleTaskUpdated{
     $EventID="4702"
     $OutputFile= Join-Path -Path $ScheduledTasks_Path -ChildPath "ScheduleTaskUpdated.csv"
     $Query= "Select TimeGenerated,EventID, EXTRACT_TOKEN(Strings, 1, '|') AS AccountName, EXTRACT_TOKEN(Strings, 2, '|') AS AccountDomain, EXTRACT_TOKEN(Strings, 3, '|') AS LogonID , EXTRACT_TOKEN(Strings, 4, '|') AS TaskName, EXTRACT_TOKEN(Strings, 5, '|') AS TaskContent  INTO '$OutputFile' FROM '$Security_Path' WHERE EventID = $EventID"
-    parse_log $EventID "Scheduled Tasks Deleted [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
+    parse_log $EventID "Scheduled Tasks Updated [Security Log]" $OutputFile "Security.evtx" "Scheduled Tasks" $Query
 }
 
 
