@@ -7,8 +7,6 @@
 [![GPL License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -26,8 +24,6 @@
     <a href="https://github.com/AhmedKamal1432/Evilize/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -48,19 +44,17 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 <img src="https://github.com/AhmedKamal1432/Evilize/blob/main/Helper/images/Evilize.gif?raw=true" alt="Tool GIF" width="100%" height="auto">
 
-An incident response tool parses Windows Event Logs to export infection-related logs across many log files. Mainly following [Hunt Evil Sans Poster](https://share.ialab.dsu.edu/CRRC/Incident%20Response/Supplementary%20Material/SANS_Poster_2018_Hunt_Evil_FINAL.pdf) to choose related events.
+An incident response tool parses Windows Event Logs to export infection-related logs across many log files. Mainly following [Hunt Evil SANS Poster](https://share.ialab.dsu.edu/CRRC/Incident%20Response/Supplementary%20Material/SANS_Poster_2018_Hunt_Evil_FINAL.pdf) to choose related events.
 
 what's new:
 * One command to analyze all different infection-related Event logs files.
 * One Excel file for every SANS catagory with multiple sheets for every event ID
-* Having a map of analysis based on different categories based on Sans Poster. 
+* Having a map of analysis based on different categories based on SANS Poster. 
 * Tables of statistics of the number of indicators in every infections vector.
 * Export useful events with important attributes in CSV format for extra manual analysis.
 * Analyizing EVT and EVTX files
@@ -113,8 +107,6 @@ See the [open issues](https://github.com/AhmedKamal1432/Evilize/issues) for a fu
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -131,16 +123,12 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ## Contributers
 * [Sayed Omar](https://github.com/sayedomarr)
@@ -150,13 +138,11 @@ Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Sans](https://www.sans.org/)
+* [SANS](https://www.sans.org/)
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 * [Parserator](https://github.com/psanchezcordero/Parserator/blob/main/Parserator.ps1)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
