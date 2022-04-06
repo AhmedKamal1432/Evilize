@@ -80,7 +80,7 @@ All Parsers are build with 2 different techniques:
    git clone https://github.com/AhmedKamal1432/Evilize.git
    ```
 * Change Directory to the Repo Folder
-* Run the .\Evilize.ps1 file the directory of Events logs files
+* Run the .\Evilize.ps1 with the path to Events logs files
 ```PS
 .\Evilize.ps1 "C:\Users\username\Downloads\Events\EventLogs\" -security
 ```
