@@ -16,40 +16,40 @@ $global:WinRMevt_Path = ""
 $global:TaskScheduler_Path = ""
 $global:TaskSchedulerevt_Path = ""
 $global:TerminalServices_Path = ""
-$global:TerminalServicesRDP_Path = ""
-$global:TerminalServicesRDPevt_Path = ""
+$global:TerminalServicesRDP_Path=""
+$global:TerminalServicesRDPevt_Path=""
 $global:TerminalServiceevt_Path = ""
 $global:RemoteConnection_Path = ""
 $global:RemoteConnectionevt_Path = ""
 
 ## Testing if the log file exist ? 
-$global:Valid_Security_Path = ""
-$global:Valid_System_Path = ""
-$global:Valid_RDPCORETS_Path = ""
-$global:Valid_WMI_Path = ""
-$global:Valid_PowerShellOperational_Path = ""
-$global:Valid_WinPowerShell_Path = ""
-$global:Valid_WinRM_Path = ""
-$global:Valid_TaskScheduler_Path = ""
-$global:Valid_TerminalServices_Path = ""
-$global:Valid_RemoteConnection_Path = ""
-$global:Valid_TerminalServicesRDP_Path = ""
+$global:Valid_Security_Path= ""
+$global:Valid_System_Path= ""
+$global:Valid_RDPCORETS_Path= ""
+$global:Valid_WMI_Path= ""
+$global:Valid_PowerShellOperational_Path=""
+$global:Valid_WinPowerShell_Path= ""
+$global:Valid_WinRM_Path= ""
+$global:Valid_TaskScheduler_Path= ""
+$global:Valid_TerminalServices_Path= ""
+$global:Valid_RemoteConnection_Path= ""
+$global:Valid_TerminalServicesRDP_Path=""
 
 
 
-$global:Destination_Path = ""
-$global:RemoteDesktop_Path = ""
-$global:MapNetworkShares_Path = ""
-$global:PsExec_Path = ""
-$global:ScheduledTasks_Path = ""
-$global:Services_Path = ""
-$global:WMIOut_Path = ""
-$global:PowerShellRemoting_Path = ""
-$global:ExtraEvents_Path = ""
-$global:SourceEvents_Path_Path = ""
+$global:Destination_Path=""
+$global:RemoteDesktop_Path=""
+$global:MapNetworkShares_Path=""
+$global:PsExec_Path=""
+$global:ScheduledTasks_Path=""
+$global:Services_Path=""
+$global:WMIOut_Path=""
+$global:PowerShellRemoting_Path=""
+$global:ExtraEvents_Path=""
+$global:SourceEvents_Path_Path=""
 
 #array to store results
-$global:ResultsArray = @()
+$global:ResultsArray= @()
 
 function print_logo {
     param (
@@ -100,7 +100,7 @@ function check_logs_path {
     if (Test-Path -Path "$Logs_Path") {
         return $true
     }
-    else {
+    else{
         Write-Host "Error: Invalid Paths, Please Enter a valid path"
         return $false
     }
@@ -161,17 +161,17 @@ function evt_conversion {
 }
 
 function check_individual_logs {
-    $global:Valid_Security_Path = Test-Path -Path $Security_Path
-    $global:Valid_System_Path = Test-Path -Path $System_Path
-    $global:Valid_RDPCORETS_Path = Test-Path -Path $RDPCORETS_Path
-    $global:Valid_WMI_Path = Test-Path -Path $WMI_Path
-    $global:Valid_PowerShellOperational_Path = Test-Path -Path $PowerShellOperational_Path
-    $global:Valid_WinPowerShell_Path = Test-Path -Path $WinPowerShell_Path
-    $global:Valid_WinRM_Path = Test-Path -Path $WinRM_Path
-    $global:Valid_TaskScheduler_Path = Test-Path -Path $TaskScheduler_Path
-    $global:Valid_TerminalServices_Path = Test-Path -Path $TerminalServices_Path
-    $global:Valid_RemoteConnection_Path = Test-Path -Path $RemoteConnection_Path
-    $global:Valid_TerminalServicesRDP_Path = Test-Path -Path $TerminalServicesRDP_Path
+    $global:Valid_Security_Path= Test-Path -Path $Security_Path
+    $global:Valid_System_Path= Test-Path -Path $System_Path
+    $global:Valid_RDPCORETS_Path= Test-Path -Path $RDPCORETS_Path
+    $global:Valid_WMI_Path= Test-Path -Path $WMI_Path
+    $global:Valid_PowerShellOperational_Path=Test-Path -Path $PowerShellOperational_Path
+    $global:Valid_WinPowerShell_Path= Test-Path -Path $WinPowerShell_Path
+    $global:Valid_WinRM_Path= Test-Path -Path $WinRM_Path
+    $global:Valid_TaskScheduler_Path= Test-Path -Path $TaskScheduler_Path
+    $global:Valid_TerminalServices_Path= Test-Path -Path $TerminalServices_Path
+    $global:Valid_RemoteConnection_Path= Test-Path -Path $RemoteConnection_Path
+    $global:Valid_TerminalServicesRDP_Path= Test-Path -Path $TerminalServicesRDP_Path
 }
 function csv_output_directories {
     param(
@@ -229,15 +229,15 @@ function csv_output_directories {
 
 function GetStats {
     param (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory=$true)]
         [string]$FilePath
     )
-    $Valid = Test-Path -Path "$FilePath"
-    if ($Valid -eq $true) {
+    $Valid=Test-Path -Path "$FilePath"
+    if($Valid -eq $true){
         #(Import-Csv $FilePath).count
-        $NumRows = LogParser\Executable\local-LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
+        $NumRows=LogParser\Executable\local-LogParser.exe -i:csv -stats:OFF "Select Count (*) from '$FilePath'" | Out-String
         [int]($NumRows.Substring([int](29))).Trim()
-    } 
+} 
     else {
         Return 0
     }
@@ -246,27 +246,27 @@ function GetStats {
 
 function __merge_csvs {
     param (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory=$true)]
         [string]$csvs_path,
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory=$true)]
         [string]$xlsx_name
-    )
+        )
 
-    $csvs = Get-ChildItem -Path $csvs_path\* -Include *.csv
-    $excelFileName = $Destination_Path + "\" + $xlsx_name
-    Remove-Item $excelFileName -ErrorAction Ignore
-    Write-Host "Creating: $excelFileName" -ForegroundColor Green
+        $csvs = Get-ChildItem -Path $csvs_path\* -Include *.csv
+        $excelFileName = $Destination_Path + "\" + $xlsx_name
+        Remove-Item $excelFileName -ErrorAction Ignore
+        Write-Host "Creating: $excelFileName" -ForegroundColor Green
 
-    foreach ($csv in $csvs) {
-        $worksheetName = $csv.Name.Replace(".csv", "")
-        Import-Csv -Path $csv.FullName | Export-Excel -Path $excelFileName -WorkSheetname $worksheetName
-    }
+        foreach ($csv in $csvs) {
+            $worksheetName = $csv.Name.Replace(".csv","")
+            Import-Csv -Path $csv.FullName| Export-Excel -Path $excelFileName -WorkSheetname $worksheetName
+        }
 }
 
 function merge_csvs {
 
     if (Get-Module -ListAvailable -Name ImportExcel) {
-        Write-Host "ImportExcel module is already installed, trying to merge CSVs..."
+        Write-Host "ImportExcel module is already installed, trying to merge CSVs..." -ForegroundColor Green
     }
 
     else {
@@ -275,7 +275,7 @@ function merge_csvs {
             Install-Module ImportExcel -scope CurrentUser -Force
         }
         catch {
-            Write-Host "Unable to install module, can not merge CSVs into one Excel workbook, exiting..."
+            Write-Host "Unable to install module, can not merge CSVs into one Excel workbook, exiting..." -ForegroundColor Red 
             return
         }
     }
@@ -290,7 +290,6 @@ function merge_csvs {
         __merge_csvs $PowerShellRemoting_Path "PowerShellRemoting.xlsx"
     }
     catch {
-        Write-Host "ImportExcel installed but failed to merge CSVs, exiting..."
+        Write-Host "ImportExcel installed but failed to merge CSVs, exiting..." -ForegroundColor Red 
     }
 }
-    
