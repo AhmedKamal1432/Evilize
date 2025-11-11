@@ -1,21 +1,18 @@
 function Get-EventlogCleared {
     param(
         [Parameter(Mandatory=$true)]
-        [String] $Path,
-        [Parameter(Mandatory=$false)]
-        [String] $LogID = "200"
+        [string]$Path
     )
-$A = Get-WinEvent -FilterHashtable @{ Id=1102; Path = $Path } -ErrorAction SilentlyContinue
+    $events = Get-WinEvent -FilterHashtable @{ Id=1102; LogName = $Path } -ErrorAction SilentlyContinue
 
-$A | ForEach-Object -process{
-	
-    $Logon = New-Object psobject
-    $Logon | Add-Member -MemberType NoteProperty -name TimeCreated -value $_.TimeCreated
-	$Logon | Add-Member -MemberType NoteProperty -name DestinationHostname -value $_.properties[0].value
-	$Logon | Add-Member -MemberType NoteProperty -name DestinationIP -value $_.properties[1].value
-
-    $Logon
-
-}} 
-
- 
+    foreach ($event in $events) {
+        $obj = [PSCustomObject]@{
+            TimeCreated = $event.TimeCreated
+            LogName = $Path
+            EventID = $event.Id
+            DestinationHostname = if ($event.Properties.Count -gt 0) { $event.Properties[0].Value } else { $null }
+            DestinationIP = if ($event.Properties.Count -gt 1) { $event.Properties[1].Value } else { $null }
+        }
+        $obj
+    }
+}
