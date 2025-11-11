@@ -96,7 +96,8 @@
 | Event Name | Event Log | ID |Parsed values |
 | --- | --- | -- | -- |
 | UnsuccessfulLogons | Security.evtx | 4625 | Time created, Logon username, Account domain, Logon ID, Logon type, Authentication Package, Source Workstation, Process name, Source IP |
-| EventlogCleared | Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx | 1102 | Time created, Destination hostname, DestinationIP |
+| EventlogCleared | Security.evtx | 1102 | Time created, Security ID, Account Name, Account Domain, Logon ID |  
+| SystemLogCleared | System.evtx | 104 | Time created, Username, Domain, Channel |
 
 
 
